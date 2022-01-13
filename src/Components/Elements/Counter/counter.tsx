@@ -10,12 +10,12 @@ interface IPropsCounter {
 const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
   const { setCounter, counter } = props;
   const increment = () => {
-    setCounter((prev:number) => prev + 1);
+    setCounter((prev: number) => prev + 1);
   };
 
   const decrement = () => {
     if (counter === 0) return setCounter(0);
-    else setCounter((prev:number) => prev - 1);
+    else setCounter((prev: number) => prev - 1);
   };
 
 
