@@ -1,6 +1,7 @@
 import { Form, FormikProps } from "formik";
 import React from "react";
 import Button from "../../Elements/Buttons";
+import Typography from "../../Typography";
 import FormInput from "../Fields/inputField";
 import { CreateNewProductValues } from "./interface";
 import {
@@ -12,6 +13,7 @@ import {
   ProductImageUploadGroup,
   ProductImageUpload,
   ProductImageUploadGroupButton,
+  Continer,
 } from "./newProduct.style";
 
 interface OtherProps {
@@ -23,28 +25,51 @@ const FormNewProduct = (
   const { errors, touched, setFieldValue, isEditing } = props;
   // productImage
   return (
-    <Form>
+    <Continer>
       <FormProduct>
         <ProductImage>
           <ProductImageUpload>
             <Button type="button" height={""} width={""} bold={false}>
-              +
-            </Button>
+            Product Images (4 images allowed)            </Button>
           </ProductImageUpload>
           <ProductImageUploadGroup>
             <ProductImageUploadGroupButton>
+              <Button
+                type="button"
+                height={""}
+                width={""}
+                bold={false}
+                padding={"1rem"}
+              >
                 +
+              </Button>{" "}
             </ProductImageUploadGroupButton>
             <ProductImageUploadGroupButton>
+              <Button
+                type="button"
+                height={""}
+                width={""}
+                bold={false}
+                padding={"1rem"}
+              >
                 +
+              </Button>{" "}
             </ProductImageUploadGroupButton>{" "}
             <ProductImageUploadGroupButton>
+              <Button
+                type="button"
+                height={""}
+                width={""}
+                bold={false}
+                padding={"1rem"}
+              >
                 +
+              </Button>{" "}
             </ProductImageUploadGroupButton>
           </ProductImageUploadGroup>
         </ProductImage>
         <ProductDetails>
-          <h3>Product Details</h3>
+          <Typography variant="h6" >Product Details</Typography>
           <FormProductInputGroup>
             <FormInput
               type="input"
@@ -127,10 +152,10 @@ const FormNewProduct = (
       </FormProduct>
       <FlexButon>
         <Button
-        type="submit"
+          type="submit"
           height={"10px"}
-          width={"1px"}
-          padding={".7rem"}
+          width={"10px"}
+          padding={"1rem"}
           bold={false}
           backgroundColor="#4BB543"
           color={"#FFFFFF"}
@@ -138,7 +163,7 @@ const FormNewProduct = (
           {isEditing ? "Update Product" : "+ Create New Product"}
         </Button>
       </FlexButon>
-    </Form>
+    </Continer>
   );
 };
 
