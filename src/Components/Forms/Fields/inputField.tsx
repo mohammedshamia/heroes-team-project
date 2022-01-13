@@ -1,14 +1,16 @@
 import { Field, FormikErrors, FormikTouched } from "formik";
-import { Errors, Input } from "./inputField.style";
+import { Errors, FlexInput, Input, Label } from "./inputField.style";
 
 interface Iprops {
-  type?: string,
-  name: string,
-  placeholder?: string,
-  errors: FormikErrors<string>,
-  touched: FormikTouched<string>,
-  label?: string,
-  component?: string,
+  type?: string;
+  name: string;
+  placeholder?: string;
+  errors: {};
+  touched: {};
+  label?: string;
+  component?: string;
+  fullWidth?: boolean;
+  width?: string;
 }
 
 function FormInput({
@@ -19,11 +21,12 @@ function FormInput({
   touched,
   label,
   component,
+  fullWidth,
+  width,
 }: Iprops) {
-
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <FlexInput width={width} fullWidth={fullWidth}>
+      <Label htmlFor={name}>{label}</Label>
       <Input
         type={type}
         name={name}
@@ -31,11 +34,9 @@ function FormInput({
         autoComplete={"off"}
         component={component}
       />
-      {errors[name] && touched[name] && (
-        <Errors>{errors[name]}</Errors>
-      )}
-    </div>
+      {errors[name] && touched[name] && <Errors>{errors[name]}</Errors>}
+    </FlexInput>
   );
-};
+}
 
 export default FormInput;
