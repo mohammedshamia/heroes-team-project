@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Helpers/Theme/index";
-import "./App.css";
+import { GlobalStyles } from "./Helpers/globalStyle";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -26,9 +26,9 @@ function App() {
 
   return (
     <div className="App">
-      <ThemeProvider
-        theme={theme === "light" ? lightTheme : darkTheme}
-      ></ThemeProvider>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles {...(theme === "dark" ? darkTheme : lightTheme)} />
+      </ThemeProvider>
     </div>
   );
 }
