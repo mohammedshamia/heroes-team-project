@@ -80,6 +80,7 @@ const FormNewProduct = (
               label={"Product Name"}
               fullWidth={false}
               width={"45%"}
+              background={'#F2F2F2'}
             />
             <FormInput
               type="input"
@@ -90,6 +91,7 @@ const FormNewProduct = (
               label={"Product Brand"}
               fullWidth={false}
               width={"45%"}
+              background={'#F2F2F2'}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -102,6 +104,7 @@ const FormNewProduct = (
               label={"Product ID"}
               fullWidth={false}
               width={"45%"}
+              background={'#F2F2F2'}
             />
             <FormInput
               type="input"
@@ -112,6 +115,7 @@ const FormNewProduct = (
               label={"Product Categroy"}
               fullWidth={false}
               width={"45%"}
+              background={'#F2F2F2'}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -124,6 +128,7 @@ const FormNewProduct = (
               label={"Product Discription"}
               fullWidth={false}
               width={"100%"}
+              background={'#F2F2F2'}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -136,6 +141,8 @@ const FormNewProduct = (
               label={"Count In Stock"}
               fullWidth={false}
               width={"45%"}
+              background={'#F2F2F2'}
+
             />
             <FormInput
               type="input"
@@ -146,6 +153,8 @@ const FormNewProduct = (
               label={"Product Price"}
               fullWidth={false}
               width={"45%"}
+              background={'#F2F2F2'}
+
             />
           </FormProductInputGroup>
         </ProductDetails>

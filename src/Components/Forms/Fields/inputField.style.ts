@@ -14,7 +14,8 @@ export const Input = styled(Field)`
   color: #707070;
   font-size: 14px;
   width: 100%;
-  background: #f2f2f2;
+  background: ${(props) => props.background || '#fff'};
+
   outline: none;
 `;
 
