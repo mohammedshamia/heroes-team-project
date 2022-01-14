@@ -14,15 +14,17 @@ export const Input = styled(Field)`
   color: #707070;
   font-size: 14px;
   width: 100%;
+  background: ${(props) => props.background || '#fff'};
+
+  outline: none;
 `;
 
 export const Label = styled.label`
   color: #707070;
   font-size: 16px;
   letter-spacing: 0.88px;
-  margin-bottom:.5rem;
-  margin-top:.5rem
-
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 `;
 
 interface IProps {

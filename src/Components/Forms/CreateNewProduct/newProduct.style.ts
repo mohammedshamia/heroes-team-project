@@ -1,3 +1,4 @@
+import { Form } from "formik";
 import styled from "styled-components";
 
 export const FormProduct = styled.div`
@@ -5,10 +6,13 @@ export const FormProduct = styled.div`
   flex-direction: row;
   background-color: #f2f2f2;
   border-radius: 16px;
-  padding: 0.2rem 1rem;
   margin: 3rem;
+  padding: 4rem;
+  justify-content: space-between;
+
   @media (max-width: 768px) {
     flex-direction: column;
+    padding: 1rem;
   }
 `;
 
@@ -16,41 +20,45 @@ export const ProductImage = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-  
+  justify-content: center;
+  margin-right:1rem;
+  text-align: center;
   @media (max-width: 768px) {
     width: 100%;
+  }
+  @media (width: 1024px) {
+    width: 41%;
   }
 `;
 export const ProductImageUpload = styled.div`
   border: 1px dashed #707070;
-  border-radius: 16px;
   display: flex;
   justify-content: center;
-  padding: 2rem;
-  width: 378px;
+  width: 230px;
   margin-bottom: 1rem;
-  height: 346px;
+  height: 200px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 export const ProductImageUploadGroup = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
-  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 export const ProductImageUploadGroupButton = styled.div`
   border: 1px dashed #707070;
-  border-radius: 16px;
   display: flex;
   justify-content: center;
-  padding: 1rem;
-  width: 93px;
+  width: 70px;
+  height: 70px;
   margin-right: 1rem;
-  height: 102px;
 `;
 
 export const ProductDetails = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -62,8 +70,8 @@ export const ProductDetails = styled.div`
 export const FormProductInputGroup = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 0.2rem 0rem;
   justify-content: space-between;
+  margin-bottom: 2rem;
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -72,9 +80,18 @@ export const FormProductInputGroup = styled.div`
 export const FlexButon = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 0.2rem 1rem;
-  margin: 0rem 3rem;
+  margin: 3rem;
   @media (max-width: 768px) {
     justify-content: center;
+  }
+`;
+
+export const Continer = styled(Form)`
+  width: 80%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (width: 1024px) {
+    width: 100%;
   }
 `;

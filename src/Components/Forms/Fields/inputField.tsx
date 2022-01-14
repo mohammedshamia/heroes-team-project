@@ -11,6 +11,7 @@ interface Iprops {
   component?: string;
   fullWidth?: boolean;
   width?: string;
+  background?:string
 }
 
 function FormInput({
@@ -19,6 +20,7 @@ function FormInput({
   placeholder,
   errors,
   touched,
+  background,
   label,
   component,
   fullWidth,
@@ -33,6 +35,7 @@ function FormInput({
         placeholder={placeholder}
         autoComplete={"off"}
         component={component}
+        background={background}
       />
       {errors[name] && touched[name] && <Errors>{errors[name]}</Errors>}
     </FlexInput>
