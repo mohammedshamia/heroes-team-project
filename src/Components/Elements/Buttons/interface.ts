@@ -12,6 +12,7 @@ export interface ButtonProp {
   padding?: string;
   margin?: string;
   className?: string;
+  type?:"button" | "submit" | "reset" | undefined;
   onMouseEnter?: () => void
   onMouseLeave?: () => void;
 }
