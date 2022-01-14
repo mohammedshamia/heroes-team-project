@@ -6,10 +6,8 @@ export const FormProduct = styled.div`
   flex-direction: row;
   background-color: #f2f2f2;
   border-radius: 16px;
-  margin: 3rem;
-  padding: 4rem;
+  padding: 2rem 3rem;
   justify-content: space-between;
-
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 1rem;
@@ -80,7 +78,7 @@ export const FormProductInputGroup = styled.div`
 export const FlexButon = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin: 3rem;
+  margin-top: 1rem;
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -88,6 +86,7 @@ export const FlexButon = styled.div`
 
 export const Continer = styled(Form)`
   width: 80%;
+  margin-top: 2rem;
   @media (max-width: 768px) {
     width: 100%;
   }

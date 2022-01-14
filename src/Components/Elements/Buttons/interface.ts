@@ -9,10 +9,13 @@ export interface ButtonProp {
   backgroundColor?: string;
   fontSize?: string;
   hover?: boolean;
+  colorHover?: string;
   padding?: string;
   margin?: string;
   className?: string;
-  type?:"button" | "submit" | "reset" | undefined;
-  onMouseEnter?: () => void
+  borderRaduies?: string;
+  borderHover?: string;
+  type?: "button" | "submit" | "reset" | undefined;
+  onMouseEnter?: () => void;
   onMouseLeave?: () => void;
 }
