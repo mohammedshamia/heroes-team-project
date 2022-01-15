@@ -5,13 +5,13 @@ const CreateNewProductSchema = (): SchemaOf<ICreateNewProduct> => {
         productName: string().required("Please Enter Product Name"),
         productBrand: string().required("Please Enter Product Brand"),
         productCategroy: string().required("Please Enter Product Category"),
-        productDiscription: string().min(5, "Too Short Product Discription!")
-            .max(100, "Too Long Product Discription!").required("Please Enter Product Discription"),
+        productDiscription: string().min(20, "Too Short Product Discription!")
+            .max(150, "Too Long Product Discription!").required("Please Enter Product Discription"),
         productCount: number()
             .typeError("Should be Number")
             .integer()
             .min(0, "Please Enter more than one")
-            .required("Please Enter Product Count in stock"),
+            .required("Please Enter Product Number in stock"),
         productPrice: number()
             .typeError("Should be Number")
             .integer()
