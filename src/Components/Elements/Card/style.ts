@@ -12,12 +12,13 @@ export const CardSection = styled.div<IProps>`
   flex-direction: column;
   align-items:center; 
   gap:5px; 
-  /* width: ${props => (props.width ? props.width : '550px')}; 
-  height: ${props => (props.height ? props.height : '400px')}; */
+  background-color:pink;  
+  height: ${props => (props.height  || "300px")}; 
   background-color: #fff;
-  border-radius: ${props => props.borderRadius && "16px"} ;
+  border-radius: ${props => props.borderRadius } ;
   overflow: hidden;
-  width: 33.26%;
+  /* width: 33.26%; */
+  width : ${props => props.width  }
   @media (max-width: 768px) {
   width:100%; 
   }
@@ -25,7 +26,7 @@ export const CardSection = styled.div<IProps>`
 
 
 export const Img = styled.img<IProps>`
-  width: ${props => (props.width ? props.width : '100px')};
+  width: ${props => (props.width ? props.width : '100%')};
   height: ${props => (props.height ? props.height : '50%')};
   object-fit:cover;
   position:relative; 
@@ -34,7 +35,9 @@ export const Img = styled.img<IProps>`
 `;
 export const ContainerButton = styled.div`
 display:flex;
-align-items:center;
+/* align-items:center;
+justify-content:center;  */
+/* gap:10px;  */
 `
   
   
