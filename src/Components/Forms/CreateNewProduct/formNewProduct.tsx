@@ -162,14 +162,15 @@ const FormNewProduct = (
       <FlexButon>
         <Button
           type="submit"
-          height={"10px"}
-          width={"10px"}
-          padding={"1rem"}
+          padding={"1rem 3rem"}
           bold={false}
           backgroundColor="#4BB543"
           color={"#FFFFFF"}
+          fontSize={"14px"}
+          borderRaduies={"4px"}
+
         >
-          {isEditing ? "Update Product" : "+ Create New Product"}
+          {isEditing ? "Update Product" : " Create New Product"}
         </Button>
       </FlexButon>
     </Continer>

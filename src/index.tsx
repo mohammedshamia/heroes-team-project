@@ -7,7 +7,9 @@ import ErrorBoundary from "./Components/Elements/ErrorBoundary/index";
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
