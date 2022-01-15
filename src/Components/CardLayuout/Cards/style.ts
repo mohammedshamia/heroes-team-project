@@ -1,16 +1,22 @@
 import styled from 'styled-components'
 export const Container = styled.div`
+
 margin:50px;
+/* flex: 1 1 33%;
 display:flex; 
-justify-content: space-between;
+justify-content: space-between; */
+display: grid;
+grid-template-columns: 400px 400px 400px;
+gap:2px; 
+/* grid-template-rows: 12px 12px 12px; */
 border: 1px solid #FCDD06;
 border-radius: 16px;
 overflow: hidden;
 background-color:#F7F8FC;
   @media (max-width: 768px) {
-    display:flex;
+     display:flex;
     flex-direction: column;
-    align-items:center;
+  width:100%;   
     gap:5px;
   }
 `

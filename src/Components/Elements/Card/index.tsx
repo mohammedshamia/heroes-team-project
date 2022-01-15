@@ -6,6 +6,7 @@ interface IProps {
   children?: React.ReactNode;
   src?: string;
   alt?: string;
+  borderRadius?: string;
 }
 export const Card = ({ children, ...props }: IProps) => {
   return <CardSection {...props} >
