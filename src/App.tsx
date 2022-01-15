@@ -16,6 +16,7 @@ import OrdersAdminPage from "./Pages/AdminPages/OrdersAdminPage/ordersAdminPage"
 import ProductsAdminPage from "./Pages/AdminPages/ProductsAdminPage/productsAdminPage";
 import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage/usersAdminPage";
 import Counter from "./Components/Elements/Counter/counter";
+import NotFoundPage from "./Pages/NotFoundPage";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -61,7 +62,7 @@ function App() {
           <Route path="/products" element={<ProductsAdminPage />} />
           <Route path="/orders" element={<OrdersAdminPage />} />
           {/* notFoundPage */}
-          <Route path="*" element={<div>notFoundPage</div>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </ThemeProvider>
     </div>
