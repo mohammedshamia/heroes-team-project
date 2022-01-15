@@ -3,7 +3,7 @@ import { Alert } from "./style";
 
 type positions = "normal" | "snackBar";
 
-type types = "default" | "success" | "warning" | "error";
+type types = "default" | "card" |"success" | "warning" | "error";
 
 interface IProps extends React.HTMLProps<HTMLDivElement> {
   children?: React.ReactNode;
@@ -23,7 +23,9 @@ const Index = ({
 }: IProps) => {
   window.setTimeout(() => {
     console.log("out!");
-    setOpen(false);
+    if(position === 'snackBar') {
+      setOpen(false);
+    }
   }, 6000);
 
   return (
