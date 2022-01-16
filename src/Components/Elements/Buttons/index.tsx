@@ -1,8 +1,8 @@
 import { IButton } from './style'
 import { ButtonProp } from './interface'
-export default function Button({ children, ...props }: ButtonProp) {
+export default function Button({ children, disabled, ...props}: ButtonProp) {
   return (
-    <IButton {...props}>
+    <IButton {...props} onClick={props.onClick} disabled = {disabled}>
       {children}
     </IButton>
   )
