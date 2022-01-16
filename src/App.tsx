@@ -53,12 +53,12 @@ function App() {
           {/* Pages */}
           <Route path="/" element={<HomePage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search/:keyword" element={<SearchPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/success" element={<SuccessPage />} />
           <Route path="/404" element={<NotFoundPage />} />
           {/* product pages */}
-          <Route path="/product" element={<ProductPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/product/create" element={<CreateProductPage />} />
           <Route path="/product/payment" element={<PaymentPage />} />
           <Route path="/product/review" element={<ReviewPage />} />
