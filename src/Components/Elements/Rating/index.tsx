@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 // import EmptyStar from "../../../Assets/EmptyStar";
-import FilledStar from "../../../Assets/FilledStar";
+import FilledStar from "../../Icons/FilledStar";
 // import { Star } from './style'
 interface PropRating {
   count?: number;
