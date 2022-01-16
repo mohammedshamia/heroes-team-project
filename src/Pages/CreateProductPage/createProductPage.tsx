@@ -1,7 +1,7 @@
 import React from "react";
+import Container from "../../Components/Container";
 import FormikNewProduct from "../../Components/Forms/CreateNewProduct/formikNewProduct";
 import Typography from "../../Components/Typography";
-import { Container } from "./createProduct.style";
 
 const CreateProductPage = () => {
   return (
