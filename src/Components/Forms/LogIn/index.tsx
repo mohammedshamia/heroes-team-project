@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import { NavLink } from "react-router-dom";
 import { ILogInUser } from "../../../@Types/Validation";
 import LogInSchema from "../../../Helpers/Validation/LoginSchema";
 import Button from "../../Elements/Buttons";
@@ -35,7 +36,13 @@ const Index = () => {
         padding="15px 10px"
     
       > 
-        Sign Up Now
+      <NavLink style={{
+          color:' black',
+          textDecoration: 'none'
+
+        }}
+        to={'/singUp'} >Sign Up Now</NavLink>
+        
       </Button>
       </div>
     </FormContainer>
