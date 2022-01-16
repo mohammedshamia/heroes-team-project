@@ -5,8 +5,8 @@ interface Iprops {
   type?: string;
   name: string;
   placeholder?: string;
-  errors: {};
-  touched: {};
+  errors: any;
+  touched: any;
   label?: string;
   component?: string;
   fullWidth?: boolean;
