@@ -19,10 +19,12 @@ export const ProductImage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right:1rem;
+  margin-right: 1rem;
   text-align: center;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     width: 100%;
+    align-items: center;
+    align-self: center;
   }
   @media (width: 1024px) {
     width: 41%;
@@ -34,9 +36,11 @@ export const ProductImageUpload = styled.div`
   justify-content: center;
   width: 230px;
   margin-bottom: 1rem;
+  align-items: center;
+  align-self: center;
   height: 200px;
-  @media (max-width: 768px) {
-    width: 100%;
+  @media (max-width: 800px) {
+    width: 300px;
   }
 `;
 export const ProductImageUploadGroup = styled.div`
