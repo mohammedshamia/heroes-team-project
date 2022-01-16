@@ -3,7 +3,7 @@ import React from "react";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
 import FormInput from "../Fields/inputField";
-import { CreateNewProductValues } from "./interface";
+import { ICreateNewProduct } from "../../../@Types/Validation";
 import {
   ProductDetails,
   FormProductInputGroup,
@@ -20,7 +20,7 @@ interface OtherProps {
   isEditing: boolean;
 }
 const FormNewProduct = (
-  props: OtherProps & FormikProps<CreateNewProductValues>
+  props: OtherProps & FormikProps<ICreateNewProduct>
 ) => {
   const { errors, touched, setFieldValue, isEditing } = props;
   // productImage
