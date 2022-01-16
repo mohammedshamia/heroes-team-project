@@ -18,8 +18,8 @@ export const StepProgress: React.FC<StepperProgressProps> = ({
       <StepperProgressWrapper>
         <StepperProgressBar style={{ width: progress + "%" }} />
         {stepTitles.map((title, i) => (
-          <div className="step-title" key={i}>
-            <div className="step-title-number">{i + 1}</div>
+          <div  key = {i}>
+            <div>{i + 1}</div>
             {title}
           </div>
         ))}
