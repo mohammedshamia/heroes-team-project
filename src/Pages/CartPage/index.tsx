@@ -1,5 +1,5 @@
 import React from "react";
-import ShoppingCart from '../../Components/Elements/Card/ShoppingCart'
+import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 const ItemCart = [
   {
     title: "Canon Eos 80D DSLR Camera",
@@ -10,18 +10,18 @@ const ItemCart = [
   { title: "mobile", price: 544, imgUrl: "https://picsum.photos/id/0/200/300" },
 ];
 const CartPage = () => {
-  return <div>
-    {ItemCart.map((item, index) => (
-       <ShoppingCart 
-        key={index}
-        title={item.title}
-        price={item.price}
-        imgUrl={item.imgUrl}
-      />
-    ))}
- 
-
-  </div>;
+  return (
+    <div>
+      {ItemCart.map((item, index) => (
+        <ShoppingCart
+          key={index}
+          title={item.title}
+          price={item.price}
+          imgUrl={item.imgUrl}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default CartPage;
