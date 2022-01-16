@@ -12,6 +12,7 @@ export const IButton = styled.button<ButtonProp>`
   outline: none;
   cursor: pointer;
   font-weight: ${(props) => (props.bold ? "bold" : "500")};
+  width: ${({width})=> width || 'auto'};
   &:hover {
     border: ${(props) => props?.borderHover || null};
     color: ${(props) => props?.colorHover || null};

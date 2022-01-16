@@ -1,6 +1,6 @@
 import { Card, CardImg} from './index'
 import { ContainerButton} from './style'
-import { BookMarkEmpty, BookMarkfill} from '../../../Assets/BookMark'
+// import { BookMarkEmpty, BookMarkfill} from '../../../Assets/BookMark'
 import Rate from '../Rating'
 import { useState } from "react";
 import Button from '../Buttons'
@@ -21,8 +21,8 @@ export default function MainCard(props: IpropsMainCard) {
       <h6> $ {price} </h6>
       <ContainerButton >
         <Button padding="5px 12px" margin="5px" onClick={() => setState(!state)}>
-          {!state && <BookMarkEmpty />}
-          {state && <BookMarkfill/>}   
+          {/* {!state && <BookMarkEmpty />} */}
+          {/* {state && <BookMarkfill/>}    */}
         </Button>
         <Button padding="8px 35px"> Add To Cart  </Button>
       </ContainerButton>
