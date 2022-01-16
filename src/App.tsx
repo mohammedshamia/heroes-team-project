@@ -11,13 +11,13 @@ import PaymentPage from "./Pages/PaymentPage/paymentPage";
 import ProductPage from "./Pages/ProductPage/productPage";
 import ProfilePage from "./Pages/ProfilePage/profilePage";
 import ReviewPage from "./Pages/ReviewPage/reviewPage";
-import SearchPage from "./Pages/SearchPage/searchPage";
 import OrdersAdminPage from "./Pages/AdminPages/OrdersAdminPage/ordersAdminPage";
 import ProductsAdminPage from "./Pages/AdminPages/ProductsAdminPage/productsAdminPage";
 import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage/usersAdminPage";
 import NotFoundPage from "./Pages/NotFoundPage";
-import CartPage from "./Pages/SearchPage/searchPage";
 import SuccessPage from "./Pages/SuccessPage/searchPage";
+import SearchPage from "./Pages/SearchPage/searchPage";
+import CartPage from "./Pages/CartPage/searchPage";
 
 function App() {
   const [theme, setTheme] = useState("light");
