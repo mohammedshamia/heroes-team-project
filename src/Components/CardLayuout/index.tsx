@@ -1,14 +1,15 @@
 import MainCard from "../Elements/Card/MainCard";
-import img1 from "../../../Assets/img1.PNG";
-import img2 from "../../../Assets/img2.PNG";
-import img3 from "../../../Assets/img3.PNG";
 import { Container } from "./style";
 
 export default function CardLayout() {
   const ItemCard = [
-    { title: "Canon Eos 80D DSLR Camera", price: 56565, imgUrl: img1 },
-    { title: "phone", price: 551, imgUrl: img2 },
-    { title: "mobile", price: 5454, imgUrl: img3 },
+    {
+      title: "Canon Eos 80D DSLR Camera",
+      price: 56565,
+      imgUrl: "Assets/img1.PNG",
+    },
+    { title: "phone", price: 551, imgUrl: "Assets/img2.PNG" },
+    { title: "mobile", price: 5454, imgUrl: "Assets/img3.PNG" },
   ];
   return (
     <Container>
