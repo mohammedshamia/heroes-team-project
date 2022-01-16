@@ -40,4 +40,31 @@ justify-content:center;  */
 /* gap:10px;  */
 `
   
+export const ContainerShopping = styled.div`
+background-color: #F2F2F2; 
+display:flex; 
+/* padding: 15px 30px;  */
+margin:30px; 
+align-items:center; 
+justify-content:space-between; 
+position: relative;
+border-radius:16px; 
+  @media (max-width: 768px) {
+  display:flex; 
+  flex-direction:column; 
+  gap:3px; 
+  }
+  &:hover 
+  {
+    box-shadow:0px 4px 8px #00000017;
+  }
+`
+export const ContainerClose = styled.div`
+position: absolute; 
+/* left:0; 
+top:10%; */
+right:20px; 
+top: 10px; 
+
+`
   

@@ -17,7 +17,7 @@ import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage/usersAdminPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import SuccessPage from "./Pages/SuccessPage/searchPage";
 import SearchPage from "./Pages/SearchPage/searchPage";
-import CartPage from "./Pages/CartPage/searchPage";
+import CartPage from "./Pages/CartPage/Cart";
 
 function App() {
   const [theme, setTheme] = useState("light");
