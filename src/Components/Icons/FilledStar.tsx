@@ -1,5 +1,11 @@
-import React from "react";
-const FilledStar = ({ onClick, color, onMouseEnter, onMouseLeave }: any) => {
+import React, { MouseEventHandler } from "react";
+interface Iprop {
+  onClick: () => void;
+  color: string;
+  onMouseEnter: MouseEventHandler<SVGSVGElement>;
+  onMouseLeave: MouseEventHandler<SVGSVGElement>;
+}
+const FilledStar = ({ onClick, color, onMouseEnter, onMouseLeave }: Iprop) => {
   return (
     <svg
       onClick={onClick}
