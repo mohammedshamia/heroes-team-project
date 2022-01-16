@@ -18,4 +18,5 @@ export interface ButtonProp {
   type?: "button" | "submit" | "reset" | undefined;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  disabled?:boolean
 }
