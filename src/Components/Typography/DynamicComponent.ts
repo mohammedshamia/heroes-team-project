@@ -8,6 +8,7 @@ interface IAttributes {
 }
 
 export const Styling = styled.div<IAttributes>`
+
   margin-bottom: ${(props) => (props.gutterBottom ? "30px" : "0px")};
 
   text-align: ${(props) => props.align};
