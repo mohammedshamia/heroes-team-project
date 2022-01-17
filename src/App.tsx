@@ -1,24 +1,31 @@
-import { useState, useCallback, useEffect } from "react";
+import React,{ Suspense ,useState, useCallback, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Helpers/Theme/index";
 import { GlobalStyles } from "./Helpers/globalStyle";
 import { Routes, Route, Navigate } from "react-router";
-import HomePage from "./Pages/HomePage";
-import LoginPage from "./Pages/AuthPages/LoginPage";
-import SignUpPage from "./Pages/AuthPages/SignUpPage";
-import CreateProductPage from "./Pages/CreateProductPage";
-import PaymentPage from "./Pages/PaymentPage";
-import ProductPage from "./Pages/ProductPage";
-import ProfilePage from "./Pages/ProfilePage";
-import ReviewPage from "./Pages/ReviewPage";
-import OrdersAdminPage from "./Pages/AdminPages/OrdersAdminPage";
-import ProductsAdminPage from "./Pages/AdminPages/ProductsAdminPage";
-import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage";
-import NotFoundPage from "./Pages/NotFoundPage";
+import SppinerLoading from './Components/Elements/SppinerLoading/index'
+import Counter from "./Components/Elements/Counter/counter";
 import Header from "./Components/Header";
-import SuccessPage from "./Pages/SuccessPage";
-import SearchPage from "./Pages/SearchPage";
-import CartPage from "./Pages/CartPage";
+        
+const HomePage = React.lazy(() => import('./Pages/HomePage'));
+const LoginPage = React.lazy(() => import('./Pages/AuthPages/LoginPage'));
+const SignUpPage = React.lazy(() => import('./Pages/AuthPages/SignUpPage'));
+const CreateProductPage = React.lazy(() => import('./Pages/CreateProductPage'));
+const ProductPage = React.lazy(() => import('./Pages/ProductPage'));
+const ProfilePage = React.lazy(() => import('./Pages/ProfilePage'));
+const ReviewPage = React.lazy(() => import('./Pages/ReviewPage'));
+const SearchPage = React.lazy(() => import('./Pages/SearchPage'));
+const OrdersAdminPage = React.lazy(() => import('./Pages/AdminPages/OrdersAdminPage'));
+const ProductsAdminPage = React.lazy(() => import('./Pages/AdminPages/ProductsAdminPage'));
+const UsersAdminPage = React.lazy(() => import('./Pages/AdminPages/UsersAdminPage'));
+const NotFoundPage = React.lazy(() => import('./Pages/NotFoundPage'));
+const PaymentPage= React.lazy(()=> import('./Pages/PaymentPage'))
+
+const SuccessPage= React.lazy(()=> import('./Pages/SuccessPage'))
+const CartPage= React.lazy(()=> import('./Pages/CartPage'))
+
+
+
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -43,6 +50,7 @@ function App() {
 
   return (
     <div className="App">
+      <Suspense  fallback= { <SppinerLoading /> } >
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles {...(theme === "dark" ? darkTheme : lightTheme)} />
         {/* add header  */}
@@ -72,6 +80,7 @@ function App() {
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </ThemeProvider>
+      </Suspense>
     </div>
   );
 }
