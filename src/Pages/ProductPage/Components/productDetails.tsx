@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Button from "../../Components/Elements/Buttons";
-import Counter from "../../Components/Elements/Counter/counter";
-import { BookMarkEmpty, BookMarkfill } from "../../Components/Icons/BookMark";
-import Typography from "../../Components/Typography";
-import { IProductData } from "./interface";
+import Button from "../../../Components/Elements/Buttons";
+import Counter from "../../../Components/Elements/Counter/counter";
+import { BookMarkEmpty, BookMarkfill } from "../../../Components/Icons/BookMark";
+import Typography from "../../../Components/Typography";
+import { IProductData } from "../interface";
 import {
   BookMark,
   Color,
@@ -13,7 +13,7 @@ import {
   ProductDetail,
   SizeButton,
   Title,
-} from "./product.style";
+} from "../product.style";
 interface IProps {
   ProductData: IProductData[];
 }

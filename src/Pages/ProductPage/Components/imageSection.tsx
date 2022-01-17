@@ -1,11 +1,11 @@
 import React from "react";
-import { IProductData } from "./interface";
+import { IProductData } from "../interface";
 import {
   Imagefirst,
   ImageSecionSecond,
   ImageSections,
   ImageSmall,
-} from "./product.style";
+} from "../product.style";
 interface IProps {
   ProductData: IProductData[];
 }

@@ -1,8 +1,8 @@
 import React from "react";
-import { DividerComponent } from "../../Components/Elements/Devider/styles.styled";
-import { CardSlider } from "../../Components/Slider/CardSlider";
-import Typography from "../../Components/Typography";
-import { Card, Featured } from "./product.style";
+import { DividerComponent } from "../../../Components/Elements/Devider/styles.styled";
+import { CardSlider } from "../../../Components/Slider/CardSlider";
+import Typography from "../../../Components/Typography";
+import { Card, Featured } from "../product.style";
 
 const CardSliders = () => {
   return (

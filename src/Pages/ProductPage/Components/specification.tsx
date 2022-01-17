@@ -1,6 +1,6 @@
 import React from "react";
-import Typography from "../../Components/Typography";
-import { IProductData } from "./interface";
+import Typography from "../../../Components/Typography";
+import { IProductData } from "../interface";
 import {
   ProductDetail,
   StyledTable,
@@ -9,7 +9,7 @@ import {
   TechnicalDetails,
   Thead,
   Title,
-} from "./product.style";
+} from "../product.style";
 interface IProps {
   ProductData: IProductData[];
 }

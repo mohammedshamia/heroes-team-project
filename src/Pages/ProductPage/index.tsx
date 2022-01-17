@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 
-import ImageSection from "./imageSection";
+import ImageSection from "./Components/imageSection";
 import { IProductData } from "./interface";
-import ProductDetails from "./productDetails";
+import ProductDetails from "./Components/productDetails";
 import { FirstSection } from "./product.style";
 import Container from "../../Components/Container";
-import Specification from "./specification";
-import Reviews from "./reviews";
+import Specification from "./Components/specification";
+import Reviews from "./Components/reviews";
 import Rate from "../../Components/Elements/Rating";
-import { CardSlider } from "../../Components/Slider/CardSlider";
-import CardSliders from "./cardSlider";
+import CardSliders from "./Components/cardSlider";
 
 const ProductPage = () => {
   const [rating, setRating] = useState<number>(3);
