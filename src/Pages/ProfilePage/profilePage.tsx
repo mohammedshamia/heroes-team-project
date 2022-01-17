@@ -6,9 +6,6 @@ import { UserData } from "./interface";
 import LeftSection from "./leftSection";
 import RightSetion from "./rightSetion";
 
-interface IProps {
-  UserProileData: UserData[];
-}
 const ProfilePage = () => {
   const UserProileData: UserData[] = [
     {

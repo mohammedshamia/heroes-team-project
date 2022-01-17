@@ -109,6 +109,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
             backgroundColor={"#FCDD06"}
             padding={"1rem 1.5rem"}
             fontSize={"12px"}
+            backgroundColorHover={"#ffc107"}
           >
             Change Password
           </Button>
@@ -125,6 +126,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
           backgroundColor={"#FCDD06"}
           padding={"1rem 1.5rem"}
           fontSize={"12px"}
+          backgroundColorHover={"#ffc107"}
         >
           Upload new photo
         </Button>
