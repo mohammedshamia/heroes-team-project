@@ -1,5 +1,4 @@
 import Container from "../../Components/Container";
-import img3 from "../../Assets/img3.PNG";
 
 import { Profile } from "./profile.style";
 import { UserData } from "./interface";
@@ -9,7 +8,7 @@ import RightSetion from "./rightSetion";
 const ProfilePage = () => {
   const UserProileData: UserData[] = [
     {
-      image: img3,
+      image: "Assets/img3.PNG",
       firstName: "Amy",
       lastName: "Mayer",
       email: "amymay@gmail.com",

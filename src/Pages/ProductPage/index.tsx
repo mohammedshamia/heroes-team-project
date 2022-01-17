@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import img3 from "../../Assets/img3.PNG";
-import img12 from "../../Assets/img12.PNG";
 
 import ImageSection from "./imageSection";
 import { IProductData } from "./interface";
@@ -19,8 +17,12 @@ const ProductPage = () => {
   const productData: IProductData[] = [
     {
       name: "Apple iPhone 11 Pro 256GB Memory",
-      image: img3,
-      imageSmall: [{ name: img12 }, { name: img12 }, { name: img12 }],
+      image: "Assets/img3.png",
+      imageSmall: [
+        { name: "Assets/img3.PNG" },
+        { name: "Assets/img3.PNG" },
+        { name: "Assets/img3.PNG" },
+      ],
       color: [{ name: "silver" }, { name: "black" }, { name: "red" }],
       size: [{ name: "64GB" }, { name: "256B" }, { name: "512GB" }],
       text:
@@ -102,7 +104,6 @@ const ProductPage = () => {
       </Container>
       <CardSliders />
     </>
-    
   );
 };
 
