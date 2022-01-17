@@ -5,7 +5,9 @@ import Container from "../Container";
 import Logo from "../Elements/Logo/index";
 import Search from "../Elements/Search/search";
 import Typography from "../Typography";
+
 import SVGICON from "./HeaderIcons/headerIcons";
+
 import Person from "../Icons/PersonIcon";
 import ShoppingCartIcon from "../Icons/ShoppingCartIcon";
 import SearchIcon from "../Icons/SearchIcon";
@@ -20,12 +22,17 @@ import {
   ButtonContent,
 } from "./style";
 
-const Header = () => {
+interface IHeader {
+  isLoggedIn: boolean;
+}
+
+const Header: FC<IHeader> = ({ isLoggedIn }) => {
   return (
     <Root>
       <Container>
         <Content>
           <Logo main="Pro" sub="Shop" />
+
           <SearchContent>
             <Search data={[{ name: "mohammed", code: "123" }]} />
             <SearchButton>
@@ -37,11 +44,18 @@ const Header = () => {
               </ButtonContent>
             </SearchButton>
           </SearchContent>
+
           <ICONS>
-            <SVGICON description="Login/Sign up">
-              <Person />
-            </SVGICON>
-            <SVGICON description="Wishlist">
+            {isLoggedIn ? (
+              <SVGICON description="Login" to="/">
+                <Person />
+              </SVGICON>
+            ) : (
+              <SVGICON description="Sign UP" to="/">
+                <Person />
+              </SVGICON>
+            )}
+            <SVGICON description="Wishlist" to="/">
               <svg data-testid="BookmarkIcon">
                 <path
                   fill="white"
@@ -49,7 +63,7 @@ const Header = () => {
                 ></path>
               </svg>
             </SVGICON>
-            <SVGICON description="Cart">
+            <SVGICON description="Cart" to="/cart">
               <ShoppingCartIcon />
             </SVGICON>
           </ICONS>

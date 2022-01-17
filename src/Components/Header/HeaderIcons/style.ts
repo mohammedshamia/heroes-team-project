@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 9px;
+  cursor: pointer;
 `;
 
 export const Text = styled.div`

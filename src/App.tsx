@@ -46,7 +46,7 @@ function App() {
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles {...(theme === "dark" ? darkTheme : lightTheme)} />
         {/* add header  */}
-        <Header />
+        <Header isLoggedIn={true} />
 
         <Routes>
           {/* Auth */}
