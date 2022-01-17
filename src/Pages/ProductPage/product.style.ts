@@ -53,6 +53,7 @@ export const Featured = styled.div`
   align-items: center;
   align-self: center;
   justify-content: center;
+  padding: 20px;
 `;
 export const ProductDetail = styled.div`
   display: flex;
@@ -146,7 +147,8 @@ export const StyledTable = styled.div`
       color: #242424;
       font-size: 12px;
       font-weight: 500;
-    },
+    }
+
     & tbody {
       transition: all 0.1s;
       &:nth-child(odd) {
@@ -178,8 +180,8 @@ export const Pragraphdate = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const Card = styled.div`
+export const CardsSection = styled.div`
   background: #f7f8fc;
   width: 100%;
-  padding: 5rem;
+  padding: 0 0 180px;
 `;
