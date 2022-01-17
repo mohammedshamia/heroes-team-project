@@ -4,11 +4,12 @@ import { Wrapper, Text, SVG } from "./style";
 
 interface ISVGICON {
   description: string;
+  to: string;
 }
 
-const SVGICON: FC<ISVGICON> = ({ children, description }) => {
+const SVGICON: FC<ISVGICON> = ({ children, description, to }) => {
   return (
-    <Wrapper>
+    <Wrapper to={to}>
       <SVG>{children}</SVG>
       <Text>{description}</Text>
     </Wrapper>
