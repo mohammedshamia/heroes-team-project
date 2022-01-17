@@ -15,12 +15,13 @@ import {
   ProductImageUploadGroupButton,
   Continer,
 } from "./newProduct.style";
+import { CreateNewProductValues } from "./interface";
 
 interface OtherProps {
   isEditing: boolean;
 }
 const FormNewProduct = (
-  props: OtherProps & FormikProps<ICreateNewProduct>
+  props: OtherProps & FormikProps<CreateNewProductValues>
 ) => {
   const { errors, touched, setFieldValue, isEditing } = props;
   // productImage
