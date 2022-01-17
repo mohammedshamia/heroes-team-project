@@ -2,9 +2,8 @@ import { Formik } from "formik";
 import { NavLink } from "react-router-dom";
 import { ISignUpUser } from "../../../@Types/Validation";
 import SignupSchema from "../../../Helpers/Validation/SignupSchema";
-import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
-import { FormContainer } from "../LogIn/styles";
+import { FormContainer } from "../LogInForm/styles";
 // import SignupForm from "./SignupForm";
 import SignupForm from "./SignupForm";
 

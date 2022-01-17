@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Typography from "../../Typography";
 import Button from "../Buttons";
-import { ContainerCounter, CounterDiv } from "./counter.stlyle";
+import { ContainerCounter, CounterDiv } from "./counter.style";
 
 interface IPropsCounter {
   counter: number;
@@ -22,7 +21,7 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
   useEffect(() => {
     setCounter(count);
   }, [count]);
-  
+
   return (
     <ContainerCounter>
       <Button

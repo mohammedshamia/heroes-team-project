@@ -1,6 +1,6 @@
 import Container from "../../../Components/Container";
 import { DividerComponent } from "../../../Components/Elements/Devider/styles.styled";
-import { CardSlider } from "../../../Components/Slider/CardSlider";
+import { CardSlider } from "../../../Components/CardSlider";
 import Typography from "../../../Components/Typography";
 import { CardsSection, Featured } from "../product.style";
 
@@ -13,7 +13,7 @@ const CardSliders = () => {
             Featured Products
           </Typography>
         </Featured>
-        <DividerComponent />
+        <DividerComponent center />
         <CardSlider />
       </Container>
     </CardsSection>

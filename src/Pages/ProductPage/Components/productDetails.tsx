@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../../Components/Elements/Buttons";
-import Counter from "../../../Components/Elements/Counter/counter";
+import Counter from "../../../Components/Elements/Counter";
 import {
   BookMarkEmpty,
   BookMarkfill,

@@ -4,7 +4,6 @@ import { ILogInUser } from "../../../@Types/Validation";
 import LogInSchema from "../../../Helpers/Validation/LoginSchema";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
-import { FlexInput } from "../Fields/inputField.style";
 import LoginForm from "./LoginForm";
 import { FormContainer } from "./styles";
 

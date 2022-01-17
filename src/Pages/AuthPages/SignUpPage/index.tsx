@@ -1,5 +1,5 @@
 import { SignupContainer, SignupImage } from "./styles";
-import SignupForm from "../../../Components/Forms/Signup";
+import SignupForm from "../../../Components/Forms/SignupForm";
 import Container from "../../../Components/Container";
 
 const SignUpPage = () => {
