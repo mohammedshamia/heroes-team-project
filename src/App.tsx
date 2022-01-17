@@ -15,6 +15,7 @@ import OrdersAdminPage from "./Pages/AdminPages/OrdersAdminPage";
 import ProductsAdminPage from "./Pages/AdminPages/ProductsAdminPage";
 import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage";
 import NotFoundPage from "./Pages/NotFoundPage";
+import Header from "./Components/Header";
 import SuccessPage from "./Pages/SuccessPage";
 import SearchPage from "./Pages/SearchPage";
 import CartPage from "./Pages/CartPage";
@@ -44,9 +45,10 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles {...(theme === "dark" ? darkTheme : lightTheme)} />
-        <Routes>
-          {/* add header  */}
+        {/* add header  */}
+        <Header />
 
+        <Routes>
           {/* Auth */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
