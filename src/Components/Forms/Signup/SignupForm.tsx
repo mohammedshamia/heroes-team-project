@@ -72,7 +72,6 @@ const SignupForm = ({ errors, touched }: IProps) => {
           type={"password"}
         />
       </FlexInput>
-
       <Button
         bold={true}
         backgroundColor="#FCDD06"

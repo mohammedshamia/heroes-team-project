@@ -15,12 +15,13 @@ import {
   ProductImageUploadGroupButton,
   Continer,
 } from "./newProduct.style";
+import { CreateNewProductValues } from "./interface";
 
 interface OtherProps {
   isEditing: boolean;
 }
 const FormNewProduct = (
-  props: OtherProps & FormikProps<ICreateNewProduct>
+  props: OtherProps & FormikProps<CreateNewProductValues>
 ) => {
   const { errors, touched, setFieldValue, isEditing } = props;
   // productImage
@@ -30,7 +31,8 @@ const FormNewProduct = (
         <ProductImage>
           <ProductImageUpload>
             <Button type="button" height={""} width={""} bold={false}>
-            Product Images (4 images allowed)            </Button>
+              Product Images (4 images allowed){" "}
+            </Button>
           </ProductImageUpload>
           <ProductImageUploadGroup>
             <ProductImageUploadGroupButton>
@@ -69,7 +71,7 @@ const FormNewProduct = (
           </ProductImageUploadGroup>
         </ProductImage>
         <ProductDetails>
-          <Typography variant="h6" >Product Details</Typography>
+          <Typography variant="h6">Product Details</Typography>
           <FormProductInputGroup>
             <FormInput
               type="input"
@@ -80,7 +82,7 @@ const FormNewProduct = (
               label={"Product Name"}
               fullWidth={false}
               width={"45%"}
-              background={'#F2F2F2'}
+              background={"#F2F2F2"}
             />
             <FormInput
               type="input"
@@ -91,7 +93,7 @@ const FormNewProduct = (
               label={"Product Brand"}
               fullWidth={false}
               width={"45%"}
-              background={'#F2F2F2'}
+              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -104,7 +106,7 @@ const FormNewProduct = (
               label={"Product ID"}
               fullWidth={false}
               width={"45%"}
-              background={'#F2F2F2'}
+              background={"#F2F2F2"}
             />
             <FormInput
               type="input"
@@ -115,7 +117,7 @@ const FormNewProduct = (
               label={"Product Categroy"}
               fullWidth={false}
               width={"45%"}
-              background={'#F2F2F2'}
+              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -128,7 +130,7 @@ const FormNewProduct = (
               label={"Product Discription"}
               fullWidth={false}
               width={"100%"}
-              background={'#F2F2F2'}
+              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -141,8 +143,7 @@ const FormNewProduct = (
               label={"Count In Stock"}
               fullWidth={false}
               width={"45%"}
-              background={'#F2F2F2'}
-
+              background={"#F2F2F2"}
             />
             <FormInput
               type="input"
@@ -153,8 +154,7 @@ const FormNewProduct = (
               label={"Product Price"}
               fullWidth={false}
               width={"45%"}
-              background={'#F2F2F2'}
-
+              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
         </ProductDetails>
@@ -168,7 +168,6 @@ const FormNewProduct = (
           color={"#FFFFFF"}
           fontSize={"14px"}
           borderRaduies={"4px"}
-
         >
           {isEditing ? "Update Product" : " Create New Product"}
         </Button>

@@ -16,8 +16,10 @@ const Index = () => {
   };
   return (
     <FormContainer>
-      <Typography style={{fontWeight: 'bold'}} variant="h2">Login.</Typography>
-      <Typography variant="h6" style={{marginBottom: '15px'}}>
+      <Typography style={{ fontWeight: "bold" }} variant="h2">
+        Login.
+      </Typography>
+      <Typography variant="h6" style={{ marginBottom: "15px" }}>
         Login with your data that you entered during registration
       </Typography>
       <Formik
@@ -26,24 +28,24 @@ const Index = () => {
         onSubmit={() => console.log("Login Form Submited :)")}
         children={LoginForm}
       />
-      <div style={{textAlign: 'center',
-        marginTop: '80px'
-    }}>
-      <Button
-        border="1px solid #FCDD06" 
-        color="black"
-        width="60%"
-        padding="15px 10px"
-    
-      > 
-      <NavLink style={{
-          color:' black',
-          textDecoration: 'none'
-
-        }}
-        to={'/singUp'} >Sign Up Now</NavLink>
-        
-      </Button>
+      <hr style={{ marginTop: "20px" }} />
+      <div style={{ textAlign: "center", marginTop: "30px" }}>
+        <Button
+          border="1px solid #FCDD06"
+          color="black"
+          width="60%"
+          padding="15px 10px"
+        >
+          <NavLink
+            style={{
+              color: " black",
+              textDecoration: "none",
+            }}
+            to={"/singUp"}
+          >
+            Sign Up Now
+          </NavLink>
+        </Button>
       </div>
     </FormContainer>
   );

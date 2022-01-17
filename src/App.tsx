@@ -2,23 +2,28 @@ import React,{ Suspense ,useState, useCallback, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Helpers/Theme/index";
 import { GlobalStyles } from "./Helpers/globalStyle";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import SppinerLoading from './Components/Elements/SppinerLoading/index'
 import Counter from "./Components/Elements/Counter/counter";
-
-const HomePage = React.lazy(() => import('./Pages/HomePage/homePage'));
-const LoginPage = React.lazy(() => import('./Pages/AuthPages/LoginPage/loginPage'));
-const SignUpPage = React.lazy(() => import('./Pages/AuthPages/SignUpPage/signUpPage'));
-const CreateProductPage = React.lazy(() => import('./Pages/CreateProductPage/createProductPage'));
-const ProductPage = React.lazy(() => import('./Pages/ProductPage/productPage'));
-const ProfilePage = React.lazy(() => import('./Pages/ProfilePage/profilePage'));
-const ReviewPage = React.lazy(() => import('./Pages/ReviewPage/reviewPage'));
-const SearchPage = React.lazy(() => import('./Pages/SearchPage/searchPage'));
-const OrdersAdminPage = React.lazy(() => import('./Pages/AdminPages/OrdersAdminPage/ordersAdminPage'));
-const ProductsAdminPage = React.lazy(() => import('./Pages/AdminPages/ProductsAdminPage/productsAdminPage'));
-const UsersAdminPage = React.lazy(() => import('./Pages/AdminPages/UsersAdminPage/usersAdminPage'));
+import Header from "./Components/Header";
+        
+const HomePage = React.lazy(() => import('./Pages/HomePage'));
+const LoginPage = React.lazy(() => import('./Pages/AuthPages/LoginPage'));
+const SignUpPage = React.lazy(() => import('./Pages/AuthPages/SignUpPage'));
+const CreateProductPage = React.lazy(() => import('./Pages/CreateProductPage'));
+const ProductPage = React.lazy(() => import('./Pages/ProductPage'));
+const ProfilePage = React.lazy(() => import('./Pages/ProfilePage'));
+const ReviewPage = React.lazy(() => import('./Pages/ReviewPage'));
+const SearchPage = React.lazy(() => import('./Pages/SearchPage'));
+const OrdersAdminPage = React.lazy(() => import('./Pages/AdminPages/OrdersAdminPage'));
+const ProductsAdminPage = React.lazy(() => import('./Pages/AdminPages/ProductsAdminPage'));
+const UsersAdminPage = React.lazy(() => import('./Pages/AdminPages/UsersAdminPage'));
 const NotFoundPage = React.lazy(() => import('./Pages/NotFoundPage'));
-const PaymentPage= React.lazy(()=> import('./Pages/PaymentPage/paymentPage'))
+const PaymentPage= React.lazy(()=> import('./Pages/PaymentPage'))
+
+const SuccessPage= React.lazy(()=> import('./Pages/SuccessPage'))
+const CartPage= React.lazy(()=> import('./Pages/CartPage'))
+
 
 
 
@@ -48,26 +53,31 @@ function App() {
       <Suspense  fallback= { <SppinerLoading /> } >
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles {...(theme === "dark" ? darkTheme : lightTheme)} />
+        {/* add header  */}
+        <Header isLoggedIn={true} />
+
         <Routes>
-          {/* add header  */}
-          
           {/* Auth */}
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/singUp" element={<SignUpPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           {/* Pages */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/createProduct" element={<CreateProductPage />} />
-          <Route path="/paymentProduct" element={<PaymentPage />} />
-          <Route path="/product" element={<ProductPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/reviewProduct" element={<ReviewPage />} />
-          <Route path="/searchProduct" element={<SearchPage />} />
+          <Route path="/search/:keyword" element={<SearchPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          {/* product pages */}
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/product/create" element={<CreateProductPage />} />
+          <Route path="/product/payment" element={<PaymentPage />} />
+          <Route path="/product/review/:id" element={<ReviewPage />} />
           {/* Admin Page */}
-          <Route path="/users" element={<UsersAdminPage />} />
-          <Route path="/products" element={<ProductsAdminPage />} />
-          <Route path="/orders" element={<OrdersAdminPage />} />
+          <Route path="/admin/users" element={<UsersAdminPage />} />
+          <Route path="/admin/products" element={<ProductsAdminPage />} />
+          <Route path="/admin/orders" element={<OrdersAdminPage />} />
           {/* notFoundPage */}
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </ThemeProvider>
       </Suspense>

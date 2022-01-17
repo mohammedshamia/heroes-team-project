@@ -5,9 +5,10 @@ import SignupSchema from "../../../Helpers/Validation/SignupSchema";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
 import { FormContainer } from "../LogIn/styles";
+// import SignupForm from "./SignupForm";
 import SignupForm from "./SignupForm";
 
-const Index = () => {
+const Signup = () => {
   const LoginInitialValues: ISignUpUser = {
     userName: "",
     userEmail: "",
@@ -46,4 +47,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Signup;
