@@ -9,7 +9,7 @@ export const DividerComponent = styled.hr`
   width: 100%;
 
   background: rgba(1, 15, 30, 0.1);
-  height: 4px !important;
+  height: 2px;
 
   overflow: hidden;
   position: relative;
