@@ -10,6 +10,7 @@ export interface ButtonProp {
   fontSize?: string;
   hover?: boolean;
   colorHover?: string;
+  backgroundColorHover?:string,
   padding?: string;
   margin?: string;
   className?: string;
