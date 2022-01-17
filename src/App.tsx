@@ -10,7 +10,6 @@ import CreateProductPage from "./Pages/CreateProductPage";
 import PaymentPage from "./Pages/PaymentPage";
 import ProductPage from "./Pages/ProductPage";
 import ProfilePage from "./Pages/ProfilePage";
-import ReviewPage from "./Pages/ReviewPage";
 import OrdersAdminPage from "./Pages/AdminPages/OrdersAdminPage";
 import ProductsAdminPage from "./Pages/AdminPages/ProductsAdminPage";
 import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage";
@@ -18,6 +17,8 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import SuccessPage from "./Pages/SuccessPage";
 import SearchPage from "./Pages/SearchPage";
 import CartPage from "./Pages/CartPage";
+import PlaceOrder from "./Pages/ReviewPage/placeOrder";
+import ShippingPage from "./Pages/ReviewPage/shippingReviewPage";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -61,7 +62,8 @@ function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/product/create" element={<CreateProductPage />} />
           <Route path="/product/payment" element={<PaymentPage />} />
-          <Route path="/product/review/:id" element={<ReviewPage />} />
+          <Route path="/product/review/shipping/:id" element={<ShippingPage />} />
+          <Route path="/product/review/placeorder/:id" element={<PlaceOrder />} />
           {/* Admin Page */}
           <Route path="/admin/users" element={<UsersAdminPage />} />
           <Route path="/admin/products" element={<ProductsAdminPage />} />

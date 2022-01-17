@@ -1,5 +1,4 @@
 import { Formik } from "formik";
-import React from "react";
 import { CreateNewProductSchema } from "../../../Helpers/Validation";
 import FormNewProduct from "./formNewProduct";
 import { ICreateNewProduct } from "../../../@Types/Validation";
