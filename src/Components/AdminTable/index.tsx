@@ -61,8 +61,8 @@ const AdminTable: FC<IProps> = ({
             <tr>
               <th>{row.id}</th>
               <th>{row.name}</th>
-              <th>{row.price}</th>
-              <th>{row.category}</th>
+              <th>{row.price || row.rule || row.date}</th>
+              <th>{row.category || row.type}</th>
               <th>
                 <Button
                   padding="3px"

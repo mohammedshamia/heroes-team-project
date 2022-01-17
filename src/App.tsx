@@ -3,22 +3,22 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Helpers/Theme/index";
 import { GlobalStyles } from "./Helpers/globalStyle";
 import { Routes, Route, Navigate } from "react-router";
-import HomePage from "./Pages/HomePage/homePage";
-import LoginPage from "./Pages/AuthPages/LoginPage/loginPage";
-import SignUpPage from "./Pages/AuthPages/SignUpPage/signUpPage";
-import CreateProductPage from "./Pages/CreateProductPage/createProductPage";
-import PaymentPage from "./Pages/PaymentPage/paymentPage";
-import ProductPage from "./Pages/ProductPage/productPage";
-import ProfilePage from "./Pages/ProfilePage/profilePage";
-import ReviewPage from "./Pages/ReviewPage/reviewPage";
-import OrdersAdminPage from "./Pages/AdminPages/OrdersAdminPage/ordersAdminPage";
-import ProductsAdminPage from "./Pages/AdminPages/ProductsAdminPage/productsAdminPage";
-import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage/usersAdminPage";
+import HomePage from "./Pages/HomePage";
+import LoginPage from "./Pages/AuthPages/LoginPage";
+import SignUpPage from "./Pages/AuthPages/SignUpPage";
+import CreateProductPage from "./Pages/CreateProductPage";
+import PaymentPage from "./Pages/PaymentPage";
+import ProductPage from "./Pages/ProductPage";
+import ProfilePage from "./Pages/ProfilePage";
+import ReviewPage from "./Pages/ReviewPage";
+import OrdersAdminPage from "./Pages/AdminPages/OrdersAdminPage";
+import ProductsAdminPage from "./Pages/AdminPages/ProductsAdminPage";
+import UsersAdminPage from "./Pages/AdminPages/UsersAdminPage";
 import NotFoundPage from "./Pages/NotFoundPage";
-import SuccessPage from "./Pages/SuccessPage/searchPage";
-import SearchPage from "./Pages/SearchPage/searchPage";
-import CartPage from "./Pages/CartPage/searchPage";
 import Header from "./Components/Header";
+import SuccessPage from "./Pages/SuccessPage";
+import SearchPage from "./Pages/SearchPage";
+import CartPage from "./Pages/CartPage";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -51,7 +51,7 @@ function App() {
         <Routes>
           {/* Auth */}
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/singUp" element={<SignUpPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           {/* Pages */}
           <Route path="/" element={<HomePage />} />
           <Route path="/profile" element={<ProfilePage />} />

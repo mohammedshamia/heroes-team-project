@@ -3,7 +3,7 @@ import React from "react";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
 import FormInput from "../Fields/inputField";
-import { CreateNewProductValues } from "./interface";
+import { ICreateNewProduct } from "../../../@Types/Validation";
 import {
   ProductDetails,
   FormProductInputGroup,
@@ -15,6 +15,7 @@ import {
   ProductImageUploadGroupButton,
   Continer,
 } from "./newProduct.style";
+import { CreateNewProductValues } from "./interface";
 
 interface OtherProps {
   isEditing: boolean;
