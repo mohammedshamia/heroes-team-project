@@ -18,6 +18,7 @@ const OrdersAdminPage = React.lazy(() => import('./Pages/AdminPages/OrdersAdminP
 const ProductsAdminPage = React.lazy(() => import('./Pages/AdminPages/ProductsAdminPage/productsAdminPage'));
 const UsersAdminPage = React.lazy(() => import('./Pages/AdminPages/UsersAdminPage/usersAdminPage'));
 const NotFoundPage = React.lazy(() => import('./Pages/NotFoundPage'));
+const PaymentPage= React.lazy(()=> import('./Pages/PaymentPage/paymentPage'))
 
 
 
