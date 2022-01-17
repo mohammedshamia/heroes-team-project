@@ -18,6 +18,7 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import SuccessPage from "./Pages/SuccessPage/searchPage";
 import SearchPage from "./Pages/SearchPage/searchPage";
 import CartPage from "./Pages/CartPage/searchPage";
+import Header from "./Components/Header";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -44,9 +45,10 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles {...(theme === "dark" ? darkTheme : lightTheme)} />
-        <Routes>
-          {/* add header  */}
+        {/* add header  */}
+        <Header />
 
+        <Routes>
           {/* Auth */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/singUp" element={<SignUpPage />} />
