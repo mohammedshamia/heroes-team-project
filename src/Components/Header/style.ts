@@ -47,4 +47,5 @@ export const ICONS = styled.div`
   align-items: center;
 
   gap: 32px;
+  overflow: hidden;
 `;
