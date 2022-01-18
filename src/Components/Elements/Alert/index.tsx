@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import { HTMLProps, ReactNode } from "react";
 import { Alert } from "./style";
 
 type positions = "normal" | "snackBar";
 
-type types = "default" | "card" |"success" | "warning" | "error";
+type types = "default" | "card" | "success" | "warning" | "error";
 
-interface IProps extends React.HTMLProps<HTMLDivElement> {
-  children?: React.ReactNode;
+interface IProps extends HTMLProps<HTMLDivElement> {
+  children?: ReactNode;
   component?: any;
   position?: positions;
   type?: types;
@@ -23,7 +23,7 @@ const Index = ({
 }: IProps) => {
   window.setTimeout(() => {
     console.log("out!");
-    if(position === 'snackBar') {
+    if (position === "snackBar") {
       setOpen(false);
     }
   }, 6000);

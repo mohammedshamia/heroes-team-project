@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 
 import {
   Root,
@@ -13,11 +13,11 @@ interface IData {
   code: string;
 }
 
-interface IautoCompleteProps {
+interface ISearch {
   data: any[];
 }
 
-const Search: FC<IautoCompleteProps> = ({ data }) => {
+const Search: FC<ISearch> = ({ data }) => {
   const [search, setSearch] = useState({
     text: "",
     suggestions: [],

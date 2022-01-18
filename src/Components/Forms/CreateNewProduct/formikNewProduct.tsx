@@ -1,25 +1,25 @@
 import { Formik } from "formik";
 import { CreateNewProductSchema } from "../../../Helpers/Validation";
 import FormNewProduct from "./formNewProduct";
-import { ICreateNewProduct } from "../../../@Types/Validation";
+import { CreateNewProductValues } from "./interface";
 
 interface Iprops {
   isEditing: boolean;
 }
 const FormikNewProduct = (props: Iprops) => {
-  const initialValues: ICreateNewProduct = {
+  const initialValues: CreateNewProductValues = {
     productName: "",
     productBrand: "",
     productCategroy: "",
     productDiscription: "",
-    productID: 0,
-    productCount: 0,
-    productPrice: 0,
+    productID: "",
+    productCount: "",
+    productPrice: "",
   };
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values: ICreateNewProduct, actions) => {
+      onSubmit={(values: CreateNewProductValues, actions) => {
         console.log(values);
         actions.setSubmitting(false);
         actions.resetForm({});

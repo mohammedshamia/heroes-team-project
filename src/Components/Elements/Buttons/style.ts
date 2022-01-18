@@ -17,5 +17,6 @@ export const IButton = styled.button<ButtonProp>`
   &:hover {
     border: ${(props) => props?.borderHover || null};
     color: ${(props) => props?.colorHover || null};
+    background-color: ${(props) => props?.backgroundColorHover || null};
   }
 `;

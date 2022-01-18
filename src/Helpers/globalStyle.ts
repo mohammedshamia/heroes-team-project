@@ -12,11 +12,21 @@ export const GlobalStyles = createGlobalStyle<DefaultTheme>`
 }
 
 html {
-  /* font-size: 10px; */
-
-  /* 10px / 16px = 0.625 = 62.5% */
-  /* Percentage of user's browser font-size setting */
   font-size: 62.5%;
   overflow-x: hidden;
 }
+
+
+.swiper-pagination-bullet {
+  height: 14px;
+  width: 14px;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #fcdd06;
+}
+
 `;

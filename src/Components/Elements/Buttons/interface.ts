@@ -10,6 +10,7 @@ export interface ButtonProp {
   fontSize?: string;
   hover?: boolean;
   colorHover?: string;
+  backgroundColorHover?: string;
   padding?: string;
   margin?: string;
   className?: string;
@@ -20,4 +21,5 @@ export interface ButtonProp {
   onMouseLeave?: () => void;
   disabled?: boolean;
   style?: React.CSSProperties;
+  form?:string; 
 }

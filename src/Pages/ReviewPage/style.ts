@@ -5,6 +5,9 @@ interface prop {
   opacity?: string;
   width?: string;
 }
+export const WrapperReviewPage = styled.div` 
+ margin:0px 60px; 
+`
 export const Step = styled.span < prop>`
 
 background-color:#FCDD06;
@@ -30,24 +33,29 @@ margin:0 10px ;
 export const Stepper = styled.div`
 margin-top:10px; 
 display:flex; 
-/* width:35%; 
-justify-content:space-between; */
 align-items:center; 
 `
 export const WrapperFormAndOrder = styled.div`
   display:grid; 
- grid-template-columns: 800px 400px ;
+ grid-template-columns: 700px 400px ;
  gap:15px; 
-/* grid-template-rows: 12px 12px ; */
+ margin:10px; 
+  
+@media (max-width: 768px) {
+    display:flex; 
+    flex-direction: column;
+    /* padding: 1rem; */
+  }
 
   `
 export const WrapOrder = styled.div`
-  /* margin: 70px; */
+
 display: flex;
 background-color: #f2f2f2;
 border-radius: 16px;
 flex-direction: column;
 padding: 2rem 5rem;
+position:relative; 
 `
 export const LinkRouter = styled(Link)` 
 

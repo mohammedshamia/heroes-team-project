@@ -18,7 +18,8 @@ const FormShipping = (
   const { errors, touched, } = props;
 
   return ( 
-    <Continer>
+    <Continer id= "form">
+      <div> 
       <Typography variant="h6" fontWeight={700}> Shipping Address </Typography>
       <InputContainer>
         <FormInput
@@ -68,17 +69,10 @@ const FormShipping = (
           background={"#F2F2F2"}
         />
       </InputContainer>
-      <div style={{ position: "relative", top: "30%", left: "90%" }}> 
-        <Button
-          type="submit"
-          backgroundColor={"#FCDD06"}
-          padding={"1rem 2rem"}
-          fontSize={"12px"}    
-        >
-          Review order
-        </Button>
-
       </div>
+        {/*  */}
+
+ 
 
       </Continer >
     

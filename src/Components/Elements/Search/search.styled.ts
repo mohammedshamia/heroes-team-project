@@ -9,13 +9,10 @@ export const Root = styled.div`
 //Input Component
 export const ValueWrapper = styled.input`
   width: 100%;
-  padding-left: 8px;
-  padding-right: 32px;
-  height: 32px;
 
-  border-radius: 1px;
+  border-radius: 6px;
   border: 1px solid #b6c1ce;
-  line-height: 32px;
+  height: 40px;
 `;
 
 export const Input = styled(ValueWrapper)`
@@ -29,12 +26,13 @@ export const Input = styled(ValueWrapper)`
 
 export const AutoCompleteContainer = styled.ul`
   background: #fff;
+
   padding: 8px 0;
   margin: 0;
 
   list-style-type: none;
 
-  min-width: 320px;
+  min-width: 580px;
 
   position: absolute;
   top: 100%;
