@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Counter from "../Counter";
 import { CardImg } from "./index";
 import Typography from "../../Typography";
-import { ContainerShopping, ContainerClose } from "./style";
+import { ContainerShopping, ContainerClose, ItemImg, ItemCounter, ItemTypo, Itemprice } from "./style";
 import CloseIcon from "../../Icons/CloseIcon";
+import Container from "../../Container";
 interface IpropsShopCart {
   imgUrl?: string;
   title?: string;
@@ -18,13 +19,23 @@ const ShoppingCart = (props: IpropsShopCart) => {
 
   return (
     <ContainerShopping>
+
       <ContainerClose>
         <CloseIcon />
       </ContainerClose>
-      <CardImg src={imgUrl} alt="photo" width="200px" />
-      <Typography variant="h5" children={title} />
-      <Counter counter={count} setCounter={increment} />
-      <Typography variant="h3" fontWeight={700} children={` $ ${price}`} />
+      <ItemImg>
+        <img src={imgUrl} alt="photo" width={"100%"} />
+      </ItemImg>
+
+      <ItemTypo>
+        <Typography variant="body1" children={title} fontWeight={700} />
+      </ItemTypo>
+      <ItemCounter>
+        <Counter counter={count} setCounter={increment} />
+      </ItemCounter>
+      <Itemprice>
+        <Typography variant="h6" fontWeight={700} children={` $ ${price}`} />
+      </Itemprice>
     </ContainerShopping>
   );
 };
