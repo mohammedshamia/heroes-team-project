@@ -1,10 +1,10 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
 import Typography from '../../Components/Typography'
-import { LinkRouter, Title, ContentOrder, ContentProduct, Price,Hr } from './style'
+import { LinkRouter, Title, ContentProduct, Price, Hr, ContentOrderDetails } from './style'
+import {ContentOrder} from './ContentOrder';
 import { CardImg } from '../../Components/Elements/Card'
-import { prependOnceListener } from 'process';
-import { TypePredicateKind } from 'typescript';
+
 interface Iprop {
   title:string, 
     price: number, 
@@ -35,98 +35,22 @@ const OrderDetails = () => {
      <LinkRouter to ="/cart"> change </LinkRouter>
       </Title>
       {ItemCart.map((item, index) =>
-        <ContentCart key={index} imgUrl={item.imgUrl} price={item.price} title={ item.title}/> 
+        <> 
+          <ContentCart key={index} imgUrl={item.imgUrl} price={item.price} title={item.title} />
+          <Hr width="300px" /> 
+          </> 
       )}
-      <Price> 
-      <Typography
-        children='subtotal'
-        variant='h6'
-        style={{
-          fontSize: "13px",
-          color:'#707070',
-
-        }}
-      />
-      <Typography
-        children='$595'
-        variant='h6'
-        style={{
-          fontSize: "13px",
-          color: '#707070',
-
-        }}
-        />
-      </Price>
-      <Price>
-        <Typography
-          children='Tax'
-          variant='h6'
-          style={{
-            fontSize: "13px",
-            color: '#707070',
-
-          }}
-        />
-        <Typography
-          children='$2.5'
-          variant='h6'
-          style={{
-            fontSize: "13px",
-            color: '#707070',
-
-          }}
-        />
-      </Price>
-      <Price>
-        <Typography
-          children='shipping'
-          variant='h6'
-          style={{
-            fontSize: "13px",
-            color: '#707070',
-
-          }}
-        />
-        <Typography
-          children='$0.00'
-          variant='h6'
-          style={{
-            fontSize: "13px",
-            color: '#707070',
-
-          }}
-        />
-      </Price>
-      <Price>
-        <Typography
-          children='Total'
-          variant='h6'
-          style={{
-            fontSize: "13px",
-            color: '#707070',
-
-          }}
-        />
-        <Typography
-          children='$592'
-          variant='h6'
-          style={{
-            fontSize: "13px",
-            color: '#707070',
-
-          }}
-        />
-      </Price>
+      <ContentOrder />
     </>
   )
 }
 
 export default OrderDetails
-const ContentCart = (props:Iprop) => {
+  export const ContentCart = (props:Iprop) => {
   const { title, imgUrl, price } = props
   return (
     <> 
-      <ContentOrder> 
+      <ContentOrderDetails> 
         <CardImg src= {imgUrl} width="90px" />
         <ContentProduct> 
         <Typography
@@ -157,8 +81,7 @@ const ContentCart = (props:Iprop) => {
             />
           </Price>
         </ContentProduct> 
-      </ContentOrder>
-      <Hr width="300px" /> 
+      </ContentOrderDetails>
     </>
   )
 }

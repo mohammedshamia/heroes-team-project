@@ -4,9 +4,11 @@ import styled from 'styled-components'
 interface prop {
   opacity?: string;
   width?: string;
+  Grid?:string; 
 }
 export const WrapperReviewPage = styled.div` 
- margin:0px 60px; 
+ margin:10px 60px; 
+
 `
 export const Step = styled.span < prop>`
 
@@ -35,9 +37,10 @@ margin-top:10px;
 display:flex; 
 align-items:center; 
 `
-export const WrapperFormAndOrder = styled.div`
+export const WrapperFormAndOrder = styled.div <prop>`
   display:grid; 
- grid-template-columns: 700px 400px ;
+ grid-template-columns:  ${props => props.Grid || "700px 400px "};
+
  gap:15px; 
  margin:10px; 
   
@@ -68,7 +71,7 @@ display:flex;
 align-items:center; 
 justify-content:space-between; 
 `
-export const ContentOrder =styled.div` 
+export const ContentOrderDetails =styled.div` 
 display:flex; 
 algin-items:center; 
 
@@ -83,5 +86,20 @@ gap:10px;
 `
 export const Price = styled.div` 
 display:flex; 
-justify-content space-between; 
+justify-content: space-between; 
 `
+
+export const ContentPlaceOrder = styled.div`
+background: #F2F2F2;
+border-radius:16px; 
+padding: 2.5rem 3rem; 
+margin: 5px 10px; 
+`  
+
+export const ContentDetailsPlaceOrder = styled.div`
+background: #F2F2F2;
+height:25vh; 
+border-radius:16px; 
+padding: 2.5rem 3rem; 
+
+` 
