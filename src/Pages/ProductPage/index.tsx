@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import ImageSection from "./Components/imageSection";
 import { IProductData } from "./interface";
 import ProductDetails from "./Components/productDetails";
-import { FirstSection } from "./product.style";
+import { FirstSection, LinkBack, TitleLink } from "./product.style";
 import Container from "../../Components/Container";
 import Specification from "./Components/specification";
 import Reviews from "./Components/reviews";
 import Rate from "../../Components/Elements/Rating";
 import CardSliders from "./Components/cardSlider";
+import Typography from "../../Components/Typography";
 
 const ProductPage = () => {
   const [rating, setRating] = useState<number>(3);
@@ -103,6 +104,11 @@ const ProductPage = () => {
   return (
     <>
       <Container>
+        <TitleLink>
+          <Typography style={{ color: "#000", fontSize: "15px",letterSpacing: '0.96px' }}>
+            <LinkBack to="/">Back </LinkBack> /{productData[0].name}
+          </Typography>
+        </TitleLink>
         <FirstSection>
           <ImageSection ProductData={productData} />
           <ProductDetails ProductData={productData} />

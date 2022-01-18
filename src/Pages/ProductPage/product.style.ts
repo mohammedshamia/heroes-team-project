@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 export const ImageSections = styled.div`
   display: flex;
@@ -192,4 +193,19 @@ export const CardsSection = styled.div`
   background: #f7f8fc;
   width: 100%;
   padding: 0 0 180px;
+`;
+
+export const LinkBack = styled(Link)`
+  list-style: none;
+  text-decoration: none;
+  color: #707070;
+  font-size: 15px;
+  &:hover {
+    cursor: pointer;
+    color: #000;
+  }
+`;
+
+export const TitleLink = styled.div`
+  padding: 1rem 0rem;
 `;
