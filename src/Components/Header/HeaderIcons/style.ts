@@ -7,6 +7,7 @@ export const Wrapper = styled(Link)`
   justify-content: center;
   align-items: center;
   gap: 9px;
+  overflow: hidden;
   text-decoration: none;
   cursor: pointer;
 `;

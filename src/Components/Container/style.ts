@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   margin: auto;
-  overflow: hidden;
+
   @media (min-width: 500px) {
     width: 98%;
   }

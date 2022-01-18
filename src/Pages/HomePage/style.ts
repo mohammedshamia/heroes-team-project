@@ -1,20 +1,27 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
 
-export const Swipers = styled(Swiper)`
+export const SwiperWrapper = styled("div")`
   background: #f2f2f2;
-  display: flex;
+  /* display: flex;
   align-items: center;
   align-self: center;
-  justify-content: center;
+  justify-content: center; */
 `;
+// export const Swipers = styled(Swiper)`
+//   background: #f2f2f2;
+//   /* display: flex;
+//   align-items: center;
+//   align-self: center;
+//   justify-content: center; */
+// `;
 export const Slider = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   align-self: center;
-  padding: 1rem 8rem;
+  padding: 1rem 0;
   @media (max-width: 800px) {
     flex-direction: column;
   }
