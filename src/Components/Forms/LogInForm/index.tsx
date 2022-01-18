@@ -4,7 +4,6 @@ import { ILogInUser } from "../../../@Types/Validation";
 import LogInSchema from "../../../Helpers/Validation/LoginSchema";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
-import { FlexInput } from "../Fields/inputField.style";
 import LoginForm from "./LoginForm";
 import { FormContainer } from "./styles";
 
@@ -30,22 +29,22 @@ const Index = () => {
       />
       <hr style={{ marginTop: "20px" }} />
       <div style={{ textAlign: "center", marginTop: "30px" }}>
-        <Button
-          border="1px solid #FCDD06"
-          color="black"
-          width="60%"
-          padding="15px 10px"
+        <NavLink
+          style={{
+            color: " black",
+            textDecoration: "none",
+          }}
+          to={"/signup"}
         >
-          <NavLink
-            style={{
-              color: " black",
-              textDecoration: "none",
-            }}
-            to={"/singUp"}
+          <Button
+            border="1px solid #FCDD06"
+            color="black"
+            width="60%"
+            padding="15px 10px"
           >
             Sign Up Now
-          </NavLink>
-        </Button>
+          </Button>
+        </NavLink>
       </div>
     </FormContainer>
   );

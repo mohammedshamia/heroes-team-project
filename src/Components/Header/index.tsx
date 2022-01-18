@@ -47,11 +47,11 @@ const Header: FC<IHeader> = ({ isLoggedIn }) => {
 
           <ICONS>
             {isLoggedIn ? (
-              <SVGICON description="Login" to="/">
+              <SVGICON description="Login / Sign UP" to="/login">
                 <Person />
               </SVGICON>
             ) : (
-              <SVGICON description="Sign UP" to="/">
+              <SVGICON description="Profile" to="/profile">
                 <Person />
               </SVGICON>
             )}

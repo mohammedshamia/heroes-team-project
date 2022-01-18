@@ -1,4 +1,3 @@
-import React from "react";
 import { IProductData } from "../interface";
 import {
   Imagefirst,

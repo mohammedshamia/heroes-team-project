@@ -1,5 +1,5 @@
 import Container from "../../../Components/Container";
-import LoginForm from "../../../Components/Forms/LogIn/index";
+import LoginForm from "../../../Components/Forms/LogInForm/index";
 import { LoginContainer, LoginImage } from "./styles";
 
 const LoginPage = () => {
