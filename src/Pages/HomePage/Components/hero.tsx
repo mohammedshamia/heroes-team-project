@@ -15,7 +15,7 @@ import {
   SliderDatiles,
   SliderDatilesm,
   SliderImage,
-  Swipers,
+  SwiperWrapper,
 } from "../style";
 import Typography from "../../../Components/Typography";
 import Button from "../../../Components/Elements/Buttons";
@@ -44,19 +44,19 @@ const Hero = () => {
     },
   ];
   return (
-    <>
-      <Swipers
-        cssMode={true}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        mousewheel={true}
-        keyboard={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-      >
-        {heroSlide.map((elemnt) => (
-          <Container>
+    <SwiperWrapper>
+      <Container>
+        <Swiper
+          cssMode={true}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          mousewheel={true}
+          keyboard={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}         
+        >
+          {heroSlide.map((elemnt) => (
             <SwiperSlide>
               <Slider>
                 <SliderDatiles>
@@ -105,10 +105,10 @@ const Hero = () => {
                 <SliderImage src={elemnt.image} alt="" />
               </Slider>
             </SwiperSlide>
-          </Container>
-        ))}
-      </Swipers>
-    </>
+          ))}
+        </Swiper>
+      </Container>
+    </SwiperWrapper>
   );
 };
 

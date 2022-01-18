@@ -5279,6 +5279,9 @@ internal-slot@^1.0.3:
     side-channel "^1.0.4"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ddbb748f9a1b340d36a38d56fde7f488e5342f0b
 invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -5292,9 +5295,12 @@ ip-regex@^4.1.0:
   integrity sha512-B9ZWJxHHOHUhUjCPrMpLD4xEq35bUTClHM1S6CBU5ixQnkZmwipwgc96vAd7AAGM9TGHvJR+Uss+/Ak6UphK+Q==
 
 ip@^1.1.0, ip@^1.1.5:
+<<<<<<< HEAD
 =======
 ip@^1.1.0:
 >>>>>>> 4fac3984c04363b3fb3d6bee6cd68a787c6b1a4a
+=======
+>>>>>>> ddbb748f9a1b340d36a38d56fde7f488e5342f0b
   version "1.1.5"
   resolved "https://registry.npmjs.org/ip/-/ip-1.1.5.tgz"
   integrity sha1-vd7XARQpCCjAoDnnLvJfWq7ENUo=
@@ -7997,6 +8003,9 @@ prompts@^2.0.1, prompts@^2.4.2:
     sisteransi "^1.0.5"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ddbb748f9a1b340d36a38d56fde7f488e5342f0b
 promzard@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/promzard/-/promzard-0.3.0.tgz#26a5d6ee8c7dee4cb12208305acfb93ba382a9ee"
@@ -8013,9 +8022,12 @@ prop-types-extra@^1.1.0:
     warning "^4.0.0"
 
 prop-types@^15.5.4, prop-types@^15.6.2, prop-types@^15.7.2:
+<<<<<<< HEAD
 =======
 prop-types@^15.5.4, prop-types@^15.7.2:
 >>>>>>> 4fac3984c04363b3fb3d6bee6cd68a787c6b1a4a
+=======
+>>>>>>> ddbb748f9a1b340d36a38d56fde7f488e5342f0b
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
