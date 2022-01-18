@@ -37,7 +37,9 @@ const Header: FC<IHeader> = ({ isLoggedIn }) => {
             <Search data={[{ name: "mohammed", code: "123" }]} />
             <SearchButton>
               <ButtonContent>
-                <div style={{ width: "18px", height: "18px" }}>
+                <div
+                  style={{ width: "18px", height: "18px", overflow: "hidden" }}
+                >
                   <SearchIcon />
                 </div>
                 <Typography variant="body1"> Search</Typography>
