@@ -94,6 +94,7 @@ background: #F2F2F2;
 border-radius:16px; 
 padding: 2.5rem 3rem; 
 margin: 5px 10px; 
+
 `  
 
 export const ContentDetailsPlaceOrder = styled.div`
@@ -103,3 +104,8 @@ border-radius:16px;
 padding: 2.5rem 3rem; 
 
 ` 
+export const ContainerOrderDetails = styled.div`
+display:flex; 
+flex-direction:column; 
+gap:10px;
+ `

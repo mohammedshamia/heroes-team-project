@@ -1,5 +1,5 @@
 import React from 'react'
-import { Step, Hr, Stepper, StepDisable, WrapperFormAndOrder, ContentPlaceOrder, ContentDetailsPlaceOrder, Title, LinkRouter, WrapperReviewPage } from './style'
+import { Step, Hr, Stepper, StepDisable, WrapperFormAndOrder, ContentPlaceOrder, ContentDetailsPlaceOrder, Title, LinkRouter, WrapperReviewPage, ContainerOrderDetails } from './style'
 import Button from '../../Components/Elements/Buttons'
 import Typography from '../../Components/Typography'
 import { ContentCart } from './OrderDetails';
@@ -95,6 +95,7 @@ const PlaceOrder = () => {
             <ContentCart key={index} imgUrl={item.imgUrl} price={item.price} title={item.title} />
           )}
         </ContentPlaceOrder>
+        <ContainerOrderDetails > 
         <ContentDetailsPlaceOrder>
           <Typography
             children='Order Details'
@@ -105,20 +106,20 @@ const PlaceOrder = () => {
               letterSpacing: "1.28px",
             }}
           />
-          <ContentOrder/>
-        </ContentDetailsPlaceOrder>
-        <Button
-          type="submit"
-          backgroundColor={"#FCDD06"}
-          padding={"1rem 4rem"}
-          fontSize={"12px"}
-          form={"form"}
-          onClick = {handleClick}
-          style={{ position: "absolute", top: "49%", right: "26%" }}
-        >
-          place order
-        </Button>
-        
+          <ContentOrder />
+          </ContentDetailsPlaceOrder> 
+          <Button
+            type="submit"
+            backgroundColor={"#FCDD06"}
+            padding={"1rem 3rem"}
+            fontSize={"12px"}
+            form={"form"}
+            onClick={handleClick}
+
+          >
+            place order
+          </Button>
+        </ContainerOrderDetails>  
       </WrapperFormAndOrder>
     </WrapperReviewPage>
   )
