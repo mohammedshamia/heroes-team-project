@@ -8,6 +8,7 @@ import SwiperCore, {
   Pagination,
   Mousewheel,
   Keyboard,
+  Autoplay,
 } from "swiper";
 import {
   Slider,
@@ -19,7 +20,7 @@ import {
 import Typography from "../../../Components/Typography";
 import Button from "../../../Components/Elements/Buttons";
 import Container from "../../../Components/Container";
-SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
+SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard, Autoplay]);
 
 const Hero = () => {
   const heroSlide = [
@@ -52,6 +53,7 @@ const Hero = () => {
         }}
         mousewheel={true}
         keyboard={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
         {heroSlide.map((elemnt) => (
           <Container>
