@@ -1,10 +1,17 @@
 import React from "react";
-import Hero from "./hero";
+import Container from "../../Components/Container";
+import CardSliders from "./Components/cardSlider";
+import Categories from "./Components/categories";
+import Hero from "./Components/hero";
+import TopRate from "./Components/topRate";
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Hero />
-    </div>
+      <Categories />
+      <CardSliders />
+      <TopRate/>
+    </>
   );
 };
 

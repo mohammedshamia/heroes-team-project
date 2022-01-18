@@ -2,14 +2,19 @@ import styled from "styled-components";
 export const ImageSections = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
-  margin-right: 1rem;
+  width: 30%;
+  padding: 0 1rem 0 0;
 `;
 
-export const Imagefirst = styled.img`
-  width: 300px;
+export const Imagefirst = styled.div`
+  width: 100%;
   height: 300px;
   margin-bottom: 6rem;
+  display: flex;
+  align-items: center;
+  & img {
+    width: 100%;
+  }
   @media (max-width: 768px) {
     margin-bottom: 2rem;
     align-items: center;
@@ -20,19 +25,21 @@ export const Imagefirst = styled.img`
 export const ImageSecionSecond = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   @media (max-width: 768px) {
     margin-bottom: 2rem;
-
     align-items: center;
     align-self: center;
   }
 `;
 
-export const ImageSmall = styled.img`
+export const ImageSmall = styled.div`
   border: 1px solid #f2f2f2;
-  width: 100px;
+  width: 32%;
   height: 100px;
-  margin-right: 1rem;
+  & img {
+    width: 100%;
+  }
 `;
 export const FirstSection = styled.div`
   display: flex;
@@ -53,11 +60,12 @@ export const Featured = styled.div`
   align-items: center;
   align-self: center;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 0px;
 `;
 export const ProductDetail = styled.div`
   display: flex;
   flex-direction: column;
+  width: 70%;
   @media (max-width: 768px) {
     width: auto;
     padding: 1rem;
