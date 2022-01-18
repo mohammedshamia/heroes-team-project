@@ -5,6 +5,7 @@ interface IAttributes {
   gutterBottom?: boolean;
   variant: string;
   fontWeight?: number;
+  className?: string; 
 }
 
 export const Styling = styled.div<IAttributes>`

@@ -35,6 +35,8 @@ export const Img = styled.img<IProps>`
   position: relative;
   top: 0;
   margin-bottom: 10px;
+  max-height:300px; 
+min-height:300px; 
 `;
 export const ContainerButton = styled.div`
   display: flex;

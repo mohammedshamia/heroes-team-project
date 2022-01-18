@@ -10,7 +10,7 @@ const TopRate = () => {
   return (
     <Container>
       <Categ>
-        <Typography variant="h5" fontWeight={700}>
+        <Typography variant="h5" fontWeight={700} style={{ marginTop: "10px" }}>
           TOP RATE PRODUCTS{" "}
         </Typography>
       </Categ>

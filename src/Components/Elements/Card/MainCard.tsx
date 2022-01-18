@@ -18,7 +18,7 @@ export default function MainCard(props: IpropsMainCard) {
     <Card>
       <div>
         <CardImg src={imgUrl} alt="phone" />
-        <Typography variant="h5"> {title} </Typography>
+        <Typography className="bla-bla" variant="h5"> {title} </Typography>
         <Rate rating={rating} onRating={(rate: number) => setRating(rate)} />
         <Typography variant="h4">  {price}  </Typography>
         <ContainerButton>
