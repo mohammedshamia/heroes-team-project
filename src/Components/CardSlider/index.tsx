@@ -28,7 +28,7 @@ export const CardSlider = () => {
       <Swiper
         spaceBetween={30}
         slidesPerView={3}
-        navigation
+        slidesPerGroup={3}
         direction={"horizontal"}
         pagination={{
           clickable: true,
