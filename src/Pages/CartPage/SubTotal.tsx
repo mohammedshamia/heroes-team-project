@@ -7,14 +7,14 @@ const SubTotal = () => {
   return (
     <WrapperSubTotal>
       <Typography variant="h6" children="Subtotal (3) items" />
-      <p style={{ textDecoration: "line-through" }}>  $989.97 </p>
+      <Typography variant="h5"  style={{ textDecoration: "line-through", color:"#707070" }}>  $989.97 </Typography>
       <Typography variant="h5" fontWeight={700} children=" $989.97" /> 
       <hr/>
       <Button
         type="submit"
         backgroundColor={"#FCDD06"}
         children="Proceed To Check out "
-        padding={"1rem 3.5rem"}
+        padding={"1rem 2rem"}
         fontSize={"12px"}
       ></Button>
 
