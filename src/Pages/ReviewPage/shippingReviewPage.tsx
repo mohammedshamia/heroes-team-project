@@ -40,19 +40,23 @@ const ShippingPage = () => {
         <WrapOrder >
           <OrderDetails />
           {/* <PositionButton > */}
+          <article style={{ alignSelf: "flex-end", width: "content-fit" }}>
           <Button
             type="submit"
             backgroundColor={"#FCDD06"}
             padding={"1rem 3.5rem"}
             fontSize={"12px"}
-            position='absolute'
+            // position='absolute'
             right={"0"}
             bottom={"0"}
-            margin={"-50px 0px"}
+            // margin={"-50px 0px"}
             form={"form"}>
 
+
             Review order
+
           </Button> 
+          </article>
           {/* </PositionButton>    */}
         </WrapOrder>     
       </WrapperFormAndOrder>

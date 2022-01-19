@@ -9,24 +9,20 @@ interface IProps {
 }
 
 export const CardSection = styled.div<IProps>`
-  padding-bottom: 60px;
-  & > div {
     /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: pink;
     /* height: ${(props) => props.height || "400px"}; */
     background-color: #fff;
     border-radius: ${(props) => props.borderRadius || "10px"};
     overflow: hidden;
-    padding: 35px 4px 40px;
+    /* padding: 35px 4px; */
     /* width: ${(props) => props.width}; */
     /* @media (max-width: 768px) {
     width: 100%;
   } */
-  }
 `;
 
 export const Img = styled.img<IProps>`

@@ -1,9 +1,8 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import Typography from '../../Components/Typography'
-import { LinkRouter, Title, ContentProduct, Price, Hr, ContentOrderDetails } from './style'
+import { LinkRouter, Title, Price, Hr, ContentOrderDetails } from './style'
 import {ContentOrder} from './ContentOrder';
-import { CardImg } from '../../Components/Elements/Card'
+// import { CardImg } from '../../Components/Elements/Card'
 import { ItemImg } from '../../Components/Elements/Card/style';
 
 interface Iprop {
@@ -22,7 +21,7 @@ const ItemCart: Iprop[] = [
 ];
 const OrderDetails = () => { 
   return (
-    <> 
+    <div style={{ marginBottom: "15px" }}> 
       <Title >
       <Typography
         children='Order Details'
@@ -38,11 +37,11 @@ const OrderDetails = () => {
       {ItemCart.map((item, index) =>
         <> 
           <ContentCart key={index} imgUrl={item.imgUrl} price={item.price} title={item.title} />
-          <Hr width="300px" /> 
+          <Hr width="100%" /> 
           </> 
       )}
       <ContentOrder />
-    </>
+    </div>
   )
 }
 
@@ -52,11 +51,10 @@ export default OrderDetails
   return (
     <> 
       <ContentOrderDetails> 
-        {/* <CardImg src={imgUrl} width="20%" /> */}
+
         <ItemImg alignItems='center'>
           <img src={imgUrl} alt="photo" width={"100%"} />
         </ItemImg>
-        {/* <ContentProduct>  */}
         <div> 
         <Typography
           children= {title}
@@ -69,7 +67,6 @@ export default OrderDetails
           }}
           />
 
-          {/* </ContentProduct> */}
           <Price> 
         <Typography
               children={` $ ${price} x1`}

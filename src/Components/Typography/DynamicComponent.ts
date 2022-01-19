@@ -6,8 +6,7 @@ interface IAttributes {
   variant: string;
   fontWeight?: number;
   className?: string; 
-  fontSize?: string;
-  color?: string; 
+
 }
 
 export const Styling = styled.div<IAttributes>`
@@ -15,7 +14,6 @@ export const Styling = styled.div<IAttributes>`
 
   text-align: ${(props) => props.align};
   color:${props => props.color || null}; 
-  font-size:${props => props.fontSize || null}; 
   font-weight: ${(props) => props.fontWeight};
 
   font-size: ${(props) => props.theme.typography[props.variant].fontSize};
