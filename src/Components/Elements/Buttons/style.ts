@@ -14,6 +14,11 @@ export const IButton = styled.button<ButtonProp>`
   font-weight: ${(props) => (props.bold ? "bold" : "500")};
   width: ${({ width }) => width || "auto"};
   opacity: ${(props) => (props.disabled ? ".5" : "1")};
+  position:${(props) => (props.position || null)};
+  top:${(props) => (props.top || null)};
+  bottom:${(props) => (props.bottom || null)};
+    right:${(props) => (props.right || null)};
+
   &:hover {
     border: ${(props) => props?.borderHover || null};
     color: ${(props) => props?.colorHover || null};

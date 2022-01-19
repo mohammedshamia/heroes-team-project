@@ -5,13 +5,17 @@ interface IAttributes {
   gutterBottom?: boolean;
   variant: string;
   fontWeight?: number;
+  className?: string; 
+  fontSize?: string;
+  color?: string; 
 }
 
 export const Styling = styled.div<IAttributes>`
   margin-bottom: ${(props) => (props.gutterBottom ? "30px" : "0px")};
 
   text-align: ${(props) => props.align};
-
+  color:${props => props.color || null}; 
+  font-size:${props => props.fontSize || null}; 
   font-weight: ${(props) => props.fontWeight};
 
   font-size: ${(props) => props.theme.typography[props.variant].fontSize};

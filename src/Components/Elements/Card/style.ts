@@ -4,6 +4,8 @@ interface IProps {
   width?: string;
   height?: string;
   borderRadius?: string;
+  alignItems?: string;
+  justifyContent?: string;  
 }
 
 export const CardSection = styled.div<IProps>`
@@ -35,36 +37,56 @@ export const Img = styled.img<IProps>`
   position: relative;
   top: 0;
   margin-bottom: 10px;
+  max-height:300px; 
+  min-height:300px; 
 `;
 export const ContainerButton = styled.div`
   display: flex;
-  /* align-items:center;
-justify-content:center;  */
-  /* gap:10px;  */
+
 `;
 
 export const ContainerShopping = styled.div`
   background-color: #f2f2f2;
   display: flex;
-  /* padding: 15px 30px;  */
-  margin: 30px;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  border-radius: 16px;
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
+  border-radius:16px; 
+  position:relative; 
+ align-items:center; 
+ overflow: hidden;
+
   &:hover {
     box-shadow: 0px 4px 8px #00000017;
   }
 `;
 export const ContainerClose = styled.div`
-  position: absolute;
-  /* left:0; 
-top:10%; */
-  right: 20px;
-  top: 10px;
+position:absolute; 
+top:10px; 
+right:12px; 
+
 `;
+
+export const ItemImg = styled.div<IProps>` 
+width:20%;
+height:150px; 
+overflow: hidden;
+object-fit:cover; 
+display:flex;
+align-items: ${props => props.alignItems || null}  ;
+justify-content: ${props => props.justifyContent || null} ; 
+/* padding:5px 10px;  */
+
+`
+export const ItemCounter = styled.div` 
+width:30%;
+display:flex; 
+align-items:center; 
+`
+export const ItemTypo = styled.div` 
+width:30%; 
+align-self:flex-start; 
+padding:30px 5px; 
+`
+export const Itemprice = styled.div`
+ width:40%
+
+align-self:center; 
+`

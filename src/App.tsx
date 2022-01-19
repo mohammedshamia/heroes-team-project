@@ -13,7 +13,8 @@ const SignUpPage = React.lazy(() => import("./Pages/AuthPages/SignUpPage"));
 const CreateProductPage = React.lazy(() => import("./Pages/CreateProductPage"));
 const ProductPage = React.lazy(() => import("./Pages/ProductPage"));
 const ProfilePage = React.lazy(() => import("./Pages/ProfilePage"));
-const ReviewPage = React.lazy(() => import("./Pages/ReviewPage"));
+const ShippingPage = React.lazy(() => import("./Pages/ReviewPage/shippingReviewPage"));
+const PlaceOrderPage = React.lazy(() => import("./Pages/ReviewPage/placeOrder")  )
 const SearchPage = React.lazy(() => import("./Pages/SearchPage"));
 const NotFoundPage = React.lazy(() => import("./Pages/NotFoundPage"));
 const PaymentPage = React.lazy(() => import("./Pages/PaymentPage"));
@@ -43,31 +44,33 @@ function App() {
           {/* add header  */}
           <Header isLoggedIn={true} />
 
-          <Routes>
-            {/* Auth */}
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            {/* Pages */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/search/:keyword" element={<SearchPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/success" element={<SuccessPage />} />
-            <Route path="/404" element={<NotFoundPage />} />
-            {/* product pages */}
-            <Route path="/product/:id" element={<ProductPage />} />
-            <Route path="/product/create" element={<CreateProductPage />} />
-            <Route path="/product/payment" element={<PaymentPage />} />
-            <Route path="/product/review/:id" element={<ReviewPage />} />
-            {/* Admin Page */}
-            <Route path="/admin/users" element={<UsersAdminPage />} />
-            <Route path="/admin/products" element={<ProductsAdminPage />} />
-            <Route path="/admin/orders" element={<OrdersAdminPage />} />
-            {/* notFoundPage */}
-            <Route path="*" element={<Navigate to="/404" />} />
-          </Routes>
-        </ThemeProvider>
-        </ThemeContext>
+
+          {/* Auth */}
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          {/* Pages */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/search/:keyword" element={<SearchPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          {/* product pages */}
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/product/create" element={<CreateProductPage />} />
+          <Route path="/product/payment" element={<PaymentPage />} />
+          <Route path="/product/review/shipping/:id" element={<ShippingPage />} />
+            <Route path="/product/review/placeorder/:id" element={<PlaceOrderPage />} />
+          {/* Admin Page */}
+          <Route path="/admin/users" element={<UsersAdminPage />} />
+          <Route path="/admin/products" element={<ProductsAdminPage />} />
+          <Route path="/admin/orders" element={<OrdersAdminPage />} />
+          {/* notFoundPage */}
+          <Route path="*" element={<Navigate to="/404" />} />
+        </Routes>
+      </ThemeProvider>
+
       </Suspense>
     </div>
   );

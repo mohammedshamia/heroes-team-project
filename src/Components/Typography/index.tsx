@@ -7,6 +7,8 @@ export interface ITypography extends React.HTMLAttributes<HTMLDivElement> {
   align?: string;
   children: React.ReactNode;
   fontWeight?: number;
+  className?: string; 
+
 }
 
 const returnComponent: React.FC<ITypography> = ({
@@ -15,6 +17,7 @@ const returnComponent: React.FC<ITypography> = ({
   align,
   children,
   fontWeight,
+
   ...rest
 }) => {
   return (
