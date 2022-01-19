@@ -23,7 +23,7 @@ const ShoppingCart = (props: IpropsShopCart) => {
       <ContainerClose>
         <CloseIcon />
       </ContainerClose>
-      <ItemImg>
+      <ItemImg alignItems="center" justifyContent="center">
         <img src={imgUrl} alt="photo" width={"100%"} />
       </ItemImg>
 

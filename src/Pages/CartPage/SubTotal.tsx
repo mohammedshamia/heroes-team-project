@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../../Components/Elements/Buttons'
 import Typography from '../../Components/Typography'
+import { Hr } from '../ReviewPage/style'
 import { WrapperSubTotal } from './style'
 
 const SubTotal = () => {
@@ -9,7 +10,7 @@ const SubTotal = () => {
       <Typography variant="h6" children="Subtotal (3) items" />
       <Typography variant="h5"  style={{ textDecoration: "line-through", color:"#707070" }}>  $989.97 </Typography>
       <Typography variant="h5" fontWeight={700} children=" $989.97" /> 
-      <hr/>
+      <Hr width="200px" />
       <Button
         type="submit"
         backgroundColor={"#FCDD06"}

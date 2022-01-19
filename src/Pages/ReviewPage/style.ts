@@ -15,6 +15,11 @@ export const Step = styled.span < prop>`
 background-color:#FCDD06;
 padding:5px 8px; 
 margin: 0px 15px; 
+cursor:pointer; 
+&:hover 
+{
+  background-color:#FCDD06;
+}
 opacity: ${props => props.opacity};
 `
 export const StepDisable = styled.span`
@@ -23,6 +28,8 @@ padding:5px 8px;
 margin: 0px 15px; 
 opacity:.5; 
 color:white; 
+cursor:pointer; 
+
 `
 
 export const Hr = styled.hr<prop>`
@@ -72,21 +79,27 @@ align-items:center;
 justify-content:space-between; 
 `
 export const ContentOrderDetails =styled.div` 
+/* display:flex; 
+algin-items:center;  */
+
 display:flex; 
-algin-items:center; 
+gap:10px; 
+align-items:center;
+margin-bottom:10px; 
 
-
+/* algin-items:center; */
 
 `
 export const ContentProduct = styled.div` 
-display:flex; 
-flex-direction:column; 
-margin:0px 5px; 
-gap:10px;  
+/* display:flex;  */
+/* flex-direction:column;  */
+/* margin:0px 5px;  */
+/* gap:10px;   */
 `
 export const Price = styled.div` 
 display:flex; 
 justify-content: space-between; 
+margin-top:2px; 
 `
 
 export const ContentPlaceOrder = styled.div`
@@ -99,7 +112,7 @@ margin: 5px 10px;
 
 export const ContentDetailsPlaceOrder = styled.div`
 background: #F2F2F2;
-height:25vh; 
+height:30vh; 
 border-radius:16px; 
 padding: 2.5rem 3rem; 
 
@@ -107,5 +120,12 @@ padding: 2.5rem 3rem;
 export const ContainerOrderDetails = styled.div`
 display:flex; 
 flex-direction:column; 
-gap:10px;
+align-items:center;
+/* gap:10px; */
  `
+export const PositionButton = styled.div`  
+position:absolute;
+bottom:0; 
+ right:0;
+
+ `    

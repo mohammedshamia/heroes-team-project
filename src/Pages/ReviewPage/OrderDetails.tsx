@@ -4,6 +4,7 @@ import Typography from '../../Components/Typography'
 import { LinkRouter, Title, ContentProduct, Price, Hr, ContentOrderDetails } from './style'
 import {ContentOrder} from './ContentOrder';
 import { CardImg } from '../../Components/Elements/Card'
+import { ItemImg } from '../../Components/Elements/Card/style';
 
 interface Iprop {
   title:string, 
@@ -12,11 +13,11 @@ interface Iprop {
 }
 const ItemCart: Iprop[] = [
   {
-    title: "Canon Eos 80D DSLR Camera",
+    title: "iPhone 11 Pro 256GB Memory",
     price: 565,
     imgUrl: "https://picsum.photos/id/1/200/300",
   },
-  { title: "phone", price: 551, imgUrl: "https://picsum.photos/id/0/200/300" },
+  { title: "Apple Airpods Wireless Bluetooth Headset", price: 551, imgUrl: "https://picsum.photos/id/0/200/300" },
  
 ];
 const OrderDetails = () => { 
@@ -51,27 +52,36 @@ export default OrderDetails
   return (
     <> 
       <ContentOrderDetails> 
-        <CardImg src= {imgUrl} width="90px" />
-        <ContentProduct> 
+        {/* <CardImg src={imgUrl} width="20%" /> */}
+        <ItemImg alignItems='center'>
+          <img src={imgUrl} alt="photo" width={"100%"} />
+        </ItemImg>
+        {/* <ContentProduct>  */}
+        <div> 
         <Typography
           children= {title}
           variant='h6'
           style={{
             color: '#707070',
-            fontSize:"13px"
+            fontSize: "13px",
+            display: "flex",
+            alignSelf: "flex-start"
           }}
           />
+
+          {/* </ContentProduct> */}
           <Price> 
         <Typography
-          children= {`${price} x1`}
+              children={` $ ${price} x1`}
           variant='h6'
           style={{
             color: '#707070',
             fontSize: "13px"
           }}
           />
+
           <Typography
-              children= {price}
+              children={` $ ${price} `}
               fontWeight={700}
             variant='h6'
             style={{
@@ -80,7 +90,7 @@ export default OrderDetails
             }}
             />
           </Price>
-        </ContentProduct> 
+        </div>
       </ContentOrderDetails>
     </>
   )

@@ -1,14 +1,15 @@
 
-import { Step, Hr, Stepper, StepDisable, WrapOrder, WrapperFormAndOrder, WrapperReviewPage } from './style'
+import { Step, Hr, Stepper, StepDisable, WrapOrder, WrapperFormAndOrder, PositionButton } from './style'
 import Typography from "../../Components/Typography";
 import ShippingFormik from "../../Components/Forms/ShippingForm/ShippingFormik";
 import OrderDetails from './OrderDetails';
 import Button from '../../Components/Elements/Buttons';
+import Container from '../../Components/Container';
 // import Container from '../../Components/Container';
 
 const ShippingPage = () => {
   return (
-    <WrapperReviewPage>
+    <Container>
       <Typography variant='h6' fontWeight={700} >Review Order </Typography>
       <Stepper>
         <> <Step> 1 </Step>
@@ -38,20 +39,24 @@ const ShippingPage = () => {
         <ShippingFormik />
         <WrapOrder >
           <OrderDetails />
+          {/* <PositionButton > */}
           <Button
             type="submit"
             backgroundColor={"#FCDD06"}
             padding={"1rem 3.5rem"}
             fontSize={"12px"}
-            form={"form"}
-            style = {{position:"absolute", top:"100%",right:"0",margin:"20px 0px"}}
-          >
+            position='absolute'
+            right={"0"}
+            bottom={"0"}
+            margin={"-50px 0px"}
+            form={"form"}>
+
             Review order
-          </Button>
+          </Button> 
+          {/* </PositionButton>    */}
         </WrapOrder>     
-   
       </WrapperFormAndOrder>
-    </WrapperReviewPage>
+    </Container>
 
   );
 };

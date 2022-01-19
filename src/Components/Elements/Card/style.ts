@@ -4,6 +4,8 @@ interface IProps {
   width?: string;
   height?: string;
   borderRadius?: string;
+  alignItems?: string;
+  justifyContent?: string;  
 }
 
 export const CardSection = styled.div<IProps>`
@@ -36,7 +38,7 @@ export const Img = styled.img<IProps>`
   top: 0;
   margin-bottom: 10px;
   max-height:300px; 
-min-height:300px; 
+  min-height:300px; 
 `;
 export const ContainerButton = styled.div`
   display: flex;
@@ -62,14 +64,15 @@ right:12px;
 
 `;
 
-export const ItemImg = styled.div` 
-width:25%;
+export const ItemImg = styled.div<IProps>` 
+width:20%;
 height:150px; 
 overflow: hidden;
+object-fit:cover; 
 display:flex;
-align-items: center;
-justify-content: center;
-padding:5px 10px; 
+align-items: ${props => props.alignItems || null}  ;
+justify-content: ${props => props.justifyContent || null} ; 
+/* padding:5px 10px;  */
 
 `
 export const ItemCounter = styled.div` 

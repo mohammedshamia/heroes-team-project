@@ -21,5 +21,9 @@ export interface ButtonProp {
   onMouseLeave?: () => void;
   disabled?: boolean;
   style?: React.CSSProperties;
-  form?:string; 
+  form?: string;
+  position?: string;
+  top?: number;
+  bottom?: string;
+  right?: string; 
 }

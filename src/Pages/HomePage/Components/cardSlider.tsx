@@ -12,7 +12,7 @@ const CardSliders = () => {
           <Typography
             variant="h5"
             fontWeight={700}
-            style={{ textTransform: "uppercase", marginTop: "5px" }}
+            style={{ textTransform: "uppercase" }}
           >
             Featured Products
           </Typography>

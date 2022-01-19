@@ -5,6 +5,7 @@ import Typography from '../../Components/Typography'
 import { ContentCart } from './OrderDetails';
 import ContentOrder from './ContentOrder';
 import { useNavigate } from 'react-router';
+import Container from '../../Components/Container';
 
 interface Iprop {
   title: string,
@@ -17,7 +18,9 @@ const ItemCart: Iprop[] = [
     price: 565,
     imgUrl: "https://picsum.photos/id/1/200/300",
   },
-  { title: "phone", price: 551, imgUrl: "https://picsum.photos/id/0/200/300" },
+  {
+    title: "Apple Airpods Wireless Bluetooth Headset", price: 551, imgUrl: "https://picsum.photos/id/0/200/300"
+  },
 
 ];
 const PlaceOrder = () => {
@@ -26,7 +29,7 @@ const PlaceOrder = () => {
     navigate("/success")
   }
   return (
-    <WrapperReviewPage>
+    <Container>
       <Typography variant='h6' fontWeight={700} >Review Order </Typography>
       <Stepper>
         <> <Step opacity=".5" onClick={() => navigate("/product/review/shipping/:id") }> 1 </Step>
@@ -49,8 +52,6 @@ const PlaceOrder = () => {
             color='#000'
             style={{
               fontSize: "15px",
-
-
             }}
           />
         </>
@@ -85,6 +86,7 @@ const PlaceOrder = () => {
               fontWeight={700}
               color='#000'
               variant='h6'
+
               style={{
                 letterSpacing: "1.28px",
               }}
@@ -101,7 +103,8 @@ const PlaceOrder = () => {
             children='Order Details'
             fontWeight={700}
             color='#000'
-            variant='h6'
+              variant='h6'
+
             style={{
               letterSpacing: "1.28px",
             }}
@@ -114,14 +117,14 @@ const PlaceOrder = () => {
             padding={"1rem 3rem"}
             fontSize={"12px"}
             form={"form"}
+            margin='3px 0px 0px 70px'
             onClick={handleClick}
-
           >
             place order
           </Button>
         </ContainerOrderDetails>  
       </WrapperFormAndOrder>
-    </WrapperReviewPage>
+    </Container>
   )
 }
 

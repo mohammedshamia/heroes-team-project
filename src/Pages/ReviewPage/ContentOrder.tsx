@@ -69,18 +69,20 @@ import { Price } from './style'
         <Typography
           children='Total'
           variant='h6'
+          fontWeight={700}
           style={{
             fontSize: "13px",
-            color: '#707070',
+            color: '#000',
 
           }}
         />
         <Typography
           children='$592'
           variant='h6'
+          fontWeight={700}
           style={{
             fontSize: "13px",
-            color: '#707070',
+            color: '#000',
 
           }}
         />

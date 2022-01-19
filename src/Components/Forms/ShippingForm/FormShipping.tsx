@@ -30,7 +30,7 @@ const FormShipping = (
           errors={errors}
           label={"Countery"}
           fullWidth={false}
-          width={"30%"}
+            width={"50%"}
           background={"#F2F2F2"}
         />
         <FormInput
@@ -41,7 +41,7 @@ const FormShipping = (
           errors={errors}
           label={"city"}
           fullWidth={false}
-          width={"30%"}
+            width={"50%"}
           background={"#F2F2F2"}
         />
       </InputContainer>
@@ -54,7 +54,7 @@ const FormShipping = (
           errors={errors}
           label={"Zip Code"}
           fullWidth={false}
-          width={"30%"}
+            width={"50%"}
           background={"#F2F2F2"}
         />
         <FormInput
@@ -65,14 +65,11 @@ const FormShipping = (
           errors={errors}
           label={"Street Address"}
           fullWidth={false}
-          width={"30%"}
+            width={"50%"}
           background={"#F2F2F2"}
         />
       </InputContainer>
       </div>
-        {/*  */}
-
- 
 
       </Continer >
     
