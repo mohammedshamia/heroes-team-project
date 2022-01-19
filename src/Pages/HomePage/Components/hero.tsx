@@ -8,18 +8,19 @@ import SwiperCore, {
   Pagination,
   Mousewheel,
   Keyboard,
+  Autoplay,
 } from "swiper";
 import {
   Slider,
   SliderDatiles,
   SliderDatilesm,
   SliderImage,
-  Swipers,
+  SwiperWrapper,
 } from "../style";
 import Typography from "../../../Components/Typography";
 import Button from "../../../Components/Elements/Buttons";
 import Container from "../../../Components/Container";
-SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
+SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard, Autoplay]);
 
 const Hero = () => {
   const heroSlide = [
@@ -43,18 +44,19 @@ const Hero = () => {
     },
   ];
   return (
-    <>
-      <Swipers
-        cssMode={true}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        mousewheel={true}
-        keyboard={true}
-      >
-        {heroSlide.map((elemnt) => (
-          <Container>
+    <SwiperWrapper>
+      <Container>
+        <Swiper
+          cssMode={true}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          mousewheel={true}
+          keyboard={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}         
+        >
+          {heroSlide.map((elemnt) => (
             <SwiperSlide>
               <Slider>
                 <SliderDatiles>
@@ -103,10 +105,10 @@ const Hero = () => {
                 <SliderImage src={elemnt.image} alt="" />
               </Slider>
             </SwiperSlide>
-          </Container>
-        ))}
-      </Swipers>
-    </>
+          ))}
+        </Swiper>
+      </Container>
+    </SwiperWrapper>
   );
 };
 
