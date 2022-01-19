@@ -26,9 +26,33 @@ export const CardSlider = () => {
   return (
     <Container>
       <Swiper
-        spaceBetween={30}
-        slidesPerView={3}
-        slidesPerGroup={3}
+        breakpoints={{
+          // when window width is >= 640px
+          1: {
+            // width: 1,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 0
+
+          },
+          // when window width is >= 768px
+          500: {
+            // width: 767,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 10
+
+          },
+          767: {
+            // width: 1200,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 30
+          },
+        }}
+        // spaceBetween={30}
+        // slidesPerView={3}
+        // slidesPerGroup={3}
         direction={"horizontal"}
         pagination={{
           clickable: true,

@@ -38,6 +38,7 @@ export const Img = styled.img<IProps>`
 `;
 export const ContainerButton = styled.div`
   display: flex;
+  
 
 `;
 
