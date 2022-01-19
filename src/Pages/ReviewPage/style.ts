@@ -6,10 +6,6 @@ interface prop {
   width?: string;
   Grid?:string; 
 }
-export const WrapperReviewPage = styled.div` 
- margin:10px 60px; 
-
-`
 export const Step = styled.span < prop>`
 
 background-color:#FCDD06;
@@ -28,7 +24,6 @@ padding:5px 8px;
 margin: 0px 15px; 
 opacity:.5; 
 color:white; 
-cursor:pointer; 
 
 `
 
@@ -36,7 +31,7 @@ export const Hr = styled.hr<prop>`
 width: ${props => props.width || "65px"}; 
 height:2px; 
 background: #707070;
-margin:0 10px ; 
+/* margin:0 10px ;  */
 
 `
 export const Stepper = styled.div`
@@ -46,26 +41,31 @@ align-items:center;
 `
 export const WrapperFormAndOrder = styled.div <prop>`
   display:grid; 
- grid-template-columns:  ${props => props.Grid || "700px 400px "};
+ grid-template-columns:  ${props => props.Grid || "65% 35%"};
 
- gap:15px; 
+ gap:10px; 
  margin:10px; 
   
 @media (max-width: 768px) {
     display:flex; 
     flex-direction: column;
-    /* padding: 1rem; */
+    padding: 1rem;
   }
 
   `
 export const WrapOrder = styled.div`
+  display: flex;
+  flex-direction: column;
+& > div {
 
-display: flex;
-background-color: #f2f2f2;
-border-radius: 16px;
-flex-direction: column;
-padding: 2rem 5rem;
-position:relative; 
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  border-radius: 16px;
+  flex-direction: column;
+  padding: 2rem 0;
+  position:relative; 
+}
 `
 export const LinkRouter = styled(Link)` 
 
@@ -77,42 +77,37 @@ export const Title = styled.div`
 display:flex; 
 align-items:center; 
 justify-content:space-between; 
+padding: 0 2rem;
 `
 export const ContentOrderDetails =styled.div` 
-/* display:flex; 
-algin-items:center;  */
+
 
 display:flex; 
 gap:10px; 
 align-items:center;
 margin-bottom:10px; 
+padding: 0 2rem;
 
-/* algin-items:center; */
+
 
 `
-export const ContentProduct = styled.div` 
-/* display:flex;  */
-/* flex-direction:column;  */
-/* margin:0px 5px;  */
-/* gap:10px;   */
-`
+
 export const Price = styled.div` 
 display:flex; 
 justify-content: space-between; 
 margin-top:2px; 
+padding: 0 2rem;
 `
 
 export const ContentPlaceOrder = styled.div`
 background: #F2F2F2;
 border-radius:16px; 
-padding: 2.5rem 3rem; 
-margin: 5px 10px; 
+padding: 2.5rem ; 
 
 `  
 
 export const ContentDetailsPlaceOrder = styled.div`
 background: #F2F2F2;
-height:30vh; 
 border-radius:16px; 
 padding: 2.5rem 3rem; 
 
@@ -121,7 +116,6 @@ export const ContainerOrderDetails = styled.div`
 display:flex; 
 flex-direction:column; 
 align-items:center;
-/* gap:10px; */
  `
 export const PositionButton = styled.div`  
 position:absolute;

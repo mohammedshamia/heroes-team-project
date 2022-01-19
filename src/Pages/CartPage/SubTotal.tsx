@@ -7,17 +7,22 @@ import { WrapperSubTotal } from './style'
 const SubTotal = () => {
   return (
     <WrapperSubTotal>
+      <div style={{ padding: "1rem 3rem" }}> 
       <Typography variant="h6" children="Subtotal (3) items" />
       <Typography variant="h5"  style={{ textDecoration: "line-through", color:"#707070" }}>  $989.97 </Typography>
-      <Typography variant="h5" fontWeight={700} children=" $989.97" /> 
-      <Hr width="200px" />
+        <Typography variant="h5" fontWeight={700} children=" $989.97" /> 
+      </div>
+      <Hr width="100%" />
+      <div style={{ width: "fit-content" }}>
+
       <Button
         type="submit"
         backgroundColor={"#FCDD06"}
         children="Proceed To Check out "
-        padding={"1rem 2rem"}
+          padding={"1rem 2.5rem"}
         fontSize={"12px"}
-      ></Button>
+        ></Button>
+      </div>
 
     </WrapperSubTotal>
   )

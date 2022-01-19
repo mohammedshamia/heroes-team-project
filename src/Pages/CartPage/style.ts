@@ -13,15 +13,16 @@ width:100%;
 `
 export const WrapperSubTotal = styled.div` 
 background-color:#F2F2F2; 
-height:260px; 
+height:250px; 
 border-radius:16px; 
 display:flex; 
 gap:15px; 
 flex-direction:column; 
- padding: 1rem 3rem; 
+align-items: center;
+ padding: 1rem 2rem; 
 @media (max-width: 768px) {
 
-
+width:100%;
 
 
 }

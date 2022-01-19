@@ -1,5 +1,5 @@
 import React from 'react'
-import { Step, Hr, Stepper, StepDisable, WrapperFormAndOrder, ContentPlaceOrder, ContentDetailsPlaceOrder, Title, LinkRouter, WrapperReviewPage, ContainerOrderDetails } from './style'
+import { Step, Hr, Stepper, StepDisable, WrapperFormAndOrder, ContentPlaceOrder, ContentDetailsPlaceOrder, Title, LinkRouter, ContainerOrderDetails } from './style'
 import Button from '../../Components/Elements/Buttons'
 import Typography from '../../Components/Typography'
 import { ContentCart } from './OrderDetails';
@@ -57,7 +57,7 @@ const PlaceOrder = () => {
         </>
 
       </Stepper>
-      <WrapperFormAndOrder Grid="600px 280px" > 
+      <WrapperFormAndOrder Grid="65% 35%" > 
         <ContentPlaceOrder>  
           <Typography
             children='Shipping Address'
