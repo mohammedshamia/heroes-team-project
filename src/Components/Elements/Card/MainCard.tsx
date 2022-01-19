@@ -16,9 +16,11 @@ export default function MainCard(props: IpropsMainCard) {
   const [state, setState] = useState<boolean>(false);
   return (
     <Card>
-      <div>
+     
         <CardImg src={imgUrl} alt="phone" />
-        <Typography className="bla-bla" variant="h5"> {title} </Typography>
+        <div style = {{marginBottom:"20px",display:"flex",flexDirection:"column",alignItems:"center"}}> 
+
+        <Typography className="bla-bla" style = {{fontSize:"1.7rem"}} variant="h5"> {title} </Typography>
         <Rate rating={rating} onRating={(rate: number) => setRating(rate)} />
         <Typography variant="h4">  {price}  </Typography>
         <ContainerButton>
@@ -30,9 +32,9 @@ export default function MainCard(props: IpropsMainCard) {
             {!state && <BookMarkEmpty />}
             {state && <BookMarkfill />}
           </Button>
-          <Button padding="8px 35px"> Add To Cart </Button>
+          <Button padding="8px 40px"> Add To Cart </Button>
         </ContainerButton>
-      </div>
+     </div>
     </Card>
   );
 }

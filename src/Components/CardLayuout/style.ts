@@ -1,19 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  /* margin: 50px; */
-  /* flex: 1 1 33%;
-display:flex; 
-justify-content: space-between; */
+export const ContainerLyout = styled.div`
+
   display: grid;
-  /* margin-top: 5rem; */
   grid-template-columns: auto auto auto ;
-  /* gap: 2px; */
-  /* grid-template-rows: 12px 12px 12px; */
   border: 1px solid #fcdd06;
   border-radius: 16px;
   overflow: hidden;
   background-color: #f7f8fc;
+  margin-top:30px; 
+  margin-bottom:30px; 
+  
   > div {
     padding-bottom: 0;
     border-inline-end: 2px solid #F2F2F2;

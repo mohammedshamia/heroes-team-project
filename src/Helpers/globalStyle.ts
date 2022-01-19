@@ -16,7 +16,9 @@ font-size: 62.5%;
 overflow-x: hidden;
 }
 
-
+.swiper{
+  padding-bottom: 40px!important;
+}
 .swiper-pagination-bullet {
 height: 14px;
 width: 14px;
