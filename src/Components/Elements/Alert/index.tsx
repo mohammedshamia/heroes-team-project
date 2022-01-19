@@ -10,7 +10,7 @@ interface IProps extends HTMLProps<HTMLDivElement> {
   component?: any;
   position?: positions;
   type?: types;
-  setOpen: (boo: boolean) => void;
+  setOpen?: (boo: boolean) => void;
 }
 
 const Index = ({
@@ -23,7 +23,7 @@ const Index = ({
 }: IProps) => {
   window.setTimeout(() => {
     console.log("out!");
-    if (position === "snackBar") {
+    if (position === "snackBar" && setOpen) {
       setOpen(false);
     }
   }, 6000);

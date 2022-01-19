@@ -5,6 +5,8 @@ import { GlobalStyles } from "./Helpers/globalStyle";
 import { Routes, Route, Navigate } from "react-router";
 import SppinerLoading from "./Components/Elements/SppinerLoading/index";
 import Header from "./Components/Header";
+import useThemeMode from "./Hook/UseThemeMode";
+import ThemeContext from "./ContextAPI/themeContext";
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const LoginPage = React.lazy(() => import("./Pages/AuthPages/LoginPage"));
 const SignUpPage = React.lazy(() => import("./Pages/AuthPages/SignUpPage"));
@@ -29,33 +31,19 @@ const UsersAdminPage = React.lazy(
 );
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const { theme } = useThemeMode();
 
-  const toggleTheme = useCallback(() => {
-    if (theme === "dark") {
-      localStorage.setItem("theme", "light");
-      setTheme("light");
-    } else {
-      localStorage.setItem("theme", "dark");
-      setTheme("dark");
-    }
-  }, [theme]);
-
-  useEffect(() => {
-    let theme_ = localStorage.getItem("theme");
-
-    if (theme_) {
-      setTheme(theme_);
-    }
-  }, []);
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (
     <div className="App">
       <Suspense fallback={<SppinerLoading />}>
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyles {...(theme === "dark" ? darkTheme : lightTheme)} />
+      <ThemeContext>
+        <ThemeProvider theme={themeMode}>
+          <GlobalStyles  {...(themeMode)}/>
           {/* add header  */}
           <Header isLoggedIn={true} />
+
 
           {/* Auth */}
         <Routes>
@@ -82,6 +70,7 @@ function App() {
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </ThemeProvider>
+</ThemeContext>
       </Suspense>
     </div>
   );
