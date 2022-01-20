@@ -1,27 +1,23 @@
 import styled from "styled-components";
 
-export const DividerComponent = styled.hr`
+export const DividerComponent = styled.div<{ center?: boolean }>`
   border: none;
 
-  clear: both;
   display: block;
 
   width: 100%;
 
   background: rgba(1, 15, 30, 0.1);
-  height: 4px !important;
-
-  overflow: hidden;
-  position: relative;
+  height: 2px;
+  display: flex;
+  justify-content: ${(props) => (props.center ? "center" : "flex-start")};
 
   &:after {
     background: #fcdd06;
+    border-radius: 2px;
     content: "";
-
-    height: 7px;
-    position: absolute;
-    width: 100px;
-
-    left: 45%;
+    margin-top: -5px;
+    height: 5px;
+    width: 200px;
   }
 `;

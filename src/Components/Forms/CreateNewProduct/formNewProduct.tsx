@@ -1,9 +1,7 @@
-import { Form, FormikProps } from "formik";
-import React from "react";
+import { FormikProps } from "formik";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
 import FormInput from "../Fields/inputField";
-import { ICreateNewProduct } from "../../../@Types/Validation";
 import {
   ProductDetails,
   FormProductInputGroup,

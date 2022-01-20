@@ -21,3 +21,13 @@ export interface ILogInUser {
   password: string;
   isRememberMe?: boolean
 }
+
+export interface IShipping 
+{
+  country: string, 
+  city :string,
+  zipCode: string,
+  streetAddress:string,
+  
+
+}

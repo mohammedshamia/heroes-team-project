@@ -1,8 +1,12 @@
 import React from "react";
+import Container from "../../Components/Container";
 import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
+import Typography from "../../Components/Typography";
+import { LinkBack, Parent, TitleLink, Wrapper } from './style'
+import SubTotal from "./SubTotal";
 const ItemCart = [
   {
-    title: "Canon Eos 80D DSLR Camera",
+    title: "Apple iPhone 11 Pro 256GB Memory",
     price: 565,
     imgUrl: "https://picsum.photos/id/1/200/300",
   },
@@ -11,7 +15,14 @@ const ItemCart = [
 ];
 const CartPage = () => {
   return (
-    <div>
+    <Container>
+      <TitleLink>
+        <Typography style={{ color: "#000", fontSize: "15px", letterSpacing: '0.96px' }}>
+          <LinkBack to="/">Back </LinkBack> / Cart
+        </Typography>
+      </TitleLink>
+      <Parent>
+        < Wrapper>
       {ItemCart.map((item, index) => (
         <ShoppingCart
           key={index}
@@ -20,7 +31,10 @@ const CartPage = () => {
           imgUrl={item.imgUrl}
         />
       ))}
-    </div>
+        </ Wrapper>
+        <SubTotal />
+      </Parent>
+    </Container>
   );
 };
 

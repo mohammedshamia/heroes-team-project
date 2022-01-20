@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
+  text-decoration: none;
 `;
 
 export const Main = styled.h1`

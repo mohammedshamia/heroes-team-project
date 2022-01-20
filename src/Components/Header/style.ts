@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Root = styled.div`
   background-color: #242424;
   height: 58px;
+  overflow: hidden;
 `;
 
 export const Content = styled.div`

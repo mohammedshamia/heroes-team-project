@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import ImageSection from "./Components/imageSection";
 import { IProductData } from "./interface";
 import ProductDetails from "./Components/productDetails";
-import { FirstSection } from "./product.style";
+import { FirstSection, LinkBack, TitleLink } from "./product.style";
 import Container from "../../Components/Container";
 import Specification from "./Components/specification";
 import Reviews from "./Components/reviews";
 import Rate from "../../Components/Elements/Rating";
 import CardSliders from "./Components/cardSlider";
+import Typography from "../../Components/Typography";
 
 const ProductPage = () => {
   const [rating, setRating] = useState<number>(3);
@@ -16,11 +17,21 @@ const ProductPage = () => {
   const productData: IProductData[] = [
     {
       name: "Apple iPhone 11 Pro 256GB Memory",
-      image: "Assets/img3.png",
+      image:
+        "https://st4.depositphotos.com/2467311/41795/v/1600/depositphotos_417954882-stock-illustration-mobile-phone-vector-mockup-white.jpg",
       imageSmall: [
-        { name: "Assets/img3.PNG" },
-        { name: "Assets/img3.PNG" },
-        { name: "Assets/img3.PNG" },
+        {
+          name:
+            "https://st4.depositphotos.com/2467311/41795/v/1600/depositphotos_417954882-stock-illustration-mobile-phone-vector-mockup-white.jpg",
+        },
+        {
+          name:
+            "https://st4.depositphotos.com/2467311/41795/v/1600/depositphotos_417954882-stock-illustration-mobile-phone-vector-mockup-white.jpg",
+        },
+        {
+          name:
+            "https://st4.depositphotos.com/2467311/41795/v/1600/depositphotos_417954882-stock-illustration-mobile-phone-vector-mockup-white.jpg",
+        },
       ],
       color: [{ name: "silver" }, { name: "black" }, { name: "red" }],
       size: [{ name: "64GB" }, { name: "256B" }, { name: "512GB" }],
@@ -93,7 +104,11 @@ const ProductPage = () => {
   return (
     <>
       <Container>
-        {" "}
+        <TitleLink>
+          <Typography style={{ color: "#000", fontSize: "15px",letterSpacing: '0.96px' }}>
+            <LinkBack to="/">Back </LinkBack> /{productData[0].name}
+          </Typography>
+        </TitleLink>
         <FirstSection>
           <ImageSection ProductData={productData} />
           <ProductDetails ProductData={productData} />

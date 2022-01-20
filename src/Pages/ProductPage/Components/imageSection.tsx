@@ -1,4 +1,3 @@
-import React from "react";
 import { IProductData } from "../interface";
 import {
   Imagefirst,
@@ -12,10 +11,14 @@ interface IProps {
 const ImageSection = ({ ProductData }: IProps) => {
   return (
     <ImageSections>
-      <Imagefirst src={ProductData[0].image} />
+      <Imagefirst>
+        <img src={ProductData[0].image} />
+      </Imagefirst>
       <ImageSecionSecond>
         {ProductData[0].imageSmall.map((elemnt) => (
-          <ImageSmall src={elemnt.name} />
+          <ImageSmall>
+            <img src={elemnt.name} />
+          </ImageSmall>
         ))}
       </ImageSecionSecond>
     </ImageSections>

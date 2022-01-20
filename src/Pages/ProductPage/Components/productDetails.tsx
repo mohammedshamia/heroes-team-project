@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Button from "../../../Components/Elements/Buttons";
-import Counter from "../../../Components/Elements/Counter/counter";
-import { BookMarkEmpty, BookMarkfill } from "../../../Components/Icons/BookMark";
+import Counter from "../../../Components/Elements/Counter";
+import {
+  BookMarkEmpty,
+  BookMarkfill,
+} from "../../../Components/Icons/BookMark";
 import Typography from "../../../Components/Typography";
 import { IProductData } from "../interface";
 import {
@@ -106,7 +109,7 @@ const ProductDetails = ({ ProductData }: IProps) => {
             <Margin>
               <Button
                 backgroundColor={"#Fff"}
-                padding={".8rem 1rem"}
+                padding={".2rem 0.3rem 0.1rem"}
                 border={"1px solid #FCDD06"}
                 backgroundColorHover={"#ffc107"}
                 onClick={() => setStateBookMark(!bookMark)}

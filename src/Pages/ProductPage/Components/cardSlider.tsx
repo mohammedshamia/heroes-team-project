@@ -1,20 +1,22 @@
-import React from "react";
+import Container from "../../../Components/Container";
 import { DividerComponent } from "../../../Components/Elements/Devider/styles.styled";
-import { CardSlider } from "../../../Components/Slider/CardSlider";
+import { CardSlider } from "../../../Components/CardSlider";
 import Typography from "../../../Components/Typography";
-import { Card, Featured } from "../product.style";
+import { CardsSection, Featured } from "../product.style";
 
 const CardSliders = () => {
   return (
-    <Card>
-      <Featured>
-        <Typography variant="h5" style={{ fontWeight: "bold" }}>
-          Featured Products
-        </Typography>
-      </Featured>
-      <DividerComponent/>
-      <CardSlider />
-    </Card>
+    <CardsSection>
+      <Container>
+        <Featured>
+          <Typography variant="h5" fontWeight={700}>
+            Featured Products
+          </Typography>
+        </Featured>
+        <DividerComponent center />
+        <CardSlider />
+      </Container>
+    </CardsSection>
   );
 };
 

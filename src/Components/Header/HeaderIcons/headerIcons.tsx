@@ -1,15 +1,18 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../../Elements/Pagination/style";
 
 import { Wrapper, Text, SVG } from "./style";
 
 interface ISVGICON {
   description: string;
-  to: string;
+  to?: string;
+  onClick?: Function;
 }
 
-const SVGICON: FC<ISVGICON> = ({ children, description, to }) => {
+const SVGICON: FC<ISVGICON> = ({ children, description, to, onClick }) => {
   return (
-    <Wrapper to={to}>
+    <Wrapper onClick={onClick} to={to} as={onClick ? Button : Link}>
       <SVG>{children}</SVG>
       <Text>{description}</Text>
     </Wrapper>

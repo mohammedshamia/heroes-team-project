@@ -7,7 +7,7 @@ interface IProps {
 // Logo takes two props title and
 const Index = ({ main, sub }: IProps) => {
   return (
-    <Logo>
+    <Logo to="/">
       <Main>{main}</Main>
       <Sup>{sub}</Sup>
     </Logo>

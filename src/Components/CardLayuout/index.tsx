@@ -1,5 +1,5 @@
 import MainCard from "../Elements/Card/MainCard";
-import { Container } from "./style";
+import { ContainerLyout } from "./style";
 
 export default function CardLayout() {
   const ItemCard = [
@@ -12,7 +12,7 @@ export default function CardLayout() {
     { title: "mobile", price: 5454, imgUrl: "Assets/img3.PNG" },
   ];
   return (
-    <Container>
+    <ContainerLyout> 
       {ItemCard.map((item, index) => (
         <MainCard
           key={index}
@@ -21,6 +21,6 @@ export default function CardLayout() {
           imgUrl={item.imgUrl}
         />
       ))}
-    </Container>
+      </ContainerLyout>
   );
 }

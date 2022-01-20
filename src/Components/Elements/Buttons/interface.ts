@@ -10,7 +10,7 @@ export interface ButtonProp {
   fontSize?: string;
   hover?: boolean;
   colorHover?: string;
-  backgroundColorHover?:string,
+  backgroundColorHover?: string;
   padding?: string;
   margin?: string;
   className?: string;
@@ -19,5 +19,11 @@ export interface ButtonProp {
   type?: "button" | "submit" | "reset" | undefined;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
-  disabled?:boolean
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  form?: string;
+  position?: string;
+  top?: number;
+  bottom?: string;
+  right?: string; 
 }
