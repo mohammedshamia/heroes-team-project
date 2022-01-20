@@ -1,5 +1,5 @@
 import React from 'react'
-import { Step, Hr, Stepper, StepDisable, WrapperFormAndOrder, ContentPlaceOrder, ContentDetailsPlaceOrder, Title, LinkRouter, ContainerOrderDetails } from './style'
+import { Step, Hr, Stepper, StepDisable, WrapperFormAndOrder, ContentPlaceOrder, ContentDetailsPlaceOrder, Title, LinkRouter, ContainerOrderDetails, PositionButton } from './style'
 import Button from '../../Components/Elements/Buttons'
 import Typography from '../../Components/Typography'
 import { ContentCart } from './OrderDetails';
@@ -102,7 +102,7 @@ const PlaceOrder = () => {
           <Typography
             children='Order Details'
             fontWeight={700}
-            color='#000'
+            // color='#000'
               variant='h6'
 
             style={{
@@ -111,6 +111,9 @@ const PlaceOrder = () => {
           />
           <ContentOrder />
           </ContentDetailsPlaceOrder> 
+          <PositionButton>
+
+
           <Button
             type="submit"
             backgroundColor={"#FCDD06"}
@@ -121,7 +124,8 @@ const PlaceOrder = () => {
             onClick={handleClick}
           >
             place order
-          </Button>
+            </Button>
+          </PositionButton>
         </ContainerOrderDetails>  
       </WrapperFormAndOrder>
     </Container>

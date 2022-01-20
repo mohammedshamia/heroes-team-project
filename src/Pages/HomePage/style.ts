@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
 
 export const SwiperWrapper = styled("div")`
-  background: #f2f2f2;
+  background:   ${props => props.theme.background.default };;
   /* display: flex;
   align-items: center;
   align-self: center;
@@ -82,8 +82,8 @@ export const Image = styled.img`
   width: 100%;
 `;
 export const CardsSection = styled.div`
-background: ${(props) => props.theme.background.paper};
-width: 100%;
+  background: ${props => props.theme.background.secondary};
+  width: 100%;
   padding: 0 0 180px;
 `;
 

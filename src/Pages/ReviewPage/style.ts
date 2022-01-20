@@ -1,14 +1,16 @@
 import {Link} from 'react-router-dom'
-import styled from 'styled-components' 
+import styled, { ThemeConsumer } from 'styled-components' 
 
 interface prop {
   opacity?: string;
   width?: string;
-  Grid?:string; 
+  Grid?: string;
+  margin?: string; 
 }
 export const Step = styled.span < prop>`
-
-background-color:#FCDD06;
+/*  */
+background-color:    #FCDD06;
+/* #FCDD06; */
 padding:5px 8px; 
 margin: 0px 15px; 
 cursor:pointer; 
@@ -31,6 +33,7 @@ export const Hr = styled.hr<prop>`
 width: ${props => props.width || "65px"}; 
 height:2px; 
 background: #707070;
+margin:${props => props.margin || null}
 /* margin:0 10px ;  */
 
 `
@@ -38,6 +41,7 @@ export const Stepper = styled.div`
 margin-top:10px; 
 display:flex; 
 align-items:center; 
+margin-bottom:10px ;
 `
 export const WrapperFormAndOrder = styled.div <prop>`
   display:grid; 
@@ -60,7 +64,8 @@ export const WrapOrder = styled.div`
 
   display: flex;
   flex-direction: column;
-  background-color: #f2f2f2;
+  background-color:  ${props => props.theme.background.paper};
+   /* #f2f2f2; */
   border-radius: 16px;
   flex-direction: column;
   padding: 2rem 0;
@@ -69,7 +74,8 @@ export const WrapOrder = styled.div`
 `
 export const LinkRouter = styled(Link)` 
 
-color:#707070; 
+color: ${props => props.theme.textColors.primary} ;
+/* #707070;  */
 letter-spacing: 0.44px;
 font-size:16px; 
 `
@@ -96,30 +102,35 @@ export const Price = styled.div`
 display:flex; 
 justify-content: space-between; 
 margin-top:2px; 
-padding: 0 2rem;
 `
 
 export const ContentPlaceOrder = styled.div`
-background: #F2F2F2;
+background:  ${props => props.theme.background.paper};
+ /* #F2F2F2; */
 border-radius:16px; 
 padding: 2.5rem ; 
 
 `  
 
 export const ContentDetailsPlaceOrder = styled.div`
-background: #F2F2F2;
+background:  ${props => props.theme.background.paper};
+/* #F2F2F2; */
 border-radius:16px; 
 padding: 2.5rem 3rem; 
-
+width: 70%;
+margin-bottom: 15px;
+@media (max-width: 768px) {
+    width: 100%;
+  }
 ` 
 export const ContainerOrderDetails = styled.div`
 display:flex; 
 flex-direction:column; 
-align-items:center;
+align-items:flex-end;
  `
-export const PositionButton = styled.div`  
-position:absolute;
-bottom:0; 
- right:0;
+export const PositionButton = styled.article`  
+ width:fit-content; 
+ align-self:flex-end;
+
 
  `    

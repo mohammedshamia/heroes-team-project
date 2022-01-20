@@ -66,7 +66,6 @@ const Hero = () => {
                       style={{
                         fontSize: "18px",
                         letterSpacing: "1.28px",
-                        color: " #242424",
                         marginBottom: ".5rem",
                       }}
                     />
@@ -75,7 +74,6 @@ const Hero = () => {
                       fontWeight={800}
                       style={{
                         letterSpacing: " 2.4px",
-                        color: "#242424",
                         textTransform: "uppercase",
                         marginBottom: ".5rem",
                       }}
@@ -87,7 +85,6 @@ const Hero = () => {
                       style={{
                         fontSize: "18px",
                         letterSpacing: " 0.48px",
-                        color: "#242424",
                         marginBottom: ".5rem",
                       }}
                     />

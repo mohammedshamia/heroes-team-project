@@ -24,4 +24,6 @@ export const Styling = styled.div<IAttributes>`
 
   text-transform: ${(props) =>
     props.theme.typography[props.variant].textTransform || "none"};
+
+  color: ${(props) => props.theme.textColors.primary};
 `;

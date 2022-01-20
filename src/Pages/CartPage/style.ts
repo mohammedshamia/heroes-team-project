@@ -12,7 +12,7 @@ width:100%;
 
 `
 export const WrapperSubTotal = styled.div` 
-background-color:#F2F2F2; 
+background-color:  ${props => props.theme.background.paper }; 
 height:250px; 
 border-radius:16px; 
 display:flex; 
@@ -32,7 +32,7 @@ width:100%;
 export const LinkBack = styled(Link)`
   list-style: none;
   text-decoration: none;
-  color: #707070;
+  color:   ${props => props.theme.textColors.secondary };
   font-size: 15px;
   &:hover {
     cursor: pointer;

@@ -75,6 +75,7 @@ export const lightTheme: DefaultTheme = {
   colors: {
     primary: "#FCDD06",
     secondary: "#FFC727",
+
     error: "#ef5350",
     success: "#4caf50",
     warning: "#ff9800",
@@ -84,6 +85,7 @@ export const lightTheme: DefaultTheme = {
     primary: "#242424",
     secondary: "#707070",
     disabled: "#00000061",
+    counterColor: "#a29d9d"
   },
   background: {
     paper: "#F7F8FC",
