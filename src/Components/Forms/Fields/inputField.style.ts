@@ -12,9 +12,10 @@ export const Input = styled(Field)`
   border: 1px solid #ccc;
   border-radius: 4px;
   color: ${(props) => props.theme.textColors.secondary};
-    font-size: 14px;
+  font-size: 14px;
   width: 100%;
-  background: ${(props) => props.theme.background.paper || '#fff'};
+  background: ${(props) =>
+    props.background ? props.background : props.theme.background.paper};
 
   outline: none;
 `;
