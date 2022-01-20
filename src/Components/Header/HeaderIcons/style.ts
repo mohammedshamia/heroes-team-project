@@ -10,6 +10,8 @@ export const Wrapper = styled(Link)`
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
+  background: none;
+  border: none;
 `;
 
 export const Text = styled.div`

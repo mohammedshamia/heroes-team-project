@@ -16,13 +16,24 @@ export default function MainCard(props: IpropsMainCard) {
   const [state, setState] = useState<boolean>(false);
   return (
     <Card>
-     
-        <CardImg src={imgUrl} alt="phone" />
-        <div style = {{marginBottom:"20px",display:"flex",flexDirection:"column",alignItems:"center"}}> 
-
-        <Typography className="bla-bla" style = {{fontSize:"1.7rem"}} variant="h5"> {title} </Typography>
+      <CardImg src={imgUrl} alt="phone" />
+      <div
+        style={{
+          marginBottom: "20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          className="bla-bla"
+          style={{ fontSize: "1.7rem" }}
+          variant="h5"
+        >
+          {title}
+        </Typography>
         <Rate rating={rating} onRating={(rate: number) => setRating(rate)} />
-        <Typography variant="h4">  {price}  </Typography>
+        <Typography variant="h4"> {price} </Typography>
         <ContainerButton>
           <Button
             padding="5px 12px"
@@ -34,7 +45,7 @@ export default function MainCard(props: IpropsMainCard) {
           </Button>
           <Button padding="8px 40px"> Add To Cart </Button>
         </ContainerButton>
-     </div>
+      </div>
     </Card>
   );
 }

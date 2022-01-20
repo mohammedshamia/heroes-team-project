@@ -86,8 +86,9 @@ export const lightTheme: DefaultTheme = {
     disabled: "#00000061",
   },
   background: {
-    paper: "#ffffff",
+    paper: "#F7F8FC",
     default: "#ffffff",
+    secondary: "#f2f2f2",
   },
   common: {
     black: "#000000",
@@ -114,6 +115,7 @@ export const darkTheme: DefaultTheme = {
   background: {
     paper: "#1e1e1e",
     default: "#0a1929",
+    secondary: "#020202",
   },
   common: {
     black: "#000000",

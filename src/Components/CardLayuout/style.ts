@@ -1,19 +1,18 @@
 import styled from "styled-components";
 
 export const ContainerLyout = styled.div`
-
   display: grid;
-  grid-template-columns: auto auto auto ;
-  border: 1px solid #fcdd06;
+  grid-template-columns: auto auto auto;
+  border: 1px solid ${(props) => props.theme.colors.primary};
   border-radius: 16px;
   overflow: hidden;
-  background-color: #f7f8fc;
-  margin-top:30px; 
-  margin-bottom:30px; 
-  
+  background-color: ${(props) => props.theme.background.paper};
+  margin-top: 30px;
+  margin-bottom: 30px;
+
   > div {
     padding-bottom: 0;
-    border-inline-end: 2px solid #F2F2F2;
+    border-inline-end: 2px solid ${(props) => props.theme.background.secondary};
     > div {
       padding: 0;
       border-radius: 0;

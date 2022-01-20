@@ -18,13 +18,11 @@ const Specification = ({ ProductData }: IProps) => {
     <ProductDetail>
       <Title>
         <Typography variant="h6" style={{ fontWeight: "bold" }}>
-          {" "}
           Specification
         </Typography>
       </Title>
       <Technical>
         <Typography style={{ fontWeight: "bold", fontSize: "18px" }}>
-          {" "}
           Technical Details
         </Typography>
         <TechnicalDetails>

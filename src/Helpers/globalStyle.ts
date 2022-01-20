@@ -9,11 +9,17 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: "Mulish", sans-serif;
+transition: all 0.5s;
 }
 
 html {
 font-size: 62.5%;
 overflow-x: hidden;
+}
+
+body {
+  background: ${(props) => props.theme.background.default};
+  color: ${(props) => props.textColors.primary};
 }
 
 .swiper{
@@ -28,13 +34,13 @@ background: rgba(0, 0, 0, 0.2);
 
 .swiper-pagination-bullet-active {
 color: #fff;
-background: #fcdd06 !important;
+background: ${(props) => props.theme.colors.primary} !important;
 }
 .swiper-button-next {
 bottom:-5px !important;
 top:auto !important;
 transform: scale(0.45,0.35);
-color:#000 !important; 
+color:${(props) => props.theme.textColors.primary} !important; 
 font-weight:1000;
 right: calc(50% - 50px)!important;
 z-index:99999!important;
@@ -43,12 +49,12 @@ z-index:99999!important;
 bottom:-5px !important;
 top:auto !important;
 transform: scale(0.45,0.35);
-color:#000 !important; 
+color:${(props) => props.theme.textColors.primary} !important; 
 font-weight:1000;
 left: calc(50% - 50px)!important;
 z-index:99999!important;
 
 } 
 
-}
+
 `;
