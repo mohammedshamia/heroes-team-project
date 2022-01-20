@@ -16,7 +16,7 @@ interface IProps {
 }
 const Reviews = ({ ProductData }: IProps) => {
   return (
-    <ProductDetail>
+    <>
       <Title>
         <Typography variant="h6" style={{ fontWeight: "bold" }}>
           {" "}
@@ -55,7 +55,7 @@ const Reviews = ({ ProductData }: IProps) => {
           ))}
         </Review>
       </Technical>
-    </ProductDetail>
+    </>
   );
 };
 

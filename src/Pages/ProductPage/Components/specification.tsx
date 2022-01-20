@@ -15,7 +15,7 @@ interface IProps {
 }
 const Specification = ({ ProductData }: IProps) => {
   return (
-    <ProductDetail>
+    <>
       <Title>
         <Typography variant="h6" style={{ fontWeight: "bold" }}>
           Specification
@@ -62,7 +62,7 @@ const Specification = ({ ProductData }: IProps) => {
           </StyledTable>
         </TechnicalDetails>
       </Technical>
-    </ProductDetail>
+    </>
   );
 };
 
