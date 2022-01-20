@@ -12,7 +12,7 @@ export const Styling = styled.div<IAttributes>`
   margin-bottom: ${(props) => (props.gutterBottom ? "30px" : "0px")};
 
   text-align: ${(props) => props.align};
-  color: ${(props) => props.color || null};
+  color: ${(props) => props.color || props.theme.textColors.primary};
   font-weight: ${(props) => props.fontWeight};
 
   font-size: ${(props) => props.theme.typography[props.variant].fontSize};
@@ -24,6 +24,4 @@ export const Styling = styled.div<IAttributes>`
 
   text-transform: ${(props) =>
     props.theme.typography[props.variant].textTransform || "none"};
-
-  color: ${(props) => props.theme.textColors.primary};
 `;

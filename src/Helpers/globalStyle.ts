@@ -9,7 +9,7 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: "Mulish", sans-serif;
-transition: all 0.5s;
+transition: color 0.5s,background-color 0.5s;
 }
 
 html {
