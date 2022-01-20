@@ -3,14 +3,17 @@ import styled from "styled-components";
 export const ImageSections = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  justify-content: flex-start;
+  width: 25%;
   padding: 0 1rem 0 0;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Imagefirst = styled.div`
   width: 100%;
-  height: 300px;
-  margin-bottom: 6rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   & img {
@@ -37,7 +40,6 @@ export const ImageSecionSecond = styled.div`
 export const ImageSmall = styled.div`
   border: 1px solid #f2f2f2;
   width: 32%;
-  height: 100px;
   & img {
     width: 100%;
   }
@@ -66,7 +68,7 @@ export const Featured = styled.div`
 export const ProductDetail = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 75%;
   @media (max-width: 768px) {
     width: auto;
     padding: 1rem;
