@@ -11,10 +11,10 @@ export const Input = styled(Field)`
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  color: #707070;
-  font-size: 14px;
+  color: ${(props) => props.theme.textColors.secondary};
+    font-size: 14px;
   width: 100%;
-  background: ${(props) => props.background || '#fff'};
+  background: ${(props) => props.theme.background.paper || '#fff'};
 
   outline: none;
 `;

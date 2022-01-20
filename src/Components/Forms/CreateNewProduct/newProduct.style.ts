@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const FormProduct = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   border-radius: 16px;
   padding: 2rem 3rem;
   justify-content: space-between;

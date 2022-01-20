@@ -5,19 +5,18 @@ import { IpropsAvater } from "./interface";
 export const Profile = styled.div`
   display: flex;
   flex-direction: row;
-  padding-top:4rem;
+  padding-top: 4rem;
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
     align-items: center;
     align-self: center;
-    padding-top:1rem;
-
+    padding-top: 1rem;
   }
 `;
 
 export const LeftProfile = styled.div`
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   border-radius: 12px;
   flex-direction: column;
   margin-right: 1rem;
@@ -67,7 +66,7 @@ export const LeftProfileUserLink = styled(Link)`
   list-style: none;
   text-decoration: none;
   padding: 1rem;
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 15px;
   &:hover {
     cursor: pointer;
@@ -80,7 +79,7 @@ export const Divider = styled.hr`
   opacity: 0.3;
 `;
 export const RightProfile = styled.div`
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   border-radius: 12px;
   padding: 1rem 3rem;
   width: 70%;
