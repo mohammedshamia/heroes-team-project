@@ -28,7 +28,13 @@ const FormNewProduct = (
       <FormProduct>
         <ProductImage>
           <ProductImageUpload>
-            <Button type="button" height={""} width={""} bold={false}>
+            <Button
+              type="button"
+              backgroundColor="transparent"
+              height={""}
+              width={""}
+              bold={false}
+            >
               Product Images (4 images allowed){" "}
             </Button>
           </ProductImageUpload>
@@ -40,6 +46,8 @@ const FormNewProduct = (
                 width={""}
                 bold={false}
                 padding={"1rem"}
+                backgroundColor="transparent"
+
               >
                 +
               </Button>{" "}
@@ -51,6 +59,8 @@ const FormNewProduct = (
                 width={""}
                 bold={false}
                 padding={"1rem"}
+                backgroundColor="transparent"
+
               >
                 +
               </Button>{" "}
@@ -62,6 +72,8 @@ const FormNewProduct = (
                 width={""}
                 bold={false}
                 padding={"1rem"}
+                backgroundColor="transparent"
+
               >
                 +
               </Button>{" "}
@@ -80,7 +92,6 @@ const FormNewProduct = (
               label={"Product Name"}
               fullWidth={false}
               width={"45%"}
-              background={"#F2F2F2"}
             />
             <FormInput
               type="input"
@@ -91,7 +102,6 @@ const FormNewProduct = (
               label={"Product Brand"}
               fullWidth={false}
               width={"45%"}
-              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -104,7 +114,6 @@ const FormNewProduct = (
               label={"Product ID"}
               fullWidth={false}
               width={"45%"}
-              background={"#F2F2F2"}
             />
             <FormInput
               type="input"
@@ -115,7 +124,6 @@ const FormNewProduct = (
               label={"Product Categroy"}
               fullWidth={false}
               width={"45%"}
-              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -128,7 +136,6 @@ const FormNewProduct = (
               label={"Product Discription"}
               fullWidth={false}
               width={"100%"}
-              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
@@ -141,7 +148,6 @@ const FormNewProduct = (
               label={"Count In Stock"}
               fullWidth={false}
               width={"45%"}
-              background={"#F2F2F2"}
             />
             <FormInput
               type="input"
@@ -152,7 +158,6 @@ const FormNewProduct = (
               label={"Product Price"}
               fullWidth={false}
               width={"45%"}
-              background={"#F2F2F2"}
             />
           </FormProductInputGroup>
         </ProductDetails>

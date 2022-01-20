@@ -5,7 +5,7 @@ export const ImageSections = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 25%;
-  padding: 0 1rem 0 0;
+  padding: 0 2rem 0 0;
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -179,7 +179,7 @@ export const Review = styled.div`
 `;
 
 export const Pragraph = styled.div`
-  background: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   padding: 1rem;
 `;
 
@@ -192,7 +192,7 @@ export const Pragraphdate = styled.div`
 `;
 
 export const CardsSection = styled.div`
-  background: #f7f8fc;
+  background-color: ${(props) => props.theme.background.paper};
   width: 100%;
   padding: 0 0 180px;
 `;
@@ -200,7 +200,7 @@ export const CardsSection = styled.div`
 export const LinkBack = styled(Link)`
   list-style: none;
   text-decoration: none;
-  color: #707070;
+  color: ${(props) => props.theme.textColors.secondary};
   font-size: 15px;
   &:hover {
     cursor: pointer;

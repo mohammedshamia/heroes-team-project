@@ -82,8 +82,8 @@ export const Image = styled.img`
   width: 100%;
 `;
 export const CardsSection = styled.div`
-  background: #f7f8fc;
-  width: 100%;
+background: ${(props) => props.theme.background.paper};
+width: 100%;
   padding: 0 0 180px;
 `;
 

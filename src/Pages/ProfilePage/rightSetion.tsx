@@ -31,7 +31,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={"First Name"}
                 style={{
                   fontSize: "15px",
-                  color: "#707070",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                 }}
@@ -40,7 +39,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={"Last Name"}
                 style={{
                   fontSize: "15px",
-                  color: "#707070",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                 }}
@@ -49,7 +47,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={"Email"}
                 style={{
                   fontSize: "15px",
-                  color: "#707070",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                 }}
@@ -58,7 +55,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={"Birthday"}
                 style={{
                   fontSize: "15px",
-                  color: "#707070",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                   marginBottom: "3rem",
@@ -70,7 +66,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={UserProileData[0].firstName}
                 style={{
                   fontSize: "15px",
-                  color: "#000000",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                 }}
@@ -80,7 +75,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={UserProileData[0].lastName}
                 style={{
                   fontSize: "15px",
-                  color: "#000000",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                 }}
@@ -90,7 +84,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={UserProileData[0].email}
                 style={{
                   fontSize: "15px",
-                  color: "#000000",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                 }}
@@ -99,7 +92,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 children={UserProileData[0].brithday}
                 style={{
                   fontSize: "15px",
-                  color: "#000000",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                 }}
