@@ -30,7 +30,7 @@ export const ButtonContent = styled.div`
 export const SearchButton = styled.button`
   border-radius: 6px;
   border: none;
-  background-color: #fcdd06;
+  background-color: ${(props) => props.theme.colors.primary};
   color: #000000;
 
   height: 40px;

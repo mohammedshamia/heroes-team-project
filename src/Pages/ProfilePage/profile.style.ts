@@ -5,30 +5,27 @@ import { IpropsAvater } from "./interface";
 export const Profile = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 1rem;
-  padding-top: 1rem;
+  padding-top: 4rem;
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
-    margin: 0rem;
     align-items: center;
     align-self: center;
+    padding-top: 1rem;
   }
 `;
 
 export const LeftProfile = styled.div`
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   border-radius: 12px;
   flex-direction: column;
   margin-right: 1rem;
-  width: 300px;
+  width: 30%;
   @media (max-width: 768px) {
     margin-bottom: 1rem;
     margin-right: 0rem;
-    width: 350px;
-  }
-  @media (width: 1024px) {
-    width: 350px;
+    width: 100%;
+    padding: 1rem 2rem;
   }
 `;
 export const LeftProfileUser = styled.div`
@@ -69,7 +66,7 @@ export const LeftProfileUserLink = styled(Link)`
   list-style: none;
   text-decoration: none;
   padding: 1rem;
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 15px;
   &:hover {
     cursor: pointer;
@@ -82,35 +79,45 @@ export const Divider = styled.hr`
   opacity: 0.3;
 `;
 export const RightProfile = styled.div`
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   border-radius: 12px;
-  padding: 3rem;
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
+  padding: 1rem 3rem;
   width: 70%;
   @media (max-width: 768px) {
-    flex-direction: column;
-    margin: 0rem;
-    width: 350px;
+    width: 100%;
+    padding: 1rem 2rem;
   }
 `;
 
+export const RightProfileSecion = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    align-self: center;
+  }
+`;
 export const RightProfileAvaterSection = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 768px) {
-    align-items: center;
-    align-self: center;
-    display: flex;
-  }
 `;
 
 export const RightProfileSecionOne = styled.div`
   flex-direction: column;
   display: flex;
-  width: 320px;
-  padding: 1rem;
+  width: 40%;
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: left;
+  }
+  @media (width: 1024px) {
+    width: 70%;
+  }
 `;
 
 export const RightProfileuserDate = styled.div`
@@ -124,10 +131,11 @@ export const RightProfileuserDatem = styled.div`
 `;
 
 export const RightProfileuserDateButton = styled.div`
-  width: 200px;
   @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    text-align: left;
     align-items: center;
     align-self: center;
-    display: flex;
   }
 `;

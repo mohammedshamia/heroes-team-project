@@ -9,11 +9,8 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: "Mulish", sans-serif;
-transition: all 0.5s;
-}
-body
-{
-  background: ${props => props.theme.background.default};
+
+transition: color 0.5s,background-color 0.5s;
 }
 html {
 font-size: 62.5%;
@@ -37,7 +34,6 @@ background: ${props => props.theme.textColors.secondary}!important;
 }
 
 .swiper-pagination-bullet-active {
-/* color: #fff; */
 background: ${(props) => props.theme.colors.primary} !important;
 }
 .swiper-button-next {

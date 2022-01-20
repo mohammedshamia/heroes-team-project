@@ -105,10 +105,10 @@ const ProductPage = () => {
     <>
       <Container>
         <TitleLink>
-          <Typography style={{ color: "#000", fontSize: "15px",letterSpacing: '0.96px' }}>
-            <LinkBack to="/">Back </LinkBack> /{productData[0].name}
+          <Typography style={{  fontSize: "15px",letterSpacing: '0.96px' }}>
+            <LinkBack to="/">Back </LinkBack> / {productData[0].name}
           </Typography>
-        </TitleLink>
+        </TitleLink>  
         <FirstSection>
           <ImageSection ProductData={productData} />
           <ProductDetails ProductData={productData} />

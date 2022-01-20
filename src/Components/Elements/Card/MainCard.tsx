@@ -17,12 +17,14 @@ export default function MainCard(props: IpropsMainCard) {
   const [state, setState] = useState<boolean>(false);
   const theme = useTheme()
   return (
+
     <Card >
         <CardImg src={imgUrl} alt="phone" />
       <ContainerContentCard> 
         <Typography className="bla-bla" style = {{fontSize:"1.7rem"}} variant="h5"> {title} </Typography>
         <Rate rating={rating} onRating={(rate: number) => setRating(rate)} />
         <Typography variant="h4" color={theme.background.default} >  {price}  </Typography>
+
         <ContainerButton>
           <Button
             padding="5px 12px"
@@ -35,7 +37,9 @@ export default function MainCard(props: IpropsMainCard) {
           </Button>
           <Button padding="5px 40px"> Add To Cart </Button>
         </ContainerButton>
+
       </ContainerContentCard>
+
     </Card>
   );
 }

@@ -119,9 +119,7 @@ const ProductDetails = ({ ProductData }: IProps) => {
               </Button>
             </Margin>
             <Button
-              backgroundColor={"#FCDD06"}
               fontSize={"14px"}
-              backgroundColorHover={"#ffc107"}
               padding={"0rem 3rem"}
             >
               Add TO Cart
