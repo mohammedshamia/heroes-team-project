@@ -10,7 +10,10 @@ padding: 0;
 box-sizing: border-box;
 font-family: "Mulish", sans-serif;
 }
-
+body
+{
+  background: ${props => props.theme.background.default};
+}
 html {
 font-size: 62.5%;
 overflow-x: hidden;

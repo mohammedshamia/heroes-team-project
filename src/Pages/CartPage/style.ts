@@ -12,7 +12,7 @@ width:100%;
 
 `
 export const WrapperSubTotal = styled.div` 
-background-color:#F2F2F2; 
+background-color: #F2F2F2; 
 height:250px; 
 border-radius:16px; 
 display:flex; 

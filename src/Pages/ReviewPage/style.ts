@@ -4,7 +4,8 @@ import styled from 'styled-components'
 interface prop {
   opacity?: string;
   width?: string;
-  Grid?:string; 
+  Grid?: string;
+  margin?: string; 
 }
 export const Step = styled.span < prop>`
 
@@ -31,6 +32,7 @@ export const Hr = styled.hr<prop>`
 width: ${props => props.width || "65px"}; 
 height:2px; 
 background: #707070;
+margin:${props => props.margin || null}
 /* margin:0 10px ;  */
 
 `
@@ -117,9 +119,9 @@ display:flex;
 flex-direction:column; 
 align-items:center;
  `
-export const PositionButton = styled.div`  
-position:absolute;
-bottom:0; 
- right:0;
+export const PositionButton = styled.article`  
+ width:fit-content; 
+ align-self:flex-end;
+
 
  `    

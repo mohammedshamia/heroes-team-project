@@ -9,24 +9,17 @@ interface IProps {
 }
 
 export const CardSection = styled.div<IProps>`
-    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    /* height: ${(props) => props.height || "400px"}; */
     background-color: #fff;
     border-radius: ${(props) => props.borderRadius || "10px"};
     overflow: hidden;
-    /* padding: 35px 4px; */
-    /* width: ${(props) => props.width}; */
-    /* @media (max-width: 768px) {
-    width: 100%;
-  } */
+
 `;
 
 export const Img = styled.img<IProps>`
-  /* width: ${(props) => (props.width ? props.width : "300px")}; */
   width: ${(props) => (props.width ? props.width : "100%")};
   height: ${(props) => (props.height ? props.height : "auto")};
   object-fit: cover;
@@ -60,7 +53,13 @@ top:10px;
 right:12px; 
 
 `;
+export const ContainerContentCard = styled.div` 
+margin-bottom:20px; 
+display:flex; 
+align-items:center; 
+flex-direction:column;
 
+`
 export const ItemImg = styled.div<IProps>` 
 width:20%;
 height:150px; 
@@ -69,7 +68,6 @@ object-fit:cover;
 display:flex;
 align-items: ${props => props.alignItems || null}  ;
 justify-content: ${props => props.justifyContent || null} ; 
-/* padding:5px 10px;  */
 
 `
 export const ItemCounter = styled.div` 

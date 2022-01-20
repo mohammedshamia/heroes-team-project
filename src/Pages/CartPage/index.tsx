@@ -23,6 +23,7 @@ const CartPage = () => {
       </TitleLink>
       <Parent>
         < Wrapper>
+
       {ItemCart.map((item, index) => (
         <ShoppingCart
           key={index}
