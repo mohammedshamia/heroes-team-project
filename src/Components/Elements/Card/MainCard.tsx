@@ -18,7 +18,6 @@ export default function MainCard(props: IpropsMainCard) {
   const theme = useTheme()
   return (
     <Card >
-     
         <CardImg src={imgUrl} alt="phone" />
       <ContainerContentCard> 
         <Typography className="bla-bla" style = {{fontSize:"1.7rem"}} variant="h5"> {title} </Typography>

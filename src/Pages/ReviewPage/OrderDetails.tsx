@@ -26,7 +26,7 @@ const OrderDetails = () => {
       <Typography
         children='Order Details'
         fontWeight={700}
-        color='#000'
+        // color='#000'
         variant='h6'
         style={{
           letterSpacing: "1.28px",
@@ -60,7 +60,7 @@ export default OrderDetails
           children= {title}
           variant='h6'
           style={{
-            color: '#707070',
+            // color: '#707070',
             fontSize: "13px",
             display: "flex",
             alignSelf: "flex-start"
@@ -72,7 +72,7 @@ export default OrderDetails
               children={` $ ${price} x1`}
           variant='h6'
           style={{
-            color: '#707070',
+            // color: '#707070',
             fontSize: "13px"
           }}
           />
@@ -82,7 +82,7 @@ export default OrderDetails
               fontWeight={700}
             variant='h6'
             style={{
-              color: '#000',
+              // color: '#000',
               fontSize: "13px"
             }}
             />

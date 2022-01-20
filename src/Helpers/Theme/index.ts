@@ -75,6 +75,7 @@ export const lightTheme: DefaultTheme = {
   colors: {
     primary: "#FCDD06",
     secondary: "#FFC727",
+
     error: "#ef5350",
     success: "#4caf50",
     warning: "#ff9800",
@@ -84,10 +85,12 @@ export const lightTheme: DefaultTheme = {
     primary: "#242424",
     secondary: "#707070",
     disabled: "#00000061",
+    counterColor: "#a29d9d"
   },
   background: {
-    paper: "#ffffff",
+    paper: "#F7F8FC",
     default: "#ffffff",
+    secondary: "#f2f2f2",
   },
   common: {
     black: "#000000",
@@ -114,6 +117,7 @@ export const darkTheme: DefaultTheme = {
   background: {
     paper: "#1e1e1e",
     default: "#0a1929",
+    secondary: "#020202",
   },
   common: {
     black: "#000000",

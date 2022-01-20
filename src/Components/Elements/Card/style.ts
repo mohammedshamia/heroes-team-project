@@ -13,10 +13,11 @@ export const CardSection = styled.div<IProps>`
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: ${props => props.theme.background.paper};
     border-radius: ${(props) => props.borderRadius || "10px"};
     overflow: hidden;
-
+  
 `;
 
 export const Img = styled.img<IProps>`
@@ -36,7 +37,7 @@ export const ContainerButton = styled.div`
 `;
 
 export const ContainerShopping = styled.div`
-  background-color: #f2f2f2;
+background-color:  ${props => props.theme.background.paper };
   display: flex;
   border-radius:16px; 
   position:relative; 

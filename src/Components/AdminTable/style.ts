@@ -8,7 +8,7 @@ export const StyledTable = styled.div`
     td {
       text-align: start;
       padding: 15px 35px 19px;
-      color: #242424;
+      color: ${(props) => props.theme.textColors.primary};
       font-size: 22px;
       font-weight: 500;
     }
@@ -16,9 +16,10 @@ export const StyledTable = styled.div`
       transition: all 0.1s;
       &:nth-child(odd) {
         border-radius: 10px;
+        background-color: ${(props) => props.theme.background.default};
       }
       &:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: ${(props) => props.theme.background.secondary};
       }
       &:hover {
         background-color: #c2c2c2;
