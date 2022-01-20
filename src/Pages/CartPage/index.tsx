@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Container from "../../Components/Container";
 import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 import Typography from "../../Components/Typography";
