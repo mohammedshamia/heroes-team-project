@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const Root = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   background-color: #242424;
   background-color: ${(props) => props.theme.background.header};
   height: 58px;
@@ -19,6 +24,19 @@ export const SearchContent = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 50%;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`;
+
+export const MobileSearchContent = styled.div`
+  display: flex;
+  padding: 10px;
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const ButtonContent = styled.div`
@@ -49,4 +67,8 @@ export const ICONS = styled.div`
   align-items: center;
 
   gap: 32px;
+
+  @media (max-width: 1000px) {
+    gap: 10px;
+  }
 `;

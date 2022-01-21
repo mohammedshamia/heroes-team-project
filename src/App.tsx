@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Helpers/Theme/index";
 import { GlobalStyles } from "./Helpers/globalStyle";
@@ -6,6 +6,14 @@ import { Routes, Route, Navigate } from "react-router";
 import SppinerLoading from "./Components/Elements/SppinerLoading/index";
 import Header from "./Components/Header";
 import useThemeMode from "./Hook/UseThemeMode";
+
+import { useAppDispatch, RootState } from "./Store/configureStore";
+import { useSelector } from "react-redux";
+
+import { getUserProfile, registerUser, loginUser } from "./Store/Slices/user";
+
+import cookie from "react-cookies";
+//pages
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const LoginPage = React.lazy(() => import("./Pages/AuthPages/LoginPage"));
 const SignUpPage = React.lazy(() => import("./Pages/AuthPages/SignUpPage"));
@@ -33,9 +41,27 @@ const UsersAdminPage = React.lazy(
 );
 
 function App() {
+  const dispatch = useAppDispatch();
+  let user = useSelector((state: RootState) => state.entities.user);
+
   const { theme, ToggelTheme } = useThemeMode();
 
   const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+  useEffect(() => {
+    // dispatch(
+    //   loginUser({
+    //     email: "almallahimedoo@outlook.com",
+    //     password: "0592413118Aa$&",
+    //   })
+    // );
+    // if (user.data?.token) {
+    //   cookie.save("proShop-access-toekn", user.data?.token, {
+    //     path: "/",
+    //   });
+    // }
+    // dispatch(getUserProfile());
+  }, []);
 
   return (
     <div className="App">
@@ -43,7 +69,7 @@ function App() {
         <ThemeProvider theme={themeMode}>
           <GlobalStyles {...themeMode} />
           {/* add header  */}
-          <Header isLoggedIn={true} ToggelTheme={ToggelTheme} />
+          <Header user={user.data} ToggelTheme={ToggelTheme} />
 
           {/* Auth */}
           <Routes>
