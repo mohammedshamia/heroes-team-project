@@ -52,7 +52,7 @@ const Header: FC<IHeader> = ({ user, ToggelTheme }) => {
                   >
                     <SearchIcon />
                   </div>
-                  <Typography variant="body1"> Search</Typography>
+                  <h4> Search</h4>
                 </ButtonContent>
               </SearchButton>
             </SearchContent>
@@ -104,7 +104,7 @@ const Header: FC<IHeader> = ({ user, ToggelTheme }) => {
               >
                 <SearchIcon />
               </div>
-              <Typography variant="body1"> Search</Typography>
+              <h4> Search</h4>
             </ButtonContent>
           </SearchButton>
         </MobileSearchContent>
