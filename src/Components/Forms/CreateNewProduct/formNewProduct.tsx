@@ -14,6 +14,7 @@ import {
   Continer,
 } from "./newProduct.style";
 import { CreateNewProductValues } from "./interface";
+import { useTheme } from "styled-components";
 
 interface OtherProps {
   isEditing: boolean;
@@ -23,6 +24,8 @@ const FormNewProduct = (
 ) => {
   const { errors, touched, setFieldValue, isEditing } = props;
   // productImage
+
+  const theme = useTheme();
   return (
     <Continer>
       <FormProduct>
@@ -34,6 +37,7 @@ const FormNewProduct = (
               height={""}
               width={""}
               bold={false}
+              color={theme.textColors.primary}
             >
               Product Images (4 images allowed){" "}
             </Button>
@@ -47,7 +51,7 @@ const FormNewProduct = (
                 bold={false}
                 padding={"1rem"}
                 backgroundColor="transparent"
-
+                color={theme.textColors.primary}
               >
                 +
               </Button>{" "}
@@ -60,7 +64,7 @@ const FormNewProduct = (
                 bold={false}
                 padding={"1rem"}
                 backgroundColor="transparent"
-
+                color={theme.textColors.primary}
               >
                 +
               </Button>{" "}
@@ -73,7 +77,7 @@ const FormNewProduct = (
                 bold={false}
                 padding={"1rem"}
                 backgroundColor="transparent"
-
+                color={theme.textColors.primary}
               >
                 +
               </Button>{" "}

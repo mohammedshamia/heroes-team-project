@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import { NavLink } from "react-router-dom";
+import { useTheme } from "styled-components";
 import { ISignUpUser } from "../../../@Types/Validation";
 import SignupSchema from "../../../Helpers/Validation/SignupSchema";
 import Typography from "../../Typography";
@@ -8,6 +9,7 @@ import { FormContainer } from "../LogInForm/styles";
 import SignupForm from "./SignupForm";
 
 const Signup = () => {
+  const theme = useTheme();
   const LoginInitialValues: ISignUpUser = {
     userName: "",
     userEmail: "",
@@ -16,7 +18,7 @@ const Signup = () => {
   };
   return (
     <FormContainer>
-      <Typography style={{ fontWeight: "bold" }} variant="h2">
+      <Typography fontWeight={700} variant="h2">
         Signup.
       </Typography>
       <Typography variant="h6" style={{ marginBottom: "15px" }}>
@@ -31,8 +33,9 @@ const Signup = () => {
       <div style={{ textAlign: "center", marginTop: "25px" }}>
         <NavLink
           style={{
-            color: " black",
             fontSize: "16px",
+            color: theme.textColors.secondary,
+            textDecoration: "none",
           }}
           to={"/login"}
         >

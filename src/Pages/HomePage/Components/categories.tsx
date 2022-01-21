@@ -51,7 +51,8 @@ const Categories = () => {
             </CategoryoneImage>
 
             <Typography
-              style={{ fontSize: "15px", padding: "1rem" }}
+              variant="body1"
+              style={{ padding: "1rem" }}
               fontWeight={700}
             >
               {element.name}

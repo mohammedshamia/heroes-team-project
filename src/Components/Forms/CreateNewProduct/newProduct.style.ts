@@ -34,29 +34,29 @@ export const ProductImageUpload = styled.div`
   border: 1px dashed #707070;
   display: flex;
   justify-content: center;
-  width: 230px;
+  width: 100%;
   margin-bottom: 1rem;
   align-items: center;
   align-self: center;
   height: 200px;
   @media (max-width: 800px) {
-    width: 300px;
+    height: 300px;
   }
 `;
 export const ProductImageUploadGroup = styled.div`
   display: flex;
   flex-direction: row;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export const ProductImageUploadGroupButton = styled.div`
   border: 1px dashed #707070;
   display: flex;
   justify-content: center;
-  width: 70px;
+  width: 31%;
   height: 70px;
-  margin-right: 1rem;
 `;
 
 export const ProductDetails = styled.div`

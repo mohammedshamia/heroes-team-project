@@ -15,7 +15,7 @@ const Index = () => {
   };
   return (
     <FormContainer>
-      <Typography style={{ fontWeight: "bold" }} variant="h2">
+      <Typography fontWeight={700} variant="h2">
         Login.
       </Typography>
       <Typography variant="h6" style={{ marginBottom: "15px" }}>
@@ -31,7 +31,6 @@ const Index = () => {
       <div style={{ textAlign: "center", marginTop: "30px" }}>
         <NavLink
           style={{
-            color: " black",
             textDecoration: "none",
           }}
           to={"/signup"}

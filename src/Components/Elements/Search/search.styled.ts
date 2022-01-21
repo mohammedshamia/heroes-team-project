@@ -17,6 +17,7 @@ export const ValueWrapper = styled.input`
 
 export const Input = styled(ValueWrapper)`
   transition: border-color 150ms linear;
+  padding: 0 5px;
 
   &:focus {
     border-color: #0063cc;

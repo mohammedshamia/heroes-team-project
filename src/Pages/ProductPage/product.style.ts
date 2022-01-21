@@ -192,9 +192,9 @@ export const Pragraphdate = styled.div`
 `;
 
 export const CardsSection = styled.div`
-  background-color: ${(props) => props.theme.background.paper};
+  background-color: ${(props) => props.theme.background.secondary};
   width: 100%;
-  padding: 0 0 180px;
+  /* padding: 0 0 180px; */
 `;
 
 export const LinkBack = styled(Link)`
