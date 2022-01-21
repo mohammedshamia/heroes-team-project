@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../../Components/Container";
 import FormikNewProduct from "../../Components/Forms/CreateNewProduct/formikNewProduct";
 import Typography from "../../Components/Typography";

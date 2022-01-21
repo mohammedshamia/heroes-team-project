@@ -21,7 +21,7 @@ export const Input = styled(Field)`
 `;
 
 export const Label = styled.label`
-  color: #707070;
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 16px;
   letter-spacing: 0.88px;
   margin-bottom: 0.5rem;

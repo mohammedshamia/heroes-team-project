@@ -11,18 +11,18 @@ interface IProps {
 }
 const ImageSection = ({ ProductData }: IProps) => {
   return (
-      <ImageSections>
-        <Imagefirst>
-          <img src={ProductData[0].image} />
-        </Imagefirst>
-        <ImageSecionSecond>
-          {ProductData[0].imageSmall.map((elemnt) => (
-            <ImageSmall>
-              <img src={elemnt.name} />
-            </ImageSmall>
-          ))}
-        </ImageSecionSecond>
-      </ImageSections>
+    <ImageSections>
+      <Imagefirst>
+        <img src={ProductData[0].image} loading="lazy" />
+      </Imagefirst>
+      <ImageSecionSecond>
+        {ProductData[0].imageSmall.map((elemnt) => (
+          <ImageSmall>
+            <img src={elemnt.name} loading="lazy" />
+          </ImageSmall>
+        ))}
+      </ImageSecionSecond>
+    </ImageSections>
   );
 };
 

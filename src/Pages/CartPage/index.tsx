@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../../Components/Container";
 import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 import Typography from "../../Components/Typography";
-import { LinkBack, Parent, TitleLink, Wrapper } from './style'
+import { LinkBack, Parent, TitleLink, Wrapper } from "./style";
 import SubTotal from "./SubTotal";
 const ItemCart = [
   {
@@ -17,22 +17,21 @@ const CartPage = () => {
   return (
     <Container>
       <TitleLink>
-        <Typography style={{ fontSize: "15px", letterSpacing: '0.96px' }}>
+        <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
           <LinkBack to="/">Back </LinkBack> / Cart
         </Typography>
       </TitleLink>
       <Parent>
-        < Wrapper>
-
-      {ItemCart.map((item, index) => (
-        <ShoppingCart
-          key={index}
-          title={item.title}
-          price={item.price}
-          imgUrl={item.imgUrl}
-        />
-      ))}
-        </ Wrapper>
+        <Wrapper>
+          {ItemCart.map((item, index) => (
+            <ShoppingCart
+              key={index}
+              title={item.title}
+              price={item.price}
+              imgUrl={item.imgUrl}
+            />
+          ))}
+        </Wrapper>
         <SubTotal />
       </Parent>
     </Container>

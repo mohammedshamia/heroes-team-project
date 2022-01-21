@@ -14,6 +14,9 @@ export const Wrapper = styled(Link)`
   background: none;
   border: none;
   position: relative;
+  &:focus-visible {
+    outline: none;
+  }
 `;
 
 export const Text = styled.div`

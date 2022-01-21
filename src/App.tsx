@@ -29,7 +29,6 @@ const PlaceOrderPage = React.lazy(
 const SearchPage = React.lazy(() => import("./Pages/SearchPage"));
 const NotFoundPage = React.lazy(() => import("./Pages/NotFoundPage"));
 const PaymentPage = React.lazy(() => import("./Pages/PaymentPage"));
-const SuccessPage = React.lazy(() => import("./Pages/SuccessPage"));
 const CartPage = React.lazy(() => import("./Pages/CartPage"));
 const OrdersAdminPage = React.lazy(
   () => import("./Pages/AdminPages/OrdersAdminPage")
@@ -81,7 +80,6 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search/:keyword" element={<SearchPage />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/success" element={<SuccessPage />} />
             <Route path="/404" element={<NotFoundPage />} />
             {/* product pages */}
             <Route path="/product/:id" element={<ProductPage />} />

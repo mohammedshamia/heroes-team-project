@@ -12,7 +12,7 @@ export default function CardLayout() {
     { title: "mobile", price: 5454, imgUrl: "Assets/img3.PNG" },
   ];
   return (
-    <ContainerLyout> 
+    <ContainerLyout>
       {ItemCard.map((item, index) => (
         <MainCard
           key={index}
@@ -21,6 +21,6 @@ export default function CardLayout() {
           imgUrl={item.imgUrl}
         />
       ))}
-      </ContainerLyout>
+    </ContainerLyout>
   );
 }

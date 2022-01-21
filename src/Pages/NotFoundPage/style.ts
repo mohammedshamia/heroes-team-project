@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  color: #000;
-  background: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI",
-    "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif;
+  color: ${(props) => props.theme.textColors.secondary};
+  background: ${(props) => props.theme.background.default};
   height: 100vh;
   text-align: center;
   display: flex;
@@ -14,6 +12,7 @@ export const Wrapper = styled.div`
   & h1 {
     display: inline-block;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 1px solid ${(props) => props.theme.textColors.secondary};
     margin: 0;
     margin-right: 20px;
     padding: 10px 23px 10px 0;

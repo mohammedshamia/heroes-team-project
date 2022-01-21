@@ -7,6 +7,7 @@ export const Root = styled.div`
   right: 0;
   z-index: 999;
   background-color: #242424;
+  background-color: ${(props) => props.theme.background.header};
   height: 58px;
   overflow: hidden;
 `;
