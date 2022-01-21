@@ -12,10 +12,10 @@ export const ContainerLyout = styled.div`
 
   > div {
     padding-bottom: 0;
+    border-radius: 0; 
     border-inline-end: 2px solid ${(props) => props.theme.background.secondary};
     > div {
       padding: 0;
-      border-radius: 0;
       height: 100%;
       .bla-bla {
         flex: 1;

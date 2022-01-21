@@ -1,17 +1,18 @@
 import React from 'react'
 import Typography from '../../Components/Typography'
 import { Price } from './style'
-
+import { useTheme } from 'styled-components'
  export const ContentOrder = () => {
+   const theme = useTheme()
   return (
     <>
   <Price> 
       <Typography
         children='subtotal'
-        variant='h6'
+          variant='h6'
         style={{
           fontSize: "13px",
-          color:'#707070',
+          // color:'#707070',
 
         }}
       />
@@ -20,7 +21,7 @@ import { Price } from './style'
         variant='h6'
         style={{
           fontSize: "13px",
-          color: '#707070',
+          // color: '#707070',
 
         }}
         />
@@ -31,7 +32,7 @@ import { Price } from './style'
           variant='h6'
           style={{
             fontSize: "13px",
-            color: '#707070',
+            // color: '#707070',
 
           }}
         />
@@ -40,7 +41,7 @@ import { Price } from './style'
           variant='h6'
           style={{
             fontSize: "13px",
-            color: '#707070',
+            // color: '#707070',
 
           }}
         />
@@ -51,7 +52,7 @@ import { Price } from './style'
           variant='h6'
           style={{
             fontSize: "13px",
-            color: '#707070',
+            // color: '#707070',
 
           }}
         />
@@ -60,7 +61,7 @@ import { Price } from './style'
           variant='h6'
           style={{
             fontSize: "13px",
-            color: '#707070',
+            // color: '#707070',
 
           }}
         />
@@ -72,7 +73,7 @@ import { Price } from './style'
           fontWeight={700}
           style={{
             fontSize: "13px",
-            color: '#000',
+            // color: '#000',
 
           }}
         />
@@ -82,7 +83,7 @@ import { Price } from './style'
           fontWeight={700}
           style={{
             fontSize: "13px",
-            color: '#000',
+            // color: '#000',
 
           }}
         />

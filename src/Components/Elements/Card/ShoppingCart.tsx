@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Counter from "../Counter";
-import { CardImg } from "./index";
 import Typography from "../../Typography";
 import { ContainerShopping, ContainerClose, ItemImg, ItemCounter, ItemTypo, Itemprice } from "./style";
 import CloseIcon from "../../Icons/CloseIcon";
-import Container from "../../Container";
+
 interface IpropsShopCart {
   imgUrl?: string;
   title?: string;
@@ -16,9 +15,9 @@ const ShoppingCart = (props: IpropsShopCart) => {
   const increment = () => {
     setstateCount((prev: number) => prev + 1);
   };
-
+//  const theme = useTheme()
   return (
-    <ContainerShopping>
+    <ContainerShopping >
 
       <ContainerClose>
         <CloseIcon />

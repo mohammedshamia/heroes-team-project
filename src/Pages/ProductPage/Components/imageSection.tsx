@@ -1,3 +1,4 @@
+import Container from "../../../Components/Container";
 import { IProductData } from "../interface";
 import {
   Imagefirst,
@@ -10,18 +11,18 @@ interface IProps {
 }
 const ImageSection = ({ ProductData }: IProps) => {
   return (
-    <ImageSections>
-      <Imagefirst>
-        <img src={ProductData[0].image} />
-      </Imagefirst>
-      <ImageSecionSecond>
-        {ProductData[0].imageSmall.map((elemnt) => (
-          <ImageSmall>
-            <img src={elemnt.name} />
-          </ImageSmall>
-        ))}
-      </ImageSecionSecond>
-    </ImageSections>
+      <ImageSections>
+        <Imagefirst>
+          <img src={ProductData[0].image} />
+        </Imagefirst>
+        <ImageSecionSecond>
+          {ProductData[0].imageSmall.map((elemnt) => (
+            <ImageSmall>
+              <img src={elemnt.name} />
+            </ImageSmall>
+          ))}
+        </ImageSecionSecond>
+      </ImageSections>
   );
 };
 

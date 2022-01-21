@@ -17,12 +17,13 @@ const CartPage = () => {
   return (
     <Container>
       <TitleLink>
-        <Typography style={{ color: "#000", fontSize: "15px", letterSpacing: '0.96px' }}>
+        <Typography style={{ fontSize: "15px", letterSpacing: '0.96px' }}>
           <LinkBack to="/">Back </LinkBack> / Cart
         </Typography>
       </TitleLink>
       <Parent>
         < Wrapper>
+
       {ItemCart.map((item, index) => (
         <ShoppingCart
           key={index}

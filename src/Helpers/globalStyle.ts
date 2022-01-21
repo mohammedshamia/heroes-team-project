@@ -9,9 +9,9 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: "Mulish", sans-serif;
+
 transition: color 0.5s,background-color 0.5s;
 }
-
 html {
 font-size: 62.5%;
 overflow-x: hidden;
@@ -30,10 +30,10 @@ height: 14px;
 width: 14px;
 opacity: 1;
 background: rgba(0, 0, 0, 0.2);
+background: ${props => props.theme.textColors.secondary}!important;
 }
 
 .swiper-pagination-bullet-active {
-color: #fff;
 background: ${(props) => props.theme.colors.primary} !important;
 }
 .swiper-button-next {

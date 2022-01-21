@@ -1332,7 +1332,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@npmcli/arborist@^4.0.0":
+"@npmcli/arborist@^4.0.0", "@npmcli/arborist@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@npmcli/arborist/-/arborist-4.2.0.tgz#722b114376645ed3c78e1cef62969eb7993df2a0"
   integrity sha512-uQmPnwuhNHkN8IgCwda6wXklUf3BUfuuIUFuJMT224frUS5u2AuEAeCr2fiRVsz7AHcW3iSDai2j3WhVFlfbRQ==
