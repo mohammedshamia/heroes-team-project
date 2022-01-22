@@ -14,11 +14,12 @@ import { useParams } from "react-router";
 import { getProductsById } from "../../Store/Slices/products";
 import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../Store/configureStore";
+import SppinerLoading from "../../Components/Elements/SppinerLoading";
 
 const ProductPage = () => {
   const dispatch = useAppDispatch();
-  let productById = useSelector(
-    (state: RootState) => state.entities.products.productById
+  let { productById, loading } = useSelector(
+    (state: RootState) => state.entities.products
   );
 
   const { id } = useParams();
@@ -45,29 +46,37 @@ const ProductPage = () => {
   ];
   return (
     <>
-      {productById ? (
-        <>
-          <Container>
-            <TitleLink>
-              <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
-                <LinkBack to="/">Back </LinkBack> / {productById.name}
-              </Typography>
-            </TitleLink>
-            <FirstSection>
-              <ImageSection productById={productById} />
-              <ProductDetails productById={productById} />
-            </FirstSection>
-            <Specification ProductData={productData} />
-            <Reviews productById={productById} />
-          </Container>
-          <CardSliders />{" "}
-        </>
+      {loading ? (
+        <SppinerLoading />
       ) : (
         <>
-          <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
-            <LinkBack to="/">Back </LinkBack>
-          </Typography>
-          <Typography variant="h1">Not Found Product</Typography>
+          {productById ? (
+            <>
+              <Container>
+                <TitleLink>
+                  <Typography
+                    style={{ fontSize: "15px", letterSpacing: "0.96px" }}
+                  >
+                    <LinkBack to="/">Back </LinkBack> / {productById.name}
+                  </Typography>
+                </TitleLink>
+                <FirstSection>
+                  <ImageSection productById={productById} />
+                  <ProductDetails productById={productById} />
+                </FirstSection>
+                <Specification ProductData={productData} />
+                <Reviews productById={productById} />
+              </Container>
+              <CardSliders />{" "}
+            </>
+          ) : (
+            <>
+              <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
+                <LinkBack to="/">Back </LinkBack>
+              </Typography>
+              <Typography variant="h1">Not Found Product</Typography>
+            </>
+          )}{" "}
         </>
       )}
     </>
