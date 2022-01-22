@@ -9,6 +9,11 @@ export interface Icategories {
   image: string;
 }
 
+export interface IAllCategories {
+  categories:Icategories[]
+}
+
+
 export interface IProduct {
   _id: string;
   images: string[];
