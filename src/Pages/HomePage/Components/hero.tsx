@@ -45,19 +45,19 @@ const Hero = () => {
   ];
   return (
     <SwiperWrapper>
-      <Container>
-        <Swiper
-          cssMode={true}
-          navigation={true}
-          pagination={{
-            clickable: true,
-          }}
-          mousewheel={true}
-          keyboard={true}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}         
-        >
-          {heroSlide.map((elemnt) => (
-            <SwiperSlide>
+      <Swiper
+        cssMode={true}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        mousewheel={true}
+        keyboard={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+      >
+        {heroSlide.map((elemnt, index) => (
+          <SwiperSlide key={elemnt.name + index}>
+            <Container>
               <Slider>
                 <SliderDatiles>
                   <SliderDatilesm>
@@ -101,10 +101,10 @@ const Hero = () => {
                 </SliderDatiles>
                 <SliderImage src={elemnt.image} alt="" />
               </Slider>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Container>
+            </Container>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </SwiperWrapper>
   );
 };

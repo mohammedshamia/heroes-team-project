@@ -1,4 +1,5 @@
 import Container from "../../../Components/Container";
+import { IProduct } from "../../../Store/Types";
 import { IProductData } from "../interface";
 import {
   Imagefirst,
@@ -7,22 +8,22 @@ import {
   ImageSmall,
 } from "../product.style";
 interface IProps {
-  ProductData: IProductData[];
+  productById: IProduct;
 }
-const ImageSection = ({ ProductData }: IProps) => {
+const ImageSection = ({ productById }: IProps) => {
   return (
-      <ImageSections>
-        <Imagefirst>
-          <img src={ProductData[0].image} />
-        </Imagefirst>
-        <ImageSecionSecond>
-          {ProductData[0].imageSmall.map((elemnt) => (
-            <ImageSmall>
-              <img src={elemnt.name} />
-            </ImageSmall>
-          ))}
-        </ImageSecionSecond>
-      </ImageSections>
+    <ImageSections>
+      <Imagefirst>
+        <img src={productById.images[0]} loading="lazy" />
+      </Imagefirst>
+      <ImageSecionSecond>
+        {/* {ProductData[0].imageSmall.map((elemnt) => (
+          <ImageSmall>
+            <img src={elemnt.name} loading="lazy" />
+          </ImageSmall>
+        ))} */}
+      </ImageSecionSecond>
+    </ImageSections>
   );
 };
 

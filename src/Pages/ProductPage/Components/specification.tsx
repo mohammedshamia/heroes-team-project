@@ -2,12 +2,9 @@ import React from "react";
 import Typography from "../../../Components/Typography";
 import { IProductData } from "../interface";
 import {
-  ProductDetail,
   StyledTable,
-  Tbody,
   Technical,
   TechnicalDetails,
-  Thead,
   Title,
 } from "../product.style";
 interface IProps {

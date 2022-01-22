@@ -6,7 +6,10 @@ import {
   BookMarkfill,
 } from "../../../Components/Icons/BookMark";
 import Typography from "../../../Components/Typography";
-import { IProductData } from "../interface";
+import { IProduct } from "../../../Store/Types";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router";
+
 import {
   BookMark,
   Color,
@@ -18,12 +21,27 @@ import {
   Title,
 } from "../product.style";
 interface IProps {
-  ProductData: IProductData[];
+  productById: IProduct;
 }
-const ProductDetails = ({ ProductData }: IProps) => {
+
+const ProductDetails = ({ productById }: IProps) => {
+  const { id } = useParams();
+  const [counter, setCounter] = useState("");
+  let navigate = useNavigate();
+  const handleClick = () => {
+    navigate(
+      "/cart"
+      // , {
+      //   data: {
+      //     id,
+      //     gty: counter,
+      //   },
+      // }
+    );
+  };
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
-  const [counter, setCounter] = useState("");
+
   const [bookMark, setStateBookMark] = useState<boolean>(false);
 
   return (
@@ -31,80 +49,50 @@ const ProductDetails = ({ ProductData }: IProps) => {
       <Title>
         <Typography variant="h6" style={{ fontWeight: "bold" }}>
           {" "}
-          {ProductData[0].name}
+          {productById.name}
         </Typography>
         <Typography variant="h6" style={{ fontWeight: "bold" }}>
-          {" "}
-          ${ProductData[0].price}
+          ${productById.price}
         </Typography>
       </Title>
-      <Counter counter={0} setCounter={setCounter} />
-      <Color>
-        <ColorText>
-          <Typography style={{ color: "#adb5bd", fontSize: "18px" }}>
-            Color :{" "}
-          </Typography>
-          <Typography
-            style={{
-              fontSize: "18px",
-              display: "flex",
-              alignItems: "center",
-              alignSelf: "center",
-              marginLeft: "7px ",
-            }}
-          >
-            {color}
-          </Typography>
-        </ColorText>
+      <Counter counter={productById.countInStock} setCounter={setCounter} />
+      {productById.colors.length !== 0 && (
+        <Color>
+          <ColorText>
+            <Typography style={{ color: "#adb5bd", fontSize: "18px" }}>
+              Color :{" "}
+            </Typography>
+            <Typography
+              style={{
+                fontSize: "18px",
+                display: "flex",
+                alignItems: "center",
+                alignSelf: "center",
+                marginLeft: "7px ",
+              }}
+            >
+              {color}
+            </Typography>
+          </ColorText>
 
-        <ColorButton>
-          {ProductData[0].color.map(({ name }) => (
-            <Margin>
-              <Button
-                borderRaduies={"50%"}
-                padding={"2rem"}
-                backgroundColor={name}
-                borderHover={"1px solid #000"}
-                onClick={() => setColor(name)}
-              ></Button>
-            </Margin>
-          ))}
-        </ColorButton>
-      </Color>
-      <Color>
-        <ColorText>
-          <Typography style={{ color: "#adb5bd", fontSize: "18px" }}>
-            {" "}
-            Size :{" "}
-          </Typography>
-          <Typography
-            style={{
-              fontSize: "16px",
-              display: "flex",
-              alignItems: "center",
-              alignSelf: "center",
-              marginLeft: "7px ",
-            }}
-          >
-            {size}
-          </Typography>
-        </ColorText>{" "}
-        <SizeButton>
-          <div>
-            {ProductData[0].size.map(({ name }) => (
-              <Button
-                borderRaduies={"4px"}
-                padding={"0rem 2rem"}
-                backgroundColorHover={"#000"}
-                colorHover={"#fff"}
-                onClick={() => setSize(name)}
-                fontSize={"14px"}
-                margin={"1rem"}
-              >
-                {name}
-              </Button>
+          <ColorButton>
+            {productById.colors.map((ele) => (
+              <Margin>
+                <Button
+                  borderRaduies={"50%"}
+                  padding={"2rem"}
+                  backgroundColor={ele}
+                  borderHover={"1px solid #000"}
+                  onClick={() => setColor(ele)}
+                ></Button>
+              </Margin>
             ))}
-          </div>
+          </ColorButton>
+        </Color>
+      )}
+      <Color>
+        <SizeButton>
+          <div></div>
           <BookMark>
             <Margin>
               <Button
@@ -121,6 +109,7 @@ const ProductDetails = ({ ProductData }: IProps) => {
             <Button
               fontSize={"14px"}
               padding={"0rem 3rem"}
+              onClick={handleClick}
             >
               Add TO Cart
             </Button>
@@ -129,7 +118,7 @@ const ProductDetails = ({ ProductData }: IProps) => {
       </Color>
       <Typography style={{ fontSize: "12px" }}>
         {" "}
-        {ProductData[0].text}
+        {productById.description}
       </Typography>
     </ProductDetail>
   );

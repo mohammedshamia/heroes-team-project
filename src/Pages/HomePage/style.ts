@@ -1,20 +1,8 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
 
 export const SwiperWrapper = styled("div")`
-  background:   ${props => props.theme.background.default };;
-  /* display: flex;
-  align-items: center;
-  align-self: center;
-  justify-content: center; */
+  background: ${(props) => props.theme.background.secondary};
 `;
-// export const Swipers = styled(Swiper)`
-//   background: #f2f2f2;
-//   /* display: flex;
-//   align-items: center;
-//   align-self: center;
-//   justify-content: center; */
-// `;
 export const Slider = styled.div`
   display: flex;
   flex-direction: row;
@@ -64,9 +52,9 @@ export const CategoryImage = styled.div`
 `;
 
 export const CategoryoneImage = styled.div`
-  height: 230px;
+  height: 280px;
   width: 100%;
-  background: #ffffff;
+  background: ${(props) => props.theme.background.paper};
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -80,11 +68,12 @@ export const CategoryoneImage = styled.div`
 
 export const Image = styled.img`
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 export const CardsSection = styled.div`
-  background: ${props => props.theme.background.secondary};
+  background: ${(props) => props.theme.background.secondary};
   width: 100%;
-  padding: 0 0 180px;
 `;
 
 export const SliderDatiles = styled.div`

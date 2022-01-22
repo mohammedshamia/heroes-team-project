@@ -44,14 +44,15 @@ const Categories = () => {
       </Categ>
       <DividerComponent />
       <Category>
-        {categories.map((element) => (
-          <CategoryImage>
+        {categories.map((element, index) => (
+          <CategoryImage key={element.name + index}>
             <CategoryoneImage>
               <Image src={element.image} />
             </CategoryoneImage>
 
             <Typography
-              style={{ fontSize: "15px", padding: "1rem" }}
+              variant="body1"
+              style={{ padding: "1rem" }}
               fontWeight={700}
             >
               {element.name}

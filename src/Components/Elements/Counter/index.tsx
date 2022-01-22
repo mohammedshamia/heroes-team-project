@@ -27,16 +27,16 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
     <ContainerCounter>
       <Button
         bold={true}
-        borderHover={` 1px solid  ${theme.colors.primary}`}
-        border={` 1px solid  ${theme.textColors.secondary}`}
+        borderHover={`1px solid ${theme.colors.primary}`}
+        border={`1px solid  ${theme.colors.primary}`}
         borderRaduies={"0px"}
-        padding={"0rem .8rem "}
+        padding={"0rem 1rem "}
         onClick={decrement}
         backgroundColor={`${theme.background.default}`}
-        type="submit"
+        type="button"
         fontSize={"14px"}
-        colorHover={`${theme.common.black}`}
-        color={`${theme.textColors.secondary}`}
+        colorHover={theme.common.black}
+        color={theme.textColors.counterColor}
       >
         -
       </Button>
@@ -44,16 +44,16 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
       <CounterDiv>{count}</CounterDiv>
       <Button
         bold={true}
-        borderHover={` 1px solid  ${theme.colors.primary}`}
-        border={` .8px solid  ${theme.textColors.secondary}`}
+        borderHover={`1px solid ${theme.colors.primary}`}
+        border={`1px solid  ${theme.colors.primary}`}
         borderRaduies={"0px"}
-        padding={"0rem .8rem "}
-        onClick={increment}
+        padding={"0rem 1rem"}
         backgroundColor={`${theme.background.default}`}
-        type="submit"
+        type="button"
         fontSize={"14px"}
-        colorHover={`${theme.common.black}`}
-        color={`${theme.textColors.secondary}`}
+        colorHover={theme.common.black}
+        color={theme.textColors.counterColor}
+        onClick={increment}
       >
         +
       </Button>

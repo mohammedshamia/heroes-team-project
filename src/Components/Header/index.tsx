@@ -20,62 +20,96 @@ import {
   SearchButton,
   ICONS,
   ButtonContent,
+  MobileSearchContent,
 } from "./style";
 import { useTheme } from "styled-components";
+import { IUser } from "../../Store/Types";
 
 interface IHeader {
-  isLoggedIn: boolean;
+  user: IUser | null;
   ToggelTheme: Function;
 }
 
-const Header: FC<IHeader> = ({ isLoggedIn, ToggelTheme }) => {
+const Header: FC<IHeader> = ({ user, ToggelTheme }) => {
   const theme = useTheme();
   return (
-    <Root>
-      <Container>
-        <Content>
-          <Logo main="Pro" sub="Shop" />
+    <React.Fragment>
+      <Root>
+        <Container>
+          <Content>
+            <Logo main="Pro" sub="Shop" />
 
-          <SearchContent>
-            <Search data={[{ name: "mohammed", code: "123" }]} />
-            <SearchButton>
-              <ButtonContent>
-                <div
-                  style={{ width: "18px", height: "18px", overflow: "hidden" }}
+            <SearchContent>
+              <Search data={[{ name: "mohammed", code: "123" }]} />
+              <SearchButton>
+                <ButtonContent>
+                  <div
+                    style={{
+                      width: "18px",
+                      height: "18px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <SearchIcon />
+                  </div>
+                  <h4> Search</h4>
+                </ButtonContent>
+              </SearchButton>
+            </SearchContent>
+
+            <ICONS>
+              {user ? (
+                <SVGICON
+                  description={`${user.firstName + " " + user.lastName}`}
+                  to="/profile"
                 >
-                  <SearchIcon />
-                </div>
-                <Typography variant="body1"> Search</Typography>
-              </ButtonContent>
-            </SearchButton>
-          </SearchContent>
-
-          <ICONS>
-            {isLoggedIn ? (
-              <SVGICON description="Login / Sign UP" to="/login">
-                <Person />
+                  <Person />
+                </SVGICON>
+              ) : (
+                <SVGICON description="Login / SignUp" to="/login">
+                  <Person />
+                </SVGICON>
+              )}
+              <SVGICON
+                notification={user?.cart && user?.cart?.items.length}
+                description="Cart"
+                to="/cart"
+              >
+                <ShoppingCartIcon />
               </SVGICON>
-            ) : (
-              <SVGICON description="Profile" to="/profile">
-                <Person />
+              <SVGICON description="Toggle Theme" onClick={ToggelTheme}>
+                <svg width={"25px"} fill="#fff">
+                  {theme.type === "light" ? (
+                    <path d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
+                  ) : (
+                    <path d="m6.76 4.84-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495 1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115 1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96 1.41 1.41 1.79-1.8-1.41-1.41z"></path>
+                  )}
+                </svg>
               </SVGICON>
-            )}
-            <SVGICON description="Cart" to="/cart">
-              <ShoppingCartIcon />
-            </SVGICON>
-            <SVGICON description="Toggle Theme" to="/" onClick={ToggelTheme}>
-              <svg width={"25px"} fill="#fff">
-                {theme.type === "light" ? (
-                  <path d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
-                ) : (
-                  <path d="m6.76 4.84-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495 1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115 1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96 1.41 1.41 1.79-1.8-1.41-1.41z"></path>
-                )}
-              </svg>
-            </SVGICON>
-          </ICONS>
-        </Content>
+            </ICONS>
+          </Content>
+        </Container>
+      </Root>
+      <Container>
+        <MobileSearchContent>
+          <Search data={[{ name: "mohammed", code: "123" }]} />
+          <SearchButton>
+            <ButtonContent>
+              <div
+                style={{
+                  width: "18px",
+                  height: "18px",
+                  overflow: "hidden",
+                }}
+              >
+                <SearchIcon />
+              </div>
+              <h4> Search</h4>
+            </ButtonContent>
+          </SearchButton>
+        </MobileSearchContent>
       </Container>
-    </Root>
+    </React.Fragment>
   );
 };
 
