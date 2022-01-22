@@ -9,7 +9,6 @@ interface IProps {
   user: IUserSliceState;
 }
 const ProfilePage = ({ user }: IProps) => {
-  console.log(user);
   return (
     <Container>
       {user.loading ? (

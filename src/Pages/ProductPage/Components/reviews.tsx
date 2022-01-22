@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import Rate from "../../../Components/Elements/Rating";
 import Typography from "../../../Components/Typography";
+import { IProduct } from "../../../Store/Types";
 import { IProductData } from "../interface";
 import {
   Padding,
   Pragraph,
   Pragraphdate,
-  ProductDetail,
   Review,
   Technical,
   Title,
 } from "../product.style";
 
 interface IProps {
-  ProductData: IProductData[];
+  productById: IProduct;
 }
-const Reviews = ({ ProductData }: IProps) => {
+const Reviews = ({ productById }: IProps) => {
+  const [rating, setRating] = useState<number>(3);
+
   return (
     <>
       <Title>
@@ -26,9 +29,10 @@ const Reviews = ({ ProductData }: IProps) => {
 
       <Technical>
         <Review>
-          {ProductData[0].reviews.map((row) => (
-            <Padding>
-              <Typography
+          {productById.reviews.length !== 0 ? (
+            productById.reviews.map((row) => (
+              <Padding>
+                {/* <Typography
                 style={{
                   fontWeight: "bold",
                   fontSize: "18px",
@@ -37,22 +41,63 @@ const Reviews = ({ ProductData }: IProps) => {
               >
                 {" "}
                 {row.name}
-              </Typography>
-              <Pragraphdate>
-                {row.rating}
-                <Typography style={{ fontSize: "12px", color: "#707070" }}>
+              </Typography> */}
+                <Pragraphdate>
+                  <Rate
+                    rating={row.rating}
+                    onRating={(rate: number) => setRating(rate)}
+                  />
+                  {/* <Typography style={{ fontSize: "12px", color: "#707070" }}>
                   {" "}
                   {row.date}
-                </Typography>
-              </Pragraphdate>
-              <Pragraph>
-                <Typography style={{ fontSize: "12px" }}>
+                </Typography> */}
+                </Pragraphdate>
+                <Pragraph>
+                  <Typography style={{ fontSize: "12px" }}>
+                    {" "}
+                    {row.comment}
+                  </Typography>
+                </Pragraph>
+              </Padding>
+            ))
+          ) : (
+            <>
+              <Padding>
+                <Typography
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    paddingTop: "rem",
+                  }}
+                >
                   {" "}
-                  {row.text}
+                  Jenifer Medhurst
                 </Typography>
-              </Pragraph>
-            </Padding>
-          ))}
+                <Pragraphdate>
+                  <Rate
+                    rating={rating}
+                    onRating={(rate: number) => setRating(rate)}
+                  />
+                  <Typography style={{ fontSize: "12px", color: "#707070" }}>
+                    '28th March 2022'
+                  </Typography>
+                </Pragraphdate>
+                <Pragraph>
+                  <Typography style={{ fontSize: "12px" }}>
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et
+                    accusam et justo duo dolores et ea rebum. Stet clita kasd
+                    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                    amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                    et accusam et justo duo dolores et ea rebum. Stet clita.",
+                  </Typography>
+                </Pragraph>
+              </Padding>
+            </>
+          )}
         </Review>
       </Technical>
     </>

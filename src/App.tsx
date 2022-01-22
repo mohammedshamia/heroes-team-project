@@ -56,11 +56,7 @@ function App() {
     //     password: "0592413118Aa$&",
     //   })
     // );
-    // if (user.data?.token) {
-    //   cookie.save("proShop-access-toekn", user.data?.token, {
-    //     path: "/",
-    //   });
-    // }
+
     dispatch(getUserProfile());
     dispatch(getAllProductsByPaginate());
   }, [dispatch, user.data?.token]);

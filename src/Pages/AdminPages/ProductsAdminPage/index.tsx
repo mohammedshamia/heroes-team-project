@@ -1,8 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import AdminTable from "../../../Components/AdminTable";
 import Container from "../../../Components/Container";
+import AlertMessage from "../../../Components/Elements/Alert";
 
 const ProductsAdminPage = () => {
+  const [first, setfirst] = useState(false);
+
   return (
     <div>
       <Container>
@@ -24,6 +27,13 @@ const ProductsAdminPage = () => {
           handleCreateRow={() => {}}
         />
       </Container>
+      <AlertMessage
+        open={first}
+        setOpen={setfirst}
+        position="snackBar"
+        children={"message"}
+        type="success"
+      />
     </div>
   );
 };
