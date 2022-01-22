@@ -22,10 +22,31 @@ export const IButton = styled.button<ButtonProp>`
 
   &:hover {
     border: ${(props) => props?.borderHover || null};
-    color: ${(props) => props.theme.textColors.secondary};
     background-color: ${(props) =>
       props.backgroundColor
         ? props.backgroundColor
         : props.theme.colors.secondary};
+  }
+
+  position: relative;
+  overflow: hidden;
+  transition: all 1s;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 60px;
+    position: absolute;
+    left: -40px;
+    top: -2px;
+    opacity: 0.5;
+    transform: rotate(20deg);
+    box-shadow: 5px 5px 5px 15px #fff9d0;
+  }
+
+  &:hover::after {
+    left: 130%;
+    transition: all 0.3s ease-in-out;
   }
 `;

@@ -49,19 +49,19 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
-    // dispatch(
-    //   loginUser({
-    //     email: "almallahimedoo@outlook.com",
-    //     password: "0592413118Aa$&",
-    //   })
-    // );
-    // if (user.data?.token) {
-    //   cookie.save("proShop-access-toekn", user.data?.token, {
-    //     path: "/",
-    //   });
-    // }
-    // dispatch(getUserProfile());
-  }, []);
+    dispatch(
+      loginUser({
+        email: "almallahimedoo@outlook.com",
+        password: "0592413118Aa$&",
+      })
+    );
+    if (user.data?.token) {
+      cookie.save("proShop-access-toekn", user.data?.token, {
+        path: "/",
+      });
+    }
+    dispatch(getUserProfile());
+  }, [dispatch, user.data?.token]);
 
   return (
     <div className="App">
