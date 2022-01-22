@@ -11,7 +11,7 @@ interface Iprops {
   component?: string;
   fullWidth?: boolean;
   width?: string;
-  background?:string
+  background?: string;
 }
 
 function FormInput({
@@ -30,6 +30,7 @@ function FormInput({
     <FlexInput width={width} fullWidth={fullWidth}>
       <Label htmlFor={name}>{label}</Label>
       <Input
+        id={name}
         type={type}
         name={name}
         placeholder={placeholder}

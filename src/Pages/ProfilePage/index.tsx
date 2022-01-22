@@ -3,12 +3,14 @@ import Container from "../../Components/Container";
 import { Profile } from "./profile.style";
 import LeftSection from "./leftSection";
 import RightSetion from "./rightSetion";
-import { IUserSliceState } from "../../Store/Types";
 import SppinerLoading from "../../Components/Elements/SppinerLoading";
-interface IProps {
-  user: IUserSliceState;
-}
-const ProfilePage = ({ user }: IProps) => {
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store/configureStore";
+const ProfilePage = () => {
+  let user = useSelector((state: RootState) => state.entities.user);
+
+  // console.log(user);
+
   return (
     <Container>
       {user.loading ? (

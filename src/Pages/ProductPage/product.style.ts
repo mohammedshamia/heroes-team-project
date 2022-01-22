@@ -40,8 +40,12 @@ export const ImageSecionSecond = styled.div`
 export const ImageSmall = styled.div`
   border: 1px solid #f2f2f2;
   width: 32%;
+  height: 80px;
+  overflow: hidden;
   & img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 export const FirstSection = styled.div`
@@ -149,13 +153,15 @@ export const TechnicalDetails = styled.div`
 
 export const StyledTable = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: space-between;
   & table {
-    width: 90%;
+    width: 98%;
     & th,
     td {
       text-align: start;
       padding: 1rem 2rem;
-      color: #242424;
+      color: ${(props) => props.theme.textColors.primary};
       font-size: 12px;
       font-weight: 500;
     }
@@ -165,7 +171,7 @@ export const StyledTable = styled.div`
       &:nth-child(odd) {
       }
       &:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: ${(props) => props.theme.background.paper};
         border-radius: 1rem;
       }
     }

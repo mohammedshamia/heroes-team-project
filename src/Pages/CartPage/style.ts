@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   display: grid;
   width: 90%;
   gap: 10px;
-  padding: 10px 0;
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -36,9 +35,10 @@ export const LinkBack = styled(Link)`
 `;
 
 export const TitleLink = styled.div`
-  padding: 1rem 0rem;
+  padding: 2rem 0rem;
 `;
 export const Parent = styled.div`
+  margin-top: 15px;
   display: flex;
   gap: 10px;
   @media (max-width: 768px) {

@@ -32,9 +32,7 @@ export const Categ = styled.div`
 export const Category = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 1rem 1rem;
-  @media (max-width: 800px) {
-  }
+  padding: 1rem 0;
 `;
 
 export const CategoryImage = styled.div`

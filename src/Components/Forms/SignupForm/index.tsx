@@ -14,21 +14,20 @@ import { useEffect } from "react";
 
 const Signup = () => {
   const theme = useTheme();
-  const dispatch= useAppDispatch();
+  const dispatch = useAppDispatch();
   let user = useSelector((state: RootState) => state.entities.user);
-  let navigate= useNavigate();
-
+  let navigate = useNavigate();
 
   const LoginInitialValues: ISignUpUser = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    passwordConfirmation: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    passwordConfirmation: "",
   };
-  useEffect(()=>{
-    console.log('user', user)
-  })
+  useEffect(() => {
+    // console.log("user", user);
+  });
   return (
     <FormContainer>
       <Typography fontWeight={700} variant="h2">
@@ -42,9 +41,9 @@ const Signup = () => {
         validationSchema={SignupSchema}
         children={SignupForm}
         onSubmit={(values) => {
-          console.log("Signup Form Submited :)",values);
-          dispatch(registerUser(values))
-          user.auth && navigate('');
+          // console.log("Signup Form Submited :)",values);
+          dispatch(registerUser(values));
+          user.auth && navigate("");
         }}
       />
       <div style={{ textAlign: "center", marginTop: "25px" }}>

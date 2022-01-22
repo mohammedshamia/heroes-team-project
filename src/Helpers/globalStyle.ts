@@ -27,8 +27,8 @@ body {
   padding-bottom: 40px!important;
 }
 .swiper-pagination-bullet {
-height: 14px;
-width: 14px;
+height: 14px!important;
+width: 14px!important;
 opacity: 1;
 background: rgba(0, 0, 0, 0.2);
 background: ${(props) => props.theme.textColors.secondary}!important;
@@ -37,27 +37,32 @@ background: ${(props) => props.theme.textColors.secondary}!important;
 .swiper-pagination-bullet-active {
 background: ${(props) => props.theme.colors.primary} !important;
 }
-.swiper-button-next {
-bottom:-5px !important;
+.swiper-button-next,.swiper-button-prev {
+bottom:-2px !important;
 top:auto !important;
 transform: scale(0.45,0.35);
 color:${(props) => props.theme.textColors.primary} !important; 
 font-weight:1000;
-right: calc(50% - 50px)!important;
 z-index:99999!important;
+} 
+.swiper-button-next,.swiper-button-prev {
+right: calc(50% - 60px)!important;
 } 
 .swiper-button-prev{
-bottom:-5px !important;
-top:auto !important;
-transform: scale(0.45,0.35);
-color:${(props) => props.theme.textColors.primary} !important; 
-font-weight:1000;
-left: calc(50% - 50px)!important;
-z-index:99999!important;
+left: calc(50% - 60px)!important;
 
 } 
 
 
+#root > div > div:nth-child(4) > div.sc-jcFjpl.gxkdyQ > div {
+  padding-top: 15px;
+}
+
+#root > div > div:nth-child(4) > div.sc-jcFjpl.gxkdyQ > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+        top: 0;
+    bottom: auto!important;
+    text-align: end;
+}
 
 
 

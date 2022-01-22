@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import ImageSection from "./Components/imageSection";
-import { IProductData } from "./interface";
 import ProductDetails from "./Components/productDetails";
 import { FirstSection, LinkBack, TitleLink } from "./product.style";
 import Container from "../../Components/Container";
 import Specification from "./Components/specification";
 import Reviews from "./Components/reviews";
-import Rate from "../../Components/Elements/Rating";
 import CardSliders from "./Components/cardSlider";
 import Typography from "../../Components/Typography";
 import { useParams } from "react-router";
@@ -26,24 +24,8 @@ const ProductPage = () => {
 
   useEffect(() => {
     id && dispatch(getProductsById({ id }));
-  }, []);
+  }, [dispatch, id]);
 
-  const productData: IProductData[] = [
-    {
-      body: [
-        { title: "brand", name: "apple" },
-        { title: "voluptate", name: "omet" },
-        { title: "brand", name: "ut" },
-        { title: "voluptate", name: "omet" },
-        { title: "brand", name: "apple" },
-        { title: "voluptate", name: "omet" },
-        { title: "brand", name: "apple" },
-        { title: "voluptate", name: "omet" },
-        { title: "brand", name: "apple" },
-        { title: "voluptate", name: "omet" },
-      ],
-    },
-  ];
   return (
     <>
       {loading ? (
@@ -64,7 +46,7 @@ const ProductPage = () => {
                   <ImageSection productById={productById} />
                   <ProductDetails productById={productById} />
                 </FirstSection>
-                <Specification ProductData={productData} />
+                <Specification />
                 <Reviews productById={productById} />
               </Container>
               <CardSliders />{" "}

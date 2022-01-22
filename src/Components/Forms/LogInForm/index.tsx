@@ -38,7 +38,7 @@ const Index = () => {
         validationSchema={LogInSchema}
         children={LoginForm}
         onSubmit={(values) => {
-          console.log("Login Form Submited :)", values);
+          // console.log("Login Form Submited :)", values);
           dispatch(
             loginUser({
               email: values.email,

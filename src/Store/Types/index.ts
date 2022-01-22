@@ -10,9 +10,8 @@ export interface Icategories {
 }
 
 export interface IAllCategories {
-  categories:Icategories[]
+  categories: Icategories[];
 }
-
 
 export interface IProduct {
   _id: string;
@@ -71,4 +70,5 @@ export interface IUserSliceState {
   data: IUser | null;
   auth: boolean | null;
   loading: boolean;
+  error: any;
 }

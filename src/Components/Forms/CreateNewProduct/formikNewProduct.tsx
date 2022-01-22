@@ -20,7 +20,7 @@ const FormikNewProduct = (props: Iprops) => {
     <Formik
       initialValues={initialValues}
       onSubmit={(values: CreateNewProductValues, actions) => {
-        console.log(values);
+        // console.log(values);
         actions.setSubmitting(false);
         actions.resetForm({});
       }}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -33,25 +33,7 @@ const Categories = () => {
   );
   useEffect(() => {
     dispatch(getAllcategories());
-  }, []);
-  const categories2 = [
-    {
-      image: "Assets/img1.PNG",
-      name: "ACCESSORIES",
-    },
-    {
-      image: "Assets/img2.PNG",
-      name: "DEVICES",
-    },
-    {
-      image: "Assets/img3.PNG",
-      name: "COMPUTER COMPONENTS",
-    },
-    {
-      image: "Assets/img4.PNG",
-      name: "LAPTOP",
-    },
-  ];
+  }, [dispatch]);
   return (
     <Container>
       {loading ? (
@@ -73,11 +55,16 @@ const Categories = () => {
               breakpoints={{
                 // when window width is >= 640px
                 1: {
-                  slidesPerView: 2,
-                  slidesPerGroup: 2,
+                  slidesPerView: 1,
+                  slidesPerGroup: 1,
                   spaceBetween: 0,
                 },
                 // when window width is >= 768px
+                500: {
+                  slidesPerView: 2,
+                  slidesPerGroup: 2,
+                  spaceBetween: 10,
+                },
                 767: {
                   slidesPerView: 3,
                   slidesPerGroup: 3,
