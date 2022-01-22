@@ -1,5 +1,6 @@
 import React from "react";
 import Typography from "../../Components/Typography";
+import { IUser } from "../../Store/Types";
 import Avater from "./avater";
 import { UserData } from "./interface";
 import {
@@ -12,16 +13,24 @@ import {
 } from "./profile.style";
 
 interface IProps {
-  UserProileData: UserData[];
+  UserProileData: IUser;
 }
 const LeftSection = ({ UserProileData }: IProps) => {
   return (
     <LeftProfile>
       <LeftProfileUser>
-        <Avater border={"2px solid #fcdd06"} src={UserProileData[0].image} marginRight={'1rem'}/>
+        <Avater
+          border={"2px solid #fcdd06"}
+          src={
+            UserProileData.profileImage.length
+              ? UserProileData.profileImage
+              : "Assets/profile.png"
+          }
+          marginRight={"1rem"}
+        />
         <LeftProfileUserName>
-          <Typography variant="h5" style={{ fontWeight: "bold" }}>
-            {UserProileData[0].firstName} {UserProileData[0].lastName}
+          <Typography style={{ fontWeight: "bold" }}>
+            {UserProileData.firstName} {UserProileData.lastName}
           </Typography>
         </LeftProfileUserName>
       </LeftProfileUser>

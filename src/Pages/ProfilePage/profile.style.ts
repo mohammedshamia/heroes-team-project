@@ -110,7 +110,7 @@ export const RightProfileAvaterSection = styled.div`
 export const RightProfileSecionOne = styled.div`
   flex-direction: column;
   display: flex;
-  width: 40%;
+  width: 50%;
   @media (max-width: 768px) {
     width: 100%;
     text-align: left;

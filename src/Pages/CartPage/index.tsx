@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router";
 import Container from "../../Components/Container";
 import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 import Typography from "../../Components/Typography";
@@ -14,6 +15,8 @@ const ItemCart = [
   { title: "mobile", price: 544, imgUrl: "https://picsum.photos/id/0/200/300" },
 ];
 const CartPage = () => {
+  const { state } = useLocation();
+  console.log(state);
   return (
     <Container>
       <TitleLink>

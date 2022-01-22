@@ -56,11 +56,7 @@ function App() {
     //     password: "0592413118Aa$&",
     //   })
     // );
-    // if (user.data?.token) {
-    //   cookie.save("proShop-access-toekn", user.data?.token, {
-    //     path: "/",
-    //   });
-    // }
+
     dispatch(getUserProfile());
     dispatch(getAllProductsByPaginate());
   }, [dispatch, user.data?.token]);
@@ -79,7 +75,7 @@ function App() {
             <Route path="/signup" element={<SignUpPage />} />
             {/* Pages */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/search/:keyword" element={<SearchPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/404" element={<NotFoundPage />} />

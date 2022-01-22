@@ -5,6 +5,8 @@ import { getAuthHeader, removeTokenCookie } from "../../Helpers/tools";
 
 import { IUserSliceState, IUser } from "../Types";
 
+import cookie from "react-cookies";
+
 const initialState: () => IUserSliceState = () => ({
   data: null,
   auth: null,
