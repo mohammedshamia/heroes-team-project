@@ -8,6 +8,7 @@ import {
   Icategories,
   Review,
   IproductsByPaginate,
+  IAllCategories,
 } from "../Types";
 
 const initialState: () => IProductsSliceState = () => ({
@@ -33,8 +34,8 @@ const slice = createSlice({
       state.productsByPaginate = payload;
       state.loading = false;
     },
-    categoriesReceived: (state, { payload }: PayloadAction<Icategories[]>) => {
-      state.categories = payload;
+    categoriesReceived: (state, { payload:{categories} }: PayloadAction<IAllCategories>) => {
+      state.categories = categories;
       state.loading = false;
     },
     productsByTopThreeReceived: (

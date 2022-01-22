@@ -1,9 +1,22 @@
-import React from "react";
-
-import { CardSlider } from "../../../Components/CardSlider";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Mousewheel,
+  Keyboard,
+  Autoplay,
+} from "swiper";
 import Container from "../../../Components/Container";
 import { DividerComponent } from "../../../Components/Elements/Devider/styles.styled";
+import SppinerLoading from "../../../Components/Elements/SppinerLoading";
 import Typography from "../../../Components/Typography";
+import { RootState, useAppDispatch } from "../../../Store/configureStore";
+import { getAllcategories } from "../../../Store/Slices/products";
 import {
   Categ,
   Category,
@@ -11,9 +24,17 @@ import {
   CategoryoneImage,
   Image,
 } from "../style";
+SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard, Autoplay]);
 
 const Categories = () => {
-  const categories = [
+  const dispatch = useAppDispatch();
+  let { categories, loading } = useSelector(
+    (state: RootState) => state.entities.products
+  );
+  useEffect(() => {
+    dispatch(getAllcategories());
+  }, []);
+  const categories2 = [
     {
       image: "Assets/img1.PNG",
       name: "ACCESSORIES",
@@ -33,33 +54,69 @@ const Categories = () => {
   ];
   return (
     <Container>
-      <Categ>
-        <Typography
-          variant="h5"
-          fontWeight={700}
-          style={{ textTransform: "uppercase" }}
-        >
-          Featured Categories
-        </Typography>
-      </Categ>
-      <DividerComponent />
-      <Category>
-        {categories.map((element, index) => (
-          <CategoryImage key={element.name + index}>
-            <CategoryoneImage>
-              <Image src={element.image} />
-            </CategoryoneImage>
-
+      {loading ? (
+        <SppinerLoading />
+      ) : (
+        <>
+          <Categ>
             <Typography
-              variant="body1"
-              style={{ padding: "1rem" }}
+              variant="h5"
               fontWeight={700}
+              style={{ textTransform: "uppercase" }}
             >
-              {element.name}
+              Featured Categories
             </Typography>
-          </CategoryImage>
-        ))}
-      </Category>
+          </Categ>
+          <DividerComponent />
+          <Category>
+            <Swiper
+              breakpoints={{
+                // when window width is >= 640px
+                1: {
+                  slidesPerView: 2,
+                  slidesPerGroup: 2,
+                  spaceBetween: 0,
+                },
+                // when window width is >= 768px
+                767: {
+                  slidesPerView: 3,
+                  slidesPerGroup: 3,
+                  spaceBetween: 10,
+                },
+                1200: {
+                  slidesPerView: 4,
+                  slidesPerGroup: 4,
+                  spaceBetween: 10,
+                },
+              }}
+              direction={"horizontal"}
+              pagination={{
+                clickable: true,
+              }}
+              mousewheel={false}
+              keyboard={true}
+            >
+              {categories.length > 0 &&
+                categories.map((element, index) => (
+                  <SwiperSlide key={element.name + index}>
+                    <CategoryImage key={element.name + index}>
+                      <CategoryoneImage>
+                        <Image src={element.image} />
+                      </CategoryoneImage>
+                      <Typography
+                        variant="body1"
+                        style={{ padding: "1rem" }}
+                        fontWeight={700}
+                      >
+                        {element.name}
+                      </Typography>
+                    </CategoryImage>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          </Category>
+        </>
+      )}
     </Container>
   );
 };
