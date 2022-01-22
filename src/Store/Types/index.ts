@@ -64,4 +64,5 @@ export interface IUser {
 export interface IUserSliceState {
   data: IUser | null;
   auth: boolean | null;
+  loading: boolean;
 }
