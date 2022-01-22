@@ -18,7 +18,7 @@ export interface ISignUpUser {
 }
 
 export interface ILogInUser {
-  userEmail: string;
+  email: string;
   password: string;
   isRememberMe?: boolean
 }
