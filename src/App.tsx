@@ -79,7 +79,7 @@ function App() {
             <Route path="/signup" element={<SignUpPage />} />
             {/* Pages */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/search/:keyword" element={<SearchPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/404" element={<NotFoundPage />} />
