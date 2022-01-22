@@ -38,6 +38,7 @@ export interface IProductsSliceState {
   productsByTopThree: IProduct[];
   categories: Icategories[];
   productById: IProduct | null;
+  loading: boolean;
 }
 
 //interface for user
