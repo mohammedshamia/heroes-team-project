@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Alert from "../../../Components/Elements/Alert/index";
+import AlertMessage from "../../../Components/Elements/Alert/index";
 
 const SuccessMessage = styled.div`
   padding: 40px 0;
@@ -25,7 +25,7 @@ const InfoContainer = styled.div`
 const Index = () => {
   return (
     <SuccessMessage>
-      <Alert
+      <AlertMessage
         type="card"
         style={{
           padding: "30px",
@@ -49,7 +49,7 @@ const Index = () => {
           An email will be sent to your email address containes order
           confirmation and tacking code
         </Hint>
-      </Alert>
+      </AlertMessage>
     </SuccessMessage>
   );
 };

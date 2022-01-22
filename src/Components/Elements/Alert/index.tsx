@@ -11,28 +11,30 @@ interface IProps extends HTMLProps<HTMLDivElement> {
   position?: positions;
   type?: types;
   setOpen?: (boo: boolean) => void;
+  open?: boolean;
 }
 
-const Index = ({
+const AlertMessage = ({
   children,
   component,
   position = "normal",
   type = "default",
   setOpen,
+  open,
   ...rest
 }: IProps) => {
   window.setTimeout(() => {
-    console.log("out!");
+    // console.log("out!");
     if (position === "snackBar" && setOpen) {
       setOpen(false);
     }
   }, 6000);
 
   return (
-    <Alert as={component} {...rest} type={type} position={position}>
+    <Alert as={component} {...rest} type={type} position={position} open={open}>
       {children}
     </Alert>
   );
 };
 
-export default Index;
+export default AlertMessage;

@@ -5,6 +5,8 @@ import { getAuthHeader, removeTokenCookie } from "../../Helpers/tools";
 
 import { IUserSliceState, IUser } from "../Types";
 
+import cookie from "react-cookies";
+
 const initialState: () => IUserSliceState = () => ({
   data: null,
   auth: null,
@@ -19,6 +21,11 @@ const slice = createSlice({
     userAuthenticated: (state, { payload }: PayloadAction<IUser>) => {
       state.data = payload;
       state.auth = true;
+      if (payload.token) {
+        cookie.save("proShop-access-toekn", payload.token, {
+          path: "/",
+        });
+      }
     },
 
     userAuthenticatedFailed: (state, { payload }: PayloadAction<string>) => {
