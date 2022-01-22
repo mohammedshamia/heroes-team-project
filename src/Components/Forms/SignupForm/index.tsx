@@ -39,7 +39,7 @@ const Signup = () => {
           }}
           to={"/login"}
         >
-          Have an account?
+          Have an account?{" "}
           <span style={{ textDecoration: "none", fontWeight: "bold" }}>
             Login
           </span>
