@@ -13,14 +13,5 @@ interface IHeader {
   name: string;
 }
 export interface IProductData {
-  name: string;
-  image: string;
-  imageSmall: IimageSmall[];
-  color: IColor[];
-  size: ISize[];
-  text: string;
-  price: number;
-  header: any[];
   body: any[];
-  reviews: any[];
 }

@@ -10,6 +10,7 @@ import cookie from "react-cookies";
 const initialState: () => IUserSliceState = () => ({
   data: null,
   auth: null,
+  loading: false,
 });
 
 const slice = createSlice({
@@ -21,23 +22,27 @@ const slice = createSlice({
     userAuthenticated: (state, { payload }: PayloadAction<IUser>) => {
       state.data = payload;
       state.auth = true;
-      if (payload.token) {
-        cookie.save("proShop-access-toekn", payload.token, {
-          path: "/",
-        });
-      }
+      state.loading = false;
     },
 
     userAuthenticatedFailed: (state, { payload }: PayloadAction<string>) => {
       state.data = null;
       state.auth = false;
+      state.loading = false;
+    },
+    userRequested: (state, action) => {
+      state.loading = true;
     },
     userCleared: () => initialState(),
   },
 });
 
-const { userAuthenticated, userAuthenticatedFailed, userCleared } =
-  slice.actions;
+const {
+  userAuthenticated,
+  userAuthenticatedFailed,
+  userCleared,
+  userRequested,
+} = slice.actions;
 
 //user Authentication functions
 export const registerUser = (data: any) =>
@@ -45,18 +50,21 @@ export const registerUser = (data: any) =>
     url: "users/signup",
     method: "post",
     data,
+    onStart: userRequested.type,
     onSuccess: userAuthenticated.type,
     onError: userAuthenticatedFailed.type,
   });
 
-export const loginUser = (data: { email: string; password: string }) =>
-  apiCallBegan({
+export const loginUser = (data: { email: string; password: string }) => {
+  return apiCallBegan({
     url: "users/login",
     method: "post",
     data,
+    onStart: userRequested.type,
     onSuccess: userAuthenticated.type,
     onError: userAuthenticatedFailed.type,
   });
+};
 
 export const userSignOut = () => {
   removeTokenCookie();
@@ -69,6 +77,7 @@ export const getUserProfile = () =>
     url: "users/profile",
     method: "get",
     headers: getAuthHeader(),
+    onStart: userRequested.type,
     onSuccess: userAuthenticated.type,
     onError: userAuthenticatedFailed.type,
   });
@@ -83,23 +92,23 @@ export const updateUserProfile = (data: IUser) =>
   });
 
 //user Cart functions
-export const addItemToCart = (data: string) =>
+export const addItemToCart = (data: { productId: string; qty: number }) =>
   apiCallBegan({
     url: "users/profile/cart",
     method: "put",
     headers: getAuthHeader(),
-    params: {
-      productId: data,
-    },
+    data: data,
     onSuccess: userAuthenticated.type,
   });
 
-export const deleteItemFromCart = (data: { productId: string; qty: number }) =>
+export const deleteItemFromCart = (data: string) =>
   apiCallBegan({
     url: "users/profile/cart",
     method: "delete",
     headers: getAuthHeader(),
-    data,
+    params: {
+      productId: data,
+    },
     onSuccess: userAuthenticated.type,
   });
 
