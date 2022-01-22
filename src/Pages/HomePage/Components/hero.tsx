@@ -55,8 +55,8 @@ const Hero = () => {
         keyboard={true}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
-        {heroSlide.map((elemnt) => (
-          <SwiperSlide>
+        {heroSlide.map((elemnt, index) => (
+          <SwiperSlide key={elemnt.name + index}>
             <Container>
               <Slider>
                 <SliderDatiles>

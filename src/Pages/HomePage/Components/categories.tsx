@@ -44,8 +44,8 @@ const Categories = () => {
       </Categ>
       <DividerComponent />
       <Category>
-        {categories.map((element) => (
-          <CategoryImage>
+        {categories.map((element, index) => (
+          <CategoryImage key={element.name + index}>
             <CategoryoneImage>
               <Image src={element.image} />
             </CategoryoneImage>
