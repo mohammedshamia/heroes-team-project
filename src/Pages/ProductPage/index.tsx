@@ -27,8 +27,6 @@ const ProductPage = () => {
     id && dispatch(getProductsById({ id }));
   }, []);
 
-  const [rating, setRating] = useState<number>(3);
-
   const productData: IProductData[] = [
     {
       body: [

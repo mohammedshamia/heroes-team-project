@@ -27,13 +27,14 @@ export interface IProduct {
   createdAt: string;
   updatedAt: string;
 }
+export interface IproductsByPaginate {
+  products: IProduct[];
+  page: number;
+  pages: number;
+}
 
 export interface IProductsSliceState {
-  productsByPaginate: {
-    products: IProduct[];
-    page: number;
-    pages: number;
-  };
+  productsByPaginate: IproductsByPaginate;
   productsByTopThree: IProduct[];
   categories: Icategories[];
   productById: IProduct | null;
@@ -63,4 +64,5 @@ export interface IUser {
 export interface IUserSliceState {
   data: IUser | null;
   auth: boolean | null;
+  loading: boolean;
 }

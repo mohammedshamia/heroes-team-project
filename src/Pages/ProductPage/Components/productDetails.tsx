@@ -29,19 +29,15 @@ const ProductDetails = ({ productById }: IProps) => {
   const [counter, setCounter] = useState("");
   let navigate = useNavigate();
   const handleClick = () => {
-    navigate(
-      "/cart"
-      // , {
-      //   data: {
-      //     id,
-      //     gty: counter,
-      //   },
-      // }
-    );
+    const data = {
+      id,
+      gty: counter,
+    };
+    navigate("/cart", {
+      state: data,
+    });
   };
   const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
-
   const [bookMark, setStateBookMark] = useState<boolean>(false);
 
   return (

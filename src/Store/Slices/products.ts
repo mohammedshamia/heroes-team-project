@@ -2,7 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { apiCallBegan } from "../apiActions";
 import { getAuthHeader, removeTokenCookie } from "../../Helpers/tools";
 
-import { IProductsSliceState, IProduct, Icategories, Review } from "../Types";
+import {
+  IProductsSliceState,
+  IProduct,
+  Icategories,
+  Review,
+  IproductsByPaginate,
+} from "../Types";
 
 const initialState: () => IProductsSliceState = () => ({
   productsByPaginate: {
@@ -21,9 +27,9 @@ const slice = createSlice({
   reducers: {
     productsByPaginateReceived: (
       state,
-      { payload }: PayloadAction<IProduct[]>
+      { payload }: PayloadAction<IproductsByPaginate>
     ) => {
-      state.productsByPaginate.products = payload;
+      state.productsByPaginate = payload;
     },
     categoriesReceived: (state, { payload }: PayloadAction<Icategories[]>) => {
       state.categories = payload;
@@ -47,7 +53,7 @@ const {
   productByIdReceived,
 } = slice.actions;
 
-export const getAllProductsByPaginate = (data: {
+export const getAllProductsByPaginate = (data?: {
   keyword?: string;
   pageNumber?: string;
 }) =>
