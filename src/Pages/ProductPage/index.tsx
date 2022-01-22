@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ImageSection from "./Components/imageSection";
 import { IProductData } from "./interface";
@@ -10,8 +10,22 @@ import Reviews from "./Components/reviews";
 import Rate from "../../Components/Elements/Rating";
 import CardSliders from "./Components/cardSlider";
 import Typography from "../../Components/Typography";
+import { useParams } from "react-router";
+import { getProductsById } from "../../Store/Slices/products";
+import { useSelector, useDispatch } from "react-redux";
 
 const ProductPage = () => {
+  // 61e82f47167ef207d4cb42a6
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
+  useEffect(() => {
+    id && getProductsById({ id });
+    console.log(id && getProductsById({ id }));
+  }, []);
+  const {
+    entities: { products },
+  } = useSelector((state: any) => state);
   const [rating, setRating] = useState<number>(3);
 
   const productData: IProductData[] = [
@@ -104,11 +118,12 @@ const ProductPage = () => {
   return (
     <>
       <Container>
+        {console.log(products)}
         <TitleLink>
-          <Typography style={{  fontSize: "15px",letterSpacing: '0.96px' }}>
+          <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
             <LinkBack to="/">Back </LinkBack> / {productData[0].name}
           </Typography>
-        </TitleLink>  
+        </TitleLink>
         <FirstSection>
           <ImageSection ProductData={productData} />
           <ProductDetails ProductData={productData} />

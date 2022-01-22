@@ -6,7 +6,7 @@ export const ContainerCounter = styled.div`
   justify-content: space-between;
   height: 25px;
   /* background-color: #fff; */
-  background-color: ${props => props.theme.background.paper}; 
+  background-color: ${props => props.theme.background.primary}; 
 `;
 export const CounterDiv = styled.div`
   display: flex;

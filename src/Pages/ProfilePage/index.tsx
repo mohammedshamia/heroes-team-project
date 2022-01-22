@@ -4,7 +4,6 @@ import { Profile } from "./profile.style";
 import { UserData } from "./interface";
 import LeftSection from "./leftSection";
 import RightSetion from "./rightSetion";
-
 const ProfilePage = () => {
   const UserProileData: UserData[] = [
     {
