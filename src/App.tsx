@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import { getUserProfile, registerUser, loginUser } from "./Store/Slices/user";
 
 import cookie from "react-cookies";
+import { getAllProductsByPaginate } from "./Store/Slices/products";
 //pages
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const LoginPage = React.lazy(() => import("./Pages/AuthPages/LoginPage"));
@@ -47,20 +48,21 @@ function App() {
   const { theme, ToggelTheme } = useThemeMode();
 
   const themeMode = theme === "light" ? lightTheme : darkTheme;
-
+  console.log(user);
   useEffect(() => {
-    dispatch(
-      loginUser({
-        email: "almallahimedoo@outlook.com",
-        password: "0592413118Aa$&",
-      })
-    );
-    if (user.data?.token) {
-      cookie.save("proShop-access-toekn", user.data?.token, {
-        path: "/",
-      });
-    }
+    // dispatch(
+    //   loginUser({
+    //     email: "almallahimedoo@outlook.com",
+    //     password: "0592413118Aa$&",
+    //   })
+    // );
+    // if (user.data?.token) {
+    //   cookie.save("proShop-access-toekn", user.data?.token, {
+    //     path: "/",
+    //   });
+    // }
     dispatch(getUserProfile());
+    dispatch(getAllProductsByPaginate());
   }, [dispatch, user.data?.token]);
 
   return (

@@ -53,7 +53,7 @@ const {
   productByIdReceived,
 } = slice.actions;
 
-export const getAllProductsByPaginate = (data: {
+export const getAllProductsByPaginate = (data?: {
   keyword?: string;
   pageNumber?: string;
 }) =>
