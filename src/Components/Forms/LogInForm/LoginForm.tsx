@@ -20,7 +20,7 @@ const LoginForm = ({ errors, touched }: IProps) => {
     <Form>
       <FlexInput>
         <Label>Enter your email addrees</Label>
-        <FormInput name="userEmail" errors={errors} touched={touched} />
+        <FormInput name="email" errors={errors} touched={touched} />
       </FlexInput>
       <FlexInput>
         <Label>Enter your password</Label>
@@ -33,6 +33,7 @@ const LoginForm = ({ errors, touched }: IProps) => {
       </FlexInput>
 
       <Button
+        // type="submit"
         bold={true}
         backgroundColor="#FCDD06"
         width="100%"
