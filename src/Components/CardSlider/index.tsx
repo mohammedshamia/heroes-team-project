@@ -21,6 +21,9 @@ export const CardSlider = () => {
   );
   useEffect(() => {
     dispatch(getAllProductsByPaginate())
+    return () => {
+      //  reset products state
+    }
   }, [dispatch]);
   return (
     <Container>

@@ -25,10 +25,17 @@ const CartPage = () => {
       </TitleLink>
       <Parent>
         <Wrapper>
-          {loading ? <SppinerLoading /> : data && 
-            <ShoppingCart
-              data={data?.cart && data?.cart}
-            /> 
+          {loading ? <SppinerLoading /> :
+            data?.cart ? (
+
+              <ShoppingCart
+                data={data.cart}
+              /> 
+            )
+              : (
+
+                <div>Fff</div>
+              )
           }
         </Wrapper>
         <SubTotal data={data?.cart && data.cart}

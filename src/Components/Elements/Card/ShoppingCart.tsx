@@ -11,7 +11,7 @@ import {
 } from "./style";
 import CloseIcon from "../../Icons/CloseIcon";
 import Index from "../../Forms/LogInForm";
-import { deleteItemFromCart } from "../../../Store/Slices/user";
+import { addItemToCart, deleteItemFromCart } from "../../../Store/Slices/user";
 import { useAppDispatch } from "../../../Store/configureStore";
 
 interface IpropsShopCart {
@@ -31,30 +31,38 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
     dispatch(deleteItemFromCart(id))
     console.log(items)
   }
+  const handleIncrease = (id: string, qty: number) => {
+    dispatch(addItemToCart({ productId: id, qty: qty }))
+    console.log("add")
+  }
   //  const theme = useTheme()
   return (
     <>
-      {items && items.map((elemnt: any, index: number) => (
-        <ContainerShopping key={index}>
+      {items.map((elemnt: any) => (
+        <ContainerShopping key={elemnt.product._id}>
           <ContainerClose onClick={() => handleRemove(elemnt.product._id)}>
-        <CloseIcon />
-      </ContainerClose>
+            <CloseIcon />
+          </ContainerClose>
 
           <ItemImg alignItems="center" justifyContent="center">
-            <img src={elemnt.product.images[0]} alt="photo" width={"100%"} loading="lazy" />
+            <img src={elemnt.product.images[0]} alt="blabla" width={"100%"} loading="lazy" />
           </ItemImg>
 
           <ItemTypo>
             <Typography variant="body1" children={elemnt.product.name} fontWeight={700} />
           </ItemTypo>
           <ItemCounter>
-            <Counter counter={elemnt.qty} setCounter={increment} />
+            <Counter counter={elemnt.qty}
+            //  handleIncrease(elemnt.product._id, elemnt.qty)} 
+            />
           </ItemCounter>
           <Itemprice>
-            <Typography variant="h6" fontWeight={700} children={` $ ${elemnt.itemTotalPrice}`} />
+            <Typography variant="h6" fontWeight={700} children={` $ ${elemnt.itemTotalPrice * elemnt.qty}`} />
           </Itemprice>
         </ContainerShopping>
-      ))}
+      ))
+      }
+
     </>
 
   );
