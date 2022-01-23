@@ -22,10 +22,17 @@ export default function MainCard(props: Iprops) {
   const [state, setState] = useState<boolean>(false);
   const theme = useTheme();
   const dispatch = useAppDispatch();
+  let user = useSelector((state: RootState) => state?.entities.user);
   let navigate = useNavigate();
   const handleAddToCart = (id: string) => {
-    dispatch(addItemToCart({ productId: id, qty: 1 }))
-    navigate("/cart");
+    if (user.auth) {
+      dispatch(addItemToCart({ productId: id, qty: 1 }))
+
+
+    }
+    else {
+      navigate("/login")
+    }
   };
 
   return (
