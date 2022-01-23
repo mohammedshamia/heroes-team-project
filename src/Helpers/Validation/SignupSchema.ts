@@ -1,26 +1,30 @@
 import { object, ref, string, SchemaOf } from "yup";
 import { ISignUpUser } from "../../@Types/Validation";
 const SignUpSchema = (): SchemaOf<ISignUpUser> => {
-  return object()
-    .shape({
-      firstName: string().required("Please, First name is required!"),
-      lastName: string().required("Please, Last name is required!"),
-      email: string()
-        .email("Email should be vaild")
-        .required("Please, User email is required!"),
-      password: string()
-        .min(8, "Password should be 8 char or more")
-        .required("Please, password is required!")
-        .matches(
-          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-          "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-        ),
-      passwordConfirmation: string().oneOf(
-        [ref("password"), null],
-        "Passwords must match"
+  return object().shape({
+    firstName: string()
+      .required("First name is required")
+      .matches(
+        /^[A-Za-z ]+$/,
+        "Should field with the alphabet with spaces format"
       ),
-    })
-    .required("Please, Passwords must match!");
+    lastName: string()
+      .required("Last name is required")
+      .matches(
+        /^[A-Za-z ]+$/,
+        "Should field with the alphabet with spaces format"
+      ),
+    email: string().email("Email is not valid").required("Email is required"),
+    password: string()
+      .required("Password is required")
+      .matches(
+        /^(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#$%./^&*()_+<>,~`"':;]{8,}$/,
+        `Password should be 8 digits length at least, contains at least one Capital letter, contains at least one number.)`
+      ),
+    passwordConfirmation: string()
+      .required("Password confirmation is required")
+      .oneOf([ref("password"), null], "Passwords should matches"),
+  });
 };
 
 export default SignUpSchema;
