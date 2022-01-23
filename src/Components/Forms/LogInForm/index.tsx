@@ -1,18 +1,30 @@
 import { Formik } from "formik";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ILogInUser } from "../../../@Types/Validation";
 import LogInSchema from "../../../Helpers/Validation/LoginSchema";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
 import LoginForm from "./LoginForm";
 import { FormContainer } from "./styles";
+import { loginUser } from "../../../Store/Slices/user";
+import { RootState, useAppDispatch } from "../../../Store/configureStore";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Index = () => {
+  const dispatch = useAppDispatch();
+  let user = useSelector((state: RootState) => state.entities.user);
+  let navigate = useNavigate();
+
   const LoginInitialValues: ILogInUser = {
-    userEmail: "",
+    email: "",
     password: "",
     isRememberMe: false,
   };
+
+  useEffect(() => {
+    user.auth && navigate("/");
+  }, [navigate, user]);
   return (
     <FormContainer>
       <Typography fontWeight={700} variant="h2">
@@ -24,8 +36,16 @@ const Index = () => {
       <Formik
         initialValues={LoginInitialValues}
         validationSchema={LogInSchema}
-        onSubmit={() => console.log("Login Form Submited :)")}
         children={LoginForm}
+        onSubmit={(values) => {
+          // console.log("Login Form Submited :)", values);
+          dispatch(
+            loginUser({
+              email: values.email,
+              password: values.password,
+            })
+          );
+        }}
       />
       <hr style={{ marginTop: "20px" }} />
       <div style={{ textAlign: "center", marginTop: "30px" }}>

@@ -10,14 +10,15 @@ export interface ICreateNewProduct {
 }
 
 export interface ISignUpUser {
-  userName: string;
-  userEmail: string;
-  password: string;
-  confirmPassword: string;
+  firstName: string
+  lastName: string,
+  email: string,
+  password: string,
+  passwordConfirmation: string
 }
 
 export interface ILogInUser {
-  userEmail: string;
+  email: string;
   password: string;
   isRememberMe?: boolean
 }

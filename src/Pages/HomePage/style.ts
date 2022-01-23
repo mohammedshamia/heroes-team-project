@@ -32,10 +32,7 @@ export const Categ = styled.div`
 export const Category = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 1rem 1rem;
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
+  padding: 1rem 0;
 `;
 
 export const CategoryImage = styled.div`
@@ -44,7 +41,7 @@ export const CategoryImage = styled.div`
   align-items: center;
   align-self: center;
   justify-content: center;
-  width: 30%;
+
   padding: 1rem 0.5rem;
   @media (max-width: 800px) {
     width: 100%;
@@ -52,8 +49,9 @@ export const CategoryImage = styled.div`
 `;
 
 export const CategoryoneImage = styled.div`
-  height: 280px;
+  height: 250px;
   width: 100%;
+  padding: 3rem;
   background: ${(props) => props.theme.background.paper};
   border-radius: 10px;
   overflow: hidden;

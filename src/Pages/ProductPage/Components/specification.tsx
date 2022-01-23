@@ -7,10 +7,24 @@ import {
   TechnicalDetails,
   Title,
 } from "../product.style";
-interface IProps {
-  ProductData: IProductData[];
-}
-const Specification = ({ ProductData }: IProps) => {
+
+const productData: IProductData[] = [
+  {
+    body: [
+      { title: "brand", name: "apple" },
+      { title: "voluptate", name: "omet" },
+      { title: "brand", name: "ut" },
+      { title: "voluptate", name: "omet" },
+      { title: "brand", name: "apple" },
+      { title: "voluptate", name: "omet" },
+      { title: "brand", name: "apple" },
+      { title: "voluptate", name: "omet" },
+      { title: "brand", name: "apple" },
+      { title: "voluptate", name: "omet" },
+    ],
+  },
+];
+const Specification = () => {
   return (
     <>
       <Title>
@@ -25,36 +39,26 @@ const Specification = ({ ProductData }: IProps) => {
         <TechnicalDetails>
           <StyledTable>
             <table>
-              <>
-                <th>
-                  <tr></tr>
-                </th>
-                {ProductData[0].body.map((row: any, index: number) => (
-                  <tbody key={index}>
-                    <tr>
-                      <th>{row.title}</th>
-                      <th>{row.name}</th>
-                    </tr>
-                  </tbody>
-                ))}
-              </>
+              {productData[0].body.map((row: any, index: number) => (
+                <tbody key={row.name + index}>
+                  <tr>
+                    <td>{row.title}</td>
+                    <td>{row.name}</td>
+                  </tr>
+                </tbody>
+              ))}
             </table>
           </StyledTable>
           <StyledTable>
             <table>
-              <>
-                <th>
-                  <tr></tr>
-                </th>
-                {ProductData[0].body.map((row: any, index: number) => (
-                  <tbody key={index}>
-                    <tr>
-                      <th>{row.title}</th>
-                      <th>{row.name}</th>
-                    </tr>
-                  </tbody>
-                ))}
-              </>
+              {productData[0].body.map((row: any, index: number) => (
+                <tbody key={row.name + index}>
+                  <tr>
+                    <td>{row.title}</td>
+                    <td>{row.name}</td>
+                  </tr>
+                </tbody>
+              ))}
             </table>
           </StyledTable>
         </TechnicalDetails>

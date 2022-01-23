@@ -2,10 +2,9 @@ import styled from "styled-components";
 export const ContainerCounter = styled.div`
   display: flex;
   width: 110px;
-  /* border: 1px solid ${(props) => props.theme.textColors.secondary}; */
   justify-content: space-between;
   height: 25px;
-  background-color: ${(props) => props.theme.background.default};
+  background-color: ${(props) => props.theme.background.paper};
   line-height: 1.6;
 `;
 export const CounterDiv = styled.div`

@@ -21,14 +21,20 @@ const SignupForm = ({ errors, touched }: IProps) => {
       }}
     >
       <FlexInput>
-        <Label>Name</Label>
-        <FormInput name="userName" errors={errors} touched={touched} />
+        <Label>First name</Label>
+        <FormInput name="firstName" errors={errors} touched={touched} />
+      </FlexInput>
+
+      <FlexInput>
+        <Label>Last name</Label>
+        <FormInput name="lastName" errors={errors} touched={touched} />
       </FlexInput>
 
       <FlexInput>
         <Label>Enter your email addrees</Label>
-        <FormInput name="userEmail" errors={errors} touched={touched} />
+        <FormInput name="email" errors={errors} touched={touched} />
       </FlexInput>
+
       <FlexInput>
         <Label>Enter your password</Label>
         <FormInput
@@ -42,19 +48,19 @@ const SignupForm = ({ errors, touched }: IProps) => {
       <FlexInput>
         <Label>Confirm your password</Label>
         <FormInput
-          name="confirmPassword"
+          name="passwordConfirmation"
           errors={errors}
           touched={touched}
           type={"password"}
         />
       </FlexInput>
+
       <Button
         bold={true}
         backgroundColor="#FCDD06"
         width="100%"
         margin="25px 0 0 0 "
-      >
-        Sing Up
+      >Sing Up
       </Button>
     </Form>
   );

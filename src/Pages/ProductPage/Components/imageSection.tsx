@@ -1,6 +1,4 @@
-import Container from "../../../Components/Container";
 import { IProduct } from "../../../Store/Types";
-import { IProductData } from "../interface";
 import {
   Imagefirst,
   ImageSecionSecond,
@@ -17,11 +15,11 @@ const ImageSection = ({ productById }: IProps) => {
         <img src={productById.images[0]} loading="lazy" />
       </Imagefirst>
       <ImageSecionSecond>
-        {/* {ProductData[0].imageSmall.map((elemnt) => (
-          <ImageSmall>
-            <img src={elemnt.name} loading="lazy" />
+        {productById.images.map((elemnt: string, index) => (
+          <ImageSmall key={elemnt + index}>
+            <img src={elemnt} loading="lazy" />
           </ImageSmall>
-        ))} */}
+        ))}
       </ImageSecionSecond>
     </ImageSections>
   );

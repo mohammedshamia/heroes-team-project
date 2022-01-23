@@ -7,13 +7,12 @@ import SppinerLoading from "./Components/Elements/SppinerLoading/index";
 import Header from "./Components/Header";
 import useThemeMode from "./Hook/UseThemeMode";
 
-import { useAppDispatch, RootState } from "./Store/configureStore";
-import { useSelector } from "react-redux";
+import { useAppDispatch } from "./Store/configureStore";
 
-import { getUserProfile, registerUser, loginUser } from "./Store/Slices/user";
+import { userSignOut } from "./Store/Slices/user";
+import CategoryPage from "./Pages/CategoryPage";
+import ProductsPage from "./Pages/ProductsPage";
 
-import cookie from "react-cookies";
-import { getAllProductsByPaginate } from "./Store/Slices/products";
 //pages
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const LoginPage = React.lazy(() => import("./Pages/AuthPages/LoginPage"));
@@ -43,23 +42,14 @@ const UsersAdminPage = React.lazy(
 
 function App() {
   const dispatch = useAppDispatch();
-  let user = useSelector((state: RootState) => state.entities.user);
 
   const { theme, ToggelTheme } = useThemeMode();
 
   const themeMode = theme === "light" ? lightTheme : darkTheme;
-  console.log(user);
   useEffect(() => {
-    // dispatch(
-    //   loginUser({
-    //     email: "almallahimedoo@outlook.com",
-    //     password: "0592413118Aa$&",
-    //   })
-    // );
-
-    dispatch(getUserProfile());
-    dispatch(getAllProductsByPaginate());
-  }, [dispatch, user.data?.token]);
+    // dispatch(userSignOut());
+    // dispatch(getAllProductsByPaginate());
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -67,7 +57,7 @@ function App() {
         <ThemeProvider theme={themeMode}>
           <GlobalStyles {...themeMode} />
           {/* add header  */}
-          <Header user={user.data} ToggelTheme={ToggelTheme} />
+          <Header ToggelTheme={ToggelTheme} />
 
           {/* Auth */}
           <Routes>
@@ -77,9 +67,11 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search/:keyword" element={<SearchPage />} />
+            <Route path="/category/:name" element={<CategoryPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/404" element={<NotFoundPage />} />
             {/* product pages */}
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/product/create" element={<CreateProductPage />} />
             <Route path="/product/payment" element={<PaymentPage />} />

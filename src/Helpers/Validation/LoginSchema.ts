@@ -2,7 +2,7 @@ import { object, string, SchemaOf, bool } from "yup";
 import { ILogInUser } from "../../@Types/Validation";
 const LogInSchema = (): SchemaOf<ILogInUser> => {
   return object().shape({
-    userEmail: string()
+    email: string()
       .email("Email should be vaild")
       .required("Please, User email is required!"),
     password: string()

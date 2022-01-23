@@ -1,25 +1,30 @@
 import Container from "../../Components/Container";
 
 import { Profile } from "./profile.style";
-import { UserData } from "./interface";
 import LeftSection from "./leftSection";
 import RightSetion from "./rightSetion";
+import SppinerLoading from "../../Components/Elements/SppinerLoading";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store/configureStore";
 const ProfilePage = () => {
-  const UserProileData: UserData[] = [
-    {
-      image: "Assets/img3.PNG",
-      firstName: "Amy",
-      lastName: "Mayer",
-      email: "amymay@gmail.com",
-      brithday: "12/04/1991",
-    },
-  ];
+  let user = useSelector((state: RootState) => state.entities.user);
+
+  // console.log(user);
+
   return (
     <Container>
-      <Profile>
-        <LeftSection UserProileData={UserProileData} />
-        <RightSetion UserProileData={UserProileData} />
-      </Profile>
+      {user.loading ? (
+        <SppinerLoading />
+      ) : (
+        <>
+          {user.data && (
+            <Profile>
+              <LeftSection UserProileData={user.data} />
+              <RightSetion UserProileData={user.data} />
+            </Profile>
+          )}
+        </>
+      )}
     </Container>
   );
 };

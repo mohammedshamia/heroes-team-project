@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 
 //Components
 import Container from "../Container";
@@ -24,13 +24,22 @@ import {
 } from "./style";
 import { useTheme } from "styled-components";
 import { IUser } from "../../Store/Types";
+import { RootState, useAppDispatch } from "../../Store/configureStore";
+import { useSelector } from "react-redux";
+import { getUserProfile } from "../../Store/Slices/user";
 
 interface IHeader {
-  user: IUser | null;
   ToggelTheme: Function;
 }
 
-const Header: FC<IHeader> = ({ user, ToggelTheme }) => {
+const Header: FC<IHeader> = ({ ToggelTheme }) => {
+  const dispatch = useAppDispatch();
+  let { data } = useSelector((state: RootState) => state.entities.user);
+
+  // console.log(data);
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
   const theme = useTheme();
   return (
     <React.Fragment>
@@ -58,9 +67,9 @@ const Header: FC<IHeader> = ({ user, ToggelTheme }) => {
             </SearchContent>
 
             <ICONS>
-              {user ? (
+              {data ? (
                 <SVGICON
-                  description={`${user.firstName + " " + user.lastName}`}
+                  description={`${data?.firstName + " " + data?.lastName}`}
                   to="/profile"
                 >
                   <Person />
@@ -71,7 +80,7 @@ const Header: FC<IHeader> = ({ user, ToggelTheme }) => {
                 </SVGICON>
               )}
               <SVGICON
-                notification={user?.cart && user?.cart?.items.length}
+                notification={data?.cart && data?.cart?.items.length}
                 description="Cart"
                 to="/cart"
               >

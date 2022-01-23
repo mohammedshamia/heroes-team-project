@@ -85,6 +85,7 @@ export const lightTheme: DefaultTheme = {
     secondary: "#707070",
     disabled: "#00000061",
     counterColor: "#a29d9d",
+    divider: "rgba(1, 15, 30, 0.1)",
   },
   background: {
     paper: "#F7F8FC",
@@ -114,6 +115,7 @@ export const darkTheme: DefaultTheme = {
     secondary: "#ddd",
     disabled: "##FFFFFF80",
     counterColor: "#a29d9d",
+    divider: "rgba(255, 255, 255, 0.2)",
   },
   background: {
     paper: "#1e252b",

@@ -8,6 +8,7 @@ import {
   Icategories,
   Review,
   IproductsByPaginate,
+  IAllCategories,
 } from "../Types";
 
 const initialState: () => IProductsSliceState = () => ({
@@ -19,6 +20,7 @@ const initialState: () => IProductsSliceState = () => ({
   categories: [],
   productsByTopThree: [],
   productById: null,
+  loading: false,
 });
 
 const slice = createSlice({
@@ -30,18 +32,25 @@ const slice = createSlice({
       { payload }: PayloadAction<IproductsByPaginate>
     ) => {
       state.productsByPaginate = payload;
+      state.loading = false;
     },
-    categoriesReceived: (state, { payload }: PayloadAction<Icategories[]>) => {
-      state.categories = payload;
+    categoriesReceived: (state, { payload:{categories} }: PayloadAction<IAllCategories>) => {
+      state.categories = categories;
+      state.loading = false;
     },
     productsByTopThreeReceived: (
       state,
       { payload }: PayloadAction<IProduct[]>
     ) => {
       state.productsByTopThree = payload;
+      state.loading = false;
     },
     productByIdReceived: (state, { payload }: PayloadAction<IProduct>) => {
       state.productById = payload;
+      state.loading = false;
+    },
+    productsRequested: (state, action) => {
+      state.loading = true;
     },
   },
 });
@@ -51,6 +60,7 @@ const {
   categoriesReceived,
   productsByTopThreeReceived,
   productByIdReceived,
+  productsRequested,
 } = slice.actions;
 
 export const getAllProductsByPaginate = (data?: {
@@ -61,6 +71,7 @@ export const getAllProductsByPaginate = (data?: {
     url: "products",
     method: "get",
     params: data,
+    onStart: productsRequested.type,
     onSuccess: productsByPaginateReceived.type,
   });
 
@@ -68,6 +79,7 @@ export const getAllcategories = () =>
   apiCallBegan({
     url: "products/category/all",
     method: "get",
+    onStart: productsRequested.type,
     onSuccess: categoriesReceived.type,
   });
 
@@ -75,6 +87,7 @@ export const getProductsByTopThree = () =>
   apiCallBegan({
     url: "products/top",
     method: "get",
+    onStart: productsRequested.type,
     onSuccess: productsByTopThreeReceived.type,
   });
 
@@ -82,6 +95,7 @@ export const getProductsByCatergories = (data: { category: string }) =>
   apiCallBegan({
     url: `products/category/${data.category}`,
     method: "get",
+    onStart: productsRequested.type,
     onSuccess: productsByPaginateReceived.type,
   });
 
@@ -89,6 +103,7 @@ export const getProductsById = (data: { id: string }) =>
   apiCallBegan({
     url: `products/${data.id}`,
     method: "get",
+    onStart: productsRequested.type,
     onSuccess: productByIdReceived.type,
   });
 

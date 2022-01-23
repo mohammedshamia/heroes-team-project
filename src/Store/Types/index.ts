@@ -9,6 +9,10 @@ export interface Icategories {
   image: string;
 }
 
+export interface IAllCategories {
+  categories: Icategories[];
+}
+
 export interface IProduct {
   _id: string;
   images: string[];
@@ -38,6 +42,7 @@ export interface IProductsSliceState {
   productsByTopThree: IProduct[];
   categories: Icategories[];
   productById: IProduct | null;
+  loading: boolean;
 }
 
 //interface for user
@@ -65,4 +70,5 @@ export interface IUserSliceState {
   data: IUser | null;
   auth: boolean | null;
   loading: boolean;
+  error: any;
 }

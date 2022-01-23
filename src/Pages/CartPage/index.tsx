@@ -29,7 +29,7 @@ const CartPage = () => {
 
   // }, [])
   const { state } = useLocation();
-  console.log(state);
+  // console.log(state);
   return (
     <Container>
       <TitleLink>
