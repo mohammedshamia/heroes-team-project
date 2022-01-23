@@ -33,7 +33,10 @@ opacity: 1;
 background: rgba(0, 0, 0, 0.2);
 background: ${(props) => props.theme.textColors.secondary}!important;
 }
-
+.swiper-slide-active
+{
+  /* list-style:none;  */
+}
 .swiper-pagination-bullet-active {
 background: ${(props) => props.theme.colors.primary} !important;
 }

@@ -10,6 +10,10 @@ export const ContainerLyout = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   gap: 2px;
+  .bla-bla
+  {
+   font-size:2rem; 
+  }
   > div {
     border-radius: 0;
     > div {
@@ -20,6 +24,6 @@ export const ContainerLyout = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 20px;
+    /* gap: 20px; */
   }
 `;
