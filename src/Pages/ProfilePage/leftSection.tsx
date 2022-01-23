@@ -1,5 +1,7 @@
 import React from "react";
 import Typography from "../../Components/Typography";
+import { useAppDispatch } from "../../Store/configureStore";
+import { userSignOut } from "../../Store/Slices/user";
 import { IUser } from "../../Store/Types";
 import Avater from "./avater";
 import { UserData } from "./interface";
@@ -16,6 +18,11 @@ interface IProps {
   UserProileData: IUser;
 }
 const LeftSection = ({ UserProileData }: IProps) => {
+  const dispatch = useAppDispatch();
+
+  const Logout = () => {
+    dispatch(userSignOut());
+  };
   return (
     <LeftProfile>
       <LeftProfileUser>
@@ -40,7 +47,10 @@ const LeftSection = ({ UserProileData }: IProps) => {
         <LeftProfileUserLink to="/"> Notifcations</LeftProfileUserLink>
         <LeftProfileUserLink to="/"> Settings</LeftProfileUserLink>
         <Divider />
-        <LeftProfileUserLink to="/"> Logout</LeftProfileUserLink>
+        <LeftProfileUserLink to="/" onClick={Logout}>
+          {" "}
+          Logout
+        </LeftProfileUserLink>
       </LeftProfileUserLinkGroup>
     </LeftProfile>
   );
