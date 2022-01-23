@@ -5,40 +5,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import SwiperCore, { Pagination } from "swiper";
 import { Container } from "./style";
+import { RootState, useAppDispatch } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
-import { RootState } from "../../Store/configureStore";
-import products, { getProductsById } from "../../Store/Slices/products";
 import { useEffect } from "react";
+import { getAllProductsByPaginate } from "../../Store/Slices/products";
+import SppinerLoading from "../Elements/SppinerLoading";
+
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
-interface Iprop {
-  data: any;
-}
-export const CardSlider: React.FC<Iprop> = () => {
-  let productById = useSelector(
-    (state: RootState) => state?.entities.products.productsByPaginate.products
+export const CardSlider = () => {
+  const dispatch = useAppDispatch();
+  let { productsByPaginate: { products } } = useSelector(
+    (state: RootState) => state.entities.products
   );
-  console.log(productById)
-
-  // const dispatch = useAppDispatch();
-  // useEffect(() => {
-  //   dispatch(getProductsById({ id }));
-  // }, []);
-  const slides = [];
-  for (let i = 0; i < 6; i++) {
-    slides.push(
-      <SwiperSlide key={`slide-${i}`} tag="li">
-        {productById && <MainCard
-          data={productById}
-        // title={"phone"}
-        // price={364}
-        // imgUrl={`https://picsum.photos/id/${i + 1}/500/300`}
-        />}
-      </SwiperSlide>
-    );
-  }
-
+  useEffect(() => {
+    dispatch(getAllProductsByPaginate())
+  }, [dispatch]);
   return (
     <Container>
       <Swiper
@@ -67,7 +50,16 @@ export const CardSlider: React.FC<Iprop> = () => {
         }}
         className="mySwiper"
       >
-        {slides}
+        {products.length > 0 ? (products.map((item, index) =>
+        (<SwiperSlide tag="li">
+
+          <MainCard
+            data={item}
+
+          />
+        </SwiperSlide>
+        ))) : (<SppinerLoading />)
+        }
       </Swiper>
     </Container>
   );

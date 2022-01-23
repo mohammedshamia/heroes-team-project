@@ -9,32 +9,30 @@ import { useTheme } from "styled-components";
 import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { addItemToCart } from "../../../Store/Slices/user";
+import { IProduct } from "../../../Store/Types";
+import { useNavigate } from "react-router";
 
-interface IpropsMainCard {
-  imgUrl?: string;
-  title?: string;
-  price?: number;
-  data?: any;
+
+interface Iprops {
+  data: IProduct
 }
-export default function MainCard(props: IpropsMainCard[]) {
-  // const { imgUrl, title, price } = props;
+export default function MainCard(props: Iprops) {
+  const { data } = props;
   const [rating, setRating] = useState<number>(3);
   const [state, setState] = useState<boolean>(false);
   const theme = useTheme();
   const dispatch = useAppDispatch();
-  const { data } = props;
-  console.log(data)
+  let navigate = useNavigate();
   const handleAddToCart = (id: string) => {
+    dispatch(addItemToCart({ productId: id, qty: 1 }))
+    navigate("/cart");
+  };
 
-    dispatch(addItemToCart({ "productId": id, "qty": 0 }))
-    console.log(data.length)
-  }
   return (
     <>
-      {data?.slice(-3, -2).map((item: any) => (
-        <Card key={item._id}>
+      <Card >
           <CardImg>
-            <img src={item.images[0]} alt="phone" loading="lazy" />
+          <img src={data.images[0]} alt="phone" loading="lazy" />
           </CardImg>
           <ContainerContentCard>
             <Typography
@@ -44,14 +42,14 @@ export default function MainCard(props: IpropsMainCard[]) {
               variant="h6"
 
             >
-              {item.name}
-
+            {data.name}
             </Typography>
-            <br />
-            <Rate rating={rating} onRating={(rate: number) => setRating(rate)} />
+          <br />
+
+          <Rate rating={data.rating} onRating={(rate: number) => setRating(rate)} />
             <br />
             <Typography variant="h4" color={theme.background.default} gutterBottom>
-              {` $ ${item.price}`}
+            {` $ ${data.price}`}
 
             </Typography>
 
@@ -64,11 +62,11 @@ export default function MainCard(props: IpropsMainCard[]) {
                 {!state && <BookMarkEmpty />}
                 {state && <BookMarkfill />}
               </Button>
-              <Button padding="5px 60px" onClick={() => handleAddToCart(item._id)}> Add To Cart </Button>
+            <Button padding="5px 60px" onClick={() => handleAddToCart(data._id)} > Add To Cart </Button>
             </ContainerButton>
           </ContainerContentCard>
         </Card>
-      ))};
+
     </>
 
   )

@@ -21,7 +21,7 @@ const ItemCart = [
 const CartPage = () => {
   const dispatch = useAppDispatch();
   let products = useSelector((state: RootState) => state?.entities.products.productsByPaginate.products);
-  console.log(products)
+  console.log(products.length)
 
   // useEffect(() => {
   //   dispatch(getAllProductsByPaginate({}))
