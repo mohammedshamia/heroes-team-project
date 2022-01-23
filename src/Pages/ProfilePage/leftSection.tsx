@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useTheme } from "styled-components";
@@ -6,7 +5,6 @@ import Button from "../../Components/Elements/Buttons";
 import Modal from "../../Components/Elements/Modal/Dialog/Modal";
 import ModalAction from "../../Components/Elements/Modal/Dialog/ModalAction/ModalAction";
 import ModalTitle from "../../Components/Elements/Modal/Dialog/ModalTitle/ModalTitle";
-import { useNavigate } from "react-router";
 import Typography from "../../Components/Typography";
 import { useAppDispatch } from "../../Store/configureStore";
 import { userSignOut } from "../../Store/Slices/user";
@@ -65,7 +63,7 @@ const LeftSection = ({ UserProileData }: IProps) => {
         <LeftProfileUserLink to="/"> Notifcations</LeftProfileUserLink>
         <LeftProfileUserLink to="/"> Settings</LeftProfileUserLink>
         <Divider />
-        <LeftProfileUserLink as={'p'} onClick={() => setModalDisplay(true)}>
+        <LeftProfileUserLink as={"p"} onClick={() => setModalDisplay(true)}>
           Logout
         </LeftProfileUserLink>
         {modalDisplay && (
