@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { addItemToCart } from "../../../Store/Slices/user";
 import { IProduct } from "../../../Store/Types";
 import { useNavigate } from "react-router";
+import AlertMessage from "../Alert";
 
 
 interface Iprops {
@@ -18,14 +19,23 @@ interface Iprops {
 }
 export default function MainCard(props: Iprops) {
   const { data } = props;
+  const [first, setfirst] = useState(false);
+
   const [rating, setRating] = useState<number>(3);
   const [state, setState] = useState<boolean>(false);
   const theme = useTheme();
   const dispatch = useAppDispatch();
+  let user = useSelector((state: RootState) => state?.entities.user);
   let navigate = useNavigate();
   const handleAddToCart = (id: string) => {
-    dispatch(addItemToCart({ productId: id, qty: 1 }))
-    navigate("/cart");
+    if (user.auth) {
+      dispatch(addItemToCart({ productId: id, qty: 2 }))
+      setfirst(true)
+
+    }
+    else {
+      navigate("/login")
+    }
   };
 
   return (
@@ -66,7 +76,13 @@ export default function MainCard(props: Iprops) {
             </ContainerButton>
           </ContainerContentCard>
         </Card>
-
+      <AlertMessage
+        open={first}
+        setOpen={setfirst}
+        position="snackBar"
+        children={"Added to cart"}
+        type="success"
+      />
     </>
 
   )
