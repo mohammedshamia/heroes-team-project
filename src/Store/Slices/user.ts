@@ -24,6 +24,7 @@ const slice = createSlice({
       state.data = payload;
       state.auth = true;
       state.loading = false;
+
       if (payload?.token) {
         cookie.save("proShop-access-toekn", payload?.token, {
           path: "/",

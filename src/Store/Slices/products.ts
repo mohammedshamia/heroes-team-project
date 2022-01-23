@@ -34,7 +34,10 @@ const slice = createSlice({
       state.productsByPaginate = payload;
       state.loading = false;
     },
-    categoriesReceived: (state, { payload:{categories} }: PayloadAction<IAllCategories>) => {
+    categoriesReceived: (
+      state,
+      { payload: { categories } }: PayloadAction<IAllCategories>
+    ) => {
       state.categories = categories;
       state.loading = false;
     },

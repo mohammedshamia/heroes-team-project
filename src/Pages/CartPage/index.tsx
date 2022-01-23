@@ -5,6 +5,10 @@ import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 import Typography from "../../Components/Typography";
 import { LinkBack, Parent, TitleLink, Wrapper } from "./style";
 import SubTotal from "./SubTotal";
+import { useAppDispatch, RootState } from "../../Store/configureStore";
+import { useSelector } from "react-redux";
+import { useEffect } from 'react'
+import { getProductsById, getAllProductsByPaginate } from "../../Store/Slices/products";
 const ItemCart = [
   {
     title: "Apple iPhone 11 Pro 256GB Memory",
@@ -15,6 +19,15 @@ const ItemCart = [
   { title: "mobile", price: 544, imgUrl: "https://picsum.photos/id/0/200/300" },
 ];
 const CartPage = () => {
+  const dispatch = useAppDispatch();
+  let products = useSelector((state: RootState) => state?.entities.products.productsByPaginate.products);
+  console.log(products.length)
+
+  // useEffect(() => {
+  //   dispatch(getAllProductsByPaginate({}))
+
+
+  // }, [])
   const { state } = useLocation();
   // console.log(state);
   return (

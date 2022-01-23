@@ -4,6 +4,7 @@ import { CardSlider } from "../../../Components/CardSlider";
 import Typography from "../../../Components/Typography";
 import { CardsSection, Featured } from "../style";
 
+
 const CardSliders = () => {
   return (
     <CardsSection>

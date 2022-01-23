@@ -2,13 +2,15 @@ import { object, string, SchemaOf, bool } from "yup";
 import { ILogInUser } from "../../@Types/Validation";
 const LogInSchema = (): SchemaOf<ILogInUser> => {
   return object().shape({
-    email: string()
-      .email("Email should be vaild")
-      .required("Please, User email is required!"),
+    email: string().email("Email is not valid").required("Email is required"),
     password: string()
-      .min(8, "Password should be 8 char or more")
-      .required("Please, password is required!"),
-      isRememberMe: bool()
+      .required("Password is required")
+      .min(8, "Password must be more 8 digits.")
+      .matches(
+        /^(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#$%./^&*()_+<>,~`"':;]{8,}$/,
+        `Password should be contains at least one Capital letter, contains at least one number.)`
+      ),
+    isRememberMe: bool(),
   });
 };
 
