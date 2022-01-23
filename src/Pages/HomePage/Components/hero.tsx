@@ -24,6 +24,7 @@ import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { getProductsByTopThree } from "../../../Store/Slices/products";
 import SppinerLoading from "../../../Components/Elements/SppinerLoading";
+import { useNavigate } from "react-router";
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard, Autoplay]);
 
 const Hero = () => {
@@ -34,7 +35,11 @@ const Hero = () => {
   useEffect(() => {
     dispatch(getProductsByTopThree());
   }, []);
+  let navigate = useNavigate();
 
+  const handelClick = (id: string) => {
+    navigate(`/product/${id}`);
+  };
   return (
     <>
       {loading ? (
@@ -92,6 +97,7 @@ const Hero = () => {
                         fontSize={"14px"}
                         backgroundColorHover={"#ffc107"}
                         margin={"1rem"}
+                        onClick={() => handelClick(elemnt._id)}
                       >
                         Shop now
                       </Button>
