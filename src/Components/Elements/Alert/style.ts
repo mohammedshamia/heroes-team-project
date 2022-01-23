@@ -20,8 +20,11 @@ const getAlertBg = (type?: string) => {
 interface IProps {
   type?: string;
   position?: string;
+  open?: boolean;
 }
 export const Alert = styled("div")<IProps>`
+  display: ${(props) =>
+    props.position === "snackBar" ? (props.open ? "block" : "none") : "block"};
   position: ${({ position }) => position === "snackBar" && "fixed"};
   right: ${({ position }) => position === "snackBar" && "20px"};
   bottom: ${({ position }) => position === "snackBar" && "20px"};
