@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import Typography from "../../Components/Typography";
 import { useAppDispatch } from "../../Store/configureStore";
 import { userSignOut } from "../../Store/Slices/user";
@@ -19,9 +20,10 @@ interface IProps {
 }
 const LeftSection = ({ UserProileData }: IProps) => {
   const dispatch = useAppDispatch();
-
+  let navigate = useNavigate();
   const Logout = () => {
     dispatch(userSignOut());
+    navigate("/");
   };
   return (
     <LeftProfile>
@@ -47,7 +49,7 @@ const LeftSection = ({ UserProileData }: IProps) => {
         <LeftProfileUserLink to="/"> Notifcations</LeftProfileUserLink>
         <LeftProfileUserLink to="/"> Settings</LeftProfileUserLink>
         <Divider />
-        <LeftProfileUserLink to="/" onClick={Logout}>
+        <LeftProfileUserLink as="button" onClick={Logout}>
           {" "}
           Logout
         </LeftProfileUserLink>

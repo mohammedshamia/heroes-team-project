@@ -66,6 +66,9 @@ export const LeftProfileUserLink = styled(Link)`
   list-style: none;
   text-decoration: none;
   padding: 1rem;
+  background-color: transparent;
+  border: none;
+  text-align: left;
   color: ${(props) => props.theme.textColors.primary};
   font-size: 15px;
   &:hover {
