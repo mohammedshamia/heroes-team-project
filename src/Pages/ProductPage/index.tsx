@@ -29,9 +29,9 @@ const ProductPage = () => {
 
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <SppinerLoading />
-      ) : (
+      ) : ( */}
         <>
           {productById ? (
             <>
@@ -61,7 +61,7 @@ const ProductPage = () => {
             </>
           )}{" "}
         </>
-      )}
+      {/* )} */}
     </>
   );
 };
