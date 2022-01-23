@@ -65,10 +65,55 @@ export interface IUser {
   token?: string;
 }
 
+export interface IusersByPaginate {
+  users: IUser[];
+  page: number;
+  pages: number;
+}
+
 //interface for State
 export interface IUserSliceState {
   data: IUser | null;
+  usersByPaginate: IusersByPaginate;
+  userDetails: IUser | null;
   auth: boolean | null;
   loading: boolean;
   error: any;
+}
+
+//orders interfaces
+
+export interface IShippingAddress {
+  address: string;
+  city: string;
+  postalCode: string;
+  country: string;
+}
+
+export interface IOrder {
+  _id: string;
+  user: string;
+  taxPrice: number;
+  shippingPrice: number;
+  totalPrice: number;
+  isPaid: boolean;
+  isDelivered: boolean;
+  orderItems: any[];
+  shippingAddress: IShippingAddress;
+  paymentMethod: string;
+  createdAt: string;
+  updatedAt: string;
+  clientSecret: string;
+}
+export interface OrdersByPaginate {
+  orders: IOrder[];
+  page: number;
+  pages: number;
+}
+
+export interface IOrderState {
+  order: IOrder | null;
+  OrdersByPaginate: OrdersByPaginate;
+  message: string | null;
+  loading: boolean;
 }

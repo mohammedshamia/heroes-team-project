@@ -19,6 +19,7 @@ const ProductPage = () => {
   let { productById, loading } = useSelector(
     (state: RootState) => state.entities.products
   );
+  console.log(productById);
 
   const { id } = useParams();
 
