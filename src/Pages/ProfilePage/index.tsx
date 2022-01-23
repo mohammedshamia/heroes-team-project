@@ -9,7 +9,6 @@ import { RootState } from "../../Store/configureStore";
 const ProfilePage = () => {
   let user = useSelector((state: RootState) => state.entities.user);
 
-  // console.log(user);
 
   return (
     <Container>

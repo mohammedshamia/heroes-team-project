@@ -94,7 +94,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 }}
               />
               <Typography
-                children={UserProileData.dateOfBirth}
+                children={UserProileData.dateOfBirth.split('T')[0]}
                 style={{
                   fontSize: "15px",
                   letterSpacing: "0.96px",
