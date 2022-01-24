@@ -3,9 +3,16 @@ import { DividerComponent } from "../../../Components/Elements/Devider/styles.st
 import { CardSlider } from "../../../Components/CardSlider";
 import Typography from "../../../Components/Typography";
 import { CardsSection, Featured } from "../style";
-
+import { useEffect } from "react";
+import { getAllProductsByPaginate } from "../../../Store/Slices/products";
+import { useAppDispatch } from "../../../Store/configureStore";
 
 const CardSliders = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProductsByPaginate());
+  }, []);
   return (
     <CardsSection>
       <Container>

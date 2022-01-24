@@ -6,7 +6,6 @@ interface IProps {
 
 export const Wrapper = styled.div`
   display: inline-block;
-  border: 1px solid #123;
 `;
 
 export const Button = styled.button<IProps>`

@@ -1,4 +1,6 @@
-import { Button, Wrapper } from "./style";
+import Button from "../Buttons";
+import { Wrapper } from "./style";
+import { useTheme } from "styled-components";
 
 interface IProps {
   pages: number;
@@ -10,6 +12,7 @@ const Pagination = ({ pages, currentPage = 1, setPage }: IProps) => {
   const handleClick = (page: number) => {
     setPage(page);
   };
+  const theme = useTheme();
 
   const handlePrevPage = () => {
     setPage((prevState: number) => prevState - 1);
@@ -23,8 +26,14 @@ const Pagination = ({ pages, currentPage = 1, setPage }: IProps) => {
   for (let i = 0; i < Pages.length; i++) {
     Pages[i] = (
       <Button
-        current={currentPage === i + 1}
         onClick={() => handleClick(i + 1)}
+        padding={"4px 7px"}
+        backgroundColor={currentPage === i + 1 ? "#FCDD06" : "transparent"}
+        borderRaduies={"3px"}
+        margin={"3px"}
+        color={currentPage === i + 1 ? "#000" : theme.textColors.primary}
+        borderHover={`1px solid ${theme.colors.primary}`}
+        border={`1px solid  ${theme.colors.primary}`}
       >
         {i + 1}
       </Button>
@@ -33,11 +42,29 @@ const Pagination = ({ pages, currentPage = 1, setPage }: IProps) => {
 
   return (
     <Wrapper>
-      <Button disabled={currentPage === 1} onClick={handlePrevPage}>
+      <Button
+        padding={"4px 7px"}
+        disabled={currentPage === 1}
+        onClick={handlePrevPage}
+        borderRaduies={"3px"}
+        margin={"3px"}
+        color={theme.textColors.primary}
+        borderHover={`1px solid ${theme.colors.primary}`}
+        border={`1px solid  ${theme.colors.primary}`}
+      >
         {"<"}
       </Button>
       {Pages}
-      <Button disabled={currentPage === pages} onClick={handleNextPage}>
+      <Button
+        padding={"4px 7px"}
+        disabled={currentPage === pages}
+        onClick={handleNextPage}
+        borderRaduies={"3px"}
+        margin={"3px"}
+        color={theme.textColors.primary}
+        borderHover={`1px solid ${theme.colors.primary}`}
+        border={`1px solid  ${theme.colors.primary}`}
+      >
         {">"}
       </Button>
     </Wrapper>

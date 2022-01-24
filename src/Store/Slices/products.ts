@@ -68,7 +68,7 @@ const {
 
 export const getAllProductsByPaginate = (data?: {
   keyword?: string;
-  pageNumber?: string;
+  pageNumber?: number;
 }) =>
   apiCallBegan({
     url: "products",
