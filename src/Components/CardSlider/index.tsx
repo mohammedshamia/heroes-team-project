@@ -7,21 +7,18 @@ import SwiperCore, { Pagination } from "swiper";
 import { Container } from "./style";
 import { RootState, useAppDispatch } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { getAllProductsByPaginate } from "../../Store/Slices/products";
 import SppinerLoading from "../Elements/SppinerLoading";
 
-
 // install Swiper modules
 SwiperCore.use([Pagination]);
+
 export const CardSlider = () => {
-  const dispatch = useAppDispatch();
-  let { productsByPaginate: { products } } = useSelector(
-    (state: RootState) => state.entities.products
+  let products = useSelector(
+    (state: RootState) => state.entities.products.productsByPaginate.products
   );
-  useEffect(() => {
-    dispatch(getAllProductsByPaginate())
-  }, [dispatch]);
+
   return (
     <Container>
       <Swiper
@@ -50,16 +47,15 @@ export const CardSlider = () => {
         }}
         className="mySwiper"
       >
-        {products.length > 0 ? (products.map((item, index) =>
-        (<SwiperSlide tag="li">
-
-          <MainCard
-            data={item}
-
-          />
-        </SwiperSlide>
-        ))) : (<SppinerLoading />)
-        }
+        {products.length > 0 ? (
+          products.map((item, index) => (
+            <SwiperSlide tag="li">
+              <MainCard data={item} />
+            </SwiperSlide>
+          ))
+        ) : (
+          <SppinerLoading />
+        )}
       </Swiper>
     </Container>
   );

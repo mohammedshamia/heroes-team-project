@@ -4,9 +4,7 @@ import { CardSlider } from "../../../Components/CardSlider";
 import Typography from "../../../Components/Typography";
 import { CardsSection, Featured } from "../product.style";
 
-
 const CardSliders = () => {
-
   return (
     <CardsSection>
       <Container>
@@ -16,12 +14,10 @@ const CardSliders = () => {
           </Typography>
         </Featured>
         <DividerComponent center />
-        (<CardSliders />
+        <CardSlider />
       </Container>
     </CardsSection>
-  )
-}
+  );
+};
 
 export default CardSliders;
-
-

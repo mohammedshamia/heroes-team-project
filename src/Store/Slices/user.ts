@@ -96,7 +96,6 @@ export const registerUser = (data: any) =>
   });
 
 export const loginUser = (data: { email: string; password: string }) => {
-  // console.log('data in loginUser', data)
   return apiCallBegan({
     url: "users/login",
     method: "post",
