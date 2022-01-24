@@ -34,12 +34,12 @@ function App() {
 
   return (
     <div className="App">
-      <Suspense fallback={<SppinerLoading />}>
-        <ThemeProvider theme={themeMode}>
-          <GlobalStyles {...themeMode} />
-          {/* add header  */}
-          <Header ToggelTheme={ToggelTheme} />
-          {/* pages */}
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles {...themeMode} />
+        {/* add header  */}
+        <Header ToggelTheme={ToggelTheme} />
+        {/* pages */}
+        <Suspense fallback={<SppinerLoading />}>
           <Routes>
             {routes.map((route) =>
               route?.ruleShouldBe?.includes(rule) ? (
@@ -57,8 +57,8 @@ function App() {
               )
             )}
           </Routes>
-        </ThemeProvider>
-      </Suspense>
+        </Suspense>
+      </ThemeProvider>
     </div>
   );
 }

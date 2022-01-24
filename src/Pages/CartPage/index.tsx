@@ -6,16 +6,13 @@ import { LinkBack, Parent, TitleLink, Wrapper } from "./style";
 import SubTotal from "./SubTotal";
 import { RootState } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
-
-
-import SppinerLoading from "../../Components/Elements/SppinerLoading";
+import CardLayout from "../../Components/CardLayuout";
+import { Categ } from "../HomePage/style";
+import { DividerComponent } from "../../Components/Elements/Devider/styles.styled";
 
 const CartPage = () => {
-  let { data, loading } = useSelector((state: RootState) => state?.entities?.user);
+  const { data } = useSelector((state: RootState) => state?.entities?.user);
 
-
-
-  // console.log(state);
   return (
     <Container>
       <TitleLink>
@@ -25,28 +22,37 @@ const CartPage = () => {
       </TitleLink>
       <Parent>
         <Wrapper>
-          {loading ? <SppinerLoading /> :
-            data?.cart ? (
-
-              <ShoppingCart
-                data={data.cart}
-              /> 
-            )
-              : (
-
-                <div>Fff</div>
-              )
-          }
+          {(data?.cart?.items?.length as number) > 0 ? (
+            <>
+              <ShoppingCart data={data?.cart} />
+            </>
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src="Assets/Group 491.png" alt="" />
+            </div>
+          )}
         </Wrapper>
-        <SubTotal data={data?.cart && data.cart}
-        />
+        {(data?.cart?.items?.length as number) > 0 && (
+          <SubTotal data={data?.cart && data.cart} />
+        )}
       </Parent>
+      {(data?.cart?.items?.length as number) === 0 && (
+        <>
+          <Categ>
+            <Typography
+              variant="h5"
+              fontWeight={700}
+              style={{ marginTop: "50px" }}
+            >
+              Recently viewed
+            </Typography>
+          </Categ>
+          <DividerComponent />
+          <CardLayout />
+        </>
+      )}
     </Container>
   );
 };
 
 export default CartPage;
-function dispatch(arg0: { payload: any; type: string; }) {
-  throw new Error("Function not implemented.");
-}
-

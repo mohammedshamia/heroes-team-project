@@ -24,9 +24,11 @@ import {
   CategoryoneImage,
   Image,
 } from "../style";
+import { useNavigate } from "react-router";
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard, Autoplay]);
 
 const Categories = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   let { categories, loading } = useSelector(
     (state: RootState) => state.entities.products
@@ -92,8 +94,11 @@ const Categories = () => {
                       </CategoryoneImage>
                       <Typography
                         variant="body1"
-                        style={{ padding: "1rem" }}
+                        style={{ padding: "1rem", cursor: "pointer" }}
                         fontWeight={700}
+                        onClick={() =>
+                          navigate(`/products/category/${element.name}`)
+                        }
                       >
                         {element.name}
                       </Typography>

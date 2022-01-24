@@ -22,16 +22,13 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
     setstateCount((prev: number) => prev + 1);
   };
   const handleIncrease = (id: string, qty: number) => {
-    dispatch(addItemToCart({ productId: id, qty: qty }))
+    dispatch(addItemToCart({ productId: id, qty: qty }));
     // console.log("add")
-  }
+  };
   const decrement = () => {
     if (count === 0) return setstateCount(0);
     else setstateCount((prev: number) => prev - 1);
   };
-  useEffect(() => {
-    console.log(count)
-  }, [count]);
 
   return (
     <ContainerCounter>

@@ -32,7 +32,7 @@ const ProductDetails = ({ productById }: IProps) => {
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
   const handleAddToCart = (id: string) => {
-    dispatch(addItemToCart({ productId: id, qty: counter }))
+    dispatch(addItemToCart({ productId: id, qty: counter }));
     navigate("/cart");
   };
   const [color, setColor] = useState("");
@@ -70,8 +70,8 @@ const ProductDetails = ({ productById }: IProps) => {
           </ColorText>
 
           <ColorButton>
-            {productById.colors.map((ele) => (
-              <Margin>
+            {productById.colors.map((ele, index) => (
+              <Margin key={index}>
                 <Button
                   borderRaduies={"50%"}
                   padding={"2rem"}
