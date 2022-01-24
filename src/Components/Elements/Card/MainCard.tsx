@@ -28,7 +28,7 @@ export default function MainCard(props: Iprops) {
   const navigate = useNavigate();
   const handleAddToCart = (id: string) => {
     if (user.auth) {
-      dispatch(addItemToCart({ productId: id, qty: 2 }));
+      dispatch(addItemToCart({ productId: id, qty: 1 }));
       setfirst(true);
     } else {
       navigate("/login");
@@ -72,19 +72,10 @@ export default function MainCard(props: Iprops) {
           </Typography>
 
           <ContainerButton>
-            {/* <Button
-              padding="5px 12px"
-              margin="0 5px"
-              onClick={() => setState(!state)}
-            >
-              {!state && <BookMarkEmpty />}
-              {state && <BookMarkfill />}
-            </Button> */}
             <Button
               padding="5px 60px"
               onClick={() => handleAddToCart(data._id)}
             >
-              {" "}
               Add To Cart{" "}
             </Button>
           </ContainerButton>

@@ -16,7 +16,9 @@ import { ContentCart } from "./OrderDetails";
 import ContentOrder from "./ContentOrder";
 import { useNavigate } from "react-router";
 import Container from "../../Components/Container";
-
+import { useLocation } from "react-router-dom";
+import { RootState, useAppDispatch } from "../../Store/configureStore";
+import { useSelector } from "react-redux";
 interface Iprop {
   title: string;
   price: number;
@@ -36,6 +38,16 @@ const ItemCart: Iprop[] = [
 ];
 const PlaceOrder = () => {
   let navigate = useNavigate();
+  const query = new URLSearchParams(useLocation().search);
+    let {data} = useSelector((state: RootState) => state?.entities.user);
+    let OrderDetails = useSelector((state:RootState) => state?.entities.order);
+
+  const city = query.get("city")
+    const country = query.get("country")
+    const street = query.get("streetAddress")
+    const code = query.get("zipCode")
+
+
   const handleClick = () => {
     navigate("/success");
   };
@@ -92,14 +104,14 @@ const PlaceOrder = () => {
             }}
           />
           <Typography
-            children="John rose"
+            children={`${data?.firstName}  ${data?.lastName}`}
             color="#000"
             style={{
               fontSize: "15px",
             }}
           />
           <Typography
-            children="56051 Jones Falls, Philippines, Turkey - 62502"
+            children={` ${country} ${city} ${code}${street}`}
             color="#000"
             style={{
               fontSize: "15px",
