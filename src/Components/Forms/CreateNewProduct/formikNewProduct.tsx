@@ -10,11 +10,12 @@ const FormikNewProduct = (props: Iprops) => {
   const initialValues: CreateNewProductValues = {
     productName: "",
     productBrand: "",
-    productCategroy: "",
+    productCategroy: [],
     productDiscription: "",
     productID: "",
     productCount: "",
     productPrice: "",
+    productImage: []
   };
   return (
     <Formik
