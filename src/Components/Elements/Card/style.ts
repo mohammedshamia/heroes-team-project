@@ -16,6 +16,7 @@ export const CardSection = styled.div<IProps>`
   background-color: ${(props) => props.theme.background.paper};
   border-radius: ${(props) => props.borderRadius || "10px"};
   overflow: hidden;
+  position: relative;
 `;
 
 export const Img = styled.div<IProps>`
@@ -111,4 +112,16 @@ export const Itemprice = styled.div`
   & div {
     white-space: nowrap;
   }
+`;
+export const DisvountDiv = styled.div`
+  position: absolute;
+  width: 87px;
+  height: 87px;
+  background-color: ${(props) => props.theme.colors.error};
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

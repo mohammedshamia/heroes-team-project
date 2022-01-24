@@ -1,5 +1,5 @@
 import { Card, CardImg } from "./index";
-import { ContainerButton, ContainerContentCard } from "./style";
+import { ContainerButton, ContainerContentCard, DisvountDiv } from "./style";
 import Rate from "../Rating";
 import { useState } from "react";
 import Button from "../Buttons";
@@ -34,6 +34,13 @@ export default function MainCard(props: Iprops) {
   return (
     <>
       <Card>
+        {data.discount ? (
+          <DisvountDiv>
+            <Typography>{data.discount}%</Typography>
+          </DisvountDiv>
+        ) : (
+          ""
+        )}
         <CardImg>
           <img
             style={{ cursor: "pointer" }}
@@ -64,7 +71,16 @@ export default function MainCard(props: Iprops) {
             color={theme.background.default}
             gutterBottom
           >
-            {` $ ${data.price}`}
+            {data.discount ? (
+              <>
+                <span style={{ color: "red" }}>
+                  ${data.price - (data.price * data.discount) / 100}
+                </span>{" "}
+                <del>${data.price}</del>
+              </>
+            ) : (
+              data.price
+            )}
           </Typography>
 
           <ContainerButton>
