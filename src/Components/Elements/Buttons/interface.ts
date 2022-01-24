@@ -4,7 +4,7 @@ export interface ButtonProp {
   children?: string | React.ReactNode;
   height?: string;
   width?: string;
-  onClick?: () => void | any;
+  onClick?: any;
   bold?: boolean;
   backgroundColor?: string;
   fontSize?: string;
@@ -25,5 +25,5 @@ export interface ButtonProp {
   position?: string;
   top?: number;
   bottom?: string;
-  right?: string; 
+  right?: string;
 }

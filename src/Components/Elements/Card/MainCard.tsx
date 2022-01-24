@@ -10,12 +10,11 @@ import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { addItemToCart } from "../../../Store/Slices/user";
 import { IProduct } from "../../../Store/Types";
-import { useNavigate } from "react-router";
 import AlertMessage from "../Alert";
-
+import { useNavigate } from "react-router";
 
 interface Iprops {
-  data: IProduct
+  data: IProduct;
 }
 export default function MainCard(props: Iprops) {
   const { data } = props;
@@ -26,56 +25,71 @@ export default function MainCard(props: Iprops) {
   const theme = useTheme();
   const dispatch = useAppDispatch();
   let user = useSelector((state: RootState) => state?.entities.user);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const handleAddToCart = (id: string) => {
     if (user.auth) {
-      dispatch(addItemToCart({ productId: id, qty: 2 }))
-      setfirst(true)
-
-    }
-    else {
-      navigate("/login")
+      dispatch(addItemToCart({ productId: id, qty: 2 }));
+      setfirst(true);
+    } else {
+      navigate("/login");
     }
   };
 
   return (
     <>
-      <Card >
-          <CardImg>
-          <img src={data.images[0]} alt="phone" loading="lazy" />
-          </CardImg>
-          <ContainerContentCard>
-            <Typography
-              // gutterBottom
-
-              className="bla-bla"
-              variant="h6"
-
-            >
+      <Card>
+        <CardImg>
+          <img
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/product/${data._id}`)}
+            src={data.images[0]}
+            alt="phone"
+            loading="lazy"
+          />
+        </CardImg>
+        <ContainerContentCard>
+          <Typography
+            className="bla-bla"
+            variant="h6"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/product/${data._id}`)}
+          >
             {data.name}
-            </Typography>
+          </Typography>
           <br />
 
-          <Rate rating={data.rating} onRating={(rate: number) => setRating(rate)} />
-            <br />
-            <Typography variant="h4" color={theme.background.default} gutterBottom>
+          <Rate
+            rating={data.rating}
+            onRating={(rate: number) => setRating(rate)}
+          />
+          <br />
+          <Typography
+            variant="h4"
+            color={theme.background.default}
+            gutterBottom
+          >
             {` $ ${data.price}`}
+          </Typography>
 
-            </Typography>
-
-            <ContainerButton>
-              <Button
-                padding="5px 12px"
-                margin="0 5px"
-                onClick={() => setState(!state)}
-              >
-                {!state && <BookMarkEmpty />}
-                {state && <BookMarkfill />}
-              </Button>
-            <Button padding="5px 60px" onClick={() => handleAddToCart(data._id)} > Add To Cart </Button>
-            </ContainerButton>
-          </ContainerContentCard>
-        </Card>
+          <ContainerButton>
+            {/* <Button
+              padding="5px 12px"
+              margin="0 5px"
+              onClick={() => setState(!state)}
+            >
+              {!state && <BookMarkEmpty />}
+              {state && <BookMarkfill />}
+            </Button> */}
+            <Button
+              padding="5px 60px"
+              onClick={() => handleAddToCart(data._id)}
+            >
+              {" "}
+              Add To Cart{" "}
+            </Button>
+          </ContainerButton>
+        </ContainerContentCard>
+      </Card>
       <AlertMessage
         open={first}
         setOpen={setfirst}
@@ -84,6 +98,5 @@ export default function MainCard(props: Iprops) {
         type="success"
       />
     </>
-
-  )
+  );
 }
