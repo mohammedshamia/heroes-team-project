@@ -4,27 +4,22 @@ import React, { FC, useEffect } from "react";
 import Container from "../Container";
 import Logo from "../Elements/Logo/index";
 import Search from "../Elements/Search/search";
-import Typography from "../Typography";
 
 import SVGICON from "./HeaderIcons/headerIcons";
 
 import Person from "../Icons/PersonIcon";
 import ShoppingCartIcon from "../Icons/ShoppingCartIcon";
-import SearchIcon from "../Icons/SearchIcon";
 
 //Styles
 import {
   Root,
   Content,
   SearchContent,
-  SearchButton,
   ICONS,
-  ButtonContent,
   MobileSearchContent,
   LoadingBar,
 } from "./style";
 import { useTheme } from "styled-components";
-import { IUser } from "../../Store/Types";
 import { RootState, useAppDispatch } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { getUserProfile } from "../../Store/Slices/user";
