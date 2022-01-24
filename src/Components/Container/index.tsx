@@ -3,10 +3,11 @@ import { Wrapper } from "./style";
 
 interface IProps {
   children: ReactNode;
+  className?: string;
 }
 
-const Container = ({ children }: IProps) => {
-  return <Wrapper>{children}</Wrapper>;
+const Container = ({ children, className }: IProps) => {
+  return <Wrapper className={className}>{children}</Wrapper>;
 };
 
 export default Container;

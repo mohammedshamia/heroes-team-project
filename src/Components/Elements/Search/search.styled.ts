@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
 
 //Root Component
-export const Root = styled.div`
+export const Root = styled.form`
   position: relative;
   width: 100%;
+  padding: 0 2px;
 `;
 
 //Input Component
@@ -17,12 +18,9 @@ export const ValueWrapper = styled.input`
 
 export const Input = styled(ValueWrapper)`
   transition: border-color 150ms linear;
-  padding: 0 5px;
-
-  &:focus {
-    border-color: #0063cc;
-    outline: none;
-  }
+  padding: 0 1rem;
+  width: 100%;
+  border: none;
 `;
 
 export const AutoCompleteContainer = styled.ul`

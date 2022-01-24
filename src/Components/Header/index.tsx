@@ -58,21 +58,7 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
             <Logo main="Pro" sub="Shop" />
 
             <SearchContent>
-              <Search data={[{ name: "mohammed", code: "123" }]} />
-              <SearchButton>
-                <ButtonContent>
-                  <div
-                    style={{
-                      width: "18px",
-                      height: "18px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <SearchIcon />
-                  </div>
-                  <h4> Search</h4>
-                </ButtonContent>
-              </SearchButton>
+              <Search />
             </SearchContent>
 
             <ICONS>
@@ -113,21 +99,7 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
       </Root>
       <Container>
         <MobileSearchContent>
-          <Search data={[{ name: "mohammed", code: "123" }]} />
-          <SearchButton>
-            <ButtonContent>
-              <div
-                style={{
-                  width: "18px",
-                  height: "18px",
-                  overflow: "hidden",
-                }}
-              >
-                <SearchIcon />
-              </div>
-              <h4> Search</h4>
-            </ButtonContent>
-          </SearchButton>
+          <Search />
         </MobileSearchContent>
       </Container>
     </React.Fragment>

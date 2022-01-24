@@ -34,6 +34,15 @@ body {
   color: ${(props) => props.textColors.primary};
 }
 
+input {
+  background-color: ${(props) => props.theme.background.paper}!important;
+  color: ${(props) => props.theme.textColors.primary}!important;
+  &:focus {
+    outline: 2px solid ${(props) => props.theme.colors.primary}!important;
+    border-color: transparent;
+  }
+}
+
 .swiper{
   padding-bottom: 40px!important;
 }
@@ -79,16 +88,16 @@ right: calc(50% - 60px)!important;
   }
 } 
 
-#root > div > div:nth-child(4) > div > div {
+.category > div > div {
   margin-top: -35px;
   padding-bottom: 0!important;
 }
 
-#root > div > div:nth-child(4) > div > div > div.swiper-wrapper {
+.category > div > div > div.swiper-wrapper {
   padding-top: 30px;
 }
 
-#root > div > div:nth-child(4) > div > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+.category > div > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
         top: 0;
     bottom: auto!important;
     text-align: end;
