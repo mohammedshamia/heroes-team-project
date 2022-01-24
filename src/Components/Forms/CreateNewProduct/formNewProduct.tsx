@@ -1,4 +1,4 @@
-import { FormikProps } from "formik";
+import { Field, FormikProps } from "formik";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
 import FormInput from "../Fields/inputField";
@@ -15,6 +15,11 @@ import {
 } from "./newProduct.style";
 import { CreateNewProductValues } from "./interface";
 import { useTheme } from "styled-components";
+import CustomSelect from "../Fields/customSelect";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useAppDispatch, RootState } from "../../../Store/configureStore";
+import { getAllcategories } from "../../../Store/Slices/products";
 
 interface OtherProps {
   isEditing: boolean;
@@ -23,8 +28,36 @@ const FormNewProduct = (
   props: OtherProps & FormikProps<CreateNewProductValues>
 ) => {
   const { errors, touched, setFieldValue, isEditing } = props;
+  const dispatch = useAppDispatch();
+  let { categories, loading } = useSelector(
+    (state: RootState) => state.entities.products
+  );
+  useEffect(() => {
+    dispatch(getAllcategories());
+  }, [dispatch]);
   // productImage
-
+  const languageOptions = [
+    {
+      label: "Chinese",
+      value: "zh-CN",
+    },
+    {
+      label: "English (US)",
+      value: "en-US",
+    },
+    {
+      label: "English (GB)",
+      value: "en-GB",
+    },
+    {
+      label: "French",
+      value: "fr-FR",
+    },
+    {
+      label: "Spanish",
+      value: "es-ES",
+    },
+  ];
   const theme = useTheme();
   return (
     <Continer>
@@ -119,7 +152,7 @@ const FormNewProduct = (
               fullWidth={false}
               width={"45%"}
             />
-            <FormInput
+            {/* <FormInput
               type="input"
               name={"productCategroy"}
               placeholder={"Product Categroy"}
@@ -128,7 +161,21 @@ const FormNewProduct = (
               label={"Product Categroy"}
               fullWidth={false}
               width={"45%"}
+            /> */}
+
+            <Field
+              name="productCategroy"
+              options={categories}
+              component={CustomSelect}
+              placeholder="Select multi Categroy..."
+              isMulti={true}
+              touched={touched}
+              errors={errors}
+              label={"Product Categroy"}
+              fullWidth={false}
+              width={"45%"}
             />
+            
           </FormProductInputGroup>
           <FormProductInputGroup>
             <FormInput
