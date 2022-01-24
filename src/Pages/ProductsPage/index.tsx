@@ -1,6 +1,7 @@
 import Container from "../../Components/Container";
 import Divider from "../../Components/Elements/Devider";
 import Typography from "../../Components/Typography";
+import CardProduct from "./Components/cardProduct";
 
 const ProductsPage = () => {
   return (
@@ -10,6 +11,7 @@ const ProductsPage = () => {
           All Products
         </Typography>
         <Divider />
+        <CardProduct />
       </Container>
     </div>
   );

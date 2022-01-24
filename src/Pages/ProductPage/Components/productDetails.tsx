@@ -21,7 +21,8 @@ import {
   Title,
 } from "../product.style";
 import { addItemToCart } from "../../../Store/Slices/user";
-import { useAppDispatch } from "../../../Store/configureStore";
+import { RootState, useAppDispatch } from "../../../Store/configureStore";
+import { useSelector } from "react-redux";
 interface IProps {
   productById: IProduct;
 }
@@ -31,9 +32,16 @@ const ProductDetails = ({ productById }: IProps) => {
   const [counter, setCounter] = useState(0);
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [first, setfirst] = useState(false);
+  let user = useSelector((state: RootState) => state?.entities.user);
+
   const handleAddToCart = (id: string) => {
-    dispatch(addItemToCart({ productId: id, qty: counter }));
-    navigate("/cart");
+    if (user.auth) {
+      dispatch(addItemToCart({ productId: id, qty: counter }));
+      setfirst(true);
+    } else {
+      navigate("/login");
+    }
   };
   const [color, setColor] = useState("");
   const [bookMark, setStateBookMark] = useState<boolean>(false);
