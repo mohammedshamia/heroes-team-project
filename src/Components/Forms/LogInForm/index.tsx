@@ -10,6 +10,7 @@ import { loginUser } from "../../../Store/Slices/user";
 import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import Alert from "../../Elements/Alert/index";
 
 const Index = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +25,9 @@ const Index = () => {
 
   useEffect(() => {
     user.auth && navigate("/");
+    console.log('user.error', user.error)
   }, [navigate, user]);
+
   return (
     <FormContainer>
       <Typography fontWeight={700} variant="h2">
@@ -33,6 +36,9 @@ const Index = () => {
       <Typography variant="h6" style={{ marginBottom: "15px" }}>
         Login with your data that you entered during registration
       </Typography>
+      {user.error && <Alert type="error">
+        <p style={{fontSize: '15px'}}> {user.error} </p>
+      </Alert>}
       <Formik
         initialValues={LoginInitialValues}
         validationSchema={LogInSchema}

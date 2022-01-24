@@ -11,6 +11,7 @@ import { registerUser } from "../../../Store/Slices/user";
 import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import Alert from "../../Elements/Alert/index";
 
 const Signup = () => {
   const theme = useTheme();
@@ -36,6 +37,9 @@ const Signup = () => {
       <Typography variant="h6" style={{ marginBottom: "15px" }}>
         Sign up and get exclusive offers form us.
       </Typography>
+      {user.error && <Alert type="error">
+        <p style={{fontSize: '15px'}}> {user.error.message} </p>
+      </Alert>}
       <Formik
         initialValues={LoginInitialValues}
         validationSchema={SignupSchema}
@@ -48,6 +52,7 @@ const Signup = () => {
       />
       <div style={{ textAlign: "center", marginTop: "25px" }}>
         <NavLink
+
           style={{
             fontSize: "16px",
             color: theme.textColors.secondary,
