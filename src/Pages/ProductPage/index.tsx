@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 import ImageSection from "./Components/imageSection";
 import ProductDetails from "./Components/productDetails";
@@ -9,13 +9,17 @@ import Reviews from "./Components/reviews";
 import CardSliders from "./Components/cardSlider";
 import Typography from "../../Components/Typography";
 import { useParams } from "react-router";
-import { getProductsById } from "../../Store/Slices/products";
+import {
+  getProductsById,
+  getAllProductsByPaginate,
+} from "../../Store/Slices/products";
 import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../Store/configureStore";
 import SppinerLoading from "../../Components/Elements/SppinerLoading";
 
 const ProductPage = () => {
   const dispatch = useAppDispatch();
+
   let { productById, loading } = useSelector(
     (state: RootState) => state.entities.products
   );
@@ -24,16 +28,18 @@ const ProductPage = () => {
 
   useEffect(() => {
     id && dispatch(getProductsById({ id }));
-  }, [dispatch, id]);
+
+    dispatch(getAllProductsByPaginate());
+  }, []);
 
   return (
-    <>
+    <React.Fragment>
       {loading ? (
         <SppinerLoading />
       ) : (
-        <>
+        <React.Fragment>
           {productById ? (
-            <>
+            <React.Fragment>
               <Container>
                 <TitleLink>
                   <Typography
@@ -49,19 +55,21 @@ const ProductPage = () => {
                 <Specification />
                 <Reviews productById={productById} />
               </Container>
-              {/* <CardSliders />{" "} */}
-            </>
+
+              <CardSliders />
+            </React.Fragment>
           ) : (
-            <Container>
+            <React.Fragment>
               <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
                 <LinkBack to="/">Back </LinkBack>
               </Typography>
-              <Typography variant="h1">Product Does Not Found</Typography>
-            </Container>
+              <Typography variant="h1">Not Found Product</Typography>
+            </React.Fragment>
+
           )}{" "}
-        </>
+        </React.Fragment>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
