@@ -20,9 +20,9 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: "Mulish", sans-serif;
-
 transition: color 0.5s,background-color 0.5s;
 }
+
 html {
 font-size: 62.5%;
 overflow-x: hidden;
@@ -37,47 +37,62 @@ body {
 .swiper{
   padding-bottom: 40px!important;
 }
+
 .swiper-pagination-bullet {
 height: 14px!important;
 width: 14px!important;
 opacity: 1;
 background: rgba(0, 0, 0, 0.2);
 background: ${(props) => props.theme.textColors.secondary}!important;
+@media screen and (max-width: 500px) {
+  height: 8px!important;
+  width: 8px!important;
+  margin: 0 1px!important;
 }
-.swiper-slide-active
-{
-  /* list-style:none;  */
 }
+
 .swiper-pagination-bullet-active {
-background: ${(props) => props.theme.colors.primary} !important;
+background: ${(props) => props.theme.colors.primary}!important;
 }
+
 .swiper-button-next,.swiper-button-prev {
 bottom:-2px !important;
 top:auto !important;
 transform: scale(0.45,0.35);
-color:${(props) => props.theme.textColors.primary} !important; 
+color:${(props) => props.theme.textColors.primary}!important; 
 font-weight:1000;
 z-index:99999!important;
+
 } 
+
 .swiper-button-next,.swiper-button-prev {
 right: calc(50% - 60px)!important;
+@media screen and (max-width: 500px) {
+  right: calc(50% - 40px)!important;
+}
 } 
+
 .swiper-button-prev{
-left: calc(50% - 60px)!important;
-
+  left: calc(50% - 60px)!important;
+  @media screen and (max-width: 500px) {
+    left: calc(50% - 40px)!important;
+  }
 } 
 
-
-#root > div > div:nth-child(4) > div.sc-jcFjpl.gxkdyQ > div {
-  padding-top: 15px;
+#root > div > div:nth-child(4) > div > div {
+  margin-top: -35px;
+  padding-bottom: 0!important;
 }
 
-#root > div > div:nth-child(4) > div.sc-jcFjpl.gxkdyQ > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+#root > div > div:nth-child(4) > div > div > div.swiper-wrapper {
+  padding-top: 30px;
+}
+
+#root > div > div:nth-child(4) > div > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
         top: 0;
     bottom: auto!important;
     text-align: end;
 }
-
 
 
 body::-webkit-scrollbar,
@@ -106,6 +121,5 @@ div::-webkit-scrollbar-thumb:hover {
   background-color: #aaa;
   transform: scaleX(1.45);
 }
-
 
 `;

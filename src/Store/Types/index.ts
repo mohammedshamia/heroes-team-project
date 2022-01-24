@@ -65,9 +65,17 @@ export interface IUser {
   token?: string;
 }
 
+export interface IusersByPaginate {
+  users: IUser[];
+  page: number;
+  pages: number;
+}
+
 //interface for State
 export interface IUserSliceState {
   data: IUser | null;
+  usersByPaginate: IusersByPaginate;
+  userDetails: IUser | null;
   auth: boolean | null;
   loading: boolean;
   error: any;

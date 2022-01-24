@@ -20,22 +20,20 @@ import {
   SizeButton,
   Title,
 } from "../product.style";
+import { addItemToCart } from "../../../Store/Slices/user";
+import { useAppDispatch } from "../../../Store/configureStore";
 interface IProps {
   productById: IProduct;
 }
 
 const ProductDetails = ({ productById }: IProps) => {
   const { id } = useParams();
-  const [counter, setCounter] = useState("");
+  const [counter, setCounter] = useState(0);
   let navigate = useNavigate();
-  const handleClick = () => {
-    const data = {
-      id,
-      gty: counter,
-    };
-    navigate("/cart", {
-      state: data,
-    });
+  const dispatch = useAppDispatch();
+  const handleAddToCart = (id: string) => {
+    dispatch(addItemToCart({ productId: id, qty: counter }));
+    navigate("/cart");
   };
   const [color, setColor] = useState("");
   const [bookMark, setStateBookMark] = useState<boolean>(false);
@@ -72,8 +70,8 @@ const ProductDetails = ({ productById }: IProps) => {
           </ColorText>
 
           <ColorButton>
-            {productById.colors.map((ele) => (
-              <Margin>
+            {productById.colors.map((ele, index) => (
+              <Margin key={index}>
                 <Button
                   borderRaduies={"50%"}
                   padding={"2rem"}
@@ -105,7 +103,7 @@ const ProductDetails = ({ productById }: IProps) => {
             <Button
               fontSize={"14px"}
               padding={"0rem 3rem"}
-              onClick={handleClick}
+              onClick={() => handleAddToCart(productById._id)}
             >
               Add TO Cart
             </Button>

@@ -50,6 +50,7 @@ export const ContainerClose = styled.div`
   position: absolute;
   top: 10px;
   right: 12px;
+  cursor: pointer;
 `;
 export const ContainerContentCard = styled.div`
   margin-bottom: 20px;
@@ -59,7 +60,7 @@ export const ContainerContentCard = styled.div`
 `;
 export const ItemImg = styled.div<IProps>`
   width: 20%;
-  height: 150px;
+  height: 100%;
   overflow: hidden;
   align-items: ${(props) => props.alignItems || "center"};
   justify-content: ${(props) => props.justifyContent || "center"};
@@ -68,11 +69,35 @@ export const ItemImg = styled.div<IProps>`
     width: 100%;
     height: 100%;
   }
+
+  @media screen and (max-width: 500px) {
+    width: 35%;
+  }
 `;
+
+export const ContentWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  align-self: center;
+  padding: 10px;
+  justify-content: space-between;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 65%;
+    & > div {
+      margin-bottom: 15px;
+      width: 100%;
+      padding-right: 15px;
+    }
+  }
+`;
+
 export const ItemTypo = styled.div`
-  width: 40%;
-  align-self: flex-start;
-  padding: 30px 5px;
+  width: 60%;
+  display: flex;
+  align-items: flex-start;
 `;
 export const ItemCounter = styled.div`
   width: 20%;
@@ -80,7 +105,10 @@ export const ItemCounter = styled.div`
   align-items: center;
 `;
 export const Itemprice = styled.div`
-  width: 10%;
-
+  width: 15%;
+  text-align: end;
   align-self: center;
+  & div {
+    white-space: nowrap;
+  }
 `;
