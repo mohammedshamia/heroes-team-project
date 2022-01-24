@@ -49,7 +49,9 @@ const ProductDetails = ({ productById }: IProps) => {
           ${productById.price}
         </Typography>
       </Title>
-      <Counter counter={productById.countInStock} setCounter={setCounter} />
+      <Counter counter={productById.countInStock} 
+      // setCounter={setCounter}
+       />
       {productById.colors.length > 0 && (
         <Color>
           <ColorText>

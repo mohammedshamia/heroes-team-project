@@ -84,9 +84,9 @@ export interface IUserSliceState {
 //orders interfaces
 
 export interface IShippingAddress {
-  address: string;
+ streetAddress: string;
   city: string;
-  postalCode: string;
+  zipCode: string;
   country: string;
 }
 

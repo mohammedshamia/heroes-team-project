@@ -13,6 +13,7 @@ import {
 import CloseIcon from "../../Icons/CloseIcon";
 import { addItemToCart, deleteItemFromCart } from "../../../Store/Slices/user";
 import { useAppDispatch } from "../../../Store/configureStore";
+import { isNamedExportBindings } from "typescript";
 
 interface IpropsShopCart {
   data: any;
@@ -20,18 +21,19 @@ interface IpropsShopCart {
 const ShoppingCart = ({ data }: IpropsShopCart) => {
   const { items, totalQty, totalPrice } = data;
   // console.log(data);
+  // const [counter, setCounter] = useState("");
   const dispatch = useAppDispatch();
 
-  const [count, setstateCount] = useState(0);
-  const increment = () => {
-    setstateCount((prev: number) => prev + 1);
-  };
+  // const [count, setstateCount] = useState(0);
+  // const increment = () => {
+  //   setstateCount((prev: number) => prev + 1);
+  // };
   const handleRemove = (id: string) => {
     dispatch(deleteItemFromCart(id));
     // console.log(items)
   };
   const handleIncrease = (id: string, qty: number) => {
-    dispatch(addItemToCart({ productId: id, qty: qty }));
+    // dispatch(addItemToCart({ productId: id, qty: qty }));
     // console.log("add")
   };
   //  const theme = useTheme()
@@ -39,13 +41,13 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
   return (
     <>
       {items.map((elemnt: any) => (
-        <ContainerShopping key={elemnt.product._id}>
+        <ContainerShopping key={elemnt.product._id} >
           <ContainerClose onClick={() => handleRemove(elemnt.product._id)}>
             <CloseIcon />
           </ContainerClose>
           <ItemImg alignItems="center" justifyContent="center">
             <img
-              // src={elemnt?.product?.images[0]}
+              // src={elemnt?.product?.images[0]as string}
               src={"https://prohop-express.herokuapp.com/uploads/airpods.jpg"}
               alt="blabla"
               width={"100%"}
@@ -60,10 +62,14 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
                 fontWeight={700}
               />
             </ItemTypo>
-            <ItemCounter>
+            <ItemCounter  >
               <Counter
                 counter={elemnt.qty}
-                //  handleIncrease(elemnt.product._id, elemnt.qty)}
+                productId={elemnt.product._id&&elemnt.product._id}
+                // setCounter={setCounter}
+                // onClick={() =>  handleIncrease(elemnt.product._id, elemnt.qty) }
+
+
               />
             </ItemCounter>
             <Itemprice>
