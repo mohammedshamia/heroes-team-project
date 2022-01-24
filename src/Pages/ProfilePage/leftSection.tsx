@@ -36,9 +36,6 @@ const LeftSection = ({ UserProileData }: IProps) => {
 
   const [modalDisplay, setModalDisplay] = useState<boolean>(false);
 
-  useEffect(() => {
-    console.log(modalDisplay, "modalDisplay");
-  }, [modalDisplay]);
   return (
     <LeftProfile>
       <LeftProfileUser>
@@ -78,7 +75,6 @@ const LeftSection = ({ UserProileData }: IProps) => {
               <Button
                 backgroundColor={theme.colors.primary}
                 onClick={() => {
-                  console.log("cancel clicked");
                   setModalDisplay(false);
                 }}
               >

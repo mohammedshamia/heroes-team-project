@@ -26,7 +26,8 @@ export const Categ = styled.div`
   align-items: left;
   align-self: left;
   justify-content: left;
-  padding: 20px 0px;
+  /* padding: 20px 0px; */
+  padding: 50px 0 15px;
 `;
 
 export const Category = styled.div`
@@ -59,7 +60,6 @@ export const CategoryoneImage = styled.div`
   align-items: center;
   justify-content: center;
   @media (max-width: 800px) {
-    height: 250px;
     margin-bottom: 1rem;
   }
 `;
@@ -75,8 +75,11 @@ export const CardsSection = styled.div`
 `;
 
 export const SliderDatiles = styled.div`
-  width: 40%;
+  width: 300px;
   text-align: left;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const SliderDatilesm = styled.div`

@@ -6,7 +6,6 @@ import MainCard from "../Elements/Card/MainCard";
 import SppinerLoading from "../Elements/SppinerLoading";
 import { ContainerLyout } from "./style";
 
-
 export default function CardLayout() {
   const dispatch = useAppDispatch();
   let { productsByTopThree } = useSelector(
@@ -17,11 +16,13 @@ export default function CardLayout() {
   }, [dispatch]);
   return (
     <ContainerLyout>
-      {productsByTopThree.length > 0 ? productsByTopThree.map((item) =>
-        <MainCard
-          data={item}
-
-        />) : <SppinerLoading />}
+      {productsByTopThree.length > 0 ? (
+        productsByTopThree.map((item) => (
+          <MainCard data={item} key={item._id} />
+        ))
+      ) : (
+        <SppinerLoading />
+      )}
     </ContainerLyout>
   );
 }

@@ -48,8 +48,8 @@ export const CardSlider = () => {
         className="mySwiper"
       >
         {products.length > 0 ? (
-          products.map((item, index) => (
-            <SwiperSlide tag="li">
+          products.map((item) => (
+            <SwiperSlide tag="li" key={item._id}>
               <MainCard data={item} />
             </SwiperSlide>
           ))

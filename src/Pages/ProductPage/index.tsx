@@ -24,8 +24,6 @@ const ProductPage = () => {
     (state: RootState) => state.entities.products
   );
 
-  console.log(productById);
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -57,6 +55,7 @@ const ProductPage = () => {
                 <Specification />
                 <Reviews productById={productById} />
               </Container>
+
               <CardSliders />
             </React.Fragment>
           ) : (
@@ -66,6 +65,7 @@ const ProductPage = () => {
               </Typography>
               <Typography variant="h1">Not Found Product</Typography>
             </React.Fragment>
+
           )}{" "}
         </React.Fragment>
       )}
