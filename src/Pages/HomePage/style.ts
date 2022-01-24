@@ -75,7 +75,7 @@ export const CardsSection = styled.div`
 `;
 
 export const SliderDatiles = styled.div`
-  width: 300px;
+  width: 40%;
   text-align: left;
   @media (max-width: 800px) {
     width: 100%;

@@ -84,3 +84,5 @@ export const getOrderDetails = (orderId: number) =>
     onSuccess: orderCreated.type,
     onError: orderCreatedFailed.type,
   });
+
+export default slice.reducer;

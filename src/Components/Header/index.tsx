@@ -21,6 +21,7 @@ import {
   ICONS,
   ButtonContent,
   MobileSearchContent,
+  LoadingBar,
 } from "./style";
 import { useTheme } from "styled-components";
 import { IUser } from "../../Store/Types";
@@ -34,7 +35,15 @@ interface IHeader {
 
 const Header: FC<IHeader> = ({ ToggelTheme }) => {
   const dispatch = useAppDispatch();
-  let { data } = useSelector((state: RootState) => state.entities.user);
+  const { data, loading: userLoading } = useSelector(
+    (state: RootState) => state.entities.user
+  );
+  const { loading: productLoading } = useSelector(
+    (state: RootState) => state.entities.products
+  );
+  const { loading: ordersLoading } = useSelector(
+    (state: RootState) => state.entities.order
+  );
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -43,6 +52,7 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
   return (
     <React.Fragment>
       <Root>
+        <LoadingBar loading={userLoading || productLoading || ordersLoading} />
         <Container>
           <Content>
             <Logo main="Pro" sub="Shop" />
