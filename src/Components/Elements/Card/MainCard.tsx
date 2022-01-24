@@ -51,7 +51,7 @@ export default function MainCard(props: Iprops) {
           <Typography
             className="bla-bla"
             variant="h6"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", textAlign: "center", height: "6rem" }}
             onClick={() => navigate(`/product/${data._id}`)}
           >
             {data.name}

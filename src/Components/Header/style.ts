@@ -1,5 +1,33 @@
 import styled from "styled-components";
 
+export const LoadingBar = styled.div<{ loading?: boolean }>`
+  height: 2px;
+  background-color: ${(props) =>
+    props.loading ? props.theme.background.default : "transparent"};
+  position: relative;
+  &::after {
+    content: "";
+    width: 20%;
+    display: block;
+
+    background-color: ${(props) =>
+      props.loading ? props.theme.colors.primary : "transparent"};
+    height: 100%;
+    animation: isLoading 1s infinite linear;
+    position: absolute;
+    left: -20%;
+  }
+
+  @keyframes isLoading {
+    0% {
+      left: -20%;
+    }
+    100% {
+      left: 120%;
+    }
+  }
+`;
+
 export const Root = styled.div`
   position: fixed;
   top: 0;
@@ -32,7 +60,7 @@ export const SearchContent = styled.div`
 
 export const MobileSearchContent = styled.div`
   display: flex;
-  padding: 10px;
+  padding: 10px 0;
 
   @media (min-width: 1000px) {
     display: none;
