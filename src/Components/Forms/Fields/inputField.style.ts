@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
+import Select from "react-select";
 
 export const Errors = styled.h6`
   color: red;
@@ -16,6 +17,17 @@ export const Input = styled(Field)`
   width: 100%;
   background: ${(props) =>
     props.background ? props.background : props.theme.background.paper};
+
+  outline: none;
+`;
+export const SelectInput = styled(Select)`
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: ${(props) => props.theme.textColors.secondary};
+  font-size: 14px;
+  width: 100%;
+  background: ${(props) => props.theme.background.paper};
 
   outline: none;
 `;
@@ -40,3 +52,4 @@ export const FlexInput = styled.div<IProps>`
     width: 100%;
   }
 `;
+
