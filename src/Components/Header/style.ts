@@ -32,7 +32,7 @@ export const SearchContent = styled.div`
 
 export const MobileSearchContent = styled.div`
   display: flex;
-  padding: 10px;
+  padding: 10px 0;
 
   @media (min-width: 1000px) {
     display: none;
