@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from "react";
 import Button from "../Buttons";
 import { ContainerCounter, CounterDiv } from "./counter.style";
 import { useTheme } from "styled-components";
 import { useAppDispatch } from "../../../Store/configureStore";
 import { addItemToCart } from "../../../Store/Slices/user";
-import { ButtonProp } from "../Buttons/interface";
 interface IPropsCounter {
   counter: number;
   // setCounter: Function ;
-  productId?: string | undefined  ; 
+  productId?: string | undefined;
 }
 
 const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
   const dispatch = useAppDispatch();
-// console.log(props)
-    const { counter ,productId} = props;
+  // console.log(props)
+  const { counter, productId } = props;
   // const [count, setCount] = useState(counter);
   const theme = useTheme();
   const increment = () => {
     // setCount((prev: number) => prev + 1);
     //  console.log(count)
-     if(productId)
-   {  dispatch(addItemToCart({  productId, qty: counter+1 }))}
+    if (productId) {
+      dispatch(addItemToCart({ productId, qty: counter + 1 }));
+    }
   };
-  
+
   const decrement = () => {
     // if (count === 0) return setCount(0);
     // else setCount((prev: number) => prev - 1);
@@ -65,7 +64,6 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
         colorHover={theme.common.black}
         color={theme.textColors.counterColor}
         onClick={() => increment()}
-
       >
         +
       </Button>

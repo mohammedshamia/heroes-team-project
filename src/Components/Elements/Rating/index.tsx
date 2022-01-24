@@ -35,6 +35,7 @@ const Rate = ({ count, rating, onRating }: PropRating) => {
           onMouseLeave={() => setHoverRating(0)}
         />
       ));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count, rating, hoverRating]);
 
   return <div>{starRating} </div>;

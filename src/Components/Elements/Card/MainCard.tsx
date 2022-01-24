@@ -1,6 +1,5 @@
 import { Card, CardImg } from "./index";
 import { ContainerButton, ContainerContentCard } from "./style";
-import { BookMarkEmpty, BookMarkfill } from "../../Icons/BookMark";
 import Rate from "../Rating";
 import { useState } from "react";
 import Button from "../Buttons";
@@ -10,7 +9,6 @@ import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { addItemToCart } from "../../../Store/Slices/user";
 import { IProduct } from "../../../Store/Types";
-import AlertMessage from "../Alert";
 import { useNavigate } from "react-router";
 
 interface Iprops {
@@ -18,10 +16,9 @@ interface Iprops {
 }
 export default function MainCard(props: Iprops) {
   const { data } = props;
-  const [first, setfirst] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [rating, setRating] = useState<number>(3);
-  const [state, setState] = useState<boolean>(false);
   const theme = useTheme();
   const dispatch = useAppDispatch();
   let user = useSelector((state: RootState) => state?.entities.user);
@@ -29,7 +26,6 @@ export default function MainCard(props: Iprops) {
   const handleAddToCart = (id: string) => {
     if (user.auth) {
       dispatch(addItemToCart({ productId: id, qty: 1 }));
-      setfirst(true);
     } else {
       navigate("/login");
     }
@@ -81,13 +77,6 @@ export default function MainCard(props: Iprops) {
           </ContainerButton>
         </ContainerContentCard>
       </Card>
-      <AlertMessage
-        open={first}
-        setOpen={setfirst}
-        position="snackBar"
-        children={"Added to cart"}
-        type="success"
-      />
     </>
   );
 }

@@ -2,7 +2,7 @@ import { Suspense, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Helpers/Theme/index";
 import { GlobalStyles } from "./Helpers/globalStyle";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route } from "react-router";
 import SppinerLoading from "./Components/Elements/SppinerLoading/index";
 import Header from "./Components/Header";
 import useThemeMode from "./Hook/UseThemeMode";

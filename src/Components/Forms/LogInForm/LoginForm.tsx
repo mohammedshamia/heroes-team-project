@@ -6,7 +6,7 @@ import { useTheme } from "styled-components";
 import { RootState } from "../../../Store/configureStore";
 import Button from "../../Elements/Buttons";
 import FormInput from "../Fields/inputField";
-import { FlexInput, Input, Label } from "../Fields/inputField.style";
+import { FlexInput, Label } from "../Fields/inputField.style";
 
 interface IProps {
   errors: any;

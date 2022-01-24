@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
 import MainCard from "../../../Components/Elements/Card/MainCard";
 import Pagination from "../../../Components/Elements/Pagination";
 import SppinerLoading from "../../../Components/Elements/SppinerLoading";
@@ -11,7 +10,6 @@ import { CardOneProduct, FlexCenter, FlexProduct } from "../style";
 const CardProduct = () => {
   const dispatch = useAppDispatch();
   const [page, setPage] = useState(1);
-  let navigate = useNavigate();
   let { loading, productsByPaginate } = useSelector(
     (state: RootState) => state.entities.products
   );
@@ -21,7 +19,7 @@ const CardProduct = () => {
     };
     dispatch(getAllProductsByPaginate(data));
     setPage(page);
-  }, [page]);
+  }, [dispatch, page]);
 
   return (
     <>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Counter from "../Counter";
 import Typography from "../../Typography";
 import {
@@ -11,15 +10,14 @@ import {
   ContentWrapper,
 } from "./style";
 import CloseIcon from "../../Icons/CloseIcon";
-import { addItemToCart, deleteItemFromCart } from "../../../Store/Slices/user";
+import { deleteItemFromCart } from "../../../Store/Slices/user";
 import { useAppDispatch } from "../../../Store/configureStore";
-import { isNamedExportBindings } from "typescript";
 
 interface IpropsShopCart {
   data: any;
 }
 const ShoppingCart = ({ data }: IpropsShopCart) => {
-  const { items, totalQty, totalPrice } = data;
+  const { items } = data;
   // console.log(data);
   // const [counter, setCounter] = useState("");
   const dispatch = useAppDispatch();
@@ -32,24 +30,24 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
     dispatch(deleteItemFromCart(id));
     // console.log(items)
   };
-  const handleIncrease = (id: string, qty: number) => {
-    // dispatch(addItemToCart({ productId: id, qty: qty }));
-    // console.log("add")
-  };
+  // const handleIncrease = (id: string, qty: number) => {
+  //   // dispatch(addItemToCart({ productId: id, qty: qty }));
+  //   // console.log("add")
+  // };
   //  const theme = useTheme()
 
   return (
     <>
       {items.map((elemnt: any) => (
-        <ContainerShopping key={elemnt.product._id} >
+        <ContainerShopping key={elemnt.product._id}>
           <ContainerClose onClick={() => handleRemove(elemnt.product._id)}>
             <CloseIcon />
           </ContainerClose>
           <ItemImg alignItems="center" justifyContent="center">
             <img
-              src={elemnt?.product?.images[0] as string}
+              src={`${elemnt?.product?.images[0]}`}
               // src={"https://prohop-express.herokuapp.com/uploads/airpods.jpg"}
-              alt="blabla"
+              alt=""
               width={"100%"}
               loading="lazy"
             />
@@ -62,14 +60,12 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
                 fontWeight={700}
               />
             </ItemTypo>
-            <ItemCounter  >
+            <ItemCounter>
               <Counter
                 counter={elemnt.qty}
-                productId={elemnt.product._id&&elemnt.product._id}
+                productId={elemnt.product._id && elemnt.product._id}
                 // setCounter={setCounter}
                 // onClick={() =>  handleIncrease(elemnt.product._id, elemnt.qty) }
-
-
               />
             </ItemCounter>
             <Itemprice>

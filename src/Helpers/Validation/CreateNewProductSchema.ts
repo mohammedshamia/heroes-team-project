@@ -1,13 +1,4 @@
-import {
-  object,
-  ref,
-  string,
-  boolean,
-  date,
-  number,
-  SchemaOf,
-  array,
-} from "yup";
+import { object, string, number, SchemaOf, array } from "yup";
 import { ICreateNewProduct } from "../../@Types/Validation";
 const CreateNewProductSchema = (): SchemaOf<ICreateNewProduct> => {
   return object().shape({

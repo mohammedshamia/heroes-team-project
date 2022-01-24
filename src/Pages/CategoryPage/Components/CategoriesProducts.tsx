@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { ContainerLyout } from "../../../Components/CardLayuout/style";
-import Container from "../../../Components/Container";
 import Alert from "../../../Components/Elements/Alert/index";
 import MainCard from "../../../Components/Elements/Card/MainCard";
 import SppinerLoading from "../../../Components/Elements/SppinerLoading";
@@ -10,7 +8,6 @@ import { RootState } from "../../../Store/configureStore";
 
 import { useAppDispatch } from "../../../Store/configureStore";
 import { getProductsByCatergories } from "../../../Store/Slices/products";
-import Categories from "../../HomePage/Components/categories";
 import { CardLayout } from "../style";
 
 const CategoriesProducts = ({ name }: { name: string }) => {
@@ -28,13 +25,12 @@ const CategoriesProducts = ({ name }: { name: string }) => {
       {products ? (
         products.length > 0 ? (
           <>
-
-          <CardLayout>
-            {products.map((item) => {
-              console.log(item.name, "---");
-              return <MainCard data={item} key={item._id} />;
-            })}
-          </CardLayout>
+            <CardLayout>
+              {products.map((item) => {
+                console.log(item.name, "---");
+                return <MainCard data={item} key={item._id} />;
+              })}
+            </CardLayout>
           </>
         ) : (
           <Alert

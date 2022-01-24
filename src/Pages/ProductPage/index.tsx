@@ -30,7 +30,7 @@ const ProductPage = () => {
     id && dispatch(getProductsById({ id }));
 
     dispatch(getAllProductsByPaginate());
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <React.Fragment>
@@ -65,7 +65,6 @@ const ProductPage = () => {
               </Typography>
               <Typography variant="h1">Not Found Product</Typography>
             </React.Fragment>
-
           )}{" "}
         </React.Fragment>
       )}

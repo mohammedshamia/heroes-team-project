@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useTheme } from "styled-components";
 import Button from "../../Components/Elements/Buttons";
@@ -10,7 +10,6 @@ import { useAppDispatch } from "../../Store/configureStore";
 import { userSignOut } from "../../Store/Slices/user";
 import { IUser } from "../../Store/Types";
 import Avater from "./avater";
-import { UserData } from "./interface";
 import {
   LeftProfile,
   LeftProfileUser,

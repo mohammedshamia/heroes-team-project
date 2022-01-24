@@ -1,9 +1,7 @@
-import React from "react";
 import Button from "../../Components/Elements/Buttons";
 import Typography from "../../Components/Typography";
 import { IUser } from "../../Store/Types";
 import Avater from "./avater";
-import { UserData } from "./interface";
 import {
   RightProfile,
   RightProfileAvaterSection,
@@ -59,7 +57,6 @@ const RightSetion = ({ UserProileData }: IProps) => {
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
                   marginBottom: "3rem",
-                  
                 }}
               />
             </RightProfileuserDatem>
@@ -70,7 +67,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
                   fontSize: "15px",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
-                  fontWeight: "bold"
+                  fontWeight: "bold",
                 }}
               />
 
@@ -80,7 +77,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
                   fontSize: "15px",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
-                  fontWeight: "bold"
+                  fontWeight: "bold",
                 }}
               />
 
@@ -90,16 +87,16 @@ const RightSetion = ({ UserProileData }: IProps) => {
                   fontSize: "15px",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
-                  fontWeight: "bold"
+                  fontWeight: "bold",
                 }}
               />
               <Typography
-                children={UserProileData.dateOfBirth.split('T')[0]}
+                children={UserProileData.dateOfBirth.split("T")[0]}
                 style={{
                   fontSize: "15px",
                   letterSpacing: "0.96px",
                   marginTop: "3rem",
-                  fontWeight: "bold"
+                  fontWeight: "bold",
                 }}
               />
             </RightProfileuserDatem>
@@ -120,7 +117,11 @@ const RightSetion = ({ UserProileData }: IProps) => {
           <Avater
             width={"150px"}
             height={"150px"}
-            src={UserProileData.profileImage.length?UserProileData.profileImage:'Assets/profile.png'}
+            src={
+              UserProileData.profileImage.length
+                ? UserProileData.profileImage
+                : "Assets/profile.png"
+            }
           />
           <RightProfileuserDateButton>
             <Button

@@ -27,37 +27,14 @@ interface OtherProps {
 const FormNewProduct = (
   props: OtherProps & FormikProps<CreateNewProductValues>
 ) => {
-  const { errors, touched, setFieldValue, isEditing } = props;
+  const { errors, touched, isEditing } = props;
   const dispatch = useAppDispatch();
-  let { categories, loading } = useSelector(
+  let { categories } = useSelector(
     (state: RootState) => state.entities.products
   );
   useEffect(() => {
     dispatch(getAllcategories());
   }, [dispatch]);
-  // productImage
-  const languageOptions = [
-    {
-      label: "Chinese",
-      value: "zh-CN",
-    },
-    {
-      label: "English (US)",
-      value: "en-US",
-    },
-    {
-      label: "English (GB)",
-      value: "en-GB",
-    },
-    {
-      label: "French",
-      value: "fr-FR",
-    },
-    {
-      label: "Spanish",
-      value: "es-ES",
-    },
-  ];
   const theme = useTheme();
   return (
     <Continer>
@@ -175,7 +152,6 @@ const FormNewProduct = (
               fullWidth={false}
               width={"45%"}
             />
-            
           </FormProductInputGroup>
           <FormProductInputGroup>
             <FormInput

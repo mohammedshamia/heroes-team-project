@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { apiCallBegan } from "../apiActions";
-import { getAuthHeader, removeTokenCookie } from "../../Helpers/tools";
+import { getAuthHeader } from "../../Helpers/tools";
 
 import {
   IProductsSliceState,
   IProduct,
-  Icategories,
   Review,
   IproductsByPaginate,
   IAllCategories,

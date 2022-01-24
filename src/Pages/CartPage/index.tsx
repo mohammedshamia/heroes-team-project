@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../../Components/Container";
 import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 import Typography from "../../Components/Typography";
