@@ -76,7 +76,7 @@ export const CardsSection = styled.div`
 `;
 
 export const SliderDatiles = styled.div`
-  width: 40%;
+  width: 300px;
   text-align: left;
 `;
 

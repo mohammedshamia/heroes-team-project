@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -20,26 +20,29 @@ import {
 import Typography from "../../../Components/Typography";
 import Button from "../../../Components/Elements/Buttons";
 import Container from "../../../Components/Container";
-import { RootState, useAppDispatch } from "../../../Store/configureStore";
-import { useSelector } from "react-redux";
-import { getProductsByTopThree } from "../../../Store/Slices/products";
-import SppinerLoading from "../../../Components/Elements/SppinerLoading";
-import { useNavigate } from "react-router";
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard, Autoplay]);
 
 const Hero = () => {
-  const dispatch = useAppDispatch();
-  let { productsByTopThree, loading } = useSelector(
-    (state: RootState) => state.entities.products
-  );
-  useEffect(() => {
-    dispatch(getProductsByTopThree());
-  }, []);
-  let navigate = useNavigate();
-
-  const handelClick = (id: string) => {
-    navigate(`/product/${id}`);
-  };
+  const heroSlide = [
+    {
+      image: "Assets/img12.PNG",
+      saveUp: "$49.99",
+      name: "APPLE AIRPODS",
+      text: "AirPods are the best-selling headphones in the world",
+    },
+    {
+      image: "Assets/img1.PNG",
+      saveUp: "$99.99",
+      name: "iPhone 11 PRO",
+      text: "Pro cameras.Pro display. Pro performance.",
+    },
+    {
+      image: "Assets/img1.PNG",
+      saveUp: "$39.99",
+      name: "PlayStation 5",
+      text: "Lightning-fast download speed with super-fast SSD storage",
+    },
+  ];
   return (
     <>
       {loading ? (
