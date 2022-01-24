@@ -60,7 +60,6 @@ export const CategoryoneImage = styled.div`
   align-items: center;
   justify-content: center;
   @media (max-width: 800px) {
-    height: 250px;
     margin-bottom: 1rem;
   }
 `;
@@ -78,6 +77,9 @@ export const CardsSection = styled.div`
 export const SliderDatiles = styled.div`
   width: 300px;
   text-align: left;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const SliderDatilesm = styled.div`
