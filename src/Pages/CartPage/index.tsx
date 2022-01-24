@@ -1,35 +1,18 @@
 import React from "react";
-import { useLocation } from "react-router";
 import Container from "../../Components/Container";
 import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 import Typography from "../../Components/Typography";
 import { LinkBack, Parent, TitleLink, Wrapper } from "./style";
 import SubTotal from "./SubTotal";
-import { useAppDispatch, RootState } from "../../Store/configureStore";
+import { RootState } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
-import { useEffect } from 'react'
-import { getProductsById, getAllProductsByPaginate } from "../../Store/Slices/products";
-const ItemCart = [
-  {
-    title: "Apple iPhone 11 Pro 256GB Memory",
-    price: 565,
-    imgUrl: "https://picsum.photos/id/1/200/300",
-  },
-  { title: "phone", price: 551, imgUrl: "https://picsum.photos/id/10/200/300" },
-  { title: "mobile", price: 544, imgUrl: "https://picsum.photos/id/0/200/300" },
-];
+import CardLayout from "../../Components/CardLayuout";
+import { Categ } from "../HomePage/style";
+import { DividerComponent } from "../../Components/Elements/Devider/styles.styled";
+
 const CartPage = () => {
-  const dispatch = useAppDispatch();
-  let products = useSelector((state: RootState) => state?.entities.products.productsByPaginate.products);
-  console.log(products.length)
+  const { data } = useSelector((state: RootState) => state?.entities?.user);
 
-  // useEffect(() => {
-  //   dispatch(getAllProductsByPaginate({}))
-
-
-  // }, [])
-  const { state } = useLocation();
-  // console.log(state);
   return (
     <Container>
       <TitleLink>
@@ -39,17 +22,35 @@ const CartPage = () => {
       </TitleLink>
       <Parent>
         <Wrapper>
-          {ItemCart.map((item, index) => (
-            <ShoppingCart
-              key={index}
-              title={item.title}
-              price={item.price}
-              imgUrl={item.imgUrl}
-            />
-          ))}
+          {(data?.cart?.items?.length as number) > 0 ? (
+            <>
+              <ShoppingCart data={data?.cart} />
+            </>
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src="Assets/Group 491.png" alt="" />
+            </div>
+          )}
         </Wrapper>
-        <SubTotal />
+        {(data?.cart?.items?.length as number) > 0 && (
+          <SubTotal data={data?.cart && data.cart} />
+        )}
       </Parent>
+      {(data?.cart?.items?.length as number) === 0 && (
+        <>
+          <Categ>
+            <Typography
+              variant="h5"
+              fontWeight={700}
+              style={{ marginTop: "50px" }}
+            >
+              Recently viewed
+            </Typography>
+          </Categ>
+          <DividerComponent />
+          <CardLayout />
+        </>
+      )}
     </Container>
   );
 };

@@ -11,16 +11,15 @@ import { useEffect } from "react";
 import { getAllProductsByPaginate } from "../../Store/Slices/products";
 import SppinerLoading from "../Elements/SppinerLoading";
 
-
 // install Swiper modules
 SwiperCore.use([Pagination]);
 export const CardSlider = () => {
   const dispatch = useAppDispatch();
-  let { productsByPaginate: { products } } = useSelector(
-    (state: RootState) => state.entities.products
-  );
+  let {
+    productsByPaginate: { products },
+  } = useSelector((state: RootState) => state.entities.products);
   useEffect(() => {
-    dispatch(getAllProductsByPaginate())
+    dispatch(getAllProductsByPaginate());
   }, [dispatch]);
   return (
     <Container>
@@ -50,16 +49,15 @@ export const CardSlider = () => {
         }}
         className="mySwiper"
       >
-        {products.length > 0 ? (products.map((item, index) =>
-        (<SwiperSlide tag="li">
-
-          <MainCard
-            data={item}
-
-          />
-        </SwiperSlide>
-        ))) : (<SppinerLoading />)
-        }
+        {products.length > 0 ? (
+          products.map((item) => (
+            <SwiperSlide tag="li" key={item._id}>
+              <MainCard data={item} />
+            </SwiperSlide>
+          ))
+        ) : (
+          <SppinerLoading />
+        )}
       </Swiper>
     </Container>
   );

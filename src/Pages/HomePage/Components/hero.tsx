@@ -44,68 +44,75 @@ const Hero = () => {
     },
   ];
   return (
-    <SwiperWrapper>
-      <Swiper
-        cssMode={true}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        mousewheel={true}
-        keyboard={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-      >
-        {heroSlide.map((elemnt, index) => (
-          <SwiperSlide key={elemnt.name + index}>
-            <Container>
-              <Slider>
-                <SliderDatiles>
-                  <SliderDatilesm>
-                    <Typography
-                      children={`Save up to ${elemnt.saveUp} `}
-                      style={{
-                        fontSize: "18px",
-                        letterSpacing: "1.28px",
-                        marginBottom: ".5rem",
-                      }}
-                    />
-                    <Typography
-                      variant="h4"
-                      fontWeight={800}
-                      style={{
-                        letterSpacing: " 2.4px",
-                        textTransform: "uppercase",
-                        marginBottom: ".5rem",
-                      }}
-                    >
-                      {elemnt.name}
-                    </Typography>
-                    <Typography
-                      children={elemnt.text}
-                      style={{
-                        fontSize: "18px",
-                        letterSpacing: " 0.48px",
-                        marginBottom: ".5rem",
-                      }}
-                    />
-                  </SliderDatilesm>
-                  <Button
-                    backgroundColor={"#FCDD06"}
-                    padding={"1rem 2rem "}
-                    fontSize={"14px"}
-                    backgroundColorHover={"#ffc107"}
-                    margin={"1rem"}
-                  >
-                    Shop now
-                  </Button>
-                </SliderDatiles>
-                <SliderImage src={elemnt.image} alt="" />
-              </Slider>
-            </Container>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </SwiperWrapper>
+    <>
+      {loading ? (
+        <SppinerLoading />
+      ) : (
+        <SwiperWrapper>
+          <Swiper
+            cssMode={true}
+            navigation={true}
+            pagination={{
+              clickable: true,
+            }}
+            mousewheel={true}
+            keyboard={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+          >
+            {productsByTopThree.map((elemnt, index) => (
+              <SwiperSlide key={elemnt.name + index}>
+                <Container>
+                  <Slider>
+                    <SliderDatiles>
+                      <SliderDatilesm>
+                        <Typography
+                          children={`Save up to $ ${elemnt.price} `}
+                          style={{
+                            fontSize: "18px",
+                            letterSpacing: "1.28px",
+                            marginBottom: ".5rem",
+                          }}
+                        />
+                        <Typography
+                          variant="h4"
+                          fontWeight={800}
+                          style={{
+                            letterSpacing: " 2.4px",
+                            textTransform: "uppercase",
+                            marginBottom: ".5rem",
+                          }}
+                        >
+                          {elemnt.name}
+                        </Typography>
+                        <Typography
+                          children={elemnt.description}
+                          style={{
+                            fontSize: "18px",
+                            letterSpacing: " 0.48px",
+                            marginBottom: ".5rem",
+                          }}
+                        />
+                      </SliderDatilesm>
+                      <Button
+                        backgroundColor={"#FCDD06"}
+                        padding={"1rem 2rem "}
+                        fontSize={"14px"}
+                        backgroundColorHover={"#ffc107"}
+                        margin={"1rem"}
+                        onClick={() => handelClick(elemnt._id)}
+                      >
+                        Shop now
+                      </Button>
+                    </SliderDatiles>
+                    <SliderImage src={elemnt.images[0]} alt="" />
+                  </Slider>
+                </Container>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </SwiperWrapper>
+      )}
+    </>
   );
 };
 

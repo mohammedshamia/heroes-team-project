@@ -26,7 +26,8 @@ export const Categ = styled.div`
   align-items: left;
   align-self: left;
   justify-content: left;
-  padding: 20px 0px;
+  /* padding: 20px 0px; */
+  padding: 50px 0 15px;
 `;
 
 export const Category = styled.div`

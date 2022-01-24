@@ -49,15 +49,15 @@ const ProductPage = () => {
                 <Specification />
                 <Reviews productById={productById} />
               </Container>
-              <CardSliders />{" "}
+              {/* <CardSliders />{" "} */}
             </>
           ) : (
-            <>
+            <Container>
               <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
                 <LinkBack to="/">Back </LinkBack>
               </Typography>
-              <Typography variant="h1">Not Found Product</Typography>
-            </>
+              <Typography variant="h1">Product Does Not Found</Typography>
+            </Container>
           )}{" "}
         </>
       )}

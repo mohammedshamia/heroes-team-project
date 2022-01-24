@@ -36,9 +36,6 @@ const LeftSection = ({ UserProileData }: IProps) => {
 
   const [modalDisplay, setModalDisplay] = useState<boolean>(false);
 
-  useEffect(() => {
-    console.log(modalDisplay, "modalDisplay");
-  }, [modalDisplay]);
   return (
     <LeftProfile>
       <LeftProfileUser>
@@ -63,7 +60,7 @@ const LeftSection = ({ UserProileData }: IProps) => {
         <LeftProfileUserLink to="/"> Notifcations</LeftProfileUserLink>
         <LeftProfileUserLink to="/"> Settings</LeftProfileUserLink>
         <Divider />
-        <LeftProfileUserLink as={'p'} onClick={() => setModalDisplay(true)}>
+        <LeftProfileUserLink as={"p"} onClick={() => setModalDisplay(true)}>
           Logout
         </LeftProfileUserLink>
         {modalDisplay && (
@@ -78,7 +75,6 @@ const LeftSection = ({ UserProileData }: IProps) => {
               <Button
                 backgroundColor={theme.colors.primary}
                 onClick={() => {
-                  console.log("cancel clicked");
                   setModalDisplay(false);
                 }}
               >
