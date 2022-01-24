@@ -13,6 +13,7 @@ import SppinerLoading from "../Elements/SppinerLoading";
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
+
 export const CardSlider = () => {
   const dispatch = useAppDispatch();
   let {
