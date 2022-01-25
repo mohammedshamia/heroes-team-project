@@ -36,7 +36,9 @@ export default function MainCard(props: Iprops) {
       <Card>
         {data.discount ? (
           <DisvountDiv>
-            <Typography>{data.discount}%</Typography>
+            <Typography>
+              {Math.round((100 * data.discount) / data.price)}%
+            </Typography>
           </DisvountDiv>
         ) : (
           ""
@@ -74,12 +76,12 @@ export default function MainCard(props: Iprops) {
             {data.discount ? (
               <>
                 <span style={{ color: "red" }}>
-                  ${data.price - (data.price * data.discount) / 100}
+                  ${(data.price - data.discount).toFixed(2)}
                 </span>{" "}
-                <del>${data.price}</del>
+                <del>${data.price.toFixed(2)}</del>
               </>
             ) : (
-              data.price
+              data.price.toFixed(2)
             )}
           </Typography>
 
