@@ -8,14 +8,16 @@ import { IUserSliceState, IUser, IusersByPaginate } from "../Types";
 import cookie from "react-cookies";
 
 const initialState: () => IUserSliceState = () => ({
-  data: null,
   usersByPaginate: {
     users: [],
     page: 0,
     pages: 0,
   },
   userDetails: null,
+
+  data: null,
   auth: null,
+
   loading: false,
   error: null,
 });
@@ -66,6 +68,11 @@ const slice = createSlice({
     userdeleted: (state, action) => {
       state.loading = false;
     },
+    itemAddedToCart: (state, { payload: { cart } }: PayloadAction<IUser>) => {
+      if (state.data !== null) {
+        state.data.cart = cart;
+      }
+    },
     userRequested: (state, action) => {
       state.loading = true;
     },
@@ -82,6 +89,7 @@ const {
   allUsersRecievedFailed,
   userDetailsRecieved,
   userdeleted,
+  itemAddedToCart,
 } = slice.actions;
 
 //user Authentication functions
@@ -138,7 +146,7 @@ export const addItemToCart = (data: { productId: string; qty: number }) =>
     method: "put",
     headers: getAuthHeader(),
     data: data,
-    onSuccess: userAuthenticated.type,
+    onSuccess: itemAddedToCart.type,
   });
 
 export const deleteItemFromCart = (data: string) =>
@@ -149,7 +157,7 @@ export const deleteItemFromCart = (data: string) =>
     params: {
       productId: data,
     },
-    onSuccess: userAuthenticated.type,
+    onSuccess: itemAddedToCart.type,
   });
 
 //Admin functions
