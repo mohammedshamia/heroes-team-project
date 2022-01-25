@@ -81,6 +81,7 @@ export interface IUserSliceState {
   auth: boolean | null;
   loading: boolean;
   error: any;
+
 }
 
 //orders interfaces

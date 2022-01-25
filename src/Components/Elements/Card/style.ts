@@ -42,6 +42,7 @@ export const ContainerShopping = styled.div`
   align-items: center;
   overflow: hidden;
   justify-content: space-between;
+  height:15rem;
 
   &:hover {
     box-shadow: 0px 4px 8px #00000017;
@@ -64,6 +65,7 @@ export const ItemImg = styled.div<IProps>`
   height: 100%;
   overflow: hidden;
   align-items: ${(props) => props.alignItems || "center"};
+  
   justify-content: ${(props) => props.justifyContent || "center"};
   & img {
     object-fit: cover;
@@ -82,11 +84,12 @@ export const ContentWrapper = styled.div`
   align-self: center;
   padding: 10px;
   justify-content: space-between;
-
+height: 100%;
   @media screen and (max-width: 500px) {
     flex-direction: column;
     align-items: flex-start;
     width: 65%;
+
     & > div {
       margin-bottom: 15px;
       width: 100%;
