@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   display: grid;
-  width: 90%;
+  width: 80%;
   gap: 10px;
   @media (max-width: 768px) {
     width: 100%;
@@ -11,13 +11,14 @@ export const Wrapper = styled.div`
 `;
 export const WrapperSubTotal = styled.div`
   background-color: ${(props) => props.theme.background.paper};
-  height: 250px;
+  height: fit-content;
   border-radius: 16px;
   display: flex;
   gap: 15px;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 2rem;
+  width: 20%;
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -42,7 +43,6 @@ export const Parent = styled.div`
   display: flex;
   gap: 10px;
   @media (max-width: 768px) {
-    display: flex;
     flex-direction: column;
   }
 `;

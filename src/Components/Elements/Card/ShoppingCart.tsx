@@ -39,14 +39,14 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
   return (
     <>
       {items.map((elemnt: any) => (
-        <ContainerShopping key={elemnt.product._id}>
+        <ContainerShopping key={elemnt.name + elemnt.product._id}>
           <ContainerClose onClick={() => handleRemove(elemnt.product._id)}>
             <CloseIcon />
           </ContainerClose>
           <ItemImg alignItems="center" justifyContent="center">
             <img
-              src={`${elemnt?.product?.images[0]}`}
-              // src={"https://prohop-express.herokuapp.com/uploads/airpods.jpg"}
+              // src={`${elemnt?.product?.images[0]}`}
+              src={"https://prohop-express.herokuapp.com/uploads/airpods.jpg"}
               alt=""
               width={"100%"}
               loading="lazy"

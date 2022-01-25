@@ -11,17 +11,20 @@ const SubTotal = ({ data }: Iprops) => {
   const navigate = useNavigate();
   const handlClick = () => {
     navigate("/product/review/shipping/:id");
-  }
+  };
 
   const Discount = () => {
-    return data.totalPrice - data?.items?.reduce(
-      (acc: number, { product }: any) => (product.discount as number) + acc,
-      0
-    )
-  }
+    return (
+      data.totalPrice -
+      data?.items?.reduce(
+        (acc: number, { product }: any) => (product.discount as number) + acc,
+        0
+      )
+    );
+  };
   return (
     <WrapperSubTotal>
-      <div style={{ padding: "1rem 4rem" }}>
+      <div style={{ padding: "1rem 0", width: "100%" }}>
         <Typography variant="h6" children={`SubTotal (${data.items.length})`} />
         <Typography
           variant="h5"
@@ -36,14 +39,15 @@ const SubTotal = ({ data }: Iprops) => {
         />
       </div>
       <Hr width="100%" />
-      <div style={{ width: "fit-content" }}>
+      <div style={{ width: "100%" }}>
         <Button
           type="submit"
           backgroundColor={"#FCDD06"}
-          children="Proceed To Check out "
+          children="Proceed to checkout"
           padding={"1rem 2.5rem"}
           fontSize={"12px"}
           onClick={() => handlClick()}
+          width="100%"
         ></Button>
       </div>
     </WrapperSubTotal>
