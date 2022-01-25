@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Navigate } from "react-router";
+import EditProductPage from "../Pages/EditProdductPage";
 
 // Pages
 const HomePage = lazy(() => import("../Pages/HomePage"));
@@ -110,6 +111,13 @@ const routes = [
     name: "CreateProductPage",
     component: <CreateProductPage />,
     route: "/product/create",
+    ruleShouldBe: AUTH,
+    to: "/login",
+  },
+  {
+    name: "EditProductPage",
+    component: <EditProductPage />,
+    route: "/product/edit/:id",
     ruleShouldBe: AUTH,
     to: "/login",
   },

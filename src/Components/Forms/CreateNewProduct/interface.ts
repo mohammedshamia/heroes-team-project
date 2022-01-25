@@ -6,5 +6,6 @@ export interface CreateNewProductValues {
   productDiscription: string;
   productCount: string;
   productPrice: string;
-  productImage: string[],
+  productImage: string[];
+  colors: string[];
 }
