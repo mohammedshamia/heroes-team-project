@@ -12,6 +12,13 @@ const SubTotal = ({ data }: Iprops) => {
   const handlClick = () => {
     navigate("/product/review/shipping/:id");
   }
+
+  const Discount = () => {
+    return data.totalPrice - data?.items?.reduce(
+      (acc: number, { product }: any) => (product.discount as number) + acc,
+      0
+    )
+  }
   return (
     <WrapperSubTotal>
       <div style={{ padding: "1rem 4rem" }}>
@@ -20,13 +27,12 @@ const SubTotal = ({ data }: Iprops) => {
           variant="h5"
           style={{ textDecoration: "line-through", color: "#707070" }}
         >
-
-          {/* {} */}
+          {data && `${data.totalPrice}`}
         </Typography>
         <Typography
           variant="h5"
           fontWeight={700}
-          children={data && `${data.totalPrice}`}
+          children={`${Discount().toFixed(2)}`}
         />
       </div>
       <Hr width="100%" />

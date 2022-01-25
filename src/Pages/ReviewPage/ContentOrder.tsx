@@ -39,7 +39,7 @@ export const ContentOrder = () => {
           }}
         />
         <Typography
-          children={`${tax} `}
+          children={`${Math.round(tax)} `}
           variant='h6'
           style={{
             fontSize: "13px",
@@ -78,7 +78,7 @@ export const ContentOrder = () => {
           }}
         />
         <Typography
-          children={`${total}`}
+          children={`${Math.round(total)}`}
           variant='h6'
           fontWeight={700}
           style={{
