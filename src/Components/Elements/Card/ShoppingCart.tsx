@@ -45,8 +45,7 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
           </ContainerClose>
           <ItemImg alignItems="center" justifyContent="center">
             <img
-              // src={`${elemnt?.product?.images[0]}`}
-              src={"https://prohop-express.herokuapp.com/uploads/airpods.jpg"}
+              src={`${elemnt?.product?.images[0]}`}
               alt=""
               width={"100%"}
               loading="lazy"
