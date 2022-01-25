@@ -1,10 +1,12 @@
 import { Formik } from "formik";
 import { CreateNewProductSchema } from "../../../Helpers/Validation";
+import { IProduct } from "../../../Store/Types";
 import FormNewProduct from "./formNewProduct";
 import { CreateNewProductValues } from "./interface";
 
 interface Iprops {
   isEditing: boolean;
+  data?: IProduct;
 }
 const FormikNewProduct = (props: Iprops) => {
   const initialValues: CreateNewProductValues = {
@@ -15,7 +17,8 @@ const FormikNewProduct = (props: Iprops) => {
     productID: "",
     productCount: "",
     productPrice: "",
-    productImage: []
+    productImage: [],
+    colors: [],
   };
   return (
     <Formik

@@ -11,7 +11,7 @@ const CreateNewProductSchema = (): SchemaOf<ICreateNewProduct> => {
       .required("Categories is required"),
     productDiscription: string()
       .min(5, "Too Short Product Discription!")
-      .max(120, "Too Long Product Discription!")
+      .max(500, "Too Long Product Discription!")
       .required("Please Enter Product Discription"),
     productCount: number()
       .typeError("Should be Number")
@@ -33,6 +33,11 @@ const CreateNewProductSchema = (): SchemaOf<ICreateNewProduct> => {
       .integer()
       .min(0, "Please Enter more than one")
       .required("Please Enter Product ID"),
+    colors: array()
+      .of(string())
+      .min(1, "Colors should be one at least")
+      .max(4, "Colors max is 4")
+      .required("Colors is required"),
   });
 };
 

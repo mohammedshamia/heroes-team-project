@@ -7,6 +7,7 @@ export interface ICreateNewProduct {
   productPrice: number;
   productImage: any[];
   productID: number;
+  colors:any[]
 }
 
 export interface ISignUpUser {

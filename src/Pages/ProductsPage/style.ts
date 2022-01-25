@@ -16,6 +16,12 @@ export const FlexProduct = styled.div`
 export const CardOneProduct = styled.div`
   width: 33.33%;
   padding: 1rem;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 900px) {
+    width: 50%;
+  }
 `;
 
 export const FlexCenter = styled.div`

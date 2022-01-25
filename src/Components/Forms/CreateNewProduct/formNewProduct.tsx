@@ -20,40 +20,91 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../../Store/configureStore";
 import { getAllcategories } from "../../../Store/Slices/products";
+import { IProduct } from "../../../Store/Types";
+import Upload from "../../Icons/Upload";
+import CloseIcon from "../../Icons/CloseIcon";
 
 interface OtherProps {
   isEditing: boolean;
+  data?: any;
 }
 const FormNewProduct = (
   props: OtherProps & FormikProps<CreateNewProductValues>
 ) => {
-  const { errors, touched, isEditing } = props;
+  const { errors, touched, setFieldValue, isEditing, data } = props;
   const dispatch = useAppDispatch();
   let { categories } = useSelector(
     (state: RootState) => state.entities.products
   );
+  if (data) {
+  }
+  const colorsArray = [
+    { name: "Red" },
+    { name: "Brown" },
+    { name: "Green" },
+    { name: "Blue" },
+    { name: "Black" },
+    { name: "White" },
+  ];
   useEffect(() => {
     dispatch(getAllcategories());
+    console.log(props);
+
+    if (isEditing && data) {
+      const {
+        images: productImage,
+        colors: colors,
+        categories: productCategroy,
+        price: productPrice,
+        countInStock: productCount,
+        _id: productID,
+        name: productName,
+        description: productDiscription,
+        brand: productBrand,
+      } = data;
+      setFieldValue("productName", productName);
+      setFieldValue("productBrand", productBrand);
+      setFieldValue("productID", productID);
+      setFieldValue("productCount", productCount);
+      setFieldValue("productCategroy", productCategroy);
+      setFieldValue("productDiscription", productDiscription);
+      setFieldValue("productPrice", productPrice);
+      setFieldValue("colors", colors);
+    }
   }, [dispatch]);
   const theme = useTheme();
   return (
     <Continer>
       <FormProduct>
         <ProductImage>
-          <ProductImageUpload>
+          <ProductImageUpload
+            style={{
+              background: `url(${isEditing && data.images[0]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
             <Button
               type="button"
               backgroundColor="transparent"
               height={""}
               width={""}
               bold={false}
+              fontSize={"12px"}
               color={theme.textColors.primary}
             >
-              Product Images (4 images allowed){" "}
+              {!isEditing ? <Upload /> : <CloseIcon />}
+              {/* Product Images (4 images allowed){" "} */}
             </Button>
           </ProductImageUpload>
           <ProductImageUploadGroup>
-            <ProductImageUploadGroupButton>
+            <ProductImageUploadGroupButton
+              style={{
+                background: `url(${isEditing && data.images[1]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <Button
                 type="button"
                 height={""}
@@ -66,7 +117,13 @@ const FormNewProduct = (
                 +
               </Button>{" "}
             </ProductImageUploadGroupButton>
-            <ProductImageUploadGroupButton>
+            <ProductImageUploadGroupButton
+              style={{
+                background: `url(${isEditing && data.images[2]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <Button
                 type="button"
                 height={""}
@@ -79,7 +136,13 @@ const FormNewProduct = (
                 +
               </Button>{" "}
             </ProductImageUploadGroupButton>{" "}
-            <ProductImageUploadGroupButton>
+            <ProductImageUploadGroupButton
+              style={{
+                background: `url(${isEditing && data.images[3]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <Button
                 type="button"
                 height={""}
@@ -119,13 +182,15 @@ const FormNewProduct = (
             />
           </FormProductInputGroup>
           <FormProductInputGroup>
-            <FormInput
-              type="input"
-              name={"productID"}
-              placeholder={"Product ID"}
+            <Field
+              name="colors"
+              options={colorsArray}
+              component={CustomSelect}
+              placeholder="Select multi colors..."
+              isMulti={true}
               touched={touched}
               errors={errors}
-              label={"Product ID"}
+              label={"Product colors"}
               fullWidth={false}
               width={"45%"}
             />
