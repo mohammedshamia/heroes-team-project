@@ -32,6 +32,7 @@ body {
   padding-top: 58px;
   background: ${(props) => props.theme.background.default};
   color: ${(props) => props.textColors.primary};
+  scroll-behavior: smooth;
 }
 
 input {

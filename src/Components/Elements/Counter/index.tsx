@@ -19,7 +19,7 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
   };
 
   const decrement = () => {
-    if (productId) {
+    if (productId && counter !== 1) {
       dispatch(addItemToCart({ productId, qty: counter - 1 }));
     }
   };
@@ -38,6 +38,7 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
         fontSize={"14px"}
         colorHover={theme.common.black}
         color={theme.textColors.counterColor}
+        disabled={counter === 1}
       >
         -
       </Button>
@@ -54,7 +55,7 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
         fontSize={"14px"}
         colorHover={theme.common.black}
         color={theme.textColors.counterColor}
-        onClick={() => increment()}
+        onClick={increment}
       >
         +
       </Button>

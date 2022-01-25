@@ -18,23 +18,11 @@ interface IpropsShopCart {
 }
 const ShoppingCart = ({ data }: IpropsShopCart) => {
   const { items } = data;
-  // console.log(data);
-  // const [counter, setCounter] = useState("");
   const dispatch = useAppDispatch();
 
-  // const [count, setstateCount] = useState(0);
-  // const increment = () => {
-  //   setstateCount((prev: number) => prev + 1);
-  // };
   const handleRemove = (id: string) => {
     dispatch(deleteItemFromCart(id));
-    // console.log(items)
   };
-  // const handleIncrease = (id: string, qty: number) => {
-  //   // dispatch(addItemToCart({ productId: id, qty: qty }));
-  //   // console.log("add")
-  // };
-  //  const theme = useTheme()
 
   return (
     <>
@@ -63,15 +51,15 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
               <Counter
                 counter={elemnt.qty}
                 productId={elemnt.product._id && elemnt.product._id}
-                // setCounter={setCounter}
-                // onClick={() =>  handleIncrease(elemnt.product._id, elemnt.qty) }
               />
             </ItemCounter>
             <Itemprice>
               <Typography
                 variant="body1"
                 fontWeight={500}
-                children={` $ ${elemnt.itemTotalPrice * elemnt.qty}`}
+                children={` $${(elemnt.itemTotalPrice * elemnt.qty).toFixed(
+                  2
+                )}`}
               />
             </Itemprice>
           </ContentWrapper>
