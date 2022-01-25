@@ -31,6 +31,7 @@ export interface IProduct {
   createdAt: string;
   updatedAt: string;
 }
+
 export interface IproductsByPaginate {
   products: IProduct[];
   page: number;
@@ -42,6 +43,7 @@ export interface IProductsSliceState {
   productsByTopThree: IProduct[];
   categories: Icategories[];
   productById: IProduct | null;
+  message: string | null;
   loading: boolean;
 }
 
