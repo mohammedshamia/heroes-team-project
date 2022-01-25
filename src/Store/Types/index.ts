@@ -31,6 +31,7 @@ export interface IProduct {
   createdAt: string;
   updatedAt: string;
 }
+
 export interface IproductsByPaginate {
   products: IProduct[];
   page: number;
@@ -42,6 +43,7 @@ export interface IProductsSliceState {
   productsByTopThree: IProduct[];
   categories: Icategories[];
   productById: IProduct | null;
+  message: string | null;
   loading: boolean;
 }
 
@@ -79,14 +81,15 @@ export interface IUserSliceState {
   auth: boolean | null;
   loading: boolean;
   error: any;
+
 }
 
 //orders interfaces
 
 export interface IShippingAddress {
-  address: string;
+ streetAddress: string;
   city: string;
-  postalCode: string;
+  zipCode: string;
   country: string;
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -34,7 +34,7 @@ const Hero = () => {
   );
   useEffect(() => {
     dispatch(getProductsByTopThree());
-  }, []);
+  }, [dispatch]);
   let navigate = useNavigate();
 
   const handelClick = (id: string) => {

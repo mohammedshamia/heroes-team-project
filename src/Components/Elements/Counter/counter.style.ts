@@ -4,7 +4,7 @@ export const ContainerCounter = styled.div`
   width: 110px;
   justify-content: space-between;
   height: 25px;
-  background-color: ${(props) => props.theme.background.paper};
+  background-color: ${(props) => props.theme.background.secondary};
   line-height: 1.6;
 `;
 export const CounterDiv = styled.div`

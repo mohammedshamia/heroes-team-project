@@ -1,18 +1,16 @@
-import { Field, Form } from "formik";
+import { Form } from "formik";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { RootState } from "../../../Store/configureStore";
 import Button from "../../Elements/Buttons";
 import FormInput from "../Fields/inputField";
-import { FlexInput, Input, Label } from "../Fields/inputField.style";
+import { FlexInput, Label } from "../Fields/inputField.style";
 
 interface IProps {
   errors: any;
   touched: any;
 }
 const SignupForm = ({ errors, touched }: IProps) => {
-  
   let user = useSelector((state: RootState) => state.entities.user);
 
   useEffect(() => {
@@ -67,7 +65,6 @@ const SignupForm = ({ errors, touched }: IProps) => {
         margin="25px 0 0 0 "
       >
         {user.loading ? "Loading..." : "Sing Up"}
-
       </Button>
     </Form>
   );

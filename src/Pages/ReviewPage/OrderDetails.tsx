@@ -2,25 +2,18 @@ import Typography from "../../Components/Typography";
 import { LinkRouter, Title, Price, Hr, ContentOrderDetails } from "./style";
 import { ContentOrder } from "./ContentOrder";
 import { ItemImg } from "../../Components/Elements/Card/style";
+import { RootState } from "../../Store/configureStore";
+import { useSelector } from "react-redux";
 
-interface Iprop {
+export interface Iprop {
   title: string;
   price: number;
   imgUrl: string;
+  qty: number; 
 }
-const ItemCart: Iprop[] = [
-  {
-    title: "iPhone 11 Pro 256GB Memory",
-    price: 565,
-    imgUrl: "https://picsum.photos/id/1/200/300",
-  },
-  {
-    title: "Apple Airpods Wireless Bluetooth Headset",
-    price: 551,
-    imgUrl: "https://picsum.photos/id/0/200/300",
-  },
-];
+
 const OrderDetails = () => {
+  const items = useSelector((state: RootState) => state?.entities?.user?.data?.cart?.items);
   return (
     <div style={{ marginBottom: "15px" }}>
       <Title>
@@ -35,13 +28,14 @@ const OrderDetails = () => {
         />
         <LinkRouter to="/cart"> change </LinkRouter>
       </Title>
-      {ItemCart.map((item, index) => (
+      {items?.map((item: any) => (
         <>
           <ContentCart
-            key={index}
-            imgUrl={item.imgUrl}
-            price={item.price}
-            title={item.title}
+            key={item.product._id}
+            imgUrl={item.product.images[0] as string}
+            price={item.product.price}
+            title={item.product.name}
+            qty={item.qty}
           />
           <Hr width="100%" />
         </>
@@ -53,12 +47,12 @@ const OrderDetails = () => {
 
 export default OrderDetails;
 export const ContentCart = (props: Iprop) => {
-  const { title, imgUrl, price } = props;
+  const { title, imgUrl, price, qty } = props;
   return (
     <>
       <ContentOrderDetails>
         <ItemImg alignItems="center">
-          <img src={imgUrl} alt="photo" width={"100%"} loading="lazy" />
+          <img src={imgUrl} alt="pictured" width={"100%"} loading="lazy" />
         </ItemImg>
         <div style={{ width: "25%" }}>
           <Typography
@@ -74,7 +68,7 @@ export const ContentCart = (props: Iprop) => {
 
           <Price>
             <Typography
-              children={` $ ${price} x1`}
+              children={` $ ${price} x${qty}`}
               variant="h6"
               style={{
                 fontSize: "13px",

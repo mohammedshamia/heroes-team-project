@@ -33,7 +33,7 @@ const FormNewProduct = (
 ) => {
   const { errors, touched, setFieldValue, isEditing, data } = props;
   const dispatch = useAppDispatch();
-  let { categories, loading } = useSelector(
+  let { categories } = useSelector(
     (state: RootState) => state.entities.products
   );
   if (data) {

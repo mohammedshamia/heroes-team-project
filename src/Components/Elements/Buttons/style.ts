@@ -8,7 +8,7 @@ export const IButton = styled.button<ButtonProp>`
   padding: ${(props) => props.padding || "12px 65px"};
   border-radius: ${(props) => props?.borderRaduies || "10px"};
   font-size: ${(props) => props?.fontSize || "16px"};
-  border: ${(props) => props?.border || "none"};
+  border: ${(props) => props?.border || "1px solid transparent"};
   margin: ${(props) => props?.margin || null};
   outline: none;
   cursor: pointer;

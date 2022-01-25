@@ -4,27 +4,22 @@ import React, { FC, useEffect } from "react";
 import Container from "../Container";
 import Logo from "../Elements/Logo/index";
 import Search from "../Elements/Search/search";
-import Typography from "../Typography";
 
 import SVGICON from "./HeaderIcons/headerIcons";
 
 import Person from "../Icons/PersonIcon";
 import ShoppingCartIcon from "../Icons/ShoppingCartIcon";
-import SearchIcon from "../Icons/SearchIcon";
 
 //Styles
 import {
   Root,
   Content,
   SearchContent,
-  SearchButton,
   ICONS,
-  ButtonContent,
   MobileSearchContent,
   LoadingBar,
 } from "./style";
 import { useTheme } from "styled-components";
-import { IUser } from "../../Store/Types";
 import { RootState, useAppDispatch } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { getUserProfile } from "../../Store/Slices/user";
@@ -58,21 +53,7 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
             <Logo main="Pro" sub="Shop" />
 
             <SearchContent>
-              <Search data={[{ name: "mohammed", code: "123" }]} />
-              <SearchButton>
-                <ButtonContent>
-                  <div
-                    style={{
-                      width: "18px",
-                      height: "18px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <SearchIcon />
-                  </div>
-                  <h4> Search</h4>
-                </ButtonContent>
-              </SearchButton>
+              <Search />
             </SearchContent>
 
             <ICONS>
@@ -113,21 +94,7 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
       </Root>
       <Container>
         <MobileSearchContent>
-          <Search data={[{ name: "mohammed", code: "123" }]} />
-          <SearchButton>
-            <ButtonContent>
-              <div
-                style={{
-                  width: "18px",
-                  height: "18px",
-                  overflow: "hidden",
-                }}
-              >
-                <SearchIcon />
-              </div>
-              <h4> Search</h4>
-            </ButtonContent>
-          </SearchButton>
+          <Search />
         </MobileSearchContent>
       </Container>
     </React.Fragment>

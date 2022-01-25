@@ -16,6 +16,7 @@ export const CardSection = styled.div<IProps>`
   background-color: ${(props) => props.theme.background.paper};
   border-radius: ${(props) => props.borderRadius || "10px"};
   overflow: hidden;
+  position: relative;
 `;
 
 export const Img = styled.div<IProps>`
@@ -41,6 +42,7 @@ export const ContainerShopping = styled.div`
   align-items: center;
   overflow: hidden;
   justify-content: space-between;
+  height:15rem;
 
   &:hover {
     box-shadow: 0px 4px 8px #00000017;
@@ -63,6 +65,7 @@ export const ItemImg = styled.div<IProps>`
   height: 100%;
   overflow: hidden;
   align-items: ${(props) => props.alignItems || "center"};
+  
   justify-content: ${(props) => props.justifyContent || "center"};
   & img {
     object-fit: cover;
@@ -81,11 +84,12 @@ export const ContentWrapper = styled.div`
   align-self: center;
   padding: 10px;
   justify-content: space-between;
-
+height: 100%;
   @media screen and (max-width: 500px) {
     flex-direction: column;
     align-items: flex-start;
     width: 65%;
+
     & > div {
       margin-bottom: 15px;
       width: 100%;
@@ -111,4 +115,16 @@ export const Itemprice = styled.div`
   & div {
     white-space: nowrap;
   }
+`;
+export const DisvountDiv = styled.div`
+  position: absolute;
+  width: 87px;
+  height: 87px;
+  background-color: ${(props) => props.theme.colors.error};
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

@@ -1,78 +1,48 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
+import { useNavigate } from "react-router";
+import { ButtonContent, SearchButton } from "../../Header/style";
+import SearchIcon from "../../Icons/SearchIcon";
 
-import {
-  Root,
-  Input,
-  AutoCompleteContainer,
-  AutoCompleteItem,
-  AutoCompleteItemButton,
-} from "./search.styled";
+import { Root, Input } from "./search.styled";
 
-interface IData {
-  name: string;
-  code: string;
-}
+const Search: FC = () => {
+  const [search, setSearch] = useState("");
 
-interface ISearch {
-  data: any[];
-}
+  const navigate = useNavigate();
 
-const Search: FC<ISearch> = ({ data }) => {
-  const [search, setSearch] = useState({
-    text: "",
-    suggestions: [],
-  });
-
-  const [isComponentVisible, setIsComponentVisible] = useState(true);
-
-  const onTextChanged = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-
-    let suggestions: any = [];
-
-    if (value.length > 0) {
-      const regex = new RegExp(`^${value}`, "i");
-      suggestions = data.sort().filter((v: IData) => regex.test(v.name));
-    }
-
-    setIsComponentVisible(true);
-
-    setSearch({ suggestions, text: value });
+  const hangleSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    navigate(`/search/${search}`);
   };
-
-  const suggestionSelected = (value: IData) => {
-    setIsComponentVisible(false);
-
-    setSearch({
-      text: value.name,
-      suggestions: [],
-    });
+  const onTextChanged = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearch(e.target.value);
   };
 
   return (
-    <Root>
+    <Root onSubmit={hangleSearch}>
       <Input
         id="input"
         autoComplete="off"
-        value={search.text}
+        value={search}
         onChange={onTextChanged}
         type={"text"}
+        placeholder="Search"
       />
-
-      {search.suggestions.length > 0 && isComponentVisible && (
-        <AutoCompleteContainer>
-          {search.suggestions.map((item: IData) => (
-            <AutoCompleteItem key={item.code}>
-              <AutoCompleteItemButton
-                key={item.code}
-                onClick={() => suggestionSelected(item)}
-              >
-                {item.name}
-              </AutoCompleteItemButton>
-            </AutoCompleteItem>
-          ))}
-        </AutoCompleteContainer>
-      )}
+      <SearchButton type="submit">
+        <ButtonContent>
+          <div
+            style={{
+              width: "18px",
+              height: "18px",
+              overflow: "hidden",
+            }}
+          >
+            <SearchIcon />
+          </div>
+          <h4> Search</h4>
+        </ButtonContent>
+      </SearchButton>
     </Root>
   );
 };

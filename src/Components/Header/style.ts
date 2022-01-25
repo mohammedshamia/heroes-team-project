@@ -58,11 +58,11 @@ export const SearchContent = styled.div`
   }
 `;
 
-export const MobileSearchContent = styled.div`
+export const MobileSearchContent = styled.form`
   display: flex;
   padding: 10px 0;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1001px) {
     display: none;
   }
 `;
@@ -80,12 +80,16 @@ export const SearchButton = styled.button`
   background-color: ${(props) => props.theme.colors.primary};
   color: #000000;
 
-  height: 40px;
+  height: 100%;
   width: 152px;
 
   z-index: 1;
 
-  margin-left: -10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  /* margin-left: -10px; */
 `;
 
 export const ICONS = styled.div`

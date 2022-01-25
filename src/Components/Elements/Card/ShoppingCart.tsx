@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Counter from "../Counter";
 import Typography from "../../Typography";
 import {
@@ -11,29 +10,30 @@ import {
   ContentWrapper,
 } from "./style";
 import CloseIcon from "../../Icons/CloseIcon";
-import { addItemToCart, deleteItemFromCart } from "../../../Store/Slices/user";
+import { deleteItemFromCart } from "../../../Store/Slices/user";
 import { useAppDispatch } from "../../../Store/configureStore";
 
 interface IpropsShopCart {
   data: any;
 }
 const ShoppingCart = ({ data }: IpropsShopCart) => {
-  const { items, totalQty, totalPrice } = data;
+  const { items } = data;
   // console.log(data);
+  // const [counter, setCounter] = useState("");
   const dispatch = useAppDispatch();
 
-  const [count, setstateCount] = useState(0);
-  const increment = () => {
-    setstateCount((prev: number) => prev + 1);
-  };
+  // const [count, setstateCount] = useState(0);
+  // const increment = () => {
+  //   setstateCount((prev: number) => prev + 1);
+  // };
   const handleRemove = (id: string) => {
     dispatch(deleteItemFromCart(id));
     // console.log(items)
   };
-  const handleIncrease = (id: string, qty: number) => {
-    dispatch(addItemToCart({ productId: id, qty: qty }));
-    // console.log("add")
-  };
+  // const handleIncrease = (id: string, qty: number) => {
+  //   // dispatch(addItemToCart({ productId: id, qty: qty }));
+  //   // console.log("add")
+  // };
   //  const theme = useTheme()
 
   return (
@@ -45,9 +45,9 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
           </ContainerClose>
           <ItemImg alignItems="center" justifyContent="center">
             <img
-              // src={elemnt?.product?.images[0]}
-              src={"https://prohop-express.herokuapp.com/uploads/airpods.jpg"}
-              alt="blabla"
+              src={`${elemnt?.product?.images[0]}`}
+              // src={"https://prohop-express.herokuapp.com/uploads/airpods.jpg"}
+              alt=""
               width={"100%"}
               loading="lazy"
             />
@@ -63,7 +63,9 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
             <ItemCounter>
               <Counter
                 counter={elemnt.qty}
-                //  handleIncrease(elemnt.product._id, elemnt.qty)}
+                productId={elemnt.product._id && elemnt.product._id}
+                // setCounter={setCounter}
+                // onClick={() =>  handleIncrease(elemnt.product._id, elemnt.qty) }
               />
             </ItemCounter>
             <Itemprice>

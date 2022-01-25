@@ -37,7 +37,7 @@ const Categories = () => {
     dispatch(getAllcategories());
   }, [dispatch]);
   return (
-    <Container>
+    <Container className="category">
       {loading ? (
         <SppinerLoading />
       ) : (

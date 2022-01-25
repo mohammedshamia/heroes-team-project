@@ -1,6 +1,5 @@
 import { Card, CardImg } from "./index";
-import { ContainerButton, ContainerContentCard } from "./style";
-import { BookMarkEmpty, BookMarkfill } from "../../Icons/BookMark";
+import { ContainerButton, ContainerContentCard, DisvountDiv } from "./style";
 import Rate from "../Rating";
 import { useState } from "react";
 import Button from "../Buttons";
@@ -10,7 +9,6 @@ import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { addItemToCart } from "../../../Store/Slices/user";
 import { IProduct } from "../../../Store/Types";
-import AlertMessage from "../Alert";
 import { useNavigate } from "react-router";
 
 interface Iprops {
@@ -18,18 +16,16 @@ interface Iprops {
 }
 export default function MainCard(props: Iprops) {
   const { data } = props;
-  const [first, setfirst] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [rating, setRating] = useState<number>(3);
-  const [state, setState] = useState<boolean>(false);
   const theme = useTheme();
   const dispatch = useAppDispatch();
   let user = useSelector((state: RootState) => state?.entities.user);
   const navigate = useNavigate();
   const handleAddToCart = (id: string) => {
     if (user.auth) {
-      dispatch(addItemToCart({ productId: id, qty: 2 }));
-      setfirst(true);
+      dispatch(addItemToCart({ productId: id, qty: 1 }));
     } else {
       navigate("/login");
     }
@@ -38,6 +34,15 @@ export default function MainCard(props: Iprops) {
   return (
     <>
       <Card>
+        {data.discount ? (
+          <DisvountDiv>
+            <Typography>
+              {Math.round((100 * data.discount) / data.price)}%
+            </Typography>
+          </DisvountDiv>
+        ) : (
+          ""
+        )}
         <CardImg>
           <img
             style={{ cursor: "pointer" }}
@@ -68,35 +73,28 @@ export default function MainCard(props: Iprops) {
             color={theme.background.default}
             gutterBottom
           >
-            {` $ ${data.price}`}
+            {data.discount ? (
+              <>
+                <span style={{ color: "red" }}>
+                  ${(data.price - data.discount).toFixed(2)}
+                </span>{" "}
+                <del>${data.price.toFixed(2)}</del>
+              </>
+            ) : (
+              data.price.toFixed(2)
+            )}
           </Typography>
 
           <ContainerButton>
-            {/* <Button
-              padding="5px 12px"
-              margin="0 5px"
-              onClick={() => setState(!state)}
-            >
-              {!state && <BookMarkEmpty />}
-              {state && <BookMarkfill />}
-            </Button> */}
             <Button
               padding="5px 60px"
               onClick={() => handleAddToCart(data._id)}
             >
-              {" "}
               Add To Cart{" "}
             </Button>
           </ContainerButton>
         </ContainerContentCard>
       </Card>
-      <AlertMessage
-        open={first}
-        setOpen={setfirst}
-        position="snackBar"
-        children={"Added to cart"}
-        type="success"
-      />
     </>
   );
 }

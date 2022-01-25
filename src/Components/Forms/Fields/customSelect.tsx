@@ -1,5 +1,4 @@
 import { FieldProps } from "formik";
-import { type } from "os";
 import Select from "react-select";
 import { Icategories } from "../../../Store/Types";
 
@@ -52,7 +51,7 @@ export const CustomSelect = ({
 
   const getValue = () => {
     if (options && options.length > 0) {
-     return options.filter((option) => field.value.indexOf(option.name) >= 0);
+      return options.filter((option) => field.value.indexOf(option.name) >= 0);
     } else {
       console.log(2222);
       return "" as any;
@@ -68,13 +67,11 @@ export const CustomSelect = ({
         value={getValue()}
         onChange={onChange}
         placeholder={placeholder}
-        options={options&&options}
+        options={options && options}
         isMulti={isMulti}
         onBlur={field.onBlur}
       />
-      {errors[name] && touched[field.name] && (
-        <Errors>{errors[name]}</Errors>
-      )}
+      {errors[name] && touched[field.name] && <Errors>{errors[name]}</Errors>}
     </FlexInput>
   );
 };

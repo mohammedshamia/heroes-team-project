@@ -1,4 +1,3 @@
-import { Field, FormikErrors, FormikTouched } from "formik";
 import { Errors, FlexInput, Input, Label } from "./inputField.style";
 
 interface Iprops {

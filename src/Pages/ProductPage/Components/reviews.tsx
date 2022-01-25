@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Rate from "../../../Components/Elements/Rating";
 import Typography from "../../../Components/Typography";
 import { IProduct } from "../../../Store/Types";
-import { IProductData } from "../interface";
 import {
   Padding,
   Pragraph,

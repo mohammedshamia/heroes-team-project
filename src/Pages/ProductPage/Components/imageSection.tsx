@@ -12,12 +12,12 @@ const ImageSection = ({ productById }: IProps) => {
   return (
     <ImageSections>
       <Imagefirst>
-        <img src={productById.images[0]} loading="lazy" />
+        <img src={productById.images[0]} loading="lazy" alt="" />
       </Imagefirst>
       <ImageSecionSecond>
         {productById.images.map((elemnt: string, index) => (
           <ImageSmall key={elemnt + index}>
-            <img src={elemnt} loading="lazy" />
+            <img src={elemnt} loading="lazy" alt="" />
           </ImageSmall>
         ))}
       </ImageSecionSecond>

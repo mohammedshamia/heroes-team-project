@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "../../../Components/Elements/Buttons";
 import Counter from "../../../Components/Elements/Counter";
 import {
@@ -7,7 +7,6 @@ import {
 } from "../../../Components/Icons/BookMark";
 import Typography from "../../../Components/Typography";
 import { IProduct } from "../../../Store/Types";
-import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 
 import {
@@ -28,17 +27,15 @@ interface IProps {
 }
 
 const ProductDetails = ({ productById }: IProps) => {
-  const { id } = useParams();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [counter, setCounter] = useState(0);
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const [first, setfirst] = useState(false);
   let user = useSelector((state: RootState) => state?.entities.user);
 
   const handleAddToCart = (id: string) => {
     if (user.auth) {
       dispatch(addItemToCart({ productId: id, qty: counter }));
-      setfirst(true);
     } else {
       navigate("/login");
     }
@@ -57,7 +54,10 @@ const ProductDetails = ({ productById }: IProps) => {
           ${productById.price}
         </Typography>
       </Title>
-      <Counter counter={productById.countInStock} setCounter={setCounter} />
+      <Counter
+        counter={productById.countInStock}
+        // setCounter={setCounter}
+      />
       {productById.colors.length > 0 && (
         <Color>
           <ColorText>

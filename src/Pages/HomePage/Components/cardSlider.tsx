@@ -12,7 +12,7 @@ const CardSliders = () => {
 
   useEffect(() => {
     dispatch(getAllProductsByPaginate());
-  }, []);
+  }, [dispatch]);
   return (
     <CardsSection>
       <Container>

@@ -1,34 +1,37 @@
-import React, { useEffect, useState } from "react";
 import Button from "../Buttons";
 import { ContainerCounter, CounterDiv } from "./counter.style";
 import { useTheme } from "styled-components";
 import { useAppDispatch } from "../../../Store/configureStore";
 import { addItemToCart } from "../../../Store/Slices/user";
-import { ButtonProp } from "../Buttons/interface";
 interface IPropsCounter {
   counter: number;
-  setCounter?: Function | boolean | undefined;
-  onClick?: any;
+  // setCounter: Function ;
+  productId?: string | undefined;
 }
 
 const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
-  const { setCounter, counter } = props;
   const dispatch = useAppDispatch();
-
-  // console.log(setCounter)
-  const [count, setstateCount] = useState(counter);
+  // console.log(props)
+  const { counter, productId } = props;
+  // const [count, setCount] = useState(counter);
   const theme = useTheme();
   const increment = () => {
-    setstateCount((prev: number) => prev + 1);
+    // setCount((prev: number) => prev + 1);
+    //  console.log(count)
+    if (productId) {
+      dispatch(addItemToCart({ productId, qty: counter + 1 }));
+    }
   };
-  const handleIncrease = (id: string, qty: number) => {
-    dispatch(addItemToCart({ productId: id, qty: qty }));
-    // console.log("add")
-  };
+
   const decrement = () => {
-    if (count === 0) return setstateCount(0);
-    else setstateCount((prev: number) => prev - 1);
+    // if (count === 0) return setCount(0);
+    // else setCount((prev: number) => prev - 1);
   };
+  // useEffect(() => {
+
+  //        if(productId)
+  //  {  dispatch(addItemToCart({  productId, qty: count }))}
+  // }, [count]);
 
   return (
     <ContainerCounter>
@@ -48,7 +51,7 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
         -
       </Button>
 
-      <CounterDiv>{count}</CounterDiv>
+      <CounterDiv>{counter}</CounterDiv>
       <Button
         bold={true}
         borderHover={`1px solid ${theme.colors.primary}`}
@@ -60,7 +63,7 @@ const Counter: React.FC<IPropsCounter> = (props: IPropsCounter) => {
         fontSize={"14px"}
         colorHover={theme.common.black}
         color={theme.textColors.counterColor}
-        onClick={handleIncrease}
+        onClick={() => increment()}
       >
         +
       </Button>

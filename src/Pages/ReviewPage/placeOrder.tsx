@@ -16,26 +16,22 @@ import { ContentCart } from "./OrderDetails";
 import ContentOrder from "./ContentOrder";
 import { useNavigate } from "react-router";
 import Container from "../../Components/Container";
+import { useLocation } from "react-router-dom";
+import { RootState } from "../../Store/configureStore";
+import { useSelector } from "react-redux";
 
-interface Iprop {
-  title: string;
-  price: number;
-  imgUrl: string;
-}
-const ItemCart: Iprop[] = [
-  {
-    title: "Canon Eos 80D DSLR Camera",
-    price: 565,
-    imgUrl: "https://picsum.photos/id/1/200/300",
-  },
-  {
-    title: "Apple Airpods Wireless Bluetooth Headset",
-    price: 551,
-    imgUrl: "https://picsum.photos/id/0/200/300",
-  },
-];
 const PlaceOrder = () => {
   let navigate = useNavigate();
+  const query = new URLSearchParams(useLocation().search);
+    let {data} = useSelector((state: RootState) => state?.entities.user);
+  const items = useSelector((state: RootState) => state?.entities?.user?.data?.cart?.items);
+  // console.log(OrderDetails);
+  const city = query.get("city")
+    const country = query.get("country")
+    const street = query.get("streetAddress")
+    const code = query.get("zipCode")
+
+
   const handleClick = () => {
     navigate("/success");
   };
@@ -51,13 +47,12 @@ const PlaceOrder = () => {
             opacity=".5"
             onClick={() => navigate("/product/review/shipping/:id")}
           >
-            {" "}
-            1{" "}
+
+            1
           </Step>
           <Typography
             children="shipping and payment"
             fontWeight={700}
-            color="#000"
             onClick={() => navigate("/product/review/shipping/:id")}
             style={{
               fontSize: "15px",
@@ -74,7 +69,6 @@ const PlaceOrder = () => {
           <Typography
             children=" place and order"
             fontWeight={700}
-            color="#000"
             style={{
               fontSize: "15px",
             }}
@@ -86,21 +80,18 @@ const PlaceOrder = () => {
           <Typography
             children="Shipping Address"
             fontWeight={700}
-            color="#000"
             style={{
               fontSize: "15px",
             }}
           />
           <Typography
-            children="John rose"
-            color="#000"
+            children={`${data?.firstName}  ${data?.lastName}`}
             style={{
               fontSize: "15px",
             }}
           />
           <Typography
-            children="56051 Jones Falls, Philippines, Turkey - 62502"
-            color="#000"
+            children={` ${country} ${city} ${code}${street}`}
             style={{
               fontSize: "15px",
             }}
@@ -109,7 +100,6 @@ const PlaceOrder = () => {
             <Typography
               children="Order Details"
               fontWeight={700}
-              color="#000"
               variant="h6"
               style={{
                 letterSpacing: "1.28px",
@@ -117,13 +107,16 @@ const PlaceOrder = () => {
             />
             <LinkRouter to="/cart"> change </LinkRouter>
           </Title>
-          {ItemCart.map((item, index) => (
-            <ContentCart
-              key={index}
-              imgUrl={item.imgUrl}
-              price={item.price}
-              title={item.title}
-            />
+          {items?.map((item: any) => (
+            <>
+              <ContentCart
+                key={item.product._id}
+                imgUrl={item.product.images[0] as string}
+                price={item.product.price}
+                title={item.product.name}
+                qty={item.qty}
+              />
+            </>
           ))}
         </ContentPlaceOrder>
         <ContainerOrderDetails>
