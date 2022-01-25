@@ -4,12 +4,10 @@ import { useParams } from "react-router";
 import Container from "../../Components/Container";
 import Alert from "../../Components/Elements/Alert";
 import MainCard from "../../Components/Elements/Card/MainCard";
-import SppinerLoading from "../../Components/Elements/SppinerLoading";
 import Typography from "../../Components/Typography";
 import { RootState, useAppDispatch } from "../../Store/configureStore";
 import { getAllProductsByPaginate } from "../../Store/Slices/products";
 import { CardLayout } from "../CategoryPage/style";
-import CardProduct from "../ProductsPage/Components/cardProduct";
 import { Divider } from "../ProfilePage/profile.style";
 
 const CategoriesProducts = () => {
