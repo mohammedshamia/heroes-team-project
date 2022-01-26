@@ -56,6 +56,7 @@ const ProductDetails = ({ productById }: IProps) => {
       </Title>
       <Counter
         counter={productById.countInStock}
+        productId={productById._id}
         // setCounter={setCounter}
       />
       {productById.colors.length > 0 && (
