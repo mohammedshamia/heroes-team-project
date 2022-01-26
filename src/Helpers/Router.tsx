@@ -1,46 +1,46 @@
 import { lazy } from "react";
 import { Navigate } from "react-router";
-import EditProductPage from "../Pages/EditProdductPage";
-import EditUserPage from "../Pages/EditUserPage";
 
 // Pages
 const HomePage = lazy(() => import("../Pages/HomePage"));
+const SearchPage = lazy(() => import("../Pages/SearchPage"));
+const CategoryPage = lazy(() => import("../Pages/CategoryPage"));
+const ProductsPage = lazy(() => import("../Pages/ProductsPage"));
 
 // Auth Pages
 const LoginPage = lazy(() => import("../Pages/AuthPages/LoginPage"));
 const SignUpPage = lazy(() => import("../Pages/AuthPages/SignUpPage"));
 
-// Produxts Pages
-const CreateProductPage = lazy(() => import("../Pages/CreateProductPage"));
+// Products Pages
 const ProductPage = lazy(() => import("../Pages/ProductPage"));
 
+// User Pages
 const ProfilePage = lazy(() => import("../Pages/ProfilePage"));
+const CartPage = lazy(() => import("../Pages/CartPage"));
 const ShippingPage = lazy(
   () => import("../Pages/ReviewPage/shippingReviewPage")
 );
 const PlaceOrderPage = lazy(() => import("../Pages/ReviewPage/placeOrder"));
-const SearchPage = lazy(() => import("../Pages/SearchPage"));
-const CategoryPage = lazy(() => import("../Pages/CategoryPage"));
-const ProductsPage = lazy(() => import("../Pages/ProductsPage"));
-
 const PaymentPage = lazy(() => import("../Pages/PaymentPage"));
-const CartPage = lazy(() => import("../Pages/CartPage"));
 
 // Admin Pages
+const UsersAdminPage = lazy(() => import("../Pages/AdminPages/UsersAdminPage"));
 const OrdersAdminPage = lazy(
   () => import("../Pages/AdminPages/OrdersAdminPage")
 );
 const ProductsAdminPage = lazy(
   () => import("../Pages/AdminPages/ProductsAdminPage")
 );
-const UsersAdminPage = lazy(() => import("../Pages/AdminPages/UsersAdminPage"));
-const EditUserPage = lazy(() => import("../Pages/AdminPages/EditeUserPage"));
 
+const EditUserPage = lazy(() => import("../Pages/AdminPages/EditeUserPage"));
+const CreateProductPage = lazy(() => import("../Pages/CreateProductPage"));
+const EditProductPage = lazy(() => import("../Pages/EditProdductPage"));
 
 // Error Pages
 const NotAuthPage = lazy(() => import("../Pages/ErrorPages/NotAuthPage"));
 const NotFoundPage = lazy(() => import("../Pages/ErrorPages/NotFoundPage"));
 
+// Constants Rules
 const ALL = ["guist", "customer", "admin"];
 const AUTH = ["customer", "admin"];
 const ADMIN = ["admin"];
