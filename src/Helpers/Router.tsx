@@ -1,46 +1,46 @@
 import { lazy } from "react";
 import { Navigate } from "react-router";
-import EditProductPage from "../Pages/EditProdductPage";
-import EditUserPage from "../Pages/EditUserPage";
 
 // Pages
 const HomePage = lazy(() => import("../Pages/HomePage"));
+const SearchPage = lazy(() => import("../Pages/SearchPage"));
+const CategoryPage = lazy(() => import("../Pages/CategoryPage"));
+const ProductsPage = lazy(() => import("../Pages/ProductsPage"));
+
+// Products Pages
+const ProductPage = lazy(() => import("../Pages/ProductPage"));
 
 // Auth Pages
 const LoginPage = lazy(() => import("../Pages/AuthPages/LoginPage"));
 const SignUpPage = lazy(() => import("../Pages/AuthPages/SignUpPage"));
 
-// Produxts Pages
-const CreateProductPage = lazy(() => import("../Pages/CreateProductPage"));
-const ProductPage = lazy(() => import("../Pages/ProductPage"));
-
+// User Pages
 const ProfilePage = lazy(() => import("../Pages/ProfilePage"));
+const CartPage = lazy(() => import("../Pages/CartPage"));
 const ShippingPage = lazy(
   () => import("../Pages/ReviewPage/shippingReviewPage")
 );
 const PlaceOrderPage = lazy(() => import("../Pages/ReviewPage/placeOrder"));
-const SearchPage = lazy(() => import("../Pages/SearchPage"));
-const CategoryPage = lazy(() => import("../Pages/CategoryPage"));
-const ProductsPage = lazy(() => import("../Pages/ProductsPage"));
-
 const PaymentPage = lazy(() => import("../Pages/PaymentPage"));
-const CartPage = lazy(() => import("../Pages/CartPage"));
 
 // Admin Pages
+const UsersAdminPage = lazy(() => import("../Pages/AdminPages/UsersAdminPage"));
 const OrdersAdminPage = lazy(
   () => import("../Pages/AdminPages/OrdersAdminPage")
 );
 const ProductsAdminPage = lazy(
   () => import("../Pages/AdminPages/ProductsAdminPage")
 );
-const UsersAdminPage = lazy(() => import("../Pages/AdminPages/UsersAdminPage"));
-const EditUserPage = lazy(() => import("../Pages/AdminPages/EditeUserPage"));
 
+const EditUserPage = lazy(() => import("../Pages/AdminPages/EditUserPage"));
+const CreateProductPage = lazy(() => import("../Pages/CreateProductPage"));
+const EditProductPage = lazy(() => import("../Pages/EditProdductPage"));
 
 // Error Pages
 const NotAuthPage = lazy(() => import("../Pages/ErrorPages/NotAuthPage"));
 const NotFoundPage = lazy(() => import("../Pages/ErrorPages/NotFoundPage"));
 
+// Constants Rules
 const ALL = ["guist", "customer", "admin"];
 const AUTH = ["customer", "admin"];
 const ADMIN = ["admin"];
@@ -52,8 +52,39 @@ const routes = [
     component: <HomePage />,
     route: "/",
     ruleShouldBe: ALL,
-    to: "",
+    to: "/",
   },
+  {
+    name: "SearchPage",
+    component: <SearchPage />,
+    route: "/search/:keyword",
+    ruleShouldBe: ALL,
+    to: "/",
+  },
+  {
+    name: "CategoryPage",
+    component: <CategoryPage />,
+    route: "/products/category/:name",
+    ruleShouldBe: ALL,
+    to: "/",
+  },
+  {
+    name: "ProductsPage",
+    component: <ProductsPage />,
+    route: "/products",
+    ruleShouldBe: ALL,
+    to: "/",
+  },
+
+  {
+    name: "ProductPage",
+    component: <ProductPage />,
+    route: "/product/:id",
+    ruleShouldBe: ALL,
+    to: "/",
+  },
+
+  // Auth Pages
   {
     name: "LoginPage",
     component: <LoginPage />,
@@ -68,6 +99,8 @@ const routes = [
     ruleShouldBe: GUIST,
     to: "/",
   },
+
+  // User Pages
   {
     name: "ProfilePage",
     component: <ProfilePage />,
@@ -76,65 +109,9 @@ const routes = [
     to: "/login",
   },
   {
-    name: "SearchPage",
-    component: <SearchPage />,
-    route: "/search/:keyword",
-    ruleShouldBe: ALL,
-    to: "",
-  },
-  {
     name: "CartPage",
     component: <CartPage />,
     route: "/cart",
-    ruleShouldBe: AUTH,
-    to: "/login",
-  },
-  {
-    name: "ProductsPage",
-    component: <ProductsPage />,
-    route: "/products",
-    ruleShouldBe: ALL,
-    to: "",
-  },
-  {
-    name: "CategoryPage",
-    component: <CategoryPage />,
-    route: "/products/category/:name",
-    ruleShouldBe: ALL,
-    to: "",
-  },
-  {
-    name: "ProductPage",
-    component: <ProductPage />,
-    route: "/product/:id",
-    ruleShouldBe: ALL,
-    to: "",
-  },
-  {
-    name: "CreateProductPage",
-    component: <CreateProductPage />,
-    route: "/product/create",
-    ruleShouldBe: AUTH,
-    to: "/login",
-  },
-  {
-    name: "EditProductPage",
-    component: <EditProductPage />,
-    route: "/product/edit/:id",
-    ruleShouldBe: ADMIN,
-    to: "/login",
-  },
-  {
-    name: "EditProductPage",
-    component: <EditUserPage />,
-    route: "/user/edit/:id",
-    ruleShouldBe: ADMIN,
-    to: "/login",
-  },
-  {
-    name: "PaymentPage",
-    component: <PaymentPage />,
-    route: "/product/payment",
     ruleShouldBe: AUTH,
     to: "/login",
   },
@@ -153,6 +130,15 @@ const routes = [
     to: "/login",
   },
   {
+    name: "PaymentPage",
+    component: <PaymentPage />,
+    route: "/product/payment",
+    ruleShouldBe: AUTH,
+    to: "/login",
+  },
+
+  // Admin Pages
+  {
     name: "UsersAdminPage",
     component: <UsersAdminPage />,
     route: "/admin/users",
@@ -160,9 +146,9 @@ const routes = [
     to: "/401",
   },
   {
-    name: "UsersAdminPage",
+    name: "EditUserPage",
     component: <EditUserPage />,
-    route: "/admin/users/edit/:id",
+    route: "/admin/user/edit/:id",
     ruleShouldBe: ADMIN,
     to: "/401",
   },
@@ -174,12 +160,28 @@ const routes = [
     to: "/401",
   },
   {
+    name: "CreateProductPage",
+    component: <CreateProductPage />,
+    route: "/admin/product/create",
+    ruleShouldBe: AUTH,
+    to: "/login",
+  },
+  {
+    name: "EditProductPage",
+    component: <EditProductPage />,
+    route: "/admin/product/edit/:id",
+    ruleShouldBe: ADMIN,
+    to: "/login",
+  },
+  {
     name: "OrdersAdminPage",
     component: <OrdersAdminPage />,
     route: "/admin/orders",
     ruleShouldBe: ADMIN,
     to: "/401",
   },
+
+  // Error Pages
   {
     name: "NotAuthPage",
     component: <NotAuthPage />,
