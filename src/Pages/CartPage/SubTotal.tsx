@@ -22,6 +22,9 @@ const SubTotal = ({ data }: Iprops) => {
       )
     );
   };
+  const totalPrice = () => {
+    return Math.round(data.totalPrice) - 0.01;
+  };
   return (
     <WrapperSubTotal>
       <div style={{ padding: "1rem 0", width: "100%" }}>
@@ -30,12 +33,14 @@ const SubTotal = ({ data }: Iprops) => {
           variant="h5"
           style={{ textDecoration: "line-through", color: "#707070" }}
         >
-          {data ? `${data?.totalPrice.toFixed(2)}` : ""}
+          ${totalPrice()}
         </Typography>
         <Typography
           variant="h5"
           fontWeight={700}
-          children={`${Discount() < 0 ? 0 : Discount().toFixed(2)}`}
+          children={`${
+            Discount() < 0 ? 0 : Number(Discount().toFixed(2)) - 0.01
+          }`}
         />
       </div>
       <Hr width="100%" />
@@ -46,7 +51,7 @@ const SubTotal = ({ data }: Iprops) => {
           children="Proceed to checkout"
           padding={"1rem 2.5rem"}
           fontSize={"12px"}
-          onClick={() => handlClick()}
+          onClick={handlClick}
           width="100%"
         ></Button>
       </div>

@@ -1,25 +1,12 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import Alert from "../../../Components/Elements/Alert/index";
 import MainCard from "../../../Components/Elements/Card/MainCard";
 import SppinerLoading from "../../../Components/Elements/SppinerLoading";
 import Typography from "../../../Components/Typography";
-import { RootState } from "../../../Store/configureStore";
+import { IProduct } from "../../../Store/Types";
 
-import { useAppDispatch } from "../../../Store/configureStore";
-import { getProductsByCatergories } from "../../../Store/Slices/products";
 import { CardLayout } from "../style";
 
-const CategoriesProducts = ({ name }: { name: string }) => {
-  const dispatch = useAppDispatch();
-
-  let { products } = useSelector(
-    (state: RootState) => state.entities.products.productsByPaginate
-  );
-  useEffect(() => {
-    dispatch(getProductsByCatergories({ category: name }));
-  }, [dispatch, name]);
-
+const CategoriesProducts = ({ products }: { products: IProduct[] }) => {
   return (
     <>
       {products ? (
@@ -27,7 +14,6 @@ const CategoriesProducts = ({ name }: { name: string }) => {
           <>
             <CardLayout>
               {products.map((item) => {
-                console.log(item.name, "---");
                 return <MainCard data={item} key={item._id} />;
               })}
             </CardLayout>
