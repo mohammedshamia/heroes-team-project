@@ -29,3 +29,9 @@ export interface IShipping {
   zipCode: string;
   streetAddress: string;
 }
+
+export interface IChangePassword{
+  password: string;
+  newPassword: string;
+  newPasswordConfirmation: string;
+}

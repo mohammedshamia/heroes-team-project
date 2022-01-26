@@ -1,3 +1,5 @@
+import { useState } from "react";
+import ChangePassword from "../../Components/ChangePassword";
 import Button from "../../Components/Elements/Buttons";
 import Typography from "../../Components/Typography";
 import { IUser } from "../../Store/Types";
@@ -17,6 +19,8 @@ interface IProps {
 }
 
 const RightSetion = ({ UserProileData }: IProps) => {
+  const [modalDisplay, setModalDisplay] = useState<boolean>(false);
+
   return (
     <RightProfile>
       <Typography variant="h5" style={{ fontWeight: "bold" }}>
@@ -107,9 +111,11 @@ const RightSetion = ({ UserProileData }: IProps) => {
               padding={"1rem 1.5rem"}
               fontSize={"12px"}
               backgroundColorHover={"#ffc107"}
+              onClick={ ()=> setModalDisplay(true) }
             >
               Change Password
             </Button>
+            <ChangePassword modalDisplay={modalDisplay} setModalDisplay={setModalDisplay} />
           </RightProfileuserDateButton>
         </RightProfileSecionOne>
 
