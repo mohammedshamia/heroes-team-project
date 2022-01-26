@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useTheme } from "styled-components";
 import ChangePassword from "../../Components/ChangePassword";
 import Button from "../../Components/Elements/Buttons";
+import Modal from "../../Components/Elements/Modal/Dialog/Modal";
+import ModalAction from "../../Components/Elements/Modal/Dialog/ModalAction/ModalAction";
+import ModalTitle from "../../Components/Elements/Modal/Dialog/ModalTitle/ModalTitle";
 import Typography from "../../Components/Typography";
 import { IUser } from "../../Store/Types";
 import Avater from "./avater";
@@ -19,7 +23,11 @@ interface IProps {
 }
 
 const RightSetion = ({ UserProileData }: IProps) => {
-  const [modalDisplay, setModalDisplay] = useState<boolean>(false);
+  const [passwordModalDisplay, setPasswordModalDisplay] =
+    useState<boolean>(false);
+  const [uploadImagedModalDisplay, setUploadImagedModalDisplay] =
+    useState<boolean>(false);
+  const theme = useTheme();
 
   return (
     <RightProfile>
@@ -111,11 +119,16 @@ const RightSetion = ({ UserProileData }: IProps) => {
               padding={"1rem 1.5rem"}
               fontSize={"12px"}
               backgroundColorHover={"#ffc107"}
-              onClick={ ()=> setModalDisplay(true) }
+              onClick={() => setPasswordModalDisplay(true)}
             >
               Change Password
             </Button>
-            <ChangePassword modalDisplay={modalDisplay} setModalDisplay={setModalDisplay} />
+            {passwordModalDisplay && (
+              <ChangePassword
+                modalDisplay={passwordModalDisplay}
+                setModalDisplay={setPasswordModalDisplay}
+              />
+            )}
           </RightProfileuserDateButton>
         </RightProfileSecionOne>
 
@@ -135,9 +148,38 @@ const RightSetion = ({ UserProileData }: IProps) => {
               padding={"1rem 1.5rem"}
               fontSize={"12px"}
               backgroundColorHover={"#ffc107"}
+              onClick={() => setUploadImagedModalDisplay(true)}
             >
               Upload new photo
             </Button>
+            {uploadImagedModalDisplay && (
+              <Modal
+                isOpen={uploadImagedModalDisplay}
+                onClose={() => setUploadImagedModalDisplay(false)}
+              >
+                <ModalTitle>
+                  <h4>Upload new photo</h4>
+                </ModalTitle>
+                <ModalAction>
+                  <Button
+                    backgroundColor={theme.colors.primary}
+                    style={{ fontWeight: "bold" }}
+                    onClick={() => console.log("uploaded")}
+                  >
+                    Upload
+                  </Button>
+                  <Button
+                    backgroundColor={theme.colors.error}
+                    style={{ fontWeight: "bold" }}
+                    onClick={() => {
+                      setUploadImagedModalDisplay(false);
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                </ModalAction>
+              </Modal>
+            )}
           </RightProfileuserDateButton>
         </RightProfileAvaterSection>
       </RightProfileSecion>
