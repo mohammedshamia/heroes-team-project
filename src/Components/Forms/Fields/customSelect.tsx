@@ -5,7 +5,7 @@ import { Icategories } from "../../../Store/Types";
 import { FlexInput, Errors, Label } from "./inputField.style";
 
 export interface CustomSelectProps extends FieldProps {
-  options: Icategories[];
+  options: any[];
   isMulti?: boolean;
   className?: string;
   placeholder?: string;
@@ -34,26 +34,19 @@ export const CustomSelect = ({
   width,
   isMulti = false,
 }: CustomSelectProps) => {
-  console.log(field);
-  console.log(options);
-
   const onChange = (option: Icategories | Icategories[]) => {
-    if (options && options.length > 0) {
-      console.log(11);
+    if (options.length > 0) {
       form.setFieldValue(
         field.name,
-        (option as Icategories[]).map((item: Icategories) => item.name)
+        (option as []).map((item: any) => item.value)
       );
-    } else {
-      console.log(3);
     }
   };
 
   const getValue = () => {
-    if (options && options.length > 0) {
-      return options.filter((option) => field.value.indexOf(option.name) >= 0);
+    if (options.length > 0) {
+      return options.filter((option) => field.value.indexOf(option.value) >= 0);
     } else {
-      console.log(2222);
       return "" as any;
     }
   };
@@ -67,11 +60,13 @@ export const CustomSelect = ({
         value={getValue()}
         onChange={onChange}
         placeholder={placeholder}
-        options={options && options}
+        options={options}
         isMulti={isMulti}
-        onBlur={field.onBlur}
+        onBlur={field.onBlur(field.name)}
       />
-      {errors[name] && touched[field.name] && <Errors>{errors[name]}</Errors>}
+      {errors[field.name] && touched[field.name] && (
+        <Errors>{errors[field.name]}</Errors>
+      )}{" "}
     </FlexInput>
   );
 };
