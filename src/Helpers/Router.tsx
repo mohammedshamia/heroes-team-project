@@ -33,6 +33,8 @@ const ProductsAdminPage = lazy(
   () => import("../Pages/AdminPages/ProductsAdminPage")
 );
 const UsersAdminPage = lazy(() => import("../Pages/AdminPages/UsersAdminPage"));
+const EditUserPage = lazy(() => import("../Pages/AdminPages/EditeUserPage"));
+
 
 // Error Pages
 const NotAuthPage = lazy(() => import("../Pages/ErrorPages/NotAuthPage"));
@@ -146,6 +148,13 @@ const routes = [
     name: "UsersAdminPage",
     component: <UsersAdminPage />,
     route: "/admin/users",
+    ruleShouldBe: ADMIN,
+    to: "/401",
+  },
+  {
+    name: "UsersAdminPage",
+    component: <EditUserPage />,
+    route: "/admin/users/edit/:id",
     ruleShouldBe: ADMIN,
     to: "/401",
   },

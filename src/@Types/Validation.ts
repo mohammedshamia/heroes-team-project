@@ -9,6 +9,14 @@ export interface ICreateNewProduct {
   brand: string;
 }
 
+export interface IEditUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  profileImage?: string;
+  dateOfBirth: Date;
+}
+
 export interface ISignUpUser {
   firstName: string;
   lastName: string;

@@ -20,6 +20,17 @@ export const Input = styled(Field)`
 
   outline: none;
 `;
+
+export const DateInputStyle = styled.input`
+  padding: 0.5rem 2rem;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+
+  outline: none;
+`;
 export const SelectInput = styled(Select)`
   display: inline-block;
   border: 1px solid #ccc;
