@@ -38,8 +38,8 @@ function App() {
         <GlobalStyles {...themeMode} />
         {/* add header  */}
         <Header ToggelTheme={ToggelTheme} />
-        {/* pages */}
         <Suspense fallback={<SppinerLoading />}>
+          {/* pages */}
           <Routes>
             {routes.map((route) =>
               route?.ruleShouldBe?.includes(rule) ? (

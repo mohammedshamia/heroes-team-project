@@ -22,21 +22,27 @@ const CartPage = () => {
         </Typography>
       </TitleLink>
       <Parent>
-        <Wrapper>
-          {!loading ? (
-            <>
-              {(data?.cart?.items?.length as number) > 0 ? (
+        {!loading ? (
+          <>
+            {(data?.cart?.items?.length as number) > 0 ? (
+              <Wrapper>
                 <ShoppingCart data={data?.cart} />
-              ) : (
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <img src="Assets/Group 491.png" alt="" />
-                </div>
-              )}
-            </>
-          ) : (
-            ""
-          )}
-        </Wrapper>
+              </Wrapper>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                <img src="Assets/Group 491.png" alt="" />
+              </div>
+            )}
+          </>
+        ) : (
+          ""
+        )}
         {(data?.cart?.items?.length as number) > 0 && (
           <SubTotal data={data?.cart && data.cart} />
         )}

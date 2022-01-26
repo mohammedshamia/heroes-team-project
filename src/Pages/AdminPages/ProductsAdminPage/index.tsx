@@ -42,7 +42,10 @@ const ProductsAdminPage = () => {
   }, [dispatch, page]);
 
   const handleEditProduct = (id: string) => {
-    navigate(`/product/edit/${id}`);
+    navigate(`admin/product/edit/${id}`);
+  };
+  const handleCreateRow = () => {
+    navigate(`admin/product/create`);
   };
 
   const openModalHandler = (id: string, productName: string) => {
@@ -70,7 +73,7 @@ const ProductsAdminPage = () => {
           create={"Product"}
           handleDeleteRow={openModalHandler}
           handleEditRow={handleEditProduct}
-          handleCreateRow={() => {}}
+          handleCreateRow={handleCreateRow}
           loading={loading}
         />
       </Container>

@@ -35,7 +35,7 @@ const UsersAdminPage = () => {
   }, [dispatch, page]);
 
   const handleEditProduct = (id: string) => {
-    navigate(`/user/edit/${id}`);
+    navigate(`/admin/user/edit/${id}`);
   };
 
   const openModalHandler = (
