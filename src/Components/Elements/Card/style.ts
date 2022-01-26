@@ -128,3 +128,8 @@ export const DisvountDiv = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const ModalProductName= styled.span`
+  color: ${({theme})=> theme.colors.secondary};
+
+`
