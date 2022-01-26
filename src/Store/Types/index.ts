@@ -47,6 +47,11 @@ export interface IProductsSliceState {
   loading: boolean;
 }
 
+interface ItemCart {
+  product: IProduct;
+  qty: number;
+  itemTotalPrice: number;
+}
 //interface for user
 export interface IUser {
   email: string;
@@ -55,16 +60,12 @@ export interface IUser {
   profileImage: string;
   dateOfBirth: string;
   isAdmin: boolean;
-  cart?: {
-    items: [
-      {
-        items: any[];
-        totalQty: number;
-        totalPrice: number;
-      }
-    ];
+  cart: {
+    items: ItemCart[];
+    totalQty: number;
+    totalPrice: number;
   };
-  token?: string;
+  token: string;
 }
 
 export interface IusersByPaginate {

@@ -1,6 +1,7 @@
 import Button from "../Buttons";
 import { Wrapper } from "./style";
 import { useTheme } from "styled-components";
+import { useEffect } from "react";
 
 interface IProps {
   pages: number;
@@ -23,6 +24,11 @@ const Pagination = ({ pages, currentPage = 1, setPage }: IProps) => {
   };
 
   let Pages = new Array(pages);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   for (let i = 0; i < Pages.length; i++) {
     Pages[i] = (
       <Button
