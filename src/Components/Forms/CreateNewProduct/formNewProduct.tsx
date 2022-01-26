@@ -49,16 +49,6 @@ const FormNewProduct = (
   useEffect(() => {
     dispatch(getAllcategories());
     if (isEditing && data) {
-      const {
-        images: productImage,
-        colors: colors,
-        categories: categories,
-        price: price,
-        countInStock: countInStock,
-        name: productName,
-        description: description,
-        brand: productBrand,
-      } = data;
       setFieldValue("name", data.name);
       setFieldValue("brand", data.brand);
       setFieldValue("countInStock", data.countInStock);
