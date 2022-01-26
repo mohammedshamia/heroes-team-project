@@ -25,7 +25,7 @@ const Index = () => {
 
   useEffect(() => {
     user.auth && navigate("/");
-    console.log('user.error', user.error)
+    console.log("user.error", user.error);
   }, [navigate, user]);
 
   return (
@@ -36,9 +36,11 @@ const Index = () => {
       <Typography variant="h6" style={{ marginBottom: "15px" }}>
         Login with your data that you entered during registration
       </Typography>
-      {user.error && <Alert type="error">
-        <p style={{fontSize: '15px'}}> {user.error} </p>
-      </Alert>}
+      {user.error && (
+        <Alert type="error">
+          <p style={{ fontSize: "15px" }}> {user.error} </p>
+        </Alert>
+      )}
       <Formik
         initialValues={LoginInitialValues}
         validationSchema={LogInSchema}
