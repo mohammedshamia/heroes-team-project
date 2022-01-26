@@ -1,4 +1,4 @@
-import { Field, FormikProps } from "formik";
+import { Field, Form, FormikProps } from "formik";
 import Button from "../../Elements/Buttons";
 import Typography from "../../Typography";
 import FormInput from "../Fields/inputField";
@@ -20,7 +20,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../../Store/configureStore";
 import { getAllcategories } from "../../../Store/Slices/products";
-import { IProduct } from "../../../Store/Types";
 import Upload from "../../Icons/Upload";
 import CloseIcon from "../../Icons/CloseIcon";
 
@@ -31,25 +30,24 @@ interface OtherProps {
 const FormNewProduct = (
   props: OtherProps & FormikProps<CreateNewProductValues>
 ) => {
-  const { errors, touched, setFieldValue, isEditing, data } = props;
+  const theme = useTheme();
+  const { errors, touched, setFieldValue, isEditing, data, submitForm } = props;
   const dispatch = useAppDispatch();
   let { categories } = useSelector(
     (state: RootState) => state.entities.products
   );
-  if (data) {
-  }
+  let categoriesArray: { label: string; value: string }[] = [];
   const colorsArray = [
-    { name: "Red" },
-    { name: "Brown" },
-    { name: "Green" },
-    { name: "Blue" },
-    { name: "Black" },
-    { name: "White" },
+    { label: "Red", value: "Red" },
+    { label: "Brown", value: "Brown" },
+    { label: "Green", value: "Green" },
+    { label: "Blue", value: "Blue" },
+    { label: "Black", value: "Black" },
+    { label: "White", value: "White" },
   ];
+
   useEffect(() => {
     dispatch(getAllcategories());
-    console.log(props);
-
     if (isEditing && data) {
       const {
         images: productImage,
@@ -72,8 +70,14 @@ const FormNewProduct = (
       setFieldValue("colors", colors);
     }
   }, [dispatch]);
-  const theme = useTheme();
+
+  if (categories.length > 0) {
+    categories.map((ele) =>
+      categoriesArray.push({ label: ele.name, value: ele.name })
+    );
+  }
   return (
+    <Form >
     <Continer>
       <FormProduct>
         <ProductImage>
@@ -92,9 +96,9 @@ const FormNewProduct = (
               bold={false}
               fontSize={"12px"}
               color={theme.textColors.primary}
+
             >
               {!isEditing ? <Upload /> : <CloseIcon />}
-              {/* Product Images (4 images allowed){" "} */}
             </Button>
           </ProductImageUpload>
           <ProductImageUploadGroup>
@@ -194,20 +198,10 @@ const FormNewProduct = (
               fullWidth={false}
               width={"45%"}
             />
-            {/* <FormInput
-              type="input"
-              name={"productCategroy"}
-              placeholder={"Product Categroy"}
-              touched={touched}
-              errors={errors}
-              label={"Product Categroy"}
-              fullWidth={false}
-              width={"45%"}
-            /> */}
 
             <Field
               name="productCategroy"
-              options={categories}
+              options={categoriesArray}
               component={CustomSelect}
               placeholder="Select multi Categroy..."
               isMulti={true}
@@ -256,18 +250,20 @@ const FormNewProduct = (
       </FormProduct>
       <FlexButon>
         <Button
-          type="submit"
           padding={"1rem 3rem"}
           bold={false}
           backgroundColor="#4BB543"
           color={"#FFFFFF"}
           fontSize={"14px"}
           borderRaduies={"4px"}
+          type="submit"
+          
         >
           {isEditing ? "Update Product" : " Create New Product"}
         </Button>
       </FlexButon>
     </Continer>
+    </Form>
   );
 };
 

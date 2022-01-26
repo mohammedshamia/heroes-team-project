@@ -88,7 +88,7 @@ export const FlexButon = styled.div`
   }
 `;
 
-export const Continer = styled(Form)`
+export const Continer = styled.div`
   width: 80%;
   margin-top: 2rem;
   @media (max-width: 768px) {
