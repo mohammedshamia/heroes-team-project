@@ -23,6 +23,8 @@ import { useTheme } from "styled-components";
 import { RootState, useAppDispatch } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
 import { getUserProfile } from "../../Store/Slices/user";
+import Avater from "../../Pages/ProfilePage/avater";
+import { Link } from "react-router-dom";
 
 interface IHeader {
   ToggelTheme: Function;
@@ -47,7 +49,9 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
   return (
     <React.Fragment>
       <Root>
-        <LoadingBar loading={userLoading || productLoading || ordersLoading} />
+        <LoadingBar
+          isLoading={userLoading || productLoading || ordersLoading}
+        />
         <Container>
           <Content>
             <Logo main="Pro" sub="Shop" />
@@ -57,25 +61,6 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
             </SearchContent>
 
             <ICONS>
-              {data ? (
-                <SVGICON
-                  description={`${data?.firstName + " " + data?.lastName}`}
-                  to="/profile"
-                >
-                  <Person />
-                </SVGICON>
-              ) : (
-                <SVGICON description="Login / SignUp" to="/login">
-                  <Person />
-                </SVGICON>
-              )}
-              <SVGICON
-                notification={data?.cart && data?.cart?.items.length}
-                description="Cart"
-                to="/cart"
-              >
-                <ShoppingCartIcon />
-              </SVGICON>
               <SVGICON
                 description={theme.type !== "light" ? "Light" : "Dark"}
                 onClick={ToggelTheme}
@@ -88,6 +73,27 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
                   )}
                 </svg>
               </SVGICON>
+              <SVGICON
+                notification={data?.cart && data?.cart?.items.length}
+                description="Cart"
+                to="/cart"
+              >
+                <ShoppingCartIcon />
+              </SVGICON>
+
+              {data ? (
+                <Link to="/profile">
+                  <Avater
+                    src={data.profileImage}
+                    width="4.6rem"
+                    height="4.6rem"
+                  />
+                </Link>
+              ) : (
+                <SVGICON description="Login / SignUp" to="/login">
+                  <Person />
+                </SVGICON>
+              )}
             </ICONS>
           </Content>
         </Container>

@@ -46,7 +46,6 @@ const Hero = () => {
         <SppinerLoading />
       ) : (
         <SwiperWrapper>
-          {console.log(productsByTopThree)}
           <Swiper
             cssMode={true}
             navigation={true}

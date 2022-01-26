@@ -1,4 +1,3 @@
-import React from "react";
 import { IpropsAvater } from "./interface";
 import { ProfileUserImage } from "./profile.style";
 

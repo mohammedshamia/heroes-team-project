@@ -32,6 +32,7 @@ const Pagination = ({ pages, currentPage = 1, setPage }: IProps) => {
   for (let i = 0; i < Pages.length; i++) {
     Pages[i] = (
       <Button
+        key={i}
         onClick={() => handleClick(i + 1)}
         padding={"4px 7px"}
         backgroundColor={currentPage === i + 1 ? "#FCDD06" : "transparent"}

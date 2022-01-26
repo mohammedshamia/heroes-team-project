@@ -110,6 +110,7 @@ div::-webkit-scrollbar {
   width: 0.8em;
 }
 
+
 body::-webkit-scrollbar-track,
 div::-webkit-scrollbar-track {
   background-color: #333;

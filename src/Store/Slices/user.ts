@@ -161,11 +161,14 @@ export const deleteItemFromCart = (data: string) =>
   });
 
 //Admin functions
-export const getAllUsers = (data: string) =>
+export const getAllUsers = (data: number) =>
   apiCallBegan({
     url: "users",
     method: "get",
     headers: getAuthHeader(),
+    params: {
+      productId: data,
+    },
     onStart: userRequested.type,
     onSuccess: allUsersRecieved.type,
   });

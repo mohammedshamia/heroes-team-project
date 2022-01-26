@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Button from "../Elements/Buttons";
-import DeleteIcon from "../Icons/DeleteIcon";
-import EditIcon from "../Icons/EditIcon";
 import Typography from "../Typography";
 import { StyledTable, UpperArea } from "./style";
+import Products from "./Tables/Products";
+import Users from "./Tables/Users";
 
 interface IProps {
   data: any[];
@@ -16,6 +16,8 @@ interface IProps {
   handleDeleteRow: Function;
   handleEditRow: Function;
   handleCreateRow: Function;
+  create?: string;
+  loading: boolean;
 }
 
 const AdminTable: FC<IProps> = ({
@@ -29,68 +31,67 @@ const AdminTable: FC<IProps> = ({
   handleDeleteRow,
   handleEditRow,
   handleCreateRow,
+  create,
+  loading,
 }) => {
   return (
-    <StyledTable>
+    <>
       <UpperArea>
         <Typography variant="h2">{tableName}</Typography>
-        <Button
-          margin="28px 0 0 0"
-          padding="15px 30px"
-          bold
-          height=""
-          width=""
-          backgroundColor="#FCDD06"
-          onClick={() => handleCreateRow()}
-        >
-          Create {tableName}
-        </Button>
+        {create ? (
+          <Button
+            margin="28px 0 0 0"
+            padding="15px 30px"
+            bold
+            height=""
+            width=""
+            backgroundColor="#FCDD06"
+            onClick={() => handleCreateRow()}
+          >
+            Create {tableName}
+          </Button>
+        ) : (
+          ""
+        )}
       </UpperArea>
-      <table>
-        <thead>
-          <tr>
-            <th>{headOne}</th>
-            <th>{headTwo}</th>
-            <th>{headThree}</th>
-            <th>{headFour}</th>
-            <th>{headFive}</th>
-          </tr>
-        </thead>
-        {data.map((row) => (
-          <tbody key={row.id}>
+      <StyledTable>
+        <table>
+          <thead>
             <tr>
-              <th>{row.id}</th>
-              <th>{row.name}</th>
-              <th>{row.price || row.rule || row.date}</th>
-              <th>{row.category || row.type}</th>
-              <th>
-                <Button
-                  padding="3px"
-                  bold
-                  height=""
-                  width=""
-                  backgroundColor="#FFFFFF"
-                  margin="0 10px 0 0"
-                  onClick={handleEditRow(row.id)}
-                >
-                  <EditIcon />
-                </Button>
-                <Button
-                  padding="3px"
-                  bold
-                  height=""
-                  width=""
-                  backgroundColor="#FC4059"
-                  onClick={handleDeleteRow(row.id)}
-                >
-                  <DeleteIcon />
-                </Button>
-              </th>
+              <th>{headOne}</th>
+              <th>{headTwo}</th>
+              <th>{headThree}</th>
+              <th>{headFour}</th>
+              <th>{headFive}</th>
             </tr>
-          </tbody>
-        ))}
-      </table>
-    </StyledTable>
+          </thead>
+          {loading ? (
+            <></>
+          ) : (
+            <>
+              <>
+                {tableName === "Products" && (
+                  <Products
+                    data={data}
+                    handleDeleteRow={handleDeleteRow}
+                    handleEditRow={handleEditRow}
+                  />
+                )}
+              </>
+              <>
+                {tableName === "Users" && (
+                  <Users
+                    data={data}
+                    handleDeleteRow={handleDeleteRow}
+                    handleEditRow={handleEditRow}
+                  />
+                )}
+              </>
+            </>
+          )}
+        </table>
+      </StyledTable>
+    </>
   );
 };
 

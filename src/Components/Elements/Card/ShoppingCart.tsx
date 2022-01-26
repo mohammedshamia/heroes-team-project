@@ -33,7 +33,6 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
   const [proName, setProName] = useState<string>("this product");
 
   const openModalHandler = (productName: string) => {
-    console.log(productName, "product name");
     setProName(productName);
     setModalDisplay(true);
   };
@@ -76,19 +75,14 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
               <Typography
                 variant="body1"
                 fontWeight={500}
-                children={` $${(elemnt.itemTotalPrice * elemnt.qty).toFixed(
-                  2
-                )}`}
+                children={` $${Math.round(elemnt.itemTotalPrice) - 0.01}`}
               />
             </Itemprice>
           </ContentWrapper>
           {modalDisplay && (
             <Modal isOpen={modalDisplay} onClose={() => setModalDisplay(false)}>
               <ModalTitle>
-                <h4>
-                  Remove <ModalProductName>{proName}</ModalProductName> from
-                  cart?
-                </h4>
+                Remove <ModalProductName>{proName}</ModalProductName> from cart?
               </ModalTitle>
               <ModalAction>
                 <Button
