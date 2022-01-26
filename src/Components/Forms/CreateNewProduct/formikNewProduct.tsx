@@ -10,22 +10,25 @@ interface Iprops {
 }
 const FormikNewProduct = (props: Iprops) => {
   const initialValues: CreateNewProductValues = {
-    productName: "",
-    productBrand: "",
-    productCategroy: [],
-    productDiscription: "",
-    productID: "",
-    productCount: "",
-    productPrice: "",
-    productImage: [],
+    images: [],
     colors: [],
+    categories: [],
+    price: "",
+    countInStock: "",
+    name: "",
+    description: "",
+    brand: "",
   };
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values: CreateNewProductValues, actions) => {
-        console.log(values);
-        
+        if (props.isEditing) {
+          console.log(values);
+        } else {
+          console.log(values);
+        }
+
         actions.setSubmitting(false);
         actions.resetForm({});
       }}

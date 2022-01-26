@@ -1,13 +1,12 @@
 export interface ICreateNewProduct {
-  productName: string;
-  productBrand: string;
-  productCategroy: any[];
-  productDiscription: string;
-  productCount: number;
-  productPrice: number;
-  productImage: any[];
-  productID: number;
-  colors:any[]
+  // images: any[];
+  colors: any[];
+  categories: any[];
+  price: number;
+  countInStock: number;
+  name: string;
+  description: string;
+  brand: string;
 }
 
 export interface ISignUpUser {

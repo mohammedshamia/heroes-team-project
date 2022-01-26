@@ -1,11 +1,10 @@
 export interface CreateNewProductValues {
-  productName: string;
-  productBrand: string;
-  productID: string;
-  productCategroy: string[];
-  productDiscription: string;
-  productCount: string;
-  productPrice: string;
-  productImage: string[];
-  colors: string[];
+  images: any[];
+  colors: any[];
+  categories: any[];
+  price: string;
+  countInStock: string;
+  name: string;
+  description: string;
+  brand: string;
 }
