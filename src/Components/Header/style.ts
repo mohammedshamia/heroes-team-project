@@ -58,7 +58,7 @@ export const SearchContent = styled.div`
   }
 `;
 
-export const MobileSearchContent = styled.form`
+export const MobileSearchContent = styled.div`
   display: flex;
   padding: 10px 0;
 

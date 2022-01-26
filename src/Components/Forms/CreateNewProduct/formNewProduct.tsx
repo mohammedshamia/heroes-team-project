@@ -81,7 +81,7 @@ const FormNewProduct = (
           <ProductImage>
             <ProductImageUpload
               style={{
-                background: `url(${isEditing && data.images[0]})`,
+                background: `url(${isEditing ? data.images[0] : ""})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -89,11 +89,12 @@ const FormNewProduct = (
               <Button
                 type="button"
                 backgroundColor="transparent"
-                height={""}
-                width={""}
                 bold={false}
                 fontSize={"12px"}
+                padding="0"
                 color={theme.textColors.primary}
+                height={"100%"}
+                width={"100%"}
               >
                 {!isEditing ? <Upload /> : <CloseIcon />}
               </Button>
@@ -108,8 +109,8 @@ const FormNewProduct = (
               >
                 <Button
                   type="button"
-                  height={""}
-                  width={""}
+                  height={"100%"}
+                  width={"100%"}
                   bold={false}
                   padding={"1rem"}
                   backgroundColor="transparent"
@@ -127,8 +128,8 @@ const FormNewProduct = (
               >
                 <Button
                   type="button"
-                  height={""}
-                  width={""}
+                  height={"100%"}
+                  width={"100%"}
                   bold={false}
                   padding={"1rem"}
                   backgroundColor="transparent"
@@ -146,8 +147,8 @@ const FormNewProduct = (
               >
                 <Button
                   type="button"
-                  height={""}
-                  width={""}
+                  height={"100%"}
+                  width={"100%"}
                   bold={false}
                   padding={"1rem"}
                   backgroundColor="transparent"

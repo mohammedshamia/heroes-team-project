@@ -48,8 +48,7 @@ export const FlexInput = styled.div<IProps>`
   display: flex;
   flex-direction: column;
   width: ${(props) => (props.fullWidth ? "100%" : props.width)};
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     width: 100%;
   }
 `;
-

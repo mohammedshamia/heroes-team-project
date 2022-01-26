@@ -14,6 +14,7 @@ export const IButton = styled.button<ButtonProp>`
   cursor: pointer;
   font-weight: ${(props) => (props.bold ? "bold" : "500")};
   width: ${({ width }) => width || "auto"};
+  height: ${({ height }) => height || "auto"};
   opacity: ${(props) => (props.disabled ? ".5" : "1")};
   position: ${(props) => props.position || null};
   top: ${(props) => props.top || null};
@@ -36,9 +37,9 @@ export const IButton = styled.button<ButtonProp>`
     content: "";
     display: block;
     width: 0;
-    height: 60px;
+    height: 200%;
     position: absolute;
-    left: -40px;
+    left: -180%;
     top: -2px;
     opacity: 0.5;
     transform: rotate(20deg);
@@ -46,7 +47,7 @@ export const IButton = styled.button<ButtonProp>`
   }
 
   &:hover::after {
-    left: 130%;
-    transition: all 0.3s ease-in-out;
+    left: 180%;
+    transition: all 0.8s ease-out;
   }
 `;

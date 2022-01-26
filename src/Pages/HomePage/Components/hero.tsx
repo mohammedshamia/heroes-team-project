@@ -96,13 +96,15 @@ const Hero = () => {
                         padding={"1rem 2rem "}
                         fontSize={"14px"}
                         backgroundColorHover={"#ffc107"}
-                        margin={"1rem"}
+                        margin={"1rem 0"}
                         onClick={() => handelClick(elemnt._id)}
                       >
                         Shop now
                       </Button>
                     </SliderDatiles>
-                    <SliderImage src={elemnt.images[0]} alt="" />
+                    <SliderImage>
+                      <img src={elemnt.images[0]} alt="" />
+                    </SliderImage>
                   </Slider>
                 </Container>
               </SwiperSlide>

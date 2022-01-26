@@ -7,27 +7,25 @@ export const FormProduct = styled.div`
   background-color: ${(props) => props.theme.background.paper};
   border-radius: 16px;
   padding: 2rem 3rem;
+  width: 100%;
   justify-content: space-between;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     padding: 1rem;
   }
 `;
 
 export const ProductImage = styled.div`
-  width: 30%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
   text-align: center;
   @media (max-width: 800px) {
     width: 100%;
     align-items: center;
     align-self: center;
-  }
-  @media (width: 1024px) {
-    width: 41%;
   }
 `;
 export const ProductImageUpload = styled.div`
@@ -38,7 +36,7 @@ export const ProductImageUpload = styled.div`
   margin-bottom: 1rem;
   align-items: center;
   align-self: center;
-  height: 200px;
+  height: 250px;
   @media (max-width: 800px) {
     height: 300px;
   }
@@ -56,16 +54,17 @@ export const ProductImageUploadGroupButton = styled.div`
   display: flex;
   justify-content: center;
   width: 31%;
-  height: 70px;
+  height: 100px;
 `;
 
 export const ProductDetails = styled.div`
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     width: 100%;
+    padding: 1rem 0;
   }
 `;
 
@@ -74,7 +73,7 @@ export const FormProductInputGroup = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 2rem;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     flex-direction: column;
   }
 `;
@@ -83,18 +82,12 @@ export const FlexButon = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     justify-content: center;
   }
 `;
 
 export const Continer = styled.div`
-  width: 80%;
+  width: 100%;
   margin-top: 2rem;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-  @media (width: 1024px) {
-    width: 100%;
-  }
 `;

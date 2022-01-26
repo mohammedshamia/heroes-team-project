@@ -32,10 +32,6 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
   const [modalDisplay, setModalDisplay] = useState<boolean>(false);
   const [proName, setProName] = useState<string>("this product");
 
-  const handleRemove = (id: string) => {
-    
-  };
-
   const openModalHandler = (productName: string) => {
     console.log(productName, "product name");
     setProName(productName);
@@ -43,6 +39,7 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
   };
   const closeClickHandler = (id: string) => {
     dispatch(deleteItemFromCart(id));
+    setModalDisplay(false);
   };
 
   return (
@@ -88,18 +85,21 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
           {modalDisplay && (
             <Modal isOpen={modalDisplay} onClose={() => setModalDisplay(false)}>
               <ModalTitle>
-                <h4>Remove <ModalProductName>{proName}</ModalProductName> from cart?</h4>
+                <h4>
+                  Remove <ModalProductName>{proName}</ModalProductName> from
+                  cart?
+                </h4>
               </ModalTitle>
               <ModalAction>
                 <Button
-                  style={{fontWeight: 'bold'}}
-                  onClick={() => closeClickHandler(elemnt)}
+                  style={{ fontWeight: "bold" }}
+                  onClick={() => closeClickHandler(elemnt.product._id)}
                   backgroundColor={theme.colors.error}
                 >
                   Remove
                 </Button>
                 <Button
-                  style={{fontWeight: 'bold'}}
+                  style={{ fontWeight: "bold" }}
                   backgroundColor={theme.colors.primary}
                   onClick={() => {
                     setModalDisplay(false);

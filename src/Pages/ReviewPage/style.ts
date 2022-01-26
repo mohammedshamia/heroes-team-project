@@ -66,6 +66,9 @@ export const WrapOrder = styled.div`
     flex-direction: column;
     padding: 2rem 0;
     position: relative;
+    & > div {
+      padding: 0.2rem 2rem 0;
+    }
   }
 `;
 export const LinkRouter = styled(Link)`

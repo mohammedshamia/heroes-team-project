@@ -12,6 +12,8 @@ export const Slider = styled.div`
   padding: 1rem 0;
   @media (max-width: 800px) {
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 `;
 export const Featured = styled.div`
@@ -87,12 +89,18 @@ export const SliderDatilesm = styled.div`
   flex-direction: column;
   text-align: left;
 `;
-export const SliderImage = styled.img`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: center;
-  justify-content: center;
+export const SliderImage = styled.div`
   width: 400px;
   height: 400px;
+  overflow: hidden;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: auto;
+  }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;

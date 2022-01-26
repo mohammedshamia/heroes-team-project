@@ -12,7 +12,11 @@ const Search: FC = () => {
 
   const hangleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/search/${search}`);
+    if (search) {
+      navigate(`/search/${search}`);
+    } else {
+      navigate(`products`);
+    }
   };
   const onTextChanged = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
