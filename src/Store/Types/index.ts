@@ -1,7 +1,12 @@
 //products interfaces
 export interface Review {
-  rating: number;
   comment: string;
+  createdAt?: string;
+  name?: string;
+  rating: number;
+  updatedAt?: string;
+  user?: string;
+  _id?: string;
 }
 
 export interface Icategories {

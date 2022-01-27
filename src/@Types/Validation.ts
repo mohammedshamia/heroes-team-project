@@ -1,5 +1,6 @@
 export interface IAddReview {
   description: string;
+  rate: number;
 }
 export interface ICreateNewProduct {
   images: any[];
@@ -43,7 +44,7 @@ export interface IShipping {
 }
 
 export interface IChangePassword {
-  password: string;
+  // password: string;
   newPassword: string;
   newPasswordConfirmation: string;
 }

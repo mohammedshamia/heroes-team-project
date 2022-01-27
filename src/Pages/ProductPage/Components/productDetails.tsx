@@ -53,7 +53,7 @@ const ProductDetails = ({ productById }: IProps) => {
         // setCounter={setCounter}
       />
       {/* {console.log(productById.countInStock)} */}
-      {productById.colors.length > 0 && (
+      {productById?.colors?.length > 0 && (
         <Color>
           <ColorText>
             <Typography style={{ color: "#adb5bd", fontSize: "18px" }}>

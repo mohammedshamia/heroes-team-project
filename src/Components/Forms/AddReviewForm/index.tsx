@@ -18,6 +18,7 @@ const Index = ({
   const dispatch = useAppDispatch();
   const initialValues: IAddReview = {
     description: "",
+    rate: 0,
   };
 
   // const dispatch = useAppDispatch();
@@ -28,15 +29,20 @@ const Index = ({
       initialValues={initialValues}
       onSubmit={(values) => {
         const review: Review = {
-          rating: rate,
+          rating: values.rate,
           comment: values.description,
         };
-        dispatch(addReviewToProducts(productId, review as any));
-        console.log(productId, "Reviewed", review);
+        dispatch(addReviewToProducts(productId, review));
+        // console.log(productId, "Reviewed", review);
+        setModalDisplay(false);
       }}
       validationSchema={AddReviewSchema}
       children={(formikProps) => (
-        <AddReviewForm {...formikProps} setModalDisplay={setModalDisplay} />
+        <AddReviewForm
+          rate={rate}
+          {...formikProps}
+          setModalDisplay={setModalDisplay}
+        />
       )}
     />
   );

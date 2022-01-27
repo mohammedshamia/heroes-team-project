@@ -14,7 +14,7 @@ const Index = ({
   UserProileData?: IUserProfile;
 }) => {
   const initialValues: IChangePassword = {
-    password: "",
+    // password: "",
     newPassword: "",
     newPasswordConfirmation: "",
   };
@@ -34,6 +34,7 @@ const Index = ({
           dateOfBirth: UserProileData?.dateOfBirth,
         };
         dispatch(updateUserProfile(_UserProileData));
+        setModalDisplay(false);
       }}
       validationSchema={ChangePasswordSchema}
       children={(formikProps) => (
