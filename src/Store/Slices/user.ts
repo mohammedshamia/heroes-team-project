@@ -3,7 +3,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { apiCallBegan } from "../apiActions";
 import { getAuthHeader, removeTokenCookie } from "../../Helpers/tools";
 
-import { IUserSliceState, IUser, IusersByPaginate } from "../Types";
+import {
+  IUserSliceState,
+  IUser,
+  IusersByPaginate,
+  IUserProfile,
+} from "../Types";
 
 import cookie from "react-cookies";
 
@@ -130,7 +135,7 @@ export const getUserProfile = () =>
     onError: userAuthenticatedFailed.type,
   });
 
-export const updateUserProfile = (data: IUser) =>
+export const updateUserProfile = (data: IUserProfile) =>
   apiCallBegan({
     url: "users/profile",
     method: "put",

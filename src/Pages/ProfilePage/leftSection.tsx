@@ -54,6 +54,8 @@ const LeftSection = ({ UserProileData }: IProps) => {
         </LeftProfileUserName>
       </LeftProfileUser>
       <LeftProfileUserLinkGroup>
+        <LeftProfileUserLink to="/profile"> My Details</LeftProfileUserLink>
+        <LeftProfileUserLink to="/orders"> My Orders</LeftProfileUserLink>
         {UserProileData.isAdmin ? (
           <>
             <LeftProfileUserLink to="/admin/users">
@@ -74,12 +76,9 @@ const LeftSection = ({ UserProileData }: IProps) => {
             </LeftProfileUserLink>
           </>
         ) : (
-          <>
-            <LeftProfileUserLink to="/"> My Orders</LeftProfileUserLink>
-            <LeftProfileUserLink to="/"> Settings</LeftProfileUserLink>
-            <Divider />
-          </>
+          <></>
         )}
+        <Divider />
         <LeftProfileUserLink as={"p"} onClick={() => setModalDisplay(true)}>
           Logout
         </LeftProfileUserLink>

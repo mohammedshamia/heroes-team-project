@@ -5,7 +5,7 @@ import { addReviewToProducts } from "../../../Store/Slices/products";
 import AddReviewForm from "./AddReviewForm";
 import { useAppDispatch } from "../../../Store/configureStore";
 
-import { Review } from '../../../Store/Types/index'
+import { Review } from "../../../Store/Types/index";
 const Index = ({
   setModalDisplay,
   rate,
@@ -15,7 +15,7 @@ const Index = ({
   rate: number;
   productId: string;
 }) => {
-  const dispatch= useAppDispatch()
+  const dispatch = useAppDispatch();
   const initialValues: IAddReview = {
     description: "",
   };
@@ -27,17 +27,12 @@ const Index = ({
     <Formik
       initialValues={initialValues}
       onSubmit={(values) => {
-
-        const review: Review= {
+        const review: Review = {
           rating: rate,
-          comment: values.description
-        }
-        const data= {
-          rate,
-          review
-        }
-        dispatch(addReviewToProducts(productId, data ));
-        console.log("Reviewed", values);
+          comment: values.description,
+        };
+        dispatch(addReviewToProducts(productId, review as any));
+        console.log(productId, "Reviewed", review);
       }}
       validationSchema={AddReviewSchema}
       children={(formikProps) => (

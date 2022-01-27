@@ -68,6 +68,15 @@ export interface IUser {
   };
   token: string;
 }
+export interface IUserProfile {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
+  profileImage?: string;
+  isAdmin?: boolean;
+  dateOfBirth?: string;
+}
 
 export interface IusersByPaginate {
   users: IUser[];
