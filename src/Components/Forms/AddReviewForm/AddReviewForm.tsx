@@ -11,46 +11,29 @@ interface IProps {
   setModalDisplay?: (bool: boolean) => void;
 }
 
-const ChangePasswordForm = ({ errors, touched, setModalDisplay }: IProps) => {
+const AddReviewForm = ({ errors, touched, setModalDisplay }: IProps) => {
   const theme = useTheme();
 
   return (
     <Form>
       <FlexInput>
-        <Label>Enter your current password </Label>
+        <Label>Write Your Review</Label>
         <FormInput
-          name="password"
+          name="review"
           errors={errors}
           touched={touched}
-          type={"password"}
+          type={"textarea"}
+          component="textarea"
+          placeholder="Review"
         />
       </FlexInput>
-      <FlexInput>
-        <Label>Enter your new password</Label>
-        <FormInput
-          name="newPassword"
-          errors={errors}
-          touched={touched}
-          type={"password"}
-        />
-      </FlexInput>
-      <FlexInput>
-        <Label>Confirm your new password</Label>
-        <FormInput
-          name="newPasswordConfirmation"
-          errors={errors}
-          touched={touched}
-          type={"password"}
-        />
-      </FlexInput>
-
       <ModalAction>
         <Button
           type="submit"
           style={{ fontWeight: "bold" }}
           backgroundColor={theme.colors.primary}
         >
-          Update
+          Add
         </Button>
         <Button
           type="button"
@@ -67,4 +50,4 @@ const ChangePasswordForm = ({ errors, touched, setModalDisplay }: IProps) => {
   );
 };
 
-export default ChangePasswordForm;
+export default AddReviewForm;

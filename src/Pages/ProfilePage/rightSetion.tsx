@@ -8,6 +8,7 @@ import ModalTitle from "../../Components/Elements/Modal/Dialog/ModalTitle/ModalT
 import Typography from "../../Components/Typography";
 import { IUser } from "../../Store/Types";
 import Avater from "./avater";
+import UploadImage from "../../Components/UploadImage";
 import {
   RightProfile,
   RightProfileAvaterSection,
@@ -16,19 +17,32 @@ import {
   RightProfileuserDate,
   RightProfileuserDateButton,
   RightProfileuserDatem,
+  UploaderDiv,
 } from "./profile.style";
+import Upload from "../../Components/Icons/Upload";
+import { useAppDispatch } from "../../Store/configureStore";
+import { updateUserProfile } from "../../Store/Slices/user";
 
 interface IProps {
   UserProileData: IUser;
 }
 
 const RightSetion = ({ UserProileData }: IProps) => {
+  const dispatch = useAppDispatch();
+
+  const [image, setImage] = useState<string>("");
   const [passwordModalDisplay, setPasswordModalDisplay] =
     useState<boolean>(false);
   const [uploadImagedModalDisplay, setUploadImagedModalDisplay] =
     useState<boolean>(false);
   const theme = useTheme();
 
+  const changePhoto = () => {
+    const _UserProileData = { ...UserProileData };
+    _UserProileData.profileImage = image;
+    dispatch(updateUserProfile(_UserProileData));
+    setUploadImagedModalDisplay(false);
+  };
   return (
     <RightProfile>
       <Typography variant="h5" style={{ fontWeight: "bold" }}>
@@ -157,14 +171,21 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 isOpen={uploadImagedModalDisplay}
                 onClose={() => setUploadImagedModalDisplay(false)}
               >
-                <ModalTitle>
-                  <h4>Upload new photo</h4>
-                </ModalTitle>
+                <ModalTitle>Upload new photo</ModalTitle>
+                <UploaderDiv image={image || UserProileData.profileImage}>
+                  {image ? (
+                    ""
+                  ) : (
+                    <UploadImage setImage={setImage}>
+                      <Upload color={"#fff"} />
+                    </UploadImage>
+                  )}
+                </UploaderDiv>
                 <ModalAction>
                   <Button
                     backgroundColor={theme.colors.primary}
                     style={{ fontWeight: "bold" }}
-                    onClick={() => console.log("uploaded")}
+                    onClick={changePhoto}
                   >
                     Upload
                   </Button>
@@ -173,6 +194,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
                     style={{ fontWeight: "bold" }}
                     onClick={() => {
                       setUploadImagedModalDisplay(false);
+                      setImage("");
                     }}
                   >
                     Cancel

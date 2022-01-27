@@ -1,5 +1,8 @@
+export interface IAddReview {
+  description: string;
+}
 export interface ICreateNewProduct {
-  // images: any[];
+  images: any[];
   colors: any[];
   categories: any[];
   price: number;
@@ -7,6 +10,7 @@ export interface ICreateNewProduct {
   name: string;
   description: string;
   brand: string;
+  discount?: number;
 }
 
 export interface IEditUser {
@@ -38,7 +42,7 @@ export interface IShipping {
   streetAddress: string;
 }
 
-export interface IChangePassword{
+export interface IChangePassword {
   password: string;
   newPassword: string;
   newPasswordConfirmation: string;

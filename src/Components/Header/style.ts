@@ -72,6 +72,7 @@ export const ButtonContent = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 `;
 
 export const SearchButton = styled.button`

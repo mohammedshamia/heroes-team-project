@@ -11,4 +11,5 @@ export const Title = styled("h2")<Props>`
   letter-spacing: 0.0075em;
   padding: 10px 0;
   width: 100%;
+  color: ${(props) => props.theme.textColors.primary};
 `;

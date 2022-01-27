@@ -131,9 +131,12 @@ export const getProductsById = (data: { id: string }) =>
     onSuccess: productByIdReceived.type,
   });
 
-export const addReviewToProducts = (data: { id: string; review: Review }) =>
+export const addReviewToProducts = (
+  id: string,
+  data: { rate: number; review: Review }
+) =>
   apiCallBegan({
-    url: `products/${data.id}/reviews`,
+    url: `products/${id}/reviews`,
     method: "get",
     data,
     headers: getAuthHeader(),

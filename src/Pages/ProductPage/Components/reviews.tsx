@@ -43,6 +43,7 @@ const Reviews = ({ productById }: IProps) => {
               </Typography> */}
                 <Pragraphdate>
                   <Rate
+                    productId={productById._id}
                     rating={row.rating}
                     onRating={(rate: number) => setRating(rate)}
                   />
@@ -74,6 +75,7 @@ const Reviews = ({ productById }: IProps) => {
                 </Typography>
                 <Pragraphdate>
                   <Rate
+                    productId={productById._id}
                     rating={rating}
                     onRating={(rate: number) => setRating(rate)}
                   />

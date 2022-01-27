@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FC, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import SppinerLoading from "../Elements/SppinerLoading";
 import { FileInput } from "./style";
 
@@ -8,11 +8,20 @@ interface IPorps {
   width?: string;
   height?: string;
   setImage: Function;
+  children?: ReactNode;
+  bg?: string;
 }
 
 //  const [image, setImage] = useState<string>("");
 
-const UploadImage: FC<IPorps> = ({ setImage, bgColor, width, height }) => {
+const UploadImage: FC<IPorps> = ({
+  setImage,
+  bgColor,
+  width,
+  height,
+  children,
+  bg,
+}) => {
   const [uploading, setUploading] = useState(false);
 
   const uploadFileHandler = async (e: any) => {
@@ -42,11 +51,17 @@ const UploadImage: FC<IPorps> = ({ setImage, bgColor, width, height }) => {
   };
 
   return (
-    <FileInput bgColor={bgColor} width={width} height={height}>
+    <FileInput bgColor={bgColor} width={width} height={height} bg={bg}>
+      {console.log(bg)}
       {uploading ? (
-        <SppinerLoading height="100%" width="100%" bgColor="#99999933" />
+        <>
+          <SppinerLoading height="100%" width="100%" bgColor="#99999933" />
+        </>
       ) : (
-        <input type={"file"} onChange={uploadFileHandler} />
+        <>
+          {children}
+          <input type={"file"} onChange={uploadFileHandler} />
+        </>
       )}
     </FileInput>
   );

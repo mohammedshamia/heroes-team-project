@@ -20,20 +20,21 @@ const CreateNewProductSchema = (): SchemaOf<ICreateNewProduct> => {
       .required("Please Enter Product Number in stock"),
     price: number()
       .typeError("Should be Number")
-      .integer()
       .min(0, "Please Enter more than one")
       .required("Please Enter Product Price:"),
-    // images: array()
-    //   .of(string())
-    //   .min(1, "Images should be one at least")
-    //   .max(4, "Images max is 4")
-    //   .required("Images is required"),
-
+    discount: number()
+      .typeError("Should be Number")
+      .min(0, "Please Enter more than one"),
     colors: array()
       .of(string())
       .min(1, "Colors should be one at least")
       .max(4, "Colors max is 4")
       .required("Colors is required"),
+    images: array()
+      .of(string())
+      .min(1, "Images should be one at least")
+      .max(4, "Images max is 4")
+      .required("Images is required"),
   });
 };
 

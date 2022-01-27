@@ -85,9 +85,7 @@ const LeftSection = ({ UserProileData }: IProps) => {
         </LeftProfileUserLink>
         {modalDisplay && (
           <Modal isOpen={modalDisplay} onClose={() => setModalDisplay(false)}>
-            <ModalTitle>
-              <h4>Are you sure you want to logout?</h4>
-            </ModalTitle>
+            <ModalTitle>Are you sure you want to logout?</ModalTitle>
             <ModalAction>
               <Button onClick={Logout} backgroundColor={theme.colors.error}>
                 Log out

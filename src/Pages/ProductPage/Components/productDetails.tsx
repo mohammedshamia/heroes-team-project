@@ -28,14 +28,14 @@ interface IProps {
 
 const ProductDetails = ({ productById }: IProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
   let user = useSelector((state: RootState) => state?.entities.user);
 
   const handleAddToCart = (id: string) => {
     if (user.auth) {
-      dispatch(addItemToCart({ productId: id, qty: counter }));
+      dispatch(addItemToCart({ productId: id, qty: 1 }));
     } else {
       navigate("/login");
     }
@@ -56,8 +56,10 @@ const ProductDetails = ({ productById }: IProps) => {
       </Title>
       <Counter
         counter={productById.countInStock}
+        productId={productById._id}
         // setCounter={setCounter}
       />
+      {console.log(productById.countInStock)}
       {productById.colors.length > 0 && (
         <Color>
           <ColorText>

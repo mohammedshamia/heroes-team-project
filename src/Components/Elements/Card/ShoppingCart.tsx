@@ -20,6 +20,7 @@ import Button from "../Buttons";
 import { useTheme } from "styled-components";
 import { useState } from "react";
 import { string } from "yup/lib/locale";
+import { useNavigate } from "react-router";
 
 interface IpropsShopCart {
   data: any;
@@ -41,6 +42,8 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
     setModalDisplay(false);
   };
 
+  const navigate = useNavigate();
+
   return (
     <>
       {items.map((elemnt: any) => (
@@ -60,6 +63,7 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
           <ContentWrapper>
             <ItemTypo>
               <Typography
+                onClick={() => navigate(`/product/${elemnt.product?._id}`)}
                 variant="body1"
                 children={elemnt.product.name}
                 fontWeight={700}

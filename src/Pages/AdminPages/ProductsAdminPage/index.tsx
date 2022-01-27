@@ -42,10 +42,10 @@ const ProductsAdminPage = () => {
   }, [dispatch, page]);
 
   const handleEditProduct = (id: string) => {
-    navigate(`admin/product/edit/${id}`);
+    navigate(`/admin/product/edit/${id}`);
   };
   const handleCreateRow = () => {
-    navigate(`admin/product/create`);
+    navigate(`/admin/product/create`);
   };
 
   const openModalHandler = (id: string, productName: string) => {

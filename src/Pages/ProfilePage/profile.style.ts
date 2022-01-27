@@ -46,6 +46,7 @@ export const ProfileUserImage = styled.img<IpropsAvater>`
   height: ${(props) => props.height || "100px"};
   border-radius: 50%;
   margin-right: ${(props) => props.marginRight || 0};
+  object-fit: cover;
 `;
 
 export const LeftProfileUserName = styled.div`
@@ -70,7 +71,7 @@ export const LeftProfileUserLink = styled(Link)`
   font-size: 15px;
   &:hover {
     cursor: pointer;
-    color: #000;
+    background-color: ${(props) => props.theme.colors.primary};
   }
 `;
 
@@ -138,4 +139,17 @@ export const RightProfileuserDateButton = styled.div`
     align-items: center;
     align-self: center;
   }
+`;
+
+interface IUploadProps {
+  image?: string;
+}
+export const UploaderDiv = styled.div<IUploadProps>`
+  background: url(${(props) => props.image});
+  height: 20rem;
+  width: 24rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #aaa;
 `;

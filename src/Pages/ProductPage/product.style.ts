@@ -4,9 +4,10 @@ export const ImageSections = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 25%;
+  width: 35%;
   padding: 0 2rem 0 0;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
+    padding: 0;
     width: 100%;
   }
 `;
@@ -19,7 +20,7 @@ export const Imagefirst = styled.div`
   & img {
     width: 100%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     margin-bottom: 2rem;
     align-items: center;
     align-self: center;
@@ -30,7 +31,8 @@ export const ImageSecionSecond = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @media (max-width: 768px) {
+  width: 100%;
+  @media (max-width: 800px) {
     margin-bottom: 2rem;
     align-items: center;
     align-self: center;
@@ -39,8 +41,8 @@ export const ImageSecionSecond = styled.div`
 
 export const ImageSmall = styled.div`
   border: 1px solid #f2f2f2;
-  width: 32%;
-  height: 80px;
+  width: 24%;
+  height: 100px;
   overflow: hidden;
   & img {
     width: 100%;
@@ -53,7 +55,7 @@ export const FirstSection = styled.div`
   flex-direction: row;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     align-items: center;
     align-self: center;
@@ -73,9 +75,12 @@ export const ProductDetail = styled.div`
   display: flex;
   flex-direction: column;
   width: 75%;
-  @media (max-width: 768px) {
-    width: auto;
-    padding: 1rem;
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 1rem 0;
+    & > * {
+      margin-bottom: 10px;
+    }
   }
 `;
 export const Title = styled.div`
@@ -83,7 +88,7 @@ export const Title = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 2rem;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     padding-bottom: 1rem;
   }
