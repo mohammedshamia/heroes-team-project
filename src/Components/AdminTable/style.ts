@@ -2,14 +2,18 @@ import styled from "styled-components";
 
 export const StyledTable = styled.div`
   width: 100%;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   & table {
     width: 100%;
     & th,
     td {
       text-align: start;
-      padding: 15px 35px 19px;
+      padding: 1rem 2rem;
       color: ${(props) => props.theme.textColors.primary};
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 500;
     }
     & tbody {
@@ -22,7 +26,8 @@ export const StyledTable = styled.div`
         background-color: ${(props) => props.theme.background.secondary};
       }
       &:hover {
-        background-color: #c2c2c2;
+        background-color: ${(props) =>
+          props.theme.type === "light" ? "#c2c2c2" : "#456"};
       }
     }
   }

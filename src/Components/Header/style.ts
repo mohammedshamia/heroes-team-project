@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const LoadingBar = styled.div<{ loading?: boolean }>`
+export const LoadingBar = styled.div<{ isLoading: boolean }>`
   height: 2px;
   background-color: ${(props) =>
-    props.loading ? props.theme.background.default : "transparent"};
+    props.isLoading ? props.theme.background.default : "transparent"};
   position: relative;
   &::after {
     content: "";
@@ -11,14 +11,14 @@ export const LoadingBar = styled.div<{ loading?: boolean }>`
     display: block;
 
     background-color: ${(props) =>
-      props.loading ? props.theme.colors.primary : "transparent"};
+      props.isLoading ? props.theme.colors.primary : "transparent"};
     height: 100%;
-    animation: isLoading 1s infinite linear;
+    animation: loader 1s infinite linear;
     position: absolute;
     left: -20%;
   }
 
-  @keyframes isLoading {
+  @keyframes loader {
     0% {
       left: -20%;
     }
@@ -72,6 +72,7 @@ export const ButtonContent = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 `;
 
 export const SearchButton = styled.button`

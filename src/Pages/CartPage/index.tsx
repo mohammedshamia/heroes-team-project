@@ -1,5 +1,4 @@
 import Container from "../../Components/Container";
-import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 import Typography from "../../Components/Typography";
 import { LinkBack, Parent, TitleLink, Wrapper } from "./style";
 import SubTotal from "./SubTotal";
@@ -8,9 +7,12 @@ import { useSelector } from "react-redux";
 import CardLayout from "../../Components/CardLayuout";
 import { Categ } from "../HomePage/style";
 import { DividerComponent } from "../../Components/Elements/Devider/styles.styled";
+import ShoppingCart from "../../Components/Elements/Card/ShoppingCart";
 
 const CartPage = () => {
-  const { data } = useSelector((state: RootState) => state?.entities?.user);
+  const { data, loading } = useSelector(
+    (state: RootState) => state?.entities?.user
+  );
 
   return (
     <Container>
@@ -20,17 +22,27 @@ const CartPage = () => {
         </Typography>
       </TitleLink>
       <Parent>
-        <Wrapper>
-          {(data?.cart?.items?.length as number) > 0 ? (
-            <>
-              <ShoppingCart data={data?.cart} />
-            </>
-          ) : (
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <img src="Assets/Group 491.png" alt="" />
-            </div>
-          )}
-        </Wrapper>
+        {!loading ? (
+          <>
+            {(data?.cart?.items?.length as number) > 0 ? (
+              <Wrapper>
+                <ShoppingCart data={data?.cart} />
+              </Wrapper>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                <img src="Assets/Group 491.png" alt="" />
+              </div>
+            )}
+          </>
+        ) : (
+          ""
+        )}
         {(data?.cart?.items?.length as number) > 0 && (
           <SubTotal data={data?.cart && data.cart} />
         )}

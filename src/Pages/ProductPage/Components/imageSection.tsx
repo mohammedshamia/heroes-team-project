@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { IProduct } from "../../../Store/Types";
 import {
   Imagefirst,
@@ -9,15 +10,19 @@ interface IProps {
   productById: IProduct;
 }
 const ImageSection = ({ productById }: IProps) => {
+  const [BigImage, setBigImage] = useState(productById.images[0]);
   return (
     <ImageSections>
       <Imagefirst>
-        <img src={productById.images[0]} loading="lazy" alt="" />
+        <img src={BigImage} loading="lazy" alt="" />
       </Imagefirst>
       <ImageSecionSecond>
-        {productById.images.map((elemnt: string, index) => (
-          <ImageSmall key={elemnt + index}>
-            <img src={elemnt} loading="lazy" alt="" />
+        {productById.images.map((element: string, index) => (
+          <ImageSmall
+            key={element + index}
+            onClick={() => setBigImage(element)}
+          >
+            <img src={element} loading="lazy" alt="" />
           </ImageSmall>
         ))}
       </ImageSecionSecond>

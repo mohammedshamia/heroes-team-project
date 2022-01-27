@@ -13,8 +13,6 @@ import {
   ProductImageUploadGroupButton,
   Continer,
 } from "./newProduct.style";
-import { CreateNewProductValues } from "./interface";
-import { useTheme } from "styled-components";
 import CustomSelect from "../Fields/customSelect";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -22,16 +20,24 @@ import { useAppDispatch, RootState } from "../../../Store/configureStore";
 import { getAllcategories } from "../../../Store/Slices/products";
 import Upload from "../../Icons/Upload";
 import CloseIcon from "../../Icons/CloseIcon";
+import UploadImage from "../../UploadImage";
+import { ICreateNewProduct } from "../../../@Types/Validation";
 
 interface OtherProps {
   isEditing: boolean;
   data?: any;
 }
-const FormNewProduct = (
-  props: OtherProps & FormikProps<CreateNewProductValues>
-) => {
-  const theme = useTheme();
-  const { errors, touched, setFieldValue, isEditing, data, submitForm } = props;
+const FormNewProduct = (props: OtherProps & FormikProps<ICreateNewProduct>) => {
+  const {
+    errors,
+    touched,
+    setFieldValue,
+    isEditing,
+    data,
+    submitForm,
+    values,
+  } = props;
+  // console.log(values);
   const dispatch = useAppDispatch();
   let { categories } = useSelector(
     (state: RootState) => state.entities.products
@@ -49,16 +55,7 @@ const FormNewProduct = (
   useEffect(() => {
     dispatch(getAllcategories());
     if (isEditing && data) {
-      const {
-        images: productImage,
-        colors: colors,
-        categories: categories,
-        price: price,
-        countInStock: countInStock,
-        name: productName,
-        description: description,
-        brand: productBrand,
-      } = data;
+      setFieldValue("images", data.images);
       setFieldValue("name", data.name);
       setFieldValue("brand", data.brand);
       setFieldValue("countInStock", data.countInStock);
@@ -67,95 +64,64 @@ const FormNewProduct = (
       setFieldValue("price", data.price);
       setFieldValue("colors", data.colors);
     }
-  }, [dispatch]);
+  }, [data, dispatch, isEditing, setFieldValue]);
 
   if (categories.length > 0) {
     categories.map((ele) =>
       categoriesArray.push({ label: ele.name, value: ele.name })
     );
   }
+  const onImageChange = (image: string, index: number) => {
+    let array = new Array(4);
+    array = [...values.images];
+    array[index] = image;
+    setFieldValue("images", array);
+  };
   return (
     <Form>
       <Continer>
         <FormProduct>
           <ProductImage>
-            <ProductImageUpload
-              style={{
-                background: `url(${isEditing ? data.images[0] : ""})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <Button
-                type="button"
-                backgroundColor="transparent"
-                bold={false}
-                fontSize={"12px"}
-                padding="0"
-                color={theme.textColors.primary}
-                height={"100%"}
-                width={"100%"}
+            <ProductImageUpload>
+              <UploadImage
+                bg={values?.images[0]}
+                setImage={(e: any) => {
+                  onImageChange(e, 0);
+                }}
               >
                 {!isEditing ? <Upload /> : <CloseIcon />}
-              </Button>
+              </UploadImage>
             </ProductImageUpload>
             <ProductImageUploadGroup>
-              <ProductImageUploadGroupButton
-                style={{
-                  background: `url(${isEditing && data.images[1]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <Button
-                  type="button"
-                  height={"100%"}
-                  width={"100%"}
-                  bold={false}
-                  padding={"1rem"}
-                  backgroundColor="transparent"
-                  color={theme.textColors.primary}
+              <ProductImageUploadGroupButton>
+                <UploadImage
+                  bg={values?.images[1]}
+                  setImage={(e: any) => {
+                    onImageChange(e, 1);
+                  }}
                 >
-                  +
-                </Button>{" "}
+                  <Typography>+</Typography>
+                </UploadImage>
               </ProductImageUploadGroupButton>
-              <ProductImageUploadGroupButton
-                style={{
-                  background: `url(${isEditing && data.images[2]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <Button
-                  type="button"
-                  height={"100%"}
-                  width={"100%"}
-                  bold={false}
-                  padding={"1rem"}
-                  backgroundColor="transparent"
-                  color={theme.textColors.primary}
+              <ProductImageUploadGroupButton>
+                <UploadImage
+                  bg={values?.images[2]}
+                  setImage={(e: any) => {
+                    onImageChange(e, 2);
+                  }}
                 >
-                  +
-                </Button>{" "}
+                  <Typography>+</Typography>
+                </UploadImage>
               </ProductImageUploadGroupButton>{" "}
-              <ProductImageUploadGroupButton
-                style={{
-                  background: `url(${isEditing && data.images[3]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <Button
-                  type="button"
-                  height={"100%"}
-                  width={"100%"}
-                  bold={false}
-                  padding={"1rem"}
-                  backgroundColor="transparent"
-                  color={theme.textColors.primary}
+              <ProductImageUploadGroupButton>
+                <UploadImage
+                  bg={values?.images[3]}
+                  setImage={(e: any) => {
+                    onImageChange(e, 3);
+                  }}
                 >
-                  +
-                </Button>{" "}
+                  <Typography>+</Typography>
+                </UploadImage>
               </ProductImageUploadGroupButton>
             </ProductImageUploadGroup>
           </ProductImage>
@@ -231,7 +197,17 @@ const FormNewProduct = (
                 errors={errors}
                 label={"Count In Stock"}
                 fullWidth={false}
-                width={"45%"}
+                width={"31%"}
+              />
+              <FormInput
+                type="input"
+                name={"discount"}
+                placeholder={"Discount"}
+                touched={touched}
+                errors={errors}
+                label={"Discount"}
+                fullWidth={false}
+                width={"31%"}
               />
               <FormInput
                 type="input"
@@ -241,7 +217,7 @@ const FormNewProduct = (
                 errors={errors}
                 label={"Product Price"}
                 fullWidth={false}
-                width={"45%"}
+                width={"31%"}
               />
             </FormProductInputGroup>
           </ProductDetails>

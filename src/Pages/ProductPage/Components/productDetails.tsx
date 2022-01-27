@@ -1,10 +1,6 @@
 import { useState } from "react";
 import Button from "../../../Components/Elements/Buttons";
 import Counter from "../../../Components/Elements/Counter";
-import {
-  BookMarkEmpty,
-  BookMarkfill,
-} from "../../../Components/Icons/BookMark";
 import Typography from "../../../Components/Typography";
 import { IProduct } from "../../../Store/Types";
 import { useNavigate } from "react-router";
@@ -27,21 +23,18 @@ interface IProps {
 }
 
 const ProductDetails = ({ productById }: IProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [counter, setCounter] = useState(0);
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
   let user = useSelector((state: RootState) => state?.entities.user);
 
   const handleAddToCart = (id: string) => {
     if (user.auth) {
-      dispatch(addItemToCart({ productId: id, qty: counter }));
+      dispatch(addItemToCart({ productId: id, qty: 1 }));
     } else {
       navigate("/login");
     }
   };
   const [color, setColor] = useState("");
-  const [bookMark, setStateBookMark] = useState<boolean>(false);
 
   return (
     <ProductDetail>
@@ -59,6 +52,7 @@ const ProductDetails = ({ productById }: IProps) => {
         productId={productById._id}
         // setCounter={setCounter}
       />
+      {console.log(productById.countInStock)}
       {productById.colors.length > 0 && (
         <Color>
           <ColorText>
@@ -97,21 +91,9 @@ const ProductDetails = ({ productById }: IProps) => {
         <SizeButton>
           <div></div>
           <BookMark>
-            <Margin>
-              <Button
-                backgroundColor={"#Fff"}
-                padding={".2rem 0.3rem 0.1rem"}
-                border={"1px solid #FCDD06"}
-                backgroundColorHover={"#ffc107"}
-                onClick={() => setStateBookMark(!bookMark)}
-              >
-                {!bookMark && <BookMarkEmpty />}
-                {bookMark && <BookMarkfill />}
-              </Button>
-            </Margin>
             <Button
               fontSize={"14px"}
-              padding={"0rem 3rem"}
+              padding={"1rem 3rem"}
               onClick={() => handleAddToCart(productById._id)}
             >
               Add TO Cart

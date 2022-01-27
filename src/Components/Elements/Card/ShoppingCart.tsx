@@ -20,6 +20,7 @@ import Button from "../Buttons";
 import { useTheme } from "styled-components";
 import { useState } from "react";
 import { string } from "yup/lib/locale";
+import { useNavigate } from "react-router";
 
 interface IpropsShopCart {
   data: any;
@@ -33,7 +34,6 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
   const [proName, setProName] = useState<string>("this product");
 
   const openModalHandler = (productName: string) => {
-    console.log(productName, "product name");
     setProName(productName);
     setModalDisplay(true);
   };
@@ -41,6 +41,8 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
     dispatch(deleteItemFromCart(id));
     setModalDisplay(false);
   };
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -61,6 +63,7 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
           <ContentWrapper>
             <ItemTypo>
               <Typography
+                onClick={() => navigate(`/product/${elemnt.product?._id}`)}
                 variant="body1"
                 children={elemnt.product.name}
                 fontWeight={700}
@@ -76,19 +79,14 @@ const ShoppingCart = ({ data }: IpropsShopCart) => {
               <Typography
                 variant="body1"
                 fontWeight={500}
-                children={` $${(elemnt.itemTotalPrice * elemnt.qty).toFixed(
-                  2
-                )}`}
+                children={` $${Math.round(elemnt.itemTotalPrice) - 0.01}`}
               />
             </Itemprice>
           </ContentWrapper>
           {modalDisplay && (
             <Modal isOpen={modalDisplay} onClose={() => setModalDisplay(false)}>
               <ModalTitle>
-                <h4>
-                  Remove <ModalProductName>{proName}</ModalProductName> from
-                  cart?
-                </h4>
+                Remove <ModalProductName>{proName}</ModalProductName> from cart?
               </ModalTitle>
               <ModalAction>
                 <Button

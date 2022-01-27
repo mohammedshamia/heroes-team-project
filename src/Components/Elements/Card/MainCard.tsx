@@ -64,6 +64,7 @@ export default function MainCard(props: Iprops) {
           <br />
 
           <Rate
+            productId={data._id}
             rating={data.rating}
             onRating={(rate: number) => setRating(rate)}
           />

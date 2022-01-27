@@ -54,6 +54,7 @@ interface ItemCart {
 }
 //interface for user
 export interface IUser {
+  _id: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -82,13 +83,12 @@ export interface IUserSliceState {
   auth: boolean | null;
   loading: boolean;
   error: any;
-
 }
 
 //orders interfaces
 
 export interface IShippingAddress {
- streetAddress: string;
+  streetAddress: string;
   city: string;
   zipCode: string;
   country: string;

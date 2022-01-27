@@ -10,7 +10,7 @@ import { getProductsById } from "../../Store/Slices/products";
 const EditProductPage = () => {
   const dispatch = useAppDispatch();
 
-  let { productById, loading } = useSelector(
+  let { productById } = useSelector(
     (state: RootState) => state.entities.products
   );
 
@@ -18,12 +18,11 @@ const EditProductPage = () => {
 
   useEffect(() => {
     id && dispatch(getProductsById({ id }));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <Container>
       <Typography variant="h6">Edit Product</Typography>
-
       {productById ? (
         <FormikNewProduct isEditing={true} data={productById} />
       ) : (
