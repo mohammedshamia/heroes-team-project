@@ -132,4 +132,26 @@ div::-webkit-scrollbar-thumb:hover {
   transform: scaleX(1.45);
 }
 
+
+#react-select-5-placeholder ,#react-select-3-placeholder {
+  padding: 0 5px;
+}
+#react-select-5-listbox ,#react-select-3-listbox {
+  background-color: ${(props) => props.background.paper};
+
+  color: ${(props) => props.textColors.primary}; 
+  & > div > div {
+    background-color: ${(props) => props.background.paper}; 
+    &:hover {
+    background-color: ${(props) => props.background.default}; 
+  }
+  }
+}
+.css-1rhbuit-multiValue {
+  background-color: ${(props) => props.background.secondary}!important; 
+  & div {
+    color: ${(props) => props.textColors.primary}!important; 
+  }
+}
+
 `;

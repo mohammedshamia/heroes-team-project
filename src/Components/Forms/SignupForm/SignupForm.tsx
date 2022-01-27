@@ -17,12 +17,7 @@ const SignupForm = ({ errors, touched }: IProps) => {
     // console.log
   });
   return (
-    <Form
-      style={{
-        borderBottom: "1px solid gray",
-        paddingBottom: "25px",
-      }}
-    >
+    <Form>
       <FlexInput>
         <Label>First name</Label>
         <FormInput name="firstName" errors={errors} touched={touched} />

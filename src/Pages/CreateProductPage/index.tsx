@@ -5,6 +5,7 @@ import Typography from "../../Components/Typography";
 const CreateProductPage = () => {
   return (
     <Container>
+      <br />
       <Typography variant="h6">Create New Product</Typography>
       <FormikNewProduct isEditing={false} />
     </Container>

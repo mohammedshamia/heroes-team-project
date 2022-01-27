@@ -30,12 +30,12 @@ const SubTotal = ({ data }: Iprops) => {
           variant="h5"
           style={{ textDecoration: "line-through", color: "#707070" }}
         >
-          {data && `${data.totalPrice}`}
+          {data ? `${data?.totalPrice.toFixed(2)}` : ""}
         </Typography>
         <Typography
           variant="h5"
           fontWeight={700}
-          children={`${Discount()}`}
+          children={`${Discount() < 0 ? 0 : Discount().toFixed(2)}`}
         />
       </div>
       <Hr width="100%" />
