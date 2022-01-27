@@ -58,6 +58,7 @@ const LeftSection = ({ UserProileData }: IProps) => {
         <LeftProfileUserLink to="/orders"> My Orders</LeftProfileUserLink>
         {UserProileData.isAdmin ? (
           <>
+            <Divider />
             <LeftProfileUserLink to="/admin/users">
               {" "}
               Users Panel
