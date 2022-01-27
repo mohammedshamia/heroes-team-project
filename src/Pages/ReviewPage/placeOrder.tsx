@@ -14,7 +14,7 @@ import Button from "../../Components/Elements/Buttons";
 import Typography from "../../Components/Typography";
 import { ContentCart } from "./OrderDetails";
 import ContentOrder from "./ContentOrder";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Container from "../../Components/Container";
 import { useLocation } from "react-router-dom";
 import { RootState } from "../../Store/configureStore";
@@ -30,10 +30,10 @@ const PlaceOrder = () => {
     const country = query.get("country")
     const street = query.get("streetAddress")
     const code = query.get("zipCode")
-
+  const { id } = useParams();
 
   const handleClick = () => {
-    navigate("/success");
+    navigate(`/product/payment/${id}?city=${city}&country=${country}&zipCode=${code}&streetAddress=${street}`);
   };
   return (
     <Container>

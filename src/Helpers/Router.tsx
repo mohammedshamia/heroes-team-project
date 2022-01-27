@@ -132,7 +132,7 @@ const routes = [
   {
     name: "PaymentPage",
     component: <PaymentPage />,
-    route: "/product/payment",
+    route: "/product/payment/:id",
     ruleShouldBe: AUTH,
     to: "/login",
   },
