@@ -19,7 +19,7 @@ const AddReviewForm = ({ errors, touched, setModalDisplay }: IProps) => {
       <FlexInput>
         <Label>Write Your Review</Label>
         <FormInput
-          name="review"
+          name="description"  
           errors={errors}
           touched={touched}
           type={"textarea"}
