@@ -44,6 +44,7 @@ export const ImageSmall = styled.div`
   width: 24%;
   height: 100px;
   overflow: hidden;
+  cursor: pointer;
   & img {
     width: 100%;
     height: 100%;
