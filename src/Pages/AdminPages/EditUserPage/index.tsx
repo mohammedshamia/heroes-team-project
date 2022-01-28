@@ -20,7 +20,7 @@ const EditeUserPage = () => {
   return (
     <Container>
       {userDetails ? (
-        <FormikEditUser data={userDetails} />
+        <FormikEditUser data={userDetails} userId={userId}/>
       ) : (
         <Typography variant="h1">Not Found User</Typography>
       )}

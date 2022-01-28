@@ -12,7 +12,6 @@ interface IPorps {
   bg?: string;
 }
 
-//  const [image, setImage] = useState<string>("");
 
 const UploadImage: FC<IPorps> = ({
   setImage,
