@@ -77,7 +77,7 @@ const FormEditProduct = (props: OtherProps & FormikProps<IEditUserValues>) => {
                   placeholder={"Email"}
                   touched={touched}
                   errors={errors}
-                  label={"First Name"}
+                  label={"Email"}
                   fullWidth={false}
                   width={"45%"}
                 />
@@ -96,11 +96,14 @@ const FormEditProduct = (props: OtherProps & FormikProps<IEditUserValues>) => {
               <FormProductInputGroup>
                 <Label>
                   <Field type="checkbox" name="isAdmin" />
-                  isAdmin
+                  {"  "}isAdmin
                 </Label>
               </FormProductInputGroup>
             </User>
             <CenterImage>
+              <Typography style={{ textAlign: "center" }}>
+                Profile Image
+              </Typography>
               <UploadImage
                 width="200px"
                 height="200px"

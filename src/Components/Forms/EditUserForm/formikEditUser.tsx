@@ -5,7 +5,6 @@ import { useAppDispatch } from "../../../Store/configureStore";
 import { editUserDetail } from "../../../Store/Slices/user";
 import FormEditProduct from "./formEditUser";
 import { IEditUserValues } from "./interface";
-import { useNavigate } from "react-router";
 interface Iprops {
   data?: IEditUserValues;
   userId: string | undefined;
