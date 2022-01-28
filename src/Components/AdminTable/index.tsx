@@ -2,6 +2,7 @@ import { FC } from "react";
 import Button from "../Elements/Buttons";
 import Typography from "../Typography";
 import { StyledTable, UpperArea } from "./style";
+import Orders from "./Tables/Orders";
 import Products from "./Tables/Products";
 import Users from "./Tables/Users";
 
@@ -85,6 +86,11 @@ const AdminTable: FC<IProps> = ({
                     handleDeleteRow={handleDeleteRow}
                     handleEditRow={handleEditRow}
                   />
+                )}
+              </>
+              <>
+                {tableName === "Orders" && (
+                  <Orders data={data} handleEditRow={handleEditRow} />
                 )}
               </>
             </>

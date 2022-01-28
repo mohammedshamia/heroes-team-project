@@ -3,6 +3,7 @@ import { IOrder, IProduct, IUser } from "../../../Store/Types";
 import Button from "../../Elements/Buttons";
 import DeleteIcon from "../../Icons/DeleteIcon";
 import EditIcon from "../../Icons/EditIcon";
+import { ImageDiv, RelativeTh } from "../style";
 
 interface IProps {
   data?: IProduct[];
@@ -17,7 +18,12 @@ const Products: FC<IProps> = ({ data, handleDeleteRow, handleEditRow }) => {
       {data?.map((row) => (
         <tbody key={row._id}>
           <tr>
-            <th>{row._id}</th>
+            <RelativeTh>
+              {row._id}
+              <ImageDiv>
+                <img src={row.images[0]} alt="" />
+              </ImageDiv>
+            </RelativeTh>
             <th>{row.name}</th>
             <th>{row.price}</th>
             <th>{row.categories.map((cat) => cat + ", ")}</th>

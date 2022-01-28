@@ -4,16 +4,19 @@ import { ContentOrder } from "./ContentOrder";
 import { ItemImg } from "../../Components/Elements/Card/style";
 import { RootState } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
+import { Fragment } from "react";
 
 export interface Iprop {
   title: string;
   price: number;
   imgUrl: string;
-  qty: number; 
+  qty: number;
 }
 
 const OrderDetails = () => {
-  const items = useSelector((state: RootState) => state?.entities?.user?.data?.cart?.items);
+  const items = useSelector(
+    (state: RootState) => state?.entities?.user?.data?.cart?.items
+  );
   return (
     <div style={{ marginBottom: "15px" }}>
       <Title>
@@ -29,7 +32,7 @@ const OrderDetails = () => {
         <LinkRouter to="/cart"> change </LinkRouter>
       </Title>
       {items?.map((item: any) => (
-        <>
+        <Fragment key={"fragment" + item.product._id}>
           <ContentCart
             key={item.product._id}
             imgUrl={item.product.images[0] as string}
@@ -38,7 +41,7 @@ const OrderDetails = () => {
             qty={item.qty}
           />
           <Hr width="100%" />
-        </>
+        </Fragment>
       ))}
       <ContentOrder />
     </div>

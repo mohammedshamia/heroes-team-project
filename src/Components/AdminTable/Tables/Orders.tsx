@@ -1,55 +1,78 @@
 import { FC } from "react";
-import { IOrder, IProduct, IUser } from "../../../Store/Types";
 import Button from "../../Elements/Buttons";
-import DeleteIcon from "../../Icons/DeleteIcon";
 import EditIcon from "../../Icons/EditIcon";
+import Typography from "../../Typography";
 
-interface IProps {
-  data: IProduct[];
-  headOne: string;
-  headTwo: string;
-  headThree: string;
-  headFour: string;
-  headFive: string;
-  tableName: string;
-  handleDeleteRow: Function;
-  handleEditRow: Function;
-  handleCreateRow: Function;
-  create?: string;
+interface IOrder {
+  shippingAddress?: {
+    address?: string;
+    city?: string;
+    postalCode?: number;
+    country?: string;
+  };
+  taxPrice?: number;
+  shippingPrice?: number;
+  totalPrice?: number;
+  isPaid?: boolean;
+  isDelivered?: boolean;
+  _id?: string;
+  user?: {
+    _id?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+  };
+  orderItems?: [
+    {
+      _id?: string;
+      product?: string;
+      qty?: number;
+      itemTotalPrice?: number;
+    }
+  ];
+  paymentMethod?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  clientSecret?: string;
 }
 
-const Orders: FC<IProps> = ({ data, handleDeleteRow, handleEditRow }) => {
+interface IProps {
+  data: IOrder[];
+  handleEditRow: Function;
+}
+
+const Orders: FC<IProps> = ({ data, handleEditRow }) => {
   return (
     <>
       {data.map((row) => (
         <tbody key={row._id}>
           <tr>
             <th>{row._id}</th>
-            <th>{row.name}</th>
-            {/* <th>{row.price || row.rule || row.date}</th> */}
-            {/* <th>{row.categories || row.type}</th> */}
+            <th>{`${row.user?.firstName} ${row.user?.lastName}`}</th>
+            <th>{row.createdAt?.slice(0, 10)}</th>
             <th>
-              <Button
-                padding="3px"
-                bold
-                height=""
-                width=""
-                backgroundColor="#FFFFFF"
-                margin="0 10px 0 0"
-                onClick={handleEditRow(row._id)}
-              >
-                <EditIcon />
-              </Button>
-              <Button
-                padding="3px"
-                bold
-                height=""
-                width=""
-                backgroundColor="#FC4059"
-                onClick={handleDeleteRow(row._id)}
-              >
-                <DeleteIcon />
-              </Button>
+              {row?.shippingAddress?.address} | {row?.shippingAddress?.city} |{" "}
+              {row?.shippingAddress?.country} |{" "}
+              {row?.shippingAddress?.postalCode}
+            </th>
+            <th>
+              {row.isDelivered ? (
+                <Typography variant="h3" color="#008000!important">
+                  ✔
+                </Typography>
+              ) : (
+                <Button
+                  padding="3px"
+                  bold
+                  height=""
+                  width=""
+                  backgroundColor="#FFFFFF"
+                  margin="0 10px 0 0"
+                  onClick={() => handleEditRow(row._id)}
+                >
+                  <EditIcon />
+                </Button>
+              )}
             </th>
           </tr>
         </tbody>

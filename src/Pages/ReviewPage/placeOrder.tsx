@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import {
   Step,
   Hr,
@@ -141,7 +141,7 @@ const PlaceOrder = () => {
             <LinkRouter to="/cart"> change </LinkRouter>
           </Title>
           {items?.map((item: any) => (
-            <>
+            <Fragment key={"fragment" + item.product._id}>
               <ContentCart
                 key={item.product._id}
                 imgUrl={item.product.images[0] as string}
@@ -149,7 +149,7 @@ const PlaceOrder = () => {
                 title={item.product.name}
                 qty={item.qty}
               />
-            </>
+            </Fragment>
           ))}
           <PaymentForm />
         </ContentPlaceOrder>

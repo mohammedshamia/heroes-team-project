@@ -60,7 +60,7 @@ const Index = () => {
           <div>
             {/* 1x iPhone 11 pro 256GB Memory 1x Apple */}
             {items?.map((item) => (
-              <p>{item.product.name}</p>
+              <p key={item.product._id}>{item.product.name}</p>
             ))}
           </div>
         </InfoContainer>

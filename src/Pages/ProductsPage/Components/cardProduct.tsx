@@ -29,7 +29,7 @@ const CardProduct = () => {
         <>
           <FlexProduct>
             {productsByPaginate.products.map((elemnt, index) => (
-              <CardOneProduct>
+              <CardOneProduct key={elemnt._id}>
                 <MainCard data={elemnt} key={index} />
               </CardOneProduct>
             ))}

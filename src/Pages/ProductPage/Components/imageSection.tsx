@@ -10,11 +10,11 @@ interface IProps {
   productById?: IProduct;
 }
 const ImageSection = ({ productById }: IProps) => {
-  const [BigImage, setBigImage] = useState(productById?.images[0] || "");
+  const [BigImage, setBigImage] = useState("");
   return (
     <ImageSections>
       <Imagefirst>
-        <img src={BigImage} loading="lazy" alt="" />
+        <img src={BigImage || productById?.images[0]} loading="lazy" alt="" />
       </Imagefirst>
       <ImageSecionSecond>
         {productById?.images?.map((element: string, index) => (

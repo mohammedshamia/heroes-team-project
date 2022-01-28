@@ -64,8 +64,8 @@ function App() {
                 ) : (
                   <Route
                     path={route.route}
-                    // element={<Navigate to={route.to || "/"} />}
-                    element={route.component}
+                    element={<Navigate to={route.to || "/"} />}
+                    // element={route.component}
                     key={route.name}
                   />
                 )

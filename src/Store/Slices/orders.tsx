@@ -123,7 +123,7 @@ export const getOrders = (pageNumber: number = 1) =>
     onError: orderCreatedFailed.type,
   });
 
-export const deliverOrder = (orderId: number) =>
+export const deliverOrder = (orderId: string) =>
   apiCallBegan({
     url: `orders/${orderId}/deliver`,
     method: "put",
