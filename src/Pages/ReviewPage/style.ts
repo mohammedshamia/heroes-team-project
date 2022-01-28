@@ -20,6 +20,7 @@ export const Step = styled.span<prop>`
   }
   opacity: ${(props) => props.opacity};
 `;
+
 export const StepDisable = styled.span`
   background-color: #707070;
   padding: 5px 8px;
@@ -41,6 +42,7 @@ export const Stepper = styled.div`
   align-items: center;
   margin-bottom: 10px;
 `;
+
 export const WrapperFormAndOrder = styled.div<prop>`
   display: grid;
   grid-template-columns: ${(props) => props.Grid || "65% 35%"};
@@ -57,6 +59,7 @@ export const WrapperFormAndOrder = styled.div<prop>`
 export const WrapOrder = styled.div`
   display: flex;
   flex-direction: column;
+
   & > div {
     display: flex;
     flex-direction: column;
@@ -71,6 +74,7 @@ export const WrapOrder = styled.div`
     }
   }
 `;
+
 export const LinkRouter = styled(Link)`
   color: ${(props) => props.theme.textColors.primary};
   /* #707070;  */

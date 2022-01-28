@@ -123,6 +123,7 @@ export interface IOrder {
   updatedAt: string;
   clientSecret: string;
 }
+
 export interface OrdersByPaginate {
   orders: IOrder[];
   page: number;

@@ -23,7 +23,14 @@ const ShippingFormik = () => {
       onSubmit={(values: IShippingAddress, actions) => {
         // console.log(values);
         actions.setSubmitting(false);
-        dispatch(createOrder(values));
+        dispatch(
+          createOrder({
+            address: values.streetAddress,
+            postalCode: values.zipCode,
+            city: values.city,
+            country: values.country,
+          })
+        );
         navigate(
           `/product/review/placeorder/${id}?city=${values.city}&country=${values.country}&zipCode=${values.zipCode}&streetAddress=${values.streetAddress}`
         );

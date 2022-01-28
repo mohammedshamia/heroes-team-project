@@ -6,6 +6,7 @@ import {} from "./style";
 import Typography from "../../Typography";
 
 import { InputContainer } from "./style";
+
 const FormShipping = (props: FormikProps<shippingValues>) => {
   const { errors, touched } = props;
 
@@ -13,8 +14,7 @@ const FormShipping = (props: FormikProps<shippingValues>) => {
     <Continer id="form">
       <div>
         <Typography variant="h6" fontWeight={700}>
-          {" "}
-          Shipping Address{" "}
+          Shipping Address
         </Typography>
         <InputContainer>
           <FormInput
