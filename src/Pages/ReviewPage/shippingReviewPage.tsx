@@ -7,6 +7,7 @@ import {
   WrapperFormAndOrder,
   PositionButton,
 } from "./style";
+
 import Typography from "../../Components/Typography";
 import ShippingFormik from "../../Components/Forms/ShippingForm/ShippingFormik";
 import OrderDetails from "./OrderDetails";
@@ -17,11 +18,11 @@ const ShippingPage = () => {
   return (
     <Container>
       <Typography variant="h6" fontWeight={700}>
-        Review Order{" "}
+        Review Order
       </Typography>
+
       <Stepper>
         <>
-          {" "}
           <Step> 1 </Step>
           <Typography
             children="shipping and payment"
@@ -35,7 +36,6 @@ const ShippingPage = () => {
         </>
         <Hr margin="0px 10px" />
         <>
-          {" "}
           <StepDisable> 2 </StepDisable>
           <Typography
             children="  place and order"
@@ -47,8 +47,10 @@ const ShippingPage = () => {
           />
         </>
       </Stepper>
+
       <WrapperFormAndOrder>
         <ShippingFormik />
+
         <WrapOrder>
           <OrderDetails />
           <PositionButton>
