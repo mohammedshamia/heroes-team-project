@@ -22,6 +22,7 @@ const ShippingPage = lazy(
 );
 const PlaceOrderPage = lazy(() => import("../Pages/ReviewPage/placeOrder"));
 const PaymentPage = lazy(() => import("../Pages/PaymentPage"));
+const OrdersPage = lazy(() => import("../Pages/OrdersPage"));
 
 // Admin Pages
 const UsersAdminPage = lazy(() => import("../Pages/AdminPages/UsersAdminPage"));
@@ -133,6 +134,13 @@ const routes = [
     name: "PaymentPage",
     component: <PaymentPage />,
     route: "/product/payment/:id",
+    ruleShouldBe: AUTH,
+    to: "/login",
+  },
+  {
+    name: "OrdersPage",
+    component: <OrdersPage />,
+    route: "/orders",
     ruleShouldBe: AUTH,
     to: "/login",
   },

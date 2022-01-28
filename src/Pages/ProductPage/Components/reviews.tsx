@@ -1,4 +1,6 @@
 import { useState } from "react";
+import AddReview from "../../../Components/AddReview";
+import Button from "../../../Components/Elements/Buttons";
 import Rate from "../../../Components/Elements/Rating";
 import Typography from "../../../Components/Typography";
 import { IProduct } from "../../../Store/Types";
@@ -15,8 +17,12 @@ interface IProps {
   productById: IProduct;
 }
 const Reviews = ({ productById }: IProps) => {
-  const [rating, setRating] = useState<number>(3);
+  const [uploadImagedModalDisplay, setUploadImagedModalDisplay] =
+    useState<boolean>(false);
 
+  const handleOpenReviewDialog = () => {
+    setUploadImagedModalDisplay(true);
+  };
   return (
     <>
       <Title>
@@ -28,29 +34,26 @@ const Reviews = ({ productById }: IProps) => {
 
       <Technical>
         <Review>
+          {console.log(productById.reviews)}
           {productById.reviews.length !== 0 ? (
             productById.reviews.map((row) => (
-              <Padding>
-                {/* <Typography
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  paddingTop: "rem",
-                }}
-              >
-                {" "}
-                {row.name}
-              </Typography> */}
-                <Pragraphdate>
-                  <Rate
-                    productId={productById._id}
-                    rating={row.rating}
-                    onRating={(rate: number) => setRating(rate)}
-                  />
-                  {/* <Typography style={{ fontSize: "12px", color: "#707070" }}>
+              <Padding key={row._id}>
+                <Typography
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    paddingTop: "rem",
+                  }}
+                >
                   {" "}
-                  {row.date}
-                </Typography> */}
+                  {row.name}
+                </Typography>
+                <Pragraphdate>
+                  <Rate rating={row.rating} onRating={() => {}} />
+                  <Typography style={{ fontSize: "12px" }}>
+                    {" "}
+                    {row.createdAt?.slice(0, 10)}
+                  </Typography>
                 </Pragraphdate>
                 <Pragraph>
                   <Typography style={{ fontSize: "12px" }}>
@@ -70,37 +73,22 @@ const Reviews = ({ productById }: IProps) => {
                     paddingTop: "rem",
                   }}
                 >
-                  {" "}
-                  Jenifer Medhurst
+                  No Reviews
                 </Typography>
-                <Pragraphdate>
-                  <Rate
-                    productId={productById._id}
-                    rating={rating}
-                    onRating={(rate: number) => setRating(rate)}
-                  />
-                  <Typography style={{ fontSize: "12px", color: "#707070" }}>
-                    '28th March 2022'
-                  </Typography>
-                </Pragraphdate>
-                <Pragraph>
-                  <Typography style={{ fontSize: "12px" }}>
-                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam voluptua. At vero eos et
-                    accusam et justo duo dolores et ea rebum. Stet clita kasd
-                    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                    amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-                    dolore magna aliquyam erat, sed diam voluptua. At vero eos
-                    et accusam et justo duo dolores et ea rebum. Stet clita.",
-                  </Typography>
-                </Pragraph>
               </Padding>
             </>
           )}
         </Review>
+        <Button onClick={handleOpenReviewDialog}>Add Review</Button>
       </Technical>
+      {uploadImagedModalDisplay && (
+        <AddReview
+          productId={productById._id}
+          rate={Math.round(productById.rating)}
+          modalDisplay={uploadImagedModalDisplay}
+          setModalDisplay={setUploadImagedModalDisplay}
+        />
+      )}
     </>
   );
 };

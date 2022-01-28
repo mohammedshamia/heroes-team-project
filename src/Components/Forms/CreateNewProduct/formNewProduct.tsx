@@ -89,7 +89,7 @@ const FormNewProduct = (props: OtherProps & FormikProps<ICreateNewProduct>) => {
                   onImageChange(e, 0);
                 }}
               >
-                {!isEditing ? <Upload /> : <CloseIcon />}
+                {!isEditing ? <Upload /> : <CloseIcon fill={"#fff"} />}
               </UploadImage>
             </ProductImageUpload>
             <ProductImageUploadGroup>

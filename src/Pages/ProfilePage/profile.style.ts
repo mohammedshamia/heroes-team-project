@@ -21,6 +21,7 @@ export const LeftProfile = styled.div`
   flex-direction: column;
   margin-right: 1rem;
   width: 30%;
+  height: fit-content;
   @media (max-width: 768px) {
     margin-bottom: 1rem;
     margin-right: 0rem;

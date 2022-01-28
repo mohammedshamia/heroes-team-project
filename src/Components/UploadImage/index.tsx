@@ -12,7 +12,6 @@ interface IPorps {
   bg?: string;
 }
 
-//  const [image, setImage] = useState<string>("");
 
 const UploadImage: FC<IPorps> = ({
   setImage,
@@ -52,7 +51,7 @@ const UploadImage: FC<IPorps> = ({
 
   return (
     <FileInput bgColor={bgColor} width={width} height={height} bg={bg}>
-      {console.log(bg)}
+      {/* {console.log(bg)} */}
       {uploading ? (
         <>
           <SppinerLoading height="100%" width="100%" bgColor="#99999933" />
