@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import { useNavigate } from "react-router";
 import { EditUserSchema } from "../../../Helpers/Validation";
 import { useAppDispatch } from "../../../Store/configureStore";
 import { editUserDetail } from "../../../Store/Slices/user";
@@ -24,12 +25,10 @@ const FormikEditUser = (props: Iprops) => {
     <Formik
       initialValues={initialValues}
       onSubmit={(values: IEditUserValues, actions) => {
-        // console.log(values);
-
         dispatch(editUserDetail(values as any, props?.userId as string));
-        navigate("/admin/users");
         actions.setSubmitting(false);
         actions.resetForm({});
+        navigate("/admin/users");
       }}
       validationSchema={EditUserSchema}
       children={(formikProps) => (

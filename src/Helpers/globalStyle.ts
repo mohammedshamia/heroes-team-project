@@ -134,10 +134,10 @@ div::-webkit-scrollbar-thumb:hover {
 }
 
 
-#react-select-5-placeholder ,#react-select-3-placeholder {
+#react-select-1-placeholder,#react-select-2-placeholder ,#react-select-3-placeholder ,#react-select-4-placeholder,#react-select-5-placeholder{
   padding: 0 5px;
 }
-#react-select-5-listbox ,#react-select-3-listbox {
+#react-select-1-listbox ,#react-select-2-listbox ,#react-select-3-listbox ,#react-select-4-listbox, #react-select-5-listbox {
   background-color: ${(props) => props.background.paper};
 
   color: ${(props) => props.textColors.primary}; 

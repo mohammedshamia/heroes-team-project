@@ -4,7 +4,7 @@ export const SignupContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
+  /* overflow: hidden; */
 `;
 
 export const SignupImage = styled.img`

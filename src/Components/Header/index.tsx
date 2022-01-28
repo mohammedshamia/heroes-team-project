@@ -83,11 +83,17 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
 
               {data ? (
                 <Link to="/profile">
-                  <Avater
-                    src={data.profileImage}
-                    width="4.6rem"
-                    height="4.6rem"
-                  />
+                  {data.profileImage ? (
+                    <Avater
+                      src={data.profileImage}
+                      width="4.6rem"
+                      height="4.6rem"
+                    />
+                  ) : (
+                    <SVGICON description={data.firstName} to="/profile">
+                      <Person />
+                    </SVGICON>
+                  )}
                 </Link>
               ) : (
                 <SVGICON description="Login / SignUp" to="/login">

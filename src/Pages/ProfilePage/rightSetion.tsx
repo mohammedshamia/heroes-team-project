@@ -141,6 +141,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
               <ChangePassword
                 modalDisplay={passwordModalDisplay}
                 setModalDisplay={setPasswordModalDisplay}
+                UserProileData={UserProileData}
               />
             )}
           </RightProfileuserDateButton>

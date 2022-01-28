@@ -6,16 +6,24 @@ import ChangePasswordForm from "../Forms/ChangePassword/index";
 interface IProps {
   modalDisplay: boolean;
   setModalDisplay: (bool: boolean) => void;
+  UserProileData?: any;
 }
 
-const ChangePassword = ({ modalDisplay, setModalDisplay }: IProps) => {
+const ChangePassword = ({
+  UserProileData,
+  modalDisplay,
+  setModalDisplay,
+}: IProps) => {
   return (
     <>
       {modalDisplay && (
         <Modal isOpen={modalDisplay} onClose={() => setModalDisplay(false)}>
           <ModalTitle>Update Password</ModalTitle>
           <ModalContent>
-            <ChangePasswordForm setModalDisplay={setModalDisplay} />
+            <ChangePasswordForm
+              UserProileData={UserProileData}
+              setModalDisplay={setModalDisplay}
+            />
           </ModalContent>
         </Modal>
       )}

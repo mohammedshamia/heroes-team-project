@@ -22,7 +22,7 @@ const EditeUserPage = () => {
       {userDetails ? (
         <FormikEditUser data={userDetails} userId={userId}/>
       ) : (
-        <Typography variant="h1">Not Found User</Typography>
+        <Typography variant="h1">{error && "Not Found User"}</Typography>
       )}
     </Container>
   );

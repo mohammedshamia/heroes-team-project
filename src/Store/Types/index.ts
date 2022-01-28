@@ -1,7 +1,12 @@
 //products interfaces
 export interface Review {
-  rating: number;
   comment: string;
+  createdAt?: string;
+  name?: string;
+  rating: number;
+  updatedAt?: string;
+  user?: string;
+  _id?: string;
 }
 
 export interface Icategories {
@@ -67,6 +72,15 @@ export interface IUser {
     totalPrice: number;
   };
   token: string;
+}
+export interface IUserProfile {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
+  profileImage?: string;
+  isAdmin?: boolean;
+  dateOfBirth?: string;
 }
 
 export interface IusersByPaginate {
