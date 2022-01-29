@@ -1,11 +1,11 @@
 import { Form } from "formik";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/configureStore";
 import Button from "../../Elements/Buttons";
 import FormInput from "../Fields/inputField";
 import { FlexInput, Label } from "../Fields/inputField.style";
-
+import Eye from '../../Icons/eye'
 interface IProps {
   errors: any;
   touched: any;
@@ -16,6 +16,15 @@ const SignupForm = ({ errors, touched }: IProps) => {
   useEffect(() => {
     // console.log
   });
+  const [state, setState] = useState(false)
+  const [state2, setState2] = useState(false)
+
+  const toggle = () => {
+    if (state) {
+      setState(!state)
+    }
+    setState2(!state2)
+  }
   return (
     <Form>
       <FlexInput>
@@ -39,8 +48,9 @@ const SignupForm = ({ errors, touched }: IProps) => {
           name="password"
           errors={errors}
           touched={touched}
-          type={"password"}
+          type={state ? "text" : "password"}
         />
+        <span style={{ width: "15px" }} onClick={toggle}> <Eye /></span>
       </FlexInput>
 
       <FlexInput>
@@ -49,8 +59,9 @@ const SignupForm = ({ errors, touched }: IProps) => {
           name="passwordConfirmation"
           errors={errors}
           touched={touched}
-          type={"password"}
+          type={!state2 ? "text" : "password"}
         />
+        <span style={{ width: "15px" }} onClick={toggle}> <Eye /></span>
       </FlexInput>
 
       <Button
