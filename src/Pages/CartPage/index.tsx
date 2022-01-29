@@ -1,6 +1,6 @@
 import Container from "../../Components/Container";
 import Typography from "../../Components/Typography";
-import { LinkBack, Parent, TitleLink, Wrapper } from "./style";
+import { ContainerShoppingCartEmpty, LinkBack, Parent, TitleLink, Wrapper } from "./style";
 import SubTotal from "./SubTotal";
 import { RootState } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const CartPage = () => {
     <Container>
       <TitleLink>
         <Typography style={{ fontSize: "15px", letterSpacing: "0.96px" }}>
-          <LinkBack to="/">Back </LinkBack> / Cart
+          <LinkBack to="/">Back </LinkBack> / Shopping Cart
         </Typography>
       </TitleLink>
       <Parent>
@@ -29,15 +29,10 @@ const CartPage = () => {
                 <ShoppingCart data={data?.cart} />
               </Wrapper>
             ) : (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "100%",
-                }}
-              >
+                <ContainerShoppingCartEmpty>
+                  <Typography variant="h3" fontWeight={700}> Your shopping cart is Empty!  </Typography>
                 <img src="Assets/Group 491.png" alt="" />
-              </div>
+                </ContainerShoppingCartEmpty>
             )}
           </>
         ) : (

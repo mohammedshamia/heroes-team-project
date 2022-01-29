@@ -39,7 +39,7 @@ const SubTotal = ({ data }: Iprops) => {
           variant="h5"
           fontWeight={700}
           children={`${
-            Discount() < 0 ? 0 : Number(Discount().toFixed(2)) - 0.01
+            Discount() < 0 ? 0 : Math.round(Number(Discount())) - 0.01
           }`}
         />
       </div>

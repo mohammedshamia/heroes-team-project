@@ -1,11 +1,11 @@
 import { Form } from "formik";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/configureStore";
 import Button from "../../Elements/Buttons";
+import Eye from "../../Icons/eye";
 import FormInput from "../Fields/inputField";
-import { FlexInput, Label } from "../Fields/inputField.style";
-
+import { FlexInput, Label, Icon } from "../Fields/inputField.style";
 interface IProps {
   errors: any;
   touched: any;
@@ -16,6 +16,10 @@ const SignupForm = ({ errors, touched }: IProps) => {
   useEffect(() => {
     // console.log
   });
+
+  const [state, setState] = useState(false)
+  const [state2, setState2] = useState(false)
+
   return (
     <Form>
       <FlexInput>
@@ -39,7 +43,11 @@ const SignupForm = ({ errors, touched }: IProps) => {
           name="password"
           errors={errors}
           touched={touched}
-          type={"password"}
+          type={state ? "text" : "password"}
+          children={
+            <Icon onClick={() => { setState(!state) }}> <Eye /></Icon>
+          }
+
         />
       </FlexInput>
 
@@ -49,8 +57,12 @@ const SignupForm = ({ errors, touched }: IProps) => {
           name="passwordConfirmation"
           errors={errors}
           touched={touched}
-          type={"password"}
+          type={state2 ? "text" : "password"}
+          children={
+            <Icon onClick={() => { setState2(!state2) }}> <Eye /></Icon>
+          }
         />
+
       </FlexInput>
 
       <Button

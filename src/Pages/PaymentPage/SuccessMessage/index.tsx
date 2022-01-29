@@ -27,14 +27,15 @@ const InfoContainer = styled.div`
 
 const Index = () => {
   const query = new URLSearchParams(useLocation().search);
-  const city = query.get("city");
-  const country = query.get("country");
   const street = query.get("streetAddress");
   const code = query.get("zipCode");
+
   const items = useSelector(
     (state: RootState) => state?.entities?.user?.data?.cart?.items
   );
-  // console.log(items)
+  let orders = useSelector((state: RootState) => state.entities.order);
+  let shippingAddress = useSelector((state: RootState) => state.entities.order.order?.shippingAddress)
+
   return (
     <SuccessMessage>
       <AlertMessage
@@ -47,18 +48,19 @@ const Index = () => {
         <Title>Payment Success !</Title>
         <InfoContainer>
           <h2>Order number</h2>
-          <p>17D458E7e6155r7</p> {/* ??  */}
+          {orders?.order?.orderItems?.map((item) => (
+            <p key={item.product._id}>{item.product}</p>
+          ))}
         </InfoContainer>
         <InfoContainer>
           <h2>Shipping Address</h2>
           <p>
-            {city} {country} {street} {code}
+            {shippingAddress?.city} {shippingAddress?.country} {street} {code}
           </p>
         </InfoContainer>
         <InfoContainer>
           <h2>Order Items</h2>
           <div>
-            {/* 1x iPhone 11 pro 256GB Memory 1x Apple */}
             {items?.map((item) => (
               <p key={item.product._id}>{item.product.name}</p>
             ))}
