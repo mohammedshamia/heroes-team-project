@@ -1,3 +1,4 @@
+
 import { Errors, FlexInput, Input, Label } from "./inputField.style";
 
 interface Iprops {
@@ -11,6 +12,7 @@ interface Iprops {
   fullWidth?: boolean;
   width?: string;
   background?: string;
+  children?: React.ReactNode
 }
 
 function FormInput({
@@ -24,10 +26,14 @@ function FormInput({
   component,
   fullWidth,
   width,
+  children,
 }: Iprops) {
+
+
   return (
     <FlexInput width={width} fullWidth={fullWidth}>
       <Label htmlFor={name}>{label}</Label>
+      <div style={{ position: "relative" }}> 
       <Input
         id={name}
         type={type}
@@ -36,7 +42,9 @@ function FormInput({
         autoComplete={"off"}
         component={component}
         background={background}
-      />
+        />
+        {children}
+      </div>
       {errors[name] && touched[name] && <Errors>{errors[name]}</Errors>}
     </FlexInput>
   );

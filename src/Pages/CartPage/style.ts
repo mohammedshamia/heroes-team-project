@@ -46,3 +46,12 @@ export const Parent = styled.div`
     flex-direction: column;
   }
 `;
+export const ContainerShoppingCartEmpty = styled.div` 
+display:flex;
+flex-direction:column; 
+justify-content:center; 
+width:100%; 
+align-items:center; 
+
+
+`
