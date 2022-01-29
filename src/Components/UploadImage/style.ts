@@ -14,7 +14,7 @@ export const FileInput = styled.div<IPorps>`
       ? `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(${props.bg})`
       : ""};
   width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "auto"};
+  height: ${(props) => props.height || "100%"};
   position: relative;
   opacity: 0.5;
   display: flex;
