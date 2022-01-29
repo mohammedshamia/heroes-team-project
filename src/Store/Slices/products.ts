@@ -132,11 +132,11 @@ export const getProductsById = (data: { id: string }) =>
   });
 
 export const addReviewToProducts = (
-  id: string,
+  productID: string,
   data: { rating: number; comment: string }
 ) =>
   apiCallBegan({
-    url: `products/${id}/reviews`,
+    url: `products/${productID}/reviews`,
     method: "post",
     data: data,
     headers: getAuthHeader(),
