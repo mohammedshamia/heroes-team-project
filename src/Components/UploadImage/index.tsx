@@ -10,8 +10,8 @@ interface IPorps {
   setImage: Function;
   children?: ReactNode;
   bg?: string;
+  setError?: Function;
 }
-
 
 const UploadImage: FC<IPorps> = ({
   setImage,
@@ -20,6 +20,7 @@ const UploadImage: FC<IPorps> = ({
   height,
   children,
   bg,
+  setError,
 }) => {
   const [uploading, setUploading] = useState(false);
 
@@ -43,15 +44,15 @@ const UploadImage: FC<IPorps> = ({
       );
       setImage(data);
       setUploading(false);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       setUploading(false);
+      setError && setError(error.message);
     }
   };
 
   return (
     <FileInput bgColor={bgColor} width={width} height={height} bg={bg}>
-      {/* {console.log(bg)} */}
       {uploading ? (
         <>
           <SppinerLoading height="100%" width="100%" bgColor="#99999933" />

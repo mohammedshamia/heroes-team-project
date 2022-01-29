@@ -24,13 +24,18 @@ export const FileInput = styled.div<IPorps>`
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  & input {
+  & input,
+  & div {
     cursor: pointer;
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
     z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     &::-webkit-file-upload-button {
       visibility: hidden;
     }
