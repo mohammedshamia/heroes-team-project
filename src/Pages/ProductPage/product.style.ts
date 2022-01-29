@@ -156,7 +156,10 @@ export const TechnicalDetails = styled.div`
     flex-direction: column;
   }
 `;
-
+export const Discount = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 export const StyledTable = styled.div`
   width: 100%;
   display: flex;

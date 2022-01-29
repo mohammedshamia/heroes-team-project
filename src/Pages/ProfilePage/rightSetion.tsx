@@ -22,6 +22,7 @@ import {
 import Upload from "../../Components/Icons/Upload";
 import { useAppDispatch } from "../../Store/configureStore";
 import { updateUserProfile } from "../../Store/Slices/user";
+import AlertMessage from "../../Components/Elements/Alert";
 
 interface IProps {
   UserProileData: IUser;
@@ -31,6 +32,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
   const dispatch = useAppDispatch();
 
   const [image, setImage] = useState<string>("");
+  const [error, setError] = useState<string>("");
   const [passwordModalDisplay, setPasswordModalDisplay] =
     useState<boolean>(false);
   const [uploadImagedModalDisplay, setUploadImagedModalDisplay] =
@@ -173,12 +175,17 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 onClose={() => setUploadImagedModalDisplay(false)}
               >
                 <ModalTitle>Upload new photo</ModalTitle>
+                <AlertMessage type="error">{error}</AlertMessage>
                 <UploaderDiv image={image || UserProileData.profileImage}>
                   {image ? (
                     ""
                   ) : (
-                    <UploadImage setImage={setImage}>
-                      <Upload color={"#fff"} />
+                    <UploadImage
+                      setError={setError}
+                      height="100%"
+                      setImage={setImage}
+                    >
+                      <Upload color={"#ccc"} />
                     </UploadImage>
                   )}
                 </UploaderDiv>

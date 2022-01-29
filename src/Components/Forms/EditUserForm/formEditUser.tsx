@@ -12,19 +12,21 @@ import {
   User,
   Label,
 } from "./style";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { IEditUserValues } from "./interface";
 import DateInput from "../Fields/Date/DateInput";
 import FieldDate from "../Fields/Date/FieldDate";
 import UploadImage from "../../UploadImage";
 import Avater from "../../../Pages/ProfilePage/avater";
+import AlertMessage from "../../Elements/Alert";
 
 interface OtherProps {
   data?: IEditUserValues;
 }
 
 const FormEditProduct = (props: OtherProps & FormikProps<IEditUserValues>) => {
+  const [error, setError] = useState("");
   const { errors, touched, setFieldValue, data, values } = props;
 
   useEffect(() => {
@@ -104,7 +106,9 @@ const FormEditProduct = (props: OtherProps & FormikProps<IEditUserValues>) => {
               <Typography style={{ textAlign: "center" }}>
                 Profile Image
               </Typography>
+              <AlertMessage type="error">{error}</AlertMessage>
               <UploadImage
+                setError={setError}
                 width="200px"
                 height="200px"
                 bg={values?.profileImage}
