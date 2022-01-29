@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import AddReview from "../../../Components/AddReview";
 import Button from "../../../Components/Elements/Buttons";
 import Rate from "../../../Components/Elements/Rating";
@@ -15,8 +16,10 @@ import {
 
 interface IProps {
   productById: IProduct;
+  isAuth: boolean | null;
 }
-const Reviews = ({ productById }: IProps) => {
+const Reviews = ({ productById, isAuth }: IProps) => {
+  const navigate = useNavigate();
   const [uploadImagedModalDisplay, setUploadImagedModalDisplay] =
     useState<boolean>(false);
 
@@ -35,8 +38,8 @@ const Reviews = ({ productById }: IProps) => {
       <Technical>
         <Review>
           {console.log(productById.reviews)}
-          {productById.reviews.length !== 0 ? (
-            productById.reviews.map((row) => (
+          {productById?.reviews?.length !== 0 ? (
+            productById?.reviews?.map((row) => (
               <Padding key={row._id}>
                 <Typography
                   style={{
@@ -79,7 +82,13 @@ const Reviews = ({ productById }: IProps) => {
             </>
           )}
         </Review>
-        <Button onClick={handleOpenReviewDialog}>Add Review</Button>
+        {isAuth ? (
+          <Button onClick={handleOpenReviewDialog}>Add Review</Button>
+        ) : (
+          <Button onClick={() => navigate("/login")}>
+            Login to Add Review
+          </Button>
+        )}
       </Technical>
       {uploadImagedModalDisplay && (
         <AddReview

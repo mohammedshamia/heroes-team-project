@@ -24,6 +24,8 @@ const ProductPage = () => {
     (state: RootState) => state.entities.products
   );
 
+  let { auth } = useSelector((state: RootState) => state.entities.user);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -53,7 +55,7 @@ const ProductPage = () => {
                   <ProductDetails productById={productById} />
                 </FirstSection>
                 <Specification />
-                <Reviews productById={productById} />
+                <Reviews productById={productById} isAuth={auth} />
               </Container>
 
               <CardSliders />

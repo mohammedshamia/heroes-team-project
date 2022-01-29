@@ -175,7 +175,7 @@ const RightSetion = ({ UserProileData }: IProps) => {
                 onClose={() => setUploadImagedModalDisplay(false)}
               >
                 <ModalTitle>Upload new photo</ModalTitle>
-                <AlertMessage type="error">{error}</AlertMessage>
+                {error ? <AlertMessage type="error">{error}</AlertMessage> : ""}
                 <UploaderDiv image={image || UserProileData.profileImage}>
                   {image ? (
                     ""

@@ -106,7 +106,7 @@ const FormEditProduct = (props: OtherProps & FormikProps<IEditUserValues>) => {
               <Typography style={{ textAlign: "center" }}>
                 Profile Image
               </Typography>
-              <AlertMessage type="error">{error}</AlertMessage>
+              {error ? <AlertMessage type="error">{error}</AlertMessage> : ""}
               <UploadImage
                 setError={setError}
                 width="200px"

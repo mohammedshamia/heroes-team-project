@@ -13,19 +13,29 @@ const ImageSection = ({ productById }: IProps) => {
   const [BigImage, setBigImage] = useState("");
   return (
     <ImageSections>
-      <Imagefirst>
-        <img src={BigImage || productById?.images[0]} loading="lazy" alt="" />
-      </Imagefirst>
-      <ImageSecionSecond>
-        {productById?.images?.map((element: string, index) => (
-          <ImageSmall
-            key={element + index}
-            onClick={() => setBigImage(element)}
-          >
-            <img src={element} loading="lazy" alt="" />
-          </ImageSmall>
-        ))}
-      </ImageSecionSecond>
+      {productById?.images !== undefined && productById?.images?.length > 0 ? (
+        <>
+          <Imagefirst>
+            <img
+              src={BigImage || productById?.images[0]}
+              loading="lazy"
+              alt=""
+            />
+          </Imagefirst>
+          <ImageSecionSecond>
+            {productById?.images?.map((element: string, index) => (
+              <ImageSmall
+                key={element + index}
+                onClick={() => setBigImage(element)}
+              >
+                <img src={element} loading="lazy" alt="" />
+              </ImageSmall>
+            ))}
+          </ImageSecionSecond>
+        </>
+      ) : (
+        ""
+      )}
     </ImageSections>
   );
 };
