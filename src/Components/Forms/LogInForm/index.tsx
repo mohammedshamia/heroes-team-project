@@ -14,8 +14,8 @@ import Alert from "../../Elements/Alert/index";
 
 const Index = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   let user = useSelector((state: RootState) => state.entities.user);
-  let navigate = useNavigate();
 
   const LoginInitialValues: ILogInUser = {
     email: "",
@@ -25,7 +25,6 @@ const Index = () => {
 
   useEffect(() => {
     user.auth && navigate("/");
-    console.log("user.error", user.error);
   }, [navigate, user]);
 
   return (
@@ -38,7 +37,7 @@ const Index = () => {
       </Typography>
       {user.error && (
         <Alert type="error">
-          <p style={{ fontSize: "15px" }}> {user.error} </p>
+          <p style={{ fontSize: "15px" }}>{user.error} </p>
         </Alert>
       )}
       <Formik
@@ -46,7 +45,6 @@ const Index = () => {
         validationSchema={LogInSchema}
         children={LoginForm}
         onSubmit={(values) => {
-          // console.log("Login Form Submited :)", values);
           dispatch(
             loginUser({
               email: values.email,

@@ -209,7 +209,7 @@ const routes = [
     component: <Navigate to="/404" />,
     route: "*",
     ruleShouldBe: ALL,
-    to: "/",
+    to: "/404",
   },
 ];
 
