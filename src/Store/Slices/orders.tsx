@@ -80,11 +80,12 @@ const {
 } = slice.actions;
 
 //user Authentication functions
-export const createOrder = (data: IShippingAddress) =>
+export const createOrder = (data: any) =>
   apiCallBegan({
     url: "orders",
     method: "post",
     data,
+    headers: getAuthHeader(),
     onStart: ordersRequested.type,
     onSuccess: orderCreated.type,
     onError: orderCreatedFailed.type,
@@ -122,7 +123,7 @@ export const getOrders = (pageNumber: number = 1) =>
     onError: orderCreatedFailed.type,
   });
 
-export const deliverOrder = (orderId: number) =>
+export const deliverOrder = (orderId: string) =>
   apiCallBegan({
     url: `orders/${orderId}/deliver`,
     method: "put",

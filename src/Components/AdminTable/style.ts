@@ -37,3 +37,23 @@ export const UpperArea = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
 `;
+export const RelativeTh = styled.th`
+  position: relative;
+  &:hover > div {
+    display: block;
+  }
+`;
+export const ImageDiv = styled.div`
+  background-color: ${(props) => props.theme.background.paper};
+  display: none;
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  bottom: 0;
+  right: 0;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;

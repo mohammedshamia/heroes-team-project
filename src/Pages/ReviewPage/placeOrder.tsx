@@ -1,3 +1,4 @@
+import { Fragment, useState } from "react";
 import {
   Step,
   Hr,
@@ -20,21 +21,56 @@ import { useLocation } from "react-router-dom";
 import { RootState } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
 
+import { createOrder } from "../../Store/Slices/orders";
+import { useAppDispatch } from "../../Store/configureStore";
+
+// Stripe Hooks
+import {
+  useStripe,
+  useElements,
+  CardNumberElement,
+} from "@stripe/react-stripe-js";
+
+// Stripe Checkout Form
+import PaymentForm from "../../Components/Stripe/checkoutForm/paymentForm";
+
 const PlaceOrder = () => {
   let navigate = useNavigate();
   const query = new URLSearchParams(useLocation().search);
-    let {data} = useSelector((state: RootState) => state?.entities.user);
-  const items = useSelector((state: RootState) => state?.entities?.user?.data?.cart?.items);
+  let order = useSelector((state: RootState) => state.entities.order.order);
+  let { data } = useSelector((state: RootState) => state?.entities.user);
+  const items = useSelector(
+    (state: RootState) => state?.entities?.user?.data?.cart?.items
+  );
+
   // console.log(OrderDetails);
-  const city = query.get("city")
-    const country = query.get("country")
-    const street = query.get("streetAddress")
-    const code = query.get("zipCode")
+  const city = query.get("city");
+  const country = query.get("country");
+  const street = query.get("streetAddress");
+  const code = query.get("zipCode");
   const { id } = useParams();
 
-  const handleClick = () => {
-    navigate(`/product/payment/${id}?city=${city}&country=${country}&zipCode=${code}&streetAddress=${street}`);
+  //stripe
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const handleClick = async () => {
+    if (!stripe || !elements) return;
+
+    console.log(order?.clientSecret!, "This order client secret ID");
+
+    const payload = await stripe.confirmCardPayment(order?.clientSecret!, {
+      payment_method: {
+        card: elements.getElement(CardNumberElement)!,
+      },
+    });
+
+    console.log(payload, "this payload");
+    navigate(
+      `/product/payment/${id}?city=${city}&country=${country}&zipCode=${code}&streetAddress=${street}`
+    );
   };
+
   return (
     <Container>
       <Typography variant="h6" fontWeight={700}>
@@ -42,12 +78,10 @@ const PlaceOrder = () => {
       </Typography>
       <Stepper>
         <>
-          {" "}
           <Step
             opacity=".5"
             onClick={() => navigate("/product/review/shipping/:id")}
           >
-
             1
           </Step>
           <Typography
@@ -64,7 +98,6 @@ const PlaceOrder = () => {
         </>
         <Hr />
         <>
-          {" "}
           <Step> 2 </Step>
           <Typography
             children=" place and order"
@@ -108,7 +141,7 @@ const PlaceOrder = () => {
             <LinkRouter to="/cart"> change </LinkRouter>
           </Title>
           {items?.map((item: any) => (
-            <>
+            <Fragment key={"fragment" + item.product._id}>
               <ContentCart
                 key={item.product._id}
                 imgUrl={item.product.images[0] as string}
@@ -116,15 +149,15 @@ const PlaceOrder = () => {
                 title={item.product.name}
                 qty={item.qty}
               />
-            </>
+            </Fragment>
           ))}
+          <PaymentForm />
         </ContentPlaceOrder>
         <ContainerOrderDetails>
           <ContentDetailsPlaceOrder>
             <Typography
               children="Order Details"
               fontWeight={700}
-              // color='#000'
               variant="h6"
               style={{
                 letterSpacing: "1.28px",

@@ -1,7 +1,14 @@
+import { string } from "yup/lib/locale";
+
 //products interfaces
 export interface Review {
-  rating: number;
   comment: string;
+  createdAt?: string;
+  name?: string;
+  rating: number;
+  updatedAt?: string;
+  user?: string;
+  _id?: string;
 }
 
 export interface Icategories {
@@ -68,6 +75,15 @@ export interface IUser {
   };
   token: string;
 }
+export interface IUserProfile {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
+  profileImage?: string;
+  isAdmin?: boolean;
+  dateOfBirth?: string;
+}
 
 export interface IusersByPaginate {
   users: IUser[];
@@ -109,8 +125,64 @@ export interface IOrder {
   updatedAt: string;
   clientSecret: string;
 }
+
+export interface IOrderMy {
+  shippingAddress?: {
+    address?: string;
+    city?: string;
+    postalCode?: number;
+    country?: string;
+  };
+  taxPrice?: number;
+  shippingPrice?: number;
+  totalPrice?: number;
+  isPaid?: boolean;
+  isDelivered?: boolean;
+  _id?: string;
+  user?: string;
+  orderItems?: [
+    {
+      _id?: string;
+      product?: {
+        images: string[];
+        colors?: [string];
+        categories?: [string];
+        rating?: number;
+        numReviews?: number;
+        price?: number;
+        discount?: number;
+        countInStock?: number;
+        _id?: string;
+        name?: string;
+        user?: string;
+        brand?: string;
+        description?: string;
+        reviews?: [
+          {
+            _id?: string;
+            name?: string;
+            rating?: number;
+            comment?: string;
+            user?: string;
+            createdAt?: string;
+            updatedAt?: string;
+          }
+        ];
+        createdAt?: string;
+        updatedAt?: string;
+      };
+      qty?: number;
+      itemTotalPrice?: number;
+    }
+  ];
+  paymentMethod?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  clientSecret?: string;
+}
+
 export interface OrdersByPaginate {
-  orders: IOrder[];
+  orders: IOrderMy[];
   page: number;
   pages: number;
 }

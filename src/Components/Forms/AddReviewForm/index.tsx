@@ -1,10 +1,11 @@
 import { Formik } from "formik";
 import { IAddReview } from "../../../@Types/Validation";
 import { AddReviewSchema } from "../../../Helpers/Validation/AddReviewSchema";
-// import { useAppDispatch } from "../../../Store/configureStore";
-// import { addReviewToProducts } from "../../../Store/Slices/products";
+import { addReviewToProducts } from "../../../Store/Slices/products";
 import AddReviewForm from "./AddReviewForm";
+import { useAppDispatch } from "../../../Store/configureStore";
 
+import { Review } from "../../../Store/Types/index";
 const Index = ({
   setModalDisplay,
   rate,
@@ -14,23 +15,34 @@ const Index = ({
   rate: number;
   productId: string;
 }) => {
+  const dispatch = useAppDispatch();
   const initialValues: IAddReview = {
     description: "",
+    rate: 0,
   };
 
   // const dispatch = useAppDispatch();
   console.log(rate, productId);
-
+  // data: { rate: number; review: Review }
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values) => {
-        // dispatch(addReviewToProducts(productId, { rate, values.description }));
-        console.log("ChangePassword submitted", values, rate, productId);
+        const review: Review = {
+          rating: values.rate,
+          comment: values.description,
+        };
+        dispatch(addReviewToProducts(productId, review));
+        // console.log(productId, "Reviewed", review);
+        setModalDisplay(false);
       }}
       validationSchema={AddReviewSchema}
       children={(formikProps) => (
-        <AddReviewForm {...formikProps} setModalDisplay={setModalDisplay} />
+        <AddReviewForm
+          rate={rate}
+          {...formikProps}
+          setModalDisplay={setModalDisplay}
+        />
       )}
     />
   );

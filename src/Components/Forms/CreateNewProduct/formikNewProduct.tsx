@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import { useNavigate } from "react-router";
 import { ICreateNewProduct } from "../../../@Types/Validation";
 import { CreateNewProductSchema } from "../../../Helpers/Validation";
 import { useAppDispatch } from "../../../Store/configureStore";
@@ -24,21 +25,25 @@ const FormikNewProduct = (props: Iprops) => {
   };
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values: ICreateNewProduct, actions) => {
         if (props.isEditing) {
-          console.log(values);
+          // console.log(values);
           dispatch(updateProdcut(values as any, props?.data?._id as string));
+          navigate(`/product/${props?.data?._id}`);
         } else {
-          console.log(values);
+          // console.log(values);
           dispatch(createProdcut(values as any));
+          navigate("/products");
         }
 
         actions.setSubmitting(false);
         actions.resetForm({});
+        navigate("/admin/products");
       }}
       validationSchema={CreateNewProductSchema}
       children={(formikProps) => <FormNewProduct {...formikProps} {...props} />}
