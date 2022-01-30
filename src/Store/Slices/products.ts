@@ -70,6 +70,15 @@ const slice = createSlice({
       state.message = message;
       state.loading = false;
     },
+    reviewAddedSuccessfuly: (
+      state,
+      {
+        payload: { product },
+      }: PayloadAction<{ message: string; product: IProduct }>
+    ) => {
+      state.productById = product;
+    },
+
     productsRequested: (state, action) => {
       state.loading = true;
     },
@@ -85,6 +94,7 @@ const {
   productCreated,
   productdeletionSucceded,
   productdeletionFailed,
+  reviewAddedSuccessfuly,
 } = slice.actions;
 
 export const getAllProductsByPaginate = (data?: {
