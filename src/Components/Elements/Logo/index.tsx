@@ -1,17 +1,17 @@
-import { Logo, Main, Sup } from './styles';
+import { Logo, Main, Sup } from "./styles";
 
-interface IProps{
+interface IProps {
   main: string;
-  sub: string
+  sub: string;
 }
-// Logo takes two props title and 
-const Index = ({main, sub}: IProps) => {
+// Logo takes two props title and
+const Index = ({ main, sub }: IProps) => {
   return (
-    <Logo>  
+    <Logo to="/">
       <Main>{main}</Main>
       <Sup>{sub}</Sup>
     </Logo>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

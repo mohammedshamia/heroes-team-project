@@ -1,38 +1,39 @@
-import React, { useEffect } from "react";
+import { HTMLProps, ReactNode } from "react";
 import { Alert } from "./style";
 
 type positions = "normal" | "snackBar";
 
-type types = "default" | "card" |"success" | "warning" | "error";
+type types = "default" | "card" | "success" | "warning" | "error";
 
-interface IProps extends React.HTMLProps<HTMLDivElement> {
-  children?: React.ReactNode;
+interface IProps extends HTMLProps<HTMLDivElement> {
+  children?: ReactNode;
   component?: any;
   position?: positions;
   type?: types;
-  setOpen: (boo: boolean) => void;
+  setOpen?: (boo: boolean) => void;
+  open?: boolean;
 }
 
-const Index = ({
+const AlertMessage = ({
   children,
   component,
   position = "normal",
   type = "default",
   setOpen,
+  open,
   ...rest
 }: IProps) => {
   window.setTimeout(() => {
-    console.log("out!");
-    if(position === 'snackBar') {
+    if (position === "snackBar" && setOpen) {
       setOpen(false);
     }
-  }, 6000);
+  }, 5000);
 
   return (
-    <Alert as={component} {...rest} type={type} position={position}>
+    <Alert as={component} {...rest} type={type} position={position} open={open}>
       {children}
     </Alert>
   );
 };
 
-export default Index;
+export default AlertMessage;
