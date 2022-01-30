@@ -55,7 +55,7 @@ function App() {
     }
 
     axios
-      .get("https://prohop-express.herokuapp.com/api/config/stripe-key")
+      .get(`${process.env.REACT_APP_DOMAINURL}config/stripe-key`)
       .then((response) => {
         setStripePromise(loadStripe(response.data.publishableKey));
       });
