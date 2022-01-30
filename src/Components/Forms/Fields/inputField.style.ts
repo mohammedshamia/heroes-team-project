@@ -57,17 +57,17 @@ interface IProps {
 }
 export const FlexInput = styled.div<IProps>`
   display: flex;
-  position:relative;
+  position: relative;
   flex-direction: column;
   width: ${(props) => (props.fullWidth ? "100%" : props.width)};
   @media (max-width: 800px) {
     width: 100%;
   }
 `;
-export const Icon = styled.span` 
-width:15px; 
-position:absolute; 
-right:5px; 
-bottom:5px; 
-
-`
+export const Icon = styled.span`
+  width: 15px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  cursor: pointer;
+`;

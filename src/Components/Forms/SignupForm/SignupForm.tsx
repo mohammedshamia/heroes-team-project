@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/configureStore";
 import Button from "../../Elements/Buttons";
 import Eye from "../../Icons/eye";
+import EyeOff from "../../Icons/EyeOff";
 import FormInput from "../Fields/inputField";
 import { FlexInput, Label, Icon } from "../Fields/inputField.style";
 interface IProps {
@@ -47,7 +48,7 @@ const SignupForm = ({ errors, touched }: IProps) => {
               }}
             >
               {" "}
-              <Eye />
+              {state ? <Eye /> : <EyeOff />}
             </Icon>
           }
         />

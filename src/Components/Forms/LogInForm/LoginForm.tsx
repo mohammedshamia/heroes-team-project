@@ -5,7 +5,10 @@ import { useTheme } from "styled-components";
 import { RootState } from "../../../Store/configureStore";
 import Button from "../../Elements/Buttons";
 import FormInput from "../Fields/inputField";
-import { FlexInput, Label } from "../Fields/inputField.style";
+import { FlexInput, Label, Icon } from "../Fields/inputField.style";
+import Eye from "../../Icons/eye";
+import { useState } from "react";
+import EyeOff from "../../Icons/EyeOff";
 
 interface IProps {
   errors: any;
@@ -14,6 +17,7 @@ interface IProps {
 const LoginForm = ({ errors, touched }: IProps) => {
   const theme = useTheme();
   let user = useSelector((state: RootState) => state.entities.user);
+  const [state, setState] = useState(false);
 
   return (
     <Form>
@@ -27,12 +31,21 @@ const LoginForm = ({ errors, touched }: IProps) => {
           name="password"
           errors={errors}
           touched={touched}
-          type={"password"}
+          type={state ? "text" : "password"}
+          children={
+            <Icon
+              onClick={() => {
+                setState(!state);
+              }}
+            >
+              {" "}
+              {state ? <Eye /> : <EyeOff />}
+            </Icon>
+          }
         />
       </FlexInput>
 
       <Button
-        // type="submit"
         bold={true}
         backgroundColor="#FCDD06"
         width="100%"
