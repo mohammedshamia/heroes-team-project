@@ -5,7 +5,6 @@ import { getAuthHeader } from "../../Helpers/tools";
 import {
   IProductsSliceState,
   IProduct,
-  // Review,
   IproductsByPaginate,
   IAllCategories,
 } from "../Types";
@@ -70,6 +69,15 @@ const slice = createSlice({
       state.message = message;
       state.loading = false;
     },
+    reviewAddedSuccessfuly: (
+      state,
+      {
+        payload: { product },
+      }: PayloadAction<{ message: string; product: IProduct }>
+    ) => {
+      state.productById = product;
+    },
+
     productsRequested: (state, action) => {
       state.loading = true;
     },
@@ -141,6 +149,7 @@ export const addReviewToProducts = (
     data: data,
     headers: getAuthHeader(),
     onSuccess: productByIdReceived.type,
+    msgOnSuccess: "review Added Successfuly",
   });
 
 //Admin Routes

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IOrder, IProduct, IUser } from "../../../Store/Types";
+import { IProduct } from "../../../Store/Types";
 import Button from "../../Elements/Buttons";
 import DeleteIcon from "../../Icons/DeleteIcon";
 import EditIcon from "../../Icons/EditIcon";

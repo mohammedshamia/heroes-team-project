@@ -22,6 +22,7 @@ import Upload from "../../Icons/Upload";
 import CloseIcon from "../../Icons/CloseIcon";
 import UploadImage from "../../UploadImage";
 import { ICreateNewProduct } from "../../../@Types/Validation";
+import { Errors } from "../Fields/inputField.style";
 
 interface OtherProps {
   isEditing: boolean;
@@ -73,6 +74,9 @@ const FormNewProduct = (props: OtherProps & FormikProps<ICreateNewProduct>) => {
       <Continer>
         <FormProduct>
           <ProductImage>
+            {errors["images"] && touched["images"] && (
+              <Errors>{errors["images"]}</Errors>
+            )}
             <ProductImageUpload>
               <UploadImage
                 bg={values?.images[0]}

@@ -115,6 +115,7 @@ export const registerUser = (data: any) =>
     onStart: userRequested.type,
     onSuccess: userAuthenticated.type,
     onError: userAuthenticatedFailed.type,
+    msgOnSuccess: "registerd  Successfuly",
   });
 
 export const loginUser = (data: { email: string; password: string }) => {
@@ -125,6 +126,7 @@ export const loginUser = (data: { email: string; password: string }) => {
     onStart: userRequested.type,
     onSuccess: userAuthenticated.type,
     onError: userAuthenticatedFailed.type,
+    msgOnSuccess: "login  Successfuly",
   });
 };
 
@@ -152,6 +154,7 @@ export const updateUserProfile = (data: IUserProfile) =>
     headers: getAuthHeader(),
     data,
     onSuccess: userAuthenticated.type,
+    msgOnSuccess: "Profile updated Successfuly",
   });
 
 //user Cart functions
@@ -162,6 +165,7 @@ export const addItemToCart = (data: { productId: string; qty: number }) =>
     headers: getAuthHeader(),
     data: data,
     onSuccess: itemAddedToCart.type,
+    msgOnSuccess: "Item added to cart Successfuly",
   });
 
 export const deleteItemFromCart = (data: string) =>
@@ -173,6 +177,7 @@ export const deleteItemFromCart = (data: string) =>
       productId: data,
     },
     onSuccess: itemAddedToCart.type,
+    msgOnSuccess: "Item deleted from cart Successfuly",
   });
 
 //Admin functions
@@ -215,6 +220,7 @@ export const editUserDetail = (
     headers: getAuthHeader(),
     onStart: userRequested.type,
     onSuccess: allUsersRecieved.type,
+    msgOnSuccess: "User edited Successfuly",
     onError: allUsersRecievedFailed.type,
   });
 
@@ -225,6 +231,7 @@ export const deleteUser = (userId: string) =>
     headers: getAuthHeader(),
     onStart: userRequested.type,
     onSuccess: userdeleted.type,
+    msgOnSuccess: "User deleted Successfuly",
   });
 
 export default slice.reducer;

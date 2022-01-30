@@ -19,7 +19,6 @@ import {
 import { FlexCenter } from "../../ProductsPage/style";
 
 const ProductsAdminPage = () => {
-  const [first, setfirst] = useState(false);
   const [modalDisplay, setModalDisplay] = useState<boolean>(false);
   const [proName, setProName] = useState<string>("this product");
   const [proId, setProId] = useState<string>("");
@@ -56,7 +55,6 @@ const ProductsAdminPage = () => {
   const closeClickHandler = () => {
     dispatch(deleteProdcut(proId));
     setModalDisplay(false);
-    setfirst(true);
   };
 
   return (
@@ -77,13 +75,6 @@ const ProductsAdminPage = () => {
           loading={loading}
         />
       </Container>
-      <AlertMessage
-        open={first}
-        setOpen={setfirst}
-        position="snackBar"
-        children={`You have deleted ${proName} Succesfully`}
-        type="error"
-      />
       <FlexCenter>
         <Pagination
           pages={productsByPaginate.pages}

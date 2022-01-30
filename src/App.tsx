@@ -7,7 +7,13 @@ import SppinerLoading from "./Components/Elements/SppinerLoading/index";
 import Header from "./Components/Header";
 import useThemeMode from "./Hook/UseThemeMode";
 
-import { RootState } from "./Store/configureStore";
+//React Tostify
+import { ToastContainer } from "react-toastify";
+import { showToast } from "./Helpers/tools";
+import "react-toastify/dist/ReactToastify.css";
+import { clearSuccessErrorNotification } from "./Store/Slices/notifications";
+
+import { RootState, useAppDispatch } from "./Store/configureStore";
 import { useSelector } from "react-redux";
 
 import routes from "./Helpers/Router";
@@ -18,6 +24,10 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
+  const dispatch = useAppDispatch();
+  const notifications = useSelector(
+    (state: RootState) => state.entities.notifications
+  );
   const [rule, setRule] = useState("");
   const { theme, ToggelTheme } = useThemeMode();
   let [stripePromise, setStripePromise] = useState<any>(null);
@@ -45,11 +55,25 @@ function App() {
     }
 
     axios
-      .get("https://prohop-express.herokuapp.com/api/config/stripe-key")
+      .get(`${process.env.REACT_APP_DOMAINURL}config/stripe-key`)
       .then((response) => {
         setStripePromise(loadStripe(response.data.publishableKey));
       });
   }, [data, ready, rule]);
+
+  useEffect(() => {
+    if (notifications && notifications.error === true) {
+      const msg = notifications.msg ? notifications.msg : "Error";
+      showToast("ERROR", msg);
+      dispatch(clearSuccessErrorNotification());
+    }
+
+    if (notifications && notifications.success === true) {
+      const msg = notifications.msg ? notifications.msg : "Done!!!!";
+      showToast("SUCCESS", msg);
+      dispatch(clearSuccessErrorNotification());
+    }
+  }, [dispatch, notifications]);
 
   return (
     <div className="App">
@@ -83,6 +107,7 @@ function App() {
           </Suspense>
         </Elements>
       </ThemeProvider>
+      <ToastContainer />
     </div>
   );
 }
