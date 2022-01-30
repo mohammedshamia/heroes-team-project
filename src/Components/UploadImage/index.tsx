@@ -38,7 +38,7 @@ const UploadImage: FC<IPorps> = ({
       };
 
       const { data } = await axios.post(
-        "http://prohop-express.herokuapp.com/api/upload",
+        `${process.env.REACT_APP_DOMAINURL}upload`,
         formData,
         config
       );

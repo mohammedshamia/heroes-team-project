@@ -54,7 +54,7 @@ const Header: FC<IHeader> = ({ ToggelTheme }) => {
         />
         <Container>
           <Content>
-            <Logo main="Pro" sub="Shop" />
+            <Logo main="Hero" sub="Shop" />
 
             <SearchContent>
               <Search />
