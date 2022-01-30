@@ -39,7 +39,7 @@ const LoginForm = ({ errors, touched }: IProps) => {
               }}
             >
               {" "}
-              {state ? <Eye /> : <EyeOff />}
+              {state ? <EyeOff /> : <Eye />}
             </Icon>
           }
         />

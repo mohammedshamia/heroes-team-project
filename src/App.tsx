@@ -73,7 +73,7 @@ function App() {
       showToast("SUCCESS", msg);
       dispatch(clearSuccessErrorNotification());
     }
-  }, [notifications]);
+  }, [dispatch, notifications]);
 
   return (
     <div className="App">

@@ -5,7 +5,6 @@ import { getAuthHeader } from "../../Helpers/tools";
 import {
   IProductsSliceState,
   IProduct,
-  // Review,
   IproductsByPaginate,
   IAllCategories,
 } from "../Types";
@@ -94,7 +93,6 @@ const {
   productCreated,
   productdeletionSucceded,
   productdeletionFailed,
-  reviewAddedSuccessfuly,
 } = slice.actions;
 
 export const getAllProductsByPaginate = (data?: {

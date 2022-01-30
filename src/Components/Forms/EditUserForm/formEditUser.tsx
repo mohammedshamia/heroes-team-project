@@ -20,6 +20,7 @@ import FieldDate from "../Fields/Date/FieldDate";
 import UploadImage from "../../UploadImage";
 import Avater from "../../../Pages/ProfilePage/avater";
 import AlertMessage from "../../Elements/Alert";
+import { Errors } from "../Fields/inputField.style";
 
 interface OtherProps {
   data?: IEditUserValues;
@@ -107,6 +108,9 @@ const FormEditProduct = (props: OtherProps & FormikProps<IEditUserValues>) => {
                 Profile Image
               </Typography>
               {error ? <AlertMessage type="error">{error}</AlertMessage> : ""}
+              {errors["profileImage"] && touched["profileImage"] && (
+                <Errors>{errors["profileImage"]}</Errors>
+              )}
               <UploadImage
                 setError={setError}
                 width="200px"

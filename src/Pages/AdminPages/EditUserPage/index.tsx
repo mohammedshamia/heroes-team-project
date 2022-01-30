@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Container from "../../../Components/Container";
@@ -16,11 +16,11 @@ const EditeUserPage = () => {
 
   useEffect(() => {
     if (userId) dispatch(getUserDetail(userId));
-  }, []);
+  }, [dispatch, userId]);
   return (
     <Container>
       {userDetails ? (
-        <FormikEditUser data={userDetails} userId={userId}/>
+        <FormikEditUser data={userDetails} userId={userId} />
       ) : (
         <Typography variant="h1">{error && "Not Found User"}</Typography>
       )}
