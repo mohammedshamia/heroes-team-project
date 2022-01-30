@@ -55,8 +55,8 @@ const ProductsAdminPage = () => {
   };
   const closeClickHandler = () => {
     dispatch(deleteProdcut(proId));
-
     setModalDisplay(false);
+    setfirst(true);
   };
 
   return (
@@ -81,8 +81,8 @@ const ProductsAdminPage = () => {
         open={first}
         setOpen={setfirst}
         position="snackBar"
-        children={"message"}
-        type="success"
+        children={`You have deleted ${proName} Succesfully`}
+        type="error"
       />
       <FlexCenter>
         <Pagination

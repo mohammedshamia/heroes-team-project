@@ -1,5 +1,4 @@
 import { Field, Form } from "formik";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "styled-components";
@@ -16,9 +15,6 @@ const LoginForm = ({ errors, touched }: IProps) => {
   const theme = useTheme();
   let user = useSelector((state: RootState) => state.entities.user);
 
-  useEffect(() => {
-    // console.log
-  });
   return (
     <Form>
       <FlexInput>

@@ -21,28 +21,35 @@ function App() {
   const [rule, setRule] = useState("");
   const { theme, ToggelTheme } = useThemeMode();
   let [stripePromise, setStripePromise] = useState<any>(null);
+  const [ready, setReady] = useState(false);
 
   let data = useSelector((state: RootState) => state.entities.user);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
-    if (!data.auth) {
-      setRule("guist");
+    const _rule = localStorage.getItem("rule");
+    setRule(_rule as string);
+    setReady(true);
+  }, [ready]);
+
+  useEffect(() => {
+    if (ready) {
+      if (data.auth && data.data?.isAdmin) {
+        localStorage.setItem("rule", "admin");
+        setRule("admin");
+      }
+      if (data.auth && !data.data?.isAdmin) {
+        localStorage.setItem("rule", "customer");
+        setRule("customer");
+      }
     }
-    if (data.auth && data.data?.isAdmin) {
-      setRule("admin");
-    }
-    if (data.auth && !data.data?.isAdmin) {
-      setRule("customer");
-    }
-    localStorage.setItem("rule", rule);
 
     axios
       .get("https://prohop-express.herokuapp.com/api/config/stripe-key")
       .then((response) => {
         setStripePromise(loadStripe(response.data.publishableKey));
       });
-  }, [data, rule]);
+  }, [data, ready, rule]);
 
   return (
     <div className="App">
@@ -53,24 +60,26 @@ function App() {
         <Elements stripe={stripePromise}>
           <Suspense fallback={<SppinerLoading />}>
             {/* pages */}
-            <Routes>
-              {routes.map((route) =>
-                route?.ruleShouldBe?.includes(rule) ? (
-                  <Route
-                    path={route.route}
-                    element={route.component}
-                    key={route.name}
-                  />
-                ) : (
-                  <Route
-                    path={route.route}
-                    element={<Navigate to={route.to || "/"} />}
-                    // element={route.component}
-                    key={route.name}
-                  />
-                )
-              )}
-            </Routes>
+            {ready && (
+              <Routes>
+                {routes.map((route) =>
+                  route?.ruleShouldBe?.includes(rule) ? (
+                    <Route
+                      path={route.route}
+                      element={route.component}
+                      key={route.name}
+                    />
+                  ) : (
+                    <Route
+                      path={route.route}
+                      element={<Navigate to={route.to} />}
+                      // element={route.component}
+                      key={route.name}
+                    />
+                  )
+                )}
+              </Routes>
+            )}
           </Suspense>
         </Elements>
       </ThemeProvider>

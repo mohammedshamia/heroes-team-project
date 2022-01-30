@@ -37,7 +37,6 @@ const Reviews = ({ productById, isAuth }: IProps) => {
 
       <Technical>
         <Review>
-          {console.log(productById.reviews)}
           {productById?.reviews?.length !== 0 ? (
             productById?.reviews?.map((row) => (
               <Padding key={row._id}>

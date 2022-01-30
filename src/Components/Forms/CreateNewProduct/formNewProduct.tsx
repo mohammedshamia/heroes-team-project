@@ -28,16 +28,7 @@ interface OtherProps {
   data?: any;
 }
 const FormNewProduct = (props: OtherProps & FormikProps<ICreateNewProduct>) => {
-  const {
-    errors,
-    touched,
-    setFieldValue,
-    isEditing,
-    data,
-    submitForm,
-    values,
-  } = props;
-  // console.log(values);
+  const { errors, touched, setFieldValue, isEditing, data, values } = props;
   const dispatch = useAppDispatch();
   let { categories } = useSelector(
     (state: RootState) => state.entities.products

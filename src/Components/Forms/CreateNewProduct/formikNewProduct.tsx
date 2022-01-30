@@ -32,11 +32,9 @@ const FormikNewProduct = (props: Iprops) => {
       initialValues={initialValues}
       onSubmit={(values: ICreateNewProduct, actions) => {
         if (props.isEditing) {
-          // console.log(values);
           dispatch(updateProdcut(values as any, props?.data?._id as string));
           navigate(`/product/${props?.data?._id}`);
         } else {
-          // console.log(values);
           dispatch(createProdcut(values as any));
           navigate("/products");
         }

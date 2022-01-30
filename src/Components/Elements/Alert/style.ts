@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 const getAlertBg = (type?: string, theme?: any) => {
   switch (type) {
     case "default":
@@ -35,7 +33,26 @@ export const Alert = styled("div")<IProps>`
   padding: 10px;
   border-radius: 5px;
   transition: all 2s;
-
+  font-size: 1.6rem;
   max-width: ${({ position }) => position === "snackBar" && "40%"};
-  text-align: ${({ position }) => position === "snackBar" && "center"}; ;
+  text-align: ${({ position }) => position === "snackBar" && "center"};
+
+  &::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1rem;
+    background-color: #000;
+    animation: less 5s linear forwards;
+    border-radius: 2px;
+  }
+
+  @keyframes less {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
+  }
 `;

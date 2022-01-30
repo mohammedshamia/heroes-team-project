@@ -24,11 +24,10 @@ const AlertMessage = ({
   ...rest
 }: IProps) => {
   window.setTimeout(() => {
-    // console.log("out!");
     if (position === "snackBar" && setOpen) {
       setOpen(false);
     }
-  }, 6000);
+  }, 5000);
 
   return (
     <Alert as={component} {...rest} type={type} position={position} open={open}>

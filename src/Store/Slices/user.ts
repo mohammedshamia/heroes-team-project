@@ -42,6 +42,8 @@ const slice = createSlice({
         cookie.save("proShop-access-toekn", payload?.token, {
           path: "/",
         });
+      } else {
+        localStorage.setItem("rule", "guist");
       }
     },
 
@@ -53,6 +55,7 @@ const slice = createSlice({
       state.auth = false;
       state.loading = false;
       state.error = message;
+      localStorage.setItem("rule", "guist");
     },
     allUsersRecieved: (state, { payload }: PayloadAction<IusersByPaginate>) => {
       state.usersByPaginate = payload;
@@ -81,7 +84,10 @@ const slice = createSlice({
     userRequested: (state, action) => {
       state.loading = true;
     },
-    userCleared: () => initialState(),
+    userCleared: (state) => {
+      localStorage.setItem("rule", "guist");
+      return initialState();
+    },
   },
 });
 
@@ -121,6 +127,7 @@ export const loginUser = (data: { email: string; password: string }) => {
 
 export const userSignOut = () => {
   removeTokenCookie();
+  localStorage.setItem("rule", "guist");
   return userCleared();
 };
 

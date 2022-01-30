@@ -1,7 +1,6 @@
 import { Form, FormikProps } from "formik";
 import { useEffect } from "react";
 import { useTheme } from "styled-components";
-import { Padding } from "../../../Pages/ProductPage/product.style";
 import Button from "../../Elements/Buttons";
 import ModalAction from "../../Elements/Modal/Dialog/ModalAction/ModalAction";
 import Rate from "../../Elements/Rating";
@@ -51,7 +50,6 @@ const AddReviewForm = ({
           <Rate
             rating={values.rate}
             onRating={(num: number) => {
-              console.log(num);
               setFieldValue("rate", num);
             }}
           />

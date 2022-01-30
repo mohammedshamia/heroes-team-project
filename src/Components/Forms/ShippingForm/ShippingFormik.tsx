@@ -21,7 +21,6 @@ const ShippingFormik = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={(values: IShippingAddress, actions) => {
-        // console.log(values);
         actions.setSubmitting(false);
         dispatch(
           createOrder({

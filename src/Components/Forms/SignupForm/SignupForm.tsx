@@ -1,5 +1,5 @@
 import { Form } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/configureStore";
 import Button from "../../Elements/Buttons";
@@ -13,12 +13,8 @@ interface IProps {
 const SignupForm = ({ errors, touched }: IProps) => {
   let user = useSelector((state: RootState) => state.entities.user);
 
-  useEffect(() => {
-    // console.log
-  });
-
-  const [state, setState] = useState(false)
-  const [state2, setState2] = useState(false)
+  const [state, setState] = useState(false);
+  const [state2, setState2] = useState(false);
 
   return (
     <Form>
@@ -45,9 +41,15 @@ const SignupForm = ({ errors, touched }: IProps) => {
           touched={touched}
           type={state ? "text" : "password"}
           children={
-            <Icon onClick={() => { setState(!state) }}> <Eye /></Icon>
+            <Icon
+              onClick={() => {
+                setState(!state);
+              }}
+            >
+              {" "}
+              <Eye />
+            </Icon>
           }
-
         />
       </FlexInput>
 
@@ -59,10 +61,16 @@ const SignupForm = ({ errors, touched }: IProps) => {
           touched={touched}
           type={state2 ? "text" : "password"}
           children={
-            <Icon onClick={() => { setState2(!state2) }}> <Eye /></Icon>
+            <Icon
+              onClick={() => {
+                setState2(!state2);
+              }}
+            >
+              {" "}
+              <Eye />
+            </Icon>
           }
         />
-
       </FlexInput>
 
       <Button

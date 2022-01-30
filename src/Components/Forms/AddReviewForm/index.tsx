@@ -21,9 +21,6 @@ const Index = ({
     rate: 0,
   };
 
-  // const dispatch = useAppDispatch();
-  console.log(rate, productId);
-  // data: { rate: number; review: Review }
   return (
     <Formik
       initialValues={initialValues}
@@ -33,7 +30,6 @@ const Index = ({
           comment: values.description,
         };
         dispatch(addReviewToProducts(productId, review));
-        // console.log(productId, "Reviewed", review);
         setModalDisplay(false);
       }}
       validationSchema={AddReviewSchema}

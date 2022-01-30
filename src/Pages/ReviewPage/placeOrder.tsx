@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import {
   Step,
   Hr,
@@ -21,14 +21,14 @@ import { useLocation } from "react-router-dom";
 import { RootState } from "../../Store/configureStore";
 import { useSelector } from "react-redux";
 
-import { createOrder } from "../../Store/Slices/orders";
-import { useAppDispatch } from "../../Store/configureStore";
+// import { createOrder } from "../../Store/Slices/orders";
+// import { useAppDispatch } from "../../Store/configureStore";
 
 // Stripe Hooks
 import {
   useStripe,
   useElements,
-  CardNumberElement,
+  // CardNumberElement,
 } from "@stripe/react-stripe-js";
 
 // Stripe Checkout Form
@@ -37,13 +37,12 @@ import PaymentForm from "../../Components/Stripe/checkoutForm/paymentForm";
 const PlaceOrder = () => {
   let navigate = useNavigate();
   const query = new URLSearchParams(useLocation().search);
-  let order = useSelector((state: RootState) => state.entities.order.order);
+  // let order = useSelector((state: RootState) => state.entities.order.order);
   let { data } = useSelector((state: RootState) => state?.entities.user);
   const items = useSelector(
     (state: RootState) => state?.entities?.user?.data?.cart?.items
   );
 
-  // console.log(OrderDetails);
   const city = query.get("city");
   const country = query.get("country");
   const street = query.get("streetAddress");
@@ -57,15 +56,12 @@ const PlaceOrder = () => {
   const handleClick = async () => {
     if (!stripe || !elements) return;
 
-    console.log(order?.clientSecret!, "This order client secret ID");
+    // const payload = await stripe.confirmCardPayment(order?.clientSecret!, {
+    //   payment_method: {
+    //     card: elements.getElement(CardNumberElement)!,
+    //   },
+    // });
 
-    const payload = await stripe.confirmCardPayment(order?.clientSecret!, {
-      payment_method: {
-        card: elements.getElement(CardNumberElement)!,
-      },
-    });
-
-    console.log(payload, "this payload");
     navigate(
       `/product/payment/${id}?city=${city}&country=${country}&zipCode=${code}&streetAddress=${street}`
     );

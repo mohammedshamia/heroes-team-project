@@ -27,7 +27,6 @@ const ProductDetails = ({ productById }: IProps) => {
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
   let user = useSelector((state: RootState) => state?.entities.user);
-  console.log(user);
   const handleAddToCart = (id: string) => {
     if (user.auth) {
       dispatch(addItemToCart({ productId: id, qty: 1 }));
