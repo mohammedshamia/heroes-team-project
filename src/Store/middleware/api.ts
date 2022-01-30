@@ -29,7 +29,7 @@ const api =
 
     try {
       const response = await axios.request({
-        baseURL: "https://prohop-express.herokuapp.com/api/",
+        baseURL: `${process.env.REACT_APP_DOMAINURL}`,
         url,
         method,
         data,
