@@ -5,7 +5,7 @@ import { getAuthHeader } from "../../Helpers/tools";
 import {
   IProductsSliceState,
   IProduct,
-  Review,
+  // Review,
   IproductsByPaginate,
   IAllCategories,
 } from "../Types";

@@ -5,7 +5,7 @@ import { apiCallBegan } from "../apiActions";
 
 import {
   IOrderState,
-  IShippingAddress,
+  // IShippingAddress,
   IOrder,
   OrdersByPaginate,
 } from "../Types";
