@@ -42,8 +42,11 @@ const slice = createSlice({
         cookie.save("proShop-access-toekn", payload?.token, {
           path: "/",
         });
-      } else {
-        localStorage.setItem("rule", "guist");
+        if (payload.isAdmin) {
+          localStorage.setItem("rule", "admin");
+        } else {
+          localStorage.setItem("rule", "customer");
+        }
       }
     },
 

@@ -28,9 +28,9 @@ function App() {
 
   useEffect(() => {
     const _rule = localStorage.getItem("rule");
-    setRule(_rule as string);
-    setReady(true);
-  }, [ready]);
+    _rule && setRule(_rule as string);
+    _rule && setReady(true);
+  }, [ready, data.auth, data.data?.isAdmin]);
 
   useEffect(() => {
     if (ready) {
