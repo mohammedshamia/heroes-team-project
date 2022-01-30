@@ -32,7 +32,7 @@ const UsersAdminPage = () => {
 
   useEffect(() => {
     dispatch(getAllUsers(page));
-     setPage(page);
+    setPage(page);
   }, [dispatch, page]);
 
   const handleEditProduct = (id: string) => {

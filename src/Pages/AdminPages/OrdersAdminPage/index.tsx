@@ -12,7 +12,6 @@ import ModalTitle from "../../../Components/Elements/Modal/Dialog/ModalTitle/Mod
 import Pagination from "../../../Components/Elements/Pagination";
 import { RootState, useAppDispatch } from "../../../Store/configureStore";
 import { deliverOrder, getOrders } from "../../../Store/Slices/orders";
-import { getAllProductsByPaginate } from "../../../Store/Slices/products";
 import { FlexCenter } from "../../ProductsPage/style";
 
 const OrdersAdminPage = () => {

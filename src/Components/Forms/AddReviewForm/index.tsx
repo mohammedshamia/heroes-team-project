@@ -35,7 +35,7 @@ const Index = ({
       validationSchema={AddReviewSchema}
       children={(formikProps) => (
         <AddReviewForm
-          rate={rate}
+          rate={0}
           {...formikProps}
           setModalDisplay={setModalDisplay}
         />

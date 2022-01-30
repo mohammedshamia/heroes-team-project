@@ -5,7 +5,7 @@ import Button from "../../Elements/Buttons";
 import ModalAction from "../../Elements/Modal/Dialog/ModalAction/ModalAction";
 import Rate from "../../Elements/Rating";
 import FormInput from "../Fields/inputField";
-import { FlexInput, Label } from "../Fields/inputField.style";
+import { Errors, FlexInput, Label } from "../Fields/inputField.style";
 
 interface IProps {
   errors?: any;
@@ -53,6 +53,9 @@ const AddReviewForm = ({
               setFieldValue("rate", num);
             }}
           />
+          {errors["rate"] && touched["rate"] && (
+            <Errors>{errors["rate"]}</Errors>
+          )}
         </div>
       </FlexInput>
 

@@ -9,7 +9,7 @@ export const AddReviewSchema = (): Yup.SchemaOf<IAddReview> => {
       .max(500, "Too Long Review!"),
     rate: Yup.number()
       .required("rate is required")
-      .min(1, "Too Short rate!")
-      .max(5, "Too Long rate!"),
+      .min(1, "Rate Should Be More than 0!")
+      .max(5, "Rate Should Be Less than 6!"),
   });
 };
