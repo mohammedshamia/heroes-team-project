@@ -68,7 +68,7 @@ const SignupForm = ({ errors, touched }: IProps) => {
               }}
             >
               {" "}
-              <Eye />
+              {state2 ? <Eye /> : <EyeOff />}
             </Icon>
           }
         />
