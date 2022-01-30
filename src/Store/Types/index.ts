@@ -193,3 +193,9 @@ export interface IOrderState {
   message: string | null;
   loading: boolean;
 }
+
+export interface INotificationState {
+  error?: boolean | null;
+  success?: boolean | null;
+  msg?: string | null;
+}

@@ -150,7 +150,8 @@ export const addReviewToProducts = (
     method: "post",
     data: data,
     headers: getAuthHeader(),
-    onSuccess: reviewAddedSuccessfuly.type,
+    onSuccess: productByIdReceived.type,
+    msgOnSuccess: "review Added Successfuly",
   });
 
 //Admin Routes
